@@ -74,8 +74,8 @@
     </div>
   </section>
 
-<!--  <div class="projects" id="projects">-->
-<!--    <img src="@/shared/images/bg-2.png" id="bg2">-->
+  <div class="projects" id="projects">
+    <img src="@/shared/images/bg-2.png" id="bg2" alt="background">
 <!--    <div class="container">-->
 <!--      <div class="projects__title">Проекты</div>-->
 <!--      <div class="projects__road">-->
@@ -225,7 +225,7 @@
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
-<!--  </div>-->
+  </div>
 
   <section class="form" id="form">
     <div class="container">
@@ -475,12 +475,13 @@
         transform: skew(18deg);
         position: absolute;
         font-weight: 300;
-        top: 14px;
+        top: 12px;
         left: 90px;
       }
     }
   }
 }
+
 @media (max-height: 1000px) {
   .projects {
     padding-bottom: 580px;
