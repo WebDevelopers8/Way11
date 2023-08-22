@@ -4,7 +4,7 @@
       <div class="header__wrapper">
         <div class="header__contacts">
           <div class="header__contacts-item">
-            <img src="@/shared/images/phone.svg">
+            <img src="@/shared/images/phone.svg" alt="phone">
             <a href="tel:+79371234333">+7 (937) 123-43-33</a>
           </div>
           <div class="header__contacts-item">
@@ -12,30 +12,43 @@
             <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
           </div>
         </div>
-        <div class="header__logo">
-          <img src="@/shared/images/logo-l.png">
-        </div>
-        <div class="header__burger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <router-link to="/">
+          <div class="header__logo">
+            <img src="@/shared/images/logo-l.png" alt="logo">
+          </div>
+        </router-link>
+        <transition name="header__burger">
+          <button class="header__burger" @click="() => {
+            stateMenu ? stateMenu = false : stateMenu = true;
+
+          }">
+            <div></div>
+            <div></div>
+            <div></div>
+          </button>
+        </transition>
       </div>
-      <div class="header__sidemenu">
-        <div class="header__line"></div>
-        <div class="header__sidemenu-nav">
-          <a href="#services" id="services__link">Услуги</a>
-          <a href="#projects" id="projects__link">Проекты</a>
-          <a href="#form" id="form__link">Оставить заявку</a>
+      <transition name="header__sidemenu">
+        <div v-if="stateMenu" class="header__sidemenu">
+          <div class="header__line"></div>
+          <div class="header__sidemenu-nav">
+            <a href="#services" id="services__link">Услуги</a>
+            <a href="#projects" id="projects__link">Проекты</a>
+            <a href="#form" id="form__link">Оставить заявку</a>
+          </div>
+          <div class="header__line"></div>
         </div>
-        <div class="header__line"></div>
-      </div>
+      </transition>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
 
+
+import {ref} from "vue";
+
+const stateMenu = ref(false)
 </script>
 
 <style lang="postcss" scoped>
@@ -54,14 +67,26 @@
     background-color: #787878;
   }
   &__sidemenu {
-    opacity: 0;
     pointer-events: none;
-    transition: all 0.3s ease;
     position: absolute;
     width: 100%;
-    &.active {
+    &-enter-active, &-leave-active{
       opacity: 1;
       pointer-events: all;
+      transition: all .3s;
+    }
+    &-enter-from{
+      @apply opacity-0
+    }
+    &-enter-to{
+      @apply opacity-100
+    }
+    &-leave-to{
+      @apply opacity-0
+    }
+    &-leave-from
+    {
+      @apply opacity-100
     }
     &-nav {
       display: grid;

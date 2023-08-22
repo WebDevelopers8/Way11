@@ -44,16 +44,12 @@
   src : url("@/shared/fonts/Proxima Nova Black.otf");
 }
 
-@font-face {
-  font-family: "ProximaNova";
-  font-weight: 300;
-  src : url("@/shared/fonts/Proxima Nova.otf");
-}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
   font-weight: normal;
   font-family: 'ProximaNova', sans-serif;
 }
@@ -118,4 +114,24 @@ img {
     width: 100%;
     padding: 0 20px;
   }
+}
+
+#bg1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -240px;
+  z-index: -1;
+  width: calc(100vw + 20px);
+  height: 1300px;
+}
+
+#bg2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -150px;
+  z-index: -1;
+  width: calc(100vw + 20px);
+  height: 1900px;
 }
