@@ -17,9 +17,9 @@
         </div>
         <div class="footer__item">
           <div class="footer__social">
-            <a href="#"><img src="@/shared/images/ball.svg"></a>
-            <a href="#"><img src="@/shared/images/vk.svg"></a>
-            <a href="#"><img src="@/shared/images/telegram.svg"></a>
+            <a href="#"><img src="../../shared/images/icons/ball.svg"></a>
+            <a href="#"><img src="../../shared/images/icons/vk.svg"></a>
+            <a href="#"><img src="../../shared/images/icons/telegram.svg"></a>
           </div>
         </div>
       </div>

@@ -4,11 +4,11 @@
       <div class="header__wrapper">
         <div class="header__contacts">
           <div class="header__contacts-item">
-            <img src="@/shared/images/phone.svg" alt="phone">
+            <img src="../../shared/images/icons/phone.svg" alt="phone">
             <a href="tel:+79371234333">+7 (937) 123-43-33</a>
           </div>
           <div class="header__contacts-item">
-            <img src="@/shared/images/mail.svg">
+            <img src="../../shared/images/icons/mail.svg">
             <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
           </div>
         </div>
