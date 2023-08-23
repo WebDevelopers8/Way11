@@ -11,6 +11,23 @@
         <button :class="{active:stateFilter == 4}" class="project-filter__button" @click="() => {stateFilter = 4; changeProject(stateFilter)}">Платформы</button>
       </div>
       <ProjectList :projects="projects" />
+      <div class="flex gap-[20px]">
+        <div class="project__button">
+          <button class="bg-[#5BB6F1]"><div><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div></button>
+        </div>
+        <div class="project ">
+          <button><div>1</div></button>
+        </div>
+        <div class="project ">
+          <button><div>2</div></button>
+        </div>
+        <div class="project ">
+          <button><div>3</div></button>
+        </div>
+        <div class="project__button">
+          <button><div><img class="back-arrow" src="@/shared/images/projects/arrow.svg" alt="arrow"></div></button>
+        </div>
+        </div>
     </div>
   </div>
 </template>
@@ -23,7 +40,10 @@ import type {projectType} from "@/entities/types/projectType/projectType";
 
 const stateFilter = ref(0)
 
-const projects : Array<projectType> = [{id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]}]
+const projects : Array<projectType> = [
+  {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]},
+  {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]}
+]
 
 function changeProject(id: number)
 {
@@ -36,7 +56,11 @@ function changeProject(id: number)
 {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
-  @apply absolute left-[50%] top-[-240px] z-[-1] h-[1300px];
+  @apply absolute left-[50%] top-[-240px] z-[-1] h-[97%];
+}
+.back-arrow
+{
+  transform: rotate(180deg);
 }
 
 .project{
@@ -66,6 +90,43 @@ function changeProject(id: number)
         @apply font-bold text-[#5BB6F1];
       }
     }
+  }
+  &__button
+  {
+      @apply flex justify-between ;
+      & button {
+        position: relative;
+        width: 86px;
+        height: 58px;
+        background-color: #5BB6F1;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: skew(-18deg);
+        border: 1px solid #438CB4;
+        border-right: 5px solid #438CB4;
+        border-bottom: 5px solid #438CB4;
+        transition: all .2s ease;
+        &:hover {
+          transform: skew(-18deg) translateY(2px);
+          border-right: 1px solid #438CB4;
+          border-bottom: 1px solid #438CB4;
+        }
+        div {
+          color:#fff;
+          transform: skew(18deg);
+          position: absolute;
+          font-weight: 300;
+          top: 30%;
+          left: 40%;
+          img
+          {
+            width: 19px;
+            height: 20px;
+          }
+        }
+      }
   }
 }
 </style>

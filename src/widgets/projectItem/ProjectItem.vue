@@ -7,7 +7,9 @@
       <div class="project-left__stack-items">
         <StackItem v-for="(item,index) in project.stack" :key="index" :text="item" />
       </div>
-      <router-link to="/project/">Подробнее</router-link>
+      <div class="project-left__more">
+        <router-link class="" to="/project/"><div>Подробнее</div></router-link>
+      </div>
     </div>
     <div class="project-right">
       <img src="https://sun2-18.userapi.com/impg/u6Xcj1Wd2Mxbz4aSUc_Ltels-pxRxYI95Z_syg/dgF3p3Z7Exg.jpg?size=1027x768&quality=96&sign=f6b45c3fec139aff91062df4ee9e520b&type=album">
@@ -27,7 +29,11 @@ defineProps<{
 <style lang="postcss" scoped>
 .project
 {
-  @apply flex;
+  @apply flex border-b-[1px] pb-[56px];
+  &:last-child
+  {
+    @apply border-b-[0px]
+  }
   &-left
   {
     @apply flex flex-col w-[50%];
@@ -52,6 +58,38 @@ defineProps<{
     &__stack-items
     {
       @apply flex flex-wrap w-[580px] mt-[24px] gap-[16px];
+    }
+    &__more {
+      @apply flex justify-between mt-[50px];
+      & a {
+        position: relative;
+        width: calc(50% - 10px);
+        height: 58px;
+        background-color: #5BB6F1;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: skew(-18deg);
+        border: 1px solid #438CB4;
+        border-right: 5px solid #438CB4;
+        border-bottom: 5px solid #438CB4;
+        transition: all .2s ease;
+        &:hover {
+          transform: skew(-18deg) translateY(2px);
+          border-right: 1px solid #438CB4;
+          border-bottom: 1px solid #438CB4;
+        }
+        div {
+          font-size: 22px;
+          color:#fff;
+          transform: skew(18deg);
+          position: absolute;
+          font-weight: 300;
+          top: 12px;
+          left: 90px;
+        }
+      }
     }
   }
   &-right

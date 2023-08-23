@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col mt-[80px]">
+  <div class="flex flex-col mt-[80px] gap-[56px]">
     <ProjectItem v-for="(item, index) in projects" :key="index" :project="item" />
   </div>
 </template>
