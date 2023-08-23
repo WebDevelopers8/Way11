@@ -127,7 +127,7 @@ const stateMenu = ref(false)
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: end;
+    //align-items: end;
     width: 32px;
     height: 28px;
 
