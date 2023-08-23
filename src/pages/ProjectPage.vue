@@ -11,17 +11,17 @@
         <button :class="{active:stateFilter == 4}" class="project-filter__button" @click="() => {stateFilter = 4; changeProject(stateFilter)}">Платформы</button>
       </div>
       <ProjectList :projects="projects" />
-      <div class="flex gap-[20px]">
+      <div class="flex justify-center mt-[80px] gap-[20px]">
         <div class="project__button">
           <button class="bg-[#5BB6F1]"><div><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div></button>
         </div>
-        <div class="project ">
-          <button><div>1</div></button>
+        <div class="project__number">
+          <button class="active"><div class="active">1</div></button>
         </div>
-        <div class="project ">
+        <div class="project__number">
           <button><div>2</div></button>
         </div>
-        <div class="project ">
+        <div class="project__number">
           <button><div>3</div></button>
         </div>
         <div class="project__button">
@@ -127,6 +127,44 @@ function changeProject(id: number)
           }
         }
       }
+  }
+  &__number
+  {
+    @apply flex justify-between ;
+    & button {
+      position: relative;
+      width: 86px;
+      height: 58px;
+      background-color: transparent;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: skew(-18deg);
+      border: 2px solid transparent;
+      transition: all .2s ease;
+      &.active
+      {
+        border: 2px solid #438CB4;
+      }
+      div {
+        color:#438CB4;
+        transform: skew(18deg);
+        position: absolute;
+        top: 20%;
+        left: 45%;
+        @apply absolute text-[#000] text-[22px];
+        &.active
+        {
+          @apply text-[#438CB4] text-[22px];
+        }
+        img
+        {
+          width: 19px;
+          height: 20px;
+        }
+      }
+    }
   }
 }
 </style>
