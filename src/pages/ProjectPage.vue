@@ -10,7 +10,7 @@
         <button :class="{active:stateFilter == 3}" class="project-filter__button" @click="() => {stateFilter = 3; changeProject(stateFilter)}">Корпоративные сайты</button>
         <button :class="{active:stateFilter == 4}" class="project-filter__button" @click="() => {stateFilter = 4; changeProject(stateFilter)}">Платформы</button>
       </div>
-      <ProjectList name="Lancelot" type="Вебинарная платформа" description="На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием." />
+      <ProjectList :projects="projects" />
     </div>
   </div>
 </template>
@@ -19,8 +19,11 @@
 
 import {ref} from "vue";
 import ProjectList from "@/widgets/projectList/ProjectList.vue";
+import type {projectType} from "@/entities/types/projectType/projectType";
 
 const stateFilter = ref(0)
+
+const projects : Array<projectType> = [{id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]}]
 
 function changeProject(id: number)
 {
@@ -54,7 +57,7 @@ function changeProject(id: number)
   {
     line-height: 24px;
     letter-spacing: 0.18px;
-    @apply flex gap-[32px];
+    @apply flex gap-[32px] mt-[5px];
     &__button
     {
       @apply text-[#14161F] text-[18px];
