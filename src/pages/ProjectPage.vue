@@ -11,7 +11,7 @@
         <button :class="{active:stateFilter == 4}" class="project-filter__button" @click="() => {stateFilter = 4; changeProject(stateFilter)}">Платформы</button>
       </div>
       <ProjectList :projects="projects" />
-      <div class="flex justify-center mt-[80px] gap-[20px]">
+      <div class="flex justify-center mt-[80px] gap-[10px]">
         <div class="project__button">
           <button class="bg-[#5BB6F1]"><div><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div></button>
         </div>
@@ -42,7 +42,10 @@ const stateFilter = ref(0)
 
 const projects : Array<projectType> = [
   {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]},
+  {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]},
+  {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]},
   {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]}
+
 ]
 
 function changeProject(id: number)
@@ -56,7 +59,7 @@ function changeProject(id: number)
 {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
-  @apply absolute left-[50%] top-[-240px] z-[-1] h-[97%];
+  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[97%] h-[93%] lg:object-bottom object-cover;
 }
 .back-arrow
 {
@@ -70,7 +73,7 @@ function changeProject(id: number)
     -webkit-text-stroke: 2px #14161F;
     line-height: 64px;
     letter-spacing: 0.6px;
-    @apply text-[60px] text-[#FFF] font-bold;
+    @apply lg:text-[60px] sm:text-[50px] text-[30px] text-[#FFF] font-bold;
     &-project
     {
       -webkit-text-stroke: 0px #14161F;
@@ -81,7 +84,7 @@ function changeProject(id: number)
   {
     line-height: 24px;
     letter-spacing: 0.18px;
-    @apply flex gap-[32px] mt-[5px];
+    @apply flex md:gap-[32px] gap-[20px] mt-[5px] lg:flex-nowrap flex-wrap;
     &__button
     {
       @apply text-[#14161F] text-[18px];
@@ -96,7 +99,6 @@ function changeProject(id: number)
       @apply flex justify-between ;
       & button {
         position: relative;
-        width: 86px;
         height: 58px;
         background-color: #5BB6F1;
         border-radius: 8px;
@@ -108,6 +110,7 @@ function changeProject(id: number)
         border-right: 5px solid #438CB4;
         border-bottom: 5px solid #438CB4;
         transition: all .2s ease;
+        @apply sm:w-[86px] w-[60px];
         &:hover {
           transform: skew(-18deg) translateY(2px);
           border-right: 1px solid #438CB4;
@@ -119,7 +122,7 @@ function changeProject(id: number)
           position: absolute;
           font-weight: 300;
           top: 30%;
-          left: 40%;
+          @apply lg:left-[40%] left-[35%];
           img
           {
             width: 19px;
@@ -133,7 +136,6 @@ function changeProject(id: number)
     @apply flex justify-between ;
     & button {
       position: relative;
-      width: 86px;
       height: 58px;
       background-color: transparent;
       border-radius: 8px;
@@ -143,6 +145,7 @@ function changeProject(id: number)
       transform: skew(-18deg);
       border: 2px solid transparent;
       transition: all .2s ease;
+      @apply sm:w-[86px] w-[60px];
       &.active
       {
         border: 2px solid #438CB4;

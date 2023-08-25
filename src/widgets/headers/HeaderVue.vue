@@ -26,7 +26,6 @@
       </div>
       <transition name="header__sidemenu">
         <div v-if="stateMenu" class="header__sidemenu">
-          <div class="header__line"></div>
           <div class="header__sidemenu-nav">
             <a href="#services" id="services__link">Услуги</a>
             <a href="#projects" id="projects__link">Проекты</a>
@@ -55,6 +54,7 @@ const stateMenu = ref(false)
     padding: 16px 0;
     align-items: center;
     justify-content: space-between;
+    @apply border-b-[1px] border-b-[#787878];
   }
 
   &__line {
@@ -104,6 +104,7 @@ const stateMenu = ref(false)
   }
 
   &__contacts {
+    @apply lg:block hidden;
     &-item {
       display: flex;
       align-items: center;
@@ -166,11 +167,7 @@ const stateMenu = ref(false)
   }
 
   &__logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-
+    @apply lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%];
     img {
       width: 64px;
     }

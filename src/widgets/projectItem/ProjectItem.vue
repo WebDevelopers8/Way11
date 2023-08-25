@@ -3,6 +3,9 @@
     <div class="project-left">
       <span class="project-left__title">{{project.name}}</span>
       <span class="project-left__type">{{project.type}}</span>
+      <div class="project-left__mobile">
+        <img src="https://sun2-18.userapi.com/impg/u6Xcj1Wd2Mxbz4aSUc_Ltels-pxRxYI95Z_syg/dgF3p3Z7Exg.jpg?size=1027x768&quality=96&sign=f6b45c3fec139aff91062df4ee9e520b&type=album">
+      </div>
       <span class="project-left__description">{{project.description}}</span>
       <div class="project-left__stack-items">
         <StackItem v-for="(item,index) in project.stack" :key="index" :text="item" />
@@ -36,7 +39,7 @@ defineProps<{
   }
   &-left
   {
-    @apply flex flex-col w-[50%];
+    @apply flex flex-col lg:w-[50%] w-[100%];
     &__title
     {
       letter-spacing: 0.36px;
@@ -57,7 +60,7 @@ defineProps<{
     }
     &__stack-items
     {
-      @apply flex flex-wrap w-[580px] mt-[24px] gap-[16px];
+      @apply flex flex-wrap xl:w-[580px] lg:w-[500px] mt-[24px] gap-[16px];
     }
     &__more {
       @apply flex justify-between mt-[50px];
@@ -87,14 +90,18 @@ defineProps<{
           position: absolute;
           font-weight: 300;
           top: 12px;
-          left: 90px;
+          @apply xl:left-[30%];
         }
       }
+    }
+    &__mobile
+    {
+      @apply lg:hidden w-full my-[24px];
     }
   }
   &-right
   {
-    @apply w-[50%]
+    @apply lg:block hidden lg:w-[50%]
   }
 }
 </style>
