@@ -262,10 +262,12 @@
       </div>
     </div>
   </section>
+  <FooterVue />
 </template>
 
 <script setup lang="ts">
 
+import FooterVue from "@/widgets/footer/FooterVue.vue";
 </script>
 
 <style lang="postcss" scoped>
