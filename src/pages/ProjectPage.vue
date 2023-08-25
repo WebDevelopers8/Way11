@@ -71,7 +71,7 @@ import NinthComponent from "@/widgets/components/NinthComponent.vue";
       border-right: 5px solid #438CB4;
       border-bottom: 5px solid #438CB4;
       transition: all .2s ease;
-      @apply sm:w-[308px] w-[308px];
+      @apply w-[308px];
       &:hover {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;
