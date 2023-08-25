@@ -91,7 +91,7 @@
   }
   &__policy {
     display: block;
-    margin-top: 24px;
+    @apply lg:mt-[8px] mt-[24px];
     color: #5BB6F1;
     text-decoration: underline;
     font-size: 18px;
