@@ -60,7 +60,7 @@ html {
 body {
   min-height: 100vh;
   background: #fff;
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
   color: #14161F;
 }
