@@ -2,6 +2,7 @@
   <div class="component">
     <div class="component-left">
       <span class="component-left__text">Аналитика и разработка дизайна для производственной компании. К нам обратилась производственная компания «NDA» с запросом провести аналитику их производства и найти слабые места во всех процессах происходящих в компании и предложить улучшения на основе проведенной аналитики.</span>
+      <img class="lg:hidden my-[30px]" src="@/shared/images/project/imageProjects.png" alt="image">
       <span class="component-left__text mt-[32px]">По итогам проведенной системной и бизнес аналитики были выявлены следующие точки роста:
           <li class="pl-[20px]">исключить использование бумажных носителей во внутренней работе компании - оптимизировать время работы сотрудников офиса;</li>
           <li class="pl-[20px]">систематизировать и улучшить рабочие процессы, привести коммуникации в удобный формат взаимодействия;</li>
@@ -24,7 +25,7 @@
   @apply flex justify-between gap-[10px] mt-[30px];
 
   &-left {
-    @apply flex flex-col w-[40%];
+    @apply flex flex-col lg:w-[40%] w-full;
 
     &__text {
       @apply text-[20px] text-[#14161F];
@@ -32,7 +33,7 @@
   }
 
   &-right {
-    @apply w-[50%];
+    @apply lg:w-[50%] lg:block hidden;
   }
 }
 </style>

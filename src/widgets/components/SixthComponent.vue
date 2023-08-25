@@ -28,7 +28,7 @@
   }
   &__image
   {
-    @apply w-[48%] mt-[24px]
+    @apply xl:w-[48%] lg:w-[45%] mt-[24px];
   }
 }
 </style>
