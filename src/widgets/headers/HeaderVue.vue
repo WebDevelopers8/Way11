@@ -4,11 +4,11 @@
       <div class="header__wrapper">
         <div class="header__contacts">
           <div class="header__contacts-item">
-            <img src="@/shared/images/phone.svg" alt="phone">
+            <img src="../../shared/images/icons/phone.svg" alt="phone">
             <a href="tel:+79371234333">+7 (937) 123-43-33</a>
           </div>
           <div class="header__contacts-item">
-            <img src="@/shared/images/mail.svg">
+            <img src="../../shared/images/icons/mail.svg">
             <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
           </div>
         </div>
@@ -26,7 +26,6 @@
       </div>
       <transition name="header__sidemenu">
         <div v-if="stateMenu" class="header__sidemenu">
-          <div class="header__line"></div>
           <div class="header__sidemenu-nav">
             <a href="#services" id="services__link">Услуги</a>
             <a href="#projects" id="projects__link">Проекты</a>
@@ -55,6 +54,7 @@ const stateMenu = ref(false)
     padding: 16px 0;
     align-items: center;
     justify-content: space-between;
+    @apply border-b-[1px] border-b-[#787878];
   }
 
   &__line {
@@ -104,6 +104,7 @@ const stateMenu = ref(false)
   }
 
   &__contacts {
+    @apply lg:block hidden;
     &-item {
       display: flex;
       align-items: center;
@@ -166,11 +167,7 @@ const stateMenu = ref(false)
   }
 
   &__logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-
+    @apply lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%];
     img {
       width: 64px;
     }

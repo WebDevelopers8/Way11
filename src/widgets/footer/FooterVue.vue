@@ -17,10 +17,31 @@
         </div>
         <div class="footer__item">
           <div class="footer__social">
-            <a href="#"><img src="@/shared/images/ball.svg"></a>
-            <a href="#"><img src="@/shared/images/vk.svg"></a>
-            <a href="#"><img src="@/shared/images/telegram.svg"></a>
+            <a href="#"><img src="@/shared/images/icons/ball.svg"></a>
+            <a href="#"><img src="@/shared/images/icons/vk.svg"></a>
+            <a href="#"><img src="@/shared/images/icons/telegram.svg"></a>
           </div>
+        </div>
+<!--        mobile-->
+        <div class="lg:hidden flex justify-center">
+          <img src="@/shared/images/logo-l.png">
+        </div>
+        <div class="lg:hidden flex flex-col items-center">
+          <span class="text-[#14161F] text-[30px] mt-[24px]">Way11</span>
+          <div class="footer__social mt-[24px]">
+            <a href="#"><img src="@/shared/images/icons/ball.svg"></a>
+            <a href="#"><img src="@/shared/images/icons/vk.svg"></a>
+            <a href="#"><img src="@/shared/images/icons/telegram.svg"></a>
+          </div>
+        </div>
+        <div class="lg:hidden flex flex-col items-center">
+          <div class="footer__address">Астрахань<br> ул. Урицкого 7, офис 217</div>
+          <a href="tel:+79371234333" class="text-[18px] text-[#14161F] mt-[24px]">+7 (937) 123-43-33</a>
+          <a href="mailto:mail@studioway11.com" class="text-[18px] text-[#14161F] mt-[24px]">mail@studioway11.com</a>
+        </div>
+        <div class="lg:hidden flex flex-col items-center">
+          <a href="#" class="footer__policy">Политика конфиденциальности</a>
+          <div class="footer__rights">© 2023 Digital-агентство Way11</div>
         </div>
       </div>
     </div>
@@ -36,13 +57,13 @@
   padding-top: 260px;
   padding-bottom: 75px;
   &__wrapper {
-    display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    @apply lg:grid lg:gap-[30px] flex flex-col ;
   }
   &__item {
     position: relative;
     padding-top: 50px;
+    @apply lg:block hidden;
     &:first-child {
       padding-top: 0;
     }
@@ -58,7 +79,7 @@
     }
   }
   &__rights {
-    margin-top: 24px;
+    margin-top: 10px;
     font-size: 18px;
     color: #898A8F;
   }
@@ -78,6 +99,7 @@
   &__address {
     font-size: 20px;
     line-height: 32px;
+    @apply lg:text-start text-center lg:my-[0] mt-[24px];
   }
 }
 </style>
