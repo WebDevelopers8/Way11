@@ -73,7 +73,7 @@ function changeProject(id: number)
     -webkit-text-stroke: 2px #14161F;
     line-height: 64px;
     letter-spacing: 0.6px;
-    @apply lg:text-[60px] sm:text-[50px] text-[30px] text-[#FFF] font-bold;
+    @apply lg:text-[60px] sm:text-[50px] text-[35px] text-[#FFF] font-bold;
     &-project
     {
       -webkit-text-stroke: 0px #14161F;
