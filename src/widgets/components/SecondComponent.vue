@@ -22,10 +22,10 @@
 
 <style lang="postcss" scoped>
 .component {
-  @apply flex justify-between mt-[56px] gap-[40px];
+  @apply flex lg:flex-row flex-col lg:items-start items-center lg:justify-between mt-[56px] gap-[40px];
 
   &-left {
-    @apply flex flex-col w-[50%];
+    @apply flex flex-col w-full lg:w-[50%];
 
     &__title {
       line-height: 48px; /* 133.333% */
@@ -41,7 +41,7 @@
   }
 
   &-right {
-    @apply flex flex-col w-[50%];
+    @apply flex flex-col w-full lg:w-[50%];
 
     &__title {
       line-height: 48px; /* 133.333% */

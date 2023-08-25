@@ -41,7 +41,7 @@ import NinthComponent from "@/widgets/components/NinthComponent.vue";
 {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
-  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[110%] object-cover;
+  @apply absolute left-[50%] top-[-240px] z-[-1] h-[10000%] object-cover;
 }
 .project {
   &-title {
@@ -71,7 +71,7 @@ import NinthComponent from "@/widgets/components/NinthComponent.vue";
       border-right: 5px solid #438CB4;
       border-bottom: 5px solid #438CB4;
       transition: all .2s ease;
-      @apply sm:w-[308px] w-[60px];
+      @apply sm:w-[308px] w-[308px];
       &:hover {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;

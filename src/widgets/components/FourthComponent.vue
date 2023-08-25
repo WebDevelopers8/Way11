@@ -38,7 +38,11 @@
   }
   &-images
   {
-    @apply flex justify-between mt-[24px];
+    @apply flex lg:flex-row lg:justify-between flex-col gap-[20px] mt-[24px];
+    & img
+    {
+      @apply 2xl:w-auto lg:w-[45%]
+    }
   }
 }
 </style>
