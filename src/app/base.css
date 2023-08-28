@@ -132,10 +132,9 @@ img {
 
 #bg2 {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   top: -150px;
   z-index: -1;
-  width: calc(100vw + 20px);
+  width: 10000%;
   height: 1900px;
+  object-fit: contain;
 }

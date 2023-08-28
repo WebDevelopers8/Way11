@@ -76,155 +76,140 @@
 
   <div class="projects" id="projects">
     <img src="@/shared/images/bg-2.png" id="bg2" alt="background">
-<!--    <div class="container">-->
-<!--      <div class="projects__title">Проекты</div>-->
-<!--      <div class="projects__road">-->
-<!--        <img src="@/shared/images/road.png" class="projects__road-img">-->
-<!--        <span class="projects__road-bike tr0">-->
-<!--                    <img src="@/shared/images/bike.png">-->
-<!--                    <img src="@/shared/images/wheel-1.png" class="projects__road-wheel1">-->
-<!--                    <img src="@/shared/images/wheel-2.png" class="projects__road-wheel2">-->
-<!--                    <div class="projects__road-line"></div>-->
-<!--                    <div class="projects__road-text active" id="tr0">-->
-<!--                        <span>Lancelot</span>-->
-<!--                        <p>5 июня 2019 г.</p>-->
-<!--                    </div>-->
-<!--                    <div class="projects__road-text" id="tr1">-->
-<!--                        <span>Lancelot 2</span>-->
-<!--                        <p>23 мая 2020 г.</p>-->
-<!--                    </div>-->
-<!--                    <div class="projects__road-text" id="tr2">-->
-<!--                        <span>Lancelot 3</span>-->
-<!--                        <p>6 октября 2021 г.</p>-->
-<!--                    </div>-->
-<!--                </span>-->
-<!--        <a href="#" class="projects__road-btn">Все проекты</a>-->
-<!--      </div>-->
-<!--      <div class="projects__test">-->
-<!--        <div class="projects__wrapper active">-->
-<!--          <div class="projects__descr">-->
-<!--            <div class="projects__name">Lancelot</div>-->
-<!--            <div class="projects__name-descr">Вебинарная платформа</div>-->
-<!--            <div class="projects__text">-->
-<!--              На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку-->
-<!--              для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей-->
-<!--              пройдет рассылка с напоминанием.-->
-<!--            </div>-->
-<!--            <div class="projects__tags">-->
-<!--              <span>AWS Chalice</span>-->
-<!--              <span>Lambda</span>-->
-<!--              <span>Aurora Serverless Postgres</span>-->
-<!--              <span>API Gateway</span>-->
-<!--              <span>DynamoDB</span>-->
-<!--              <span>WebSockets</span>-->
-<!--              <span>Python</span>-->
-<!--              <span>Git</span>-->
-<!--              <span>React</span>-->
-<!--            </div>-->
-<!--            <div class="projects__buttons">-->
-<!--              <button type="submit">-->
-<!--                <div>Подробнее</div>-->
-<!--              </button>-->
-<!--              <button class="outline">-->
-<!--                <div>Предложить проект</div>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="projects__slider">-->
-<!--            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">-->
-<!--            <div class="slider__wrapper">-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/slider-img-1.png">-->
-<!--              </div>-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/slider-img-2.png">-->
-<!--              </div>-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/slider-img-1.png">-->
-<!--              </div>-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/slider-img-2.png">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="projects__wrapper ">-->
-<!--          <div class="projects__descr">-->
-<!--            <div class="projects__name">Lancelot 2</div>-->
-<!--            <div class="projects__name-descr">Вебинарная платформа</div>-->
-<!--            <div class="projects__text">-->
-<!--              Таким образом, начало повседневной работы по формированию позиции играет определяющее-->
-<!--              значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,-->
-<!--              диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако-->
-<!--              конкретные выводы, разумеется, преданы социально-демократической анафеме.-->
-<!--            </div>-->
-<!--            <div class="projects__tags">-->
-<!--              <span>AWS Chalice</span>-->
-<!--              <span>Lambda</span>-->
-<!--              <span>Python</span>-->
-<!--              <span>Git</span>-->
-<!--              <span>React</span>-->
-<!--            </div>-->
-<!--            <div class="projects__buttons">-->
-<!--              <button type="submit">-->
-<!--                <div>Подробнее</div>-->
-<!--              </button>-->
-<!--              <button class="outline">-->
-<!--                <div>Предложить проект</div>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="projects__slider">-->
-<!--            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">-->
-<!--            <div class="slider__wrapper">-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/test-image-2.jpg">-->
-<!--              </div>-->
-<!--              <div class="@/shared/imagesder__item">-->
-<!--                <img src="@/shared/images/slider-img-2.png">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="projects__wrapper ">-->
-<!--          <div class="projects__descr">-->
-<!--            <div class="projects__name">Lancelot 3</div>-->
-<!--            <div class="projects__name-descr">Вебинарная платформа</div>-->
-<!--            <div class="projects__text">-->
-<!--              На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку-->
-<!--              для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей-->
-<!--              пройдет рассылка с напоминанием.-->
-<!--            </div>-->
-<!--            <div class="projects__tags">-->
-<!--              <span>AWS Chalice</span>-->
-<!--              <span>Lambda</span>-->
-<!--              <span>Python</span>-->
-<!--              <span>Git</span>-->
-<!--              <span>React</span>-->
-<!--            </div>-->
-<!--            <div class="projects__buttons">-->
-<!--              <button type="submit">-->
-<!--                <div>Подробнее</div>-->
-<!--              </button>-->
-<!--              <button class="outline">-->
-<!--                <div>Предложить проект</div>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="projects__slider">-->
-<!--            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">-->
-<!--            <div class="slider__wrapper">-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/test-image-3.png">-->
-<!--              </div>-->
-<!--              <div class="slider__item">-->
-<!--                <img src="@/shared/images/slider-img-2.png">-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="container">
+      <div class="projects__title">Проекты</div>
+<!--      <MotoComponent />-->
+      <div class="projects__road">
+        <img src="@/shared/images/road.png" class="projects__road-img">
+        <span class="projects__road-bike tr0">
+                    <img src="@/shared/images/bike.png">
+                    <img src="@/shared/images/wheel-1.png" class="projects__road-wheel1">
+                    <img src="@/shared/images/wheel-2.png" class="projects__road-wheel2">
+                    <div class="projects__road-line"></div>
+                    <div class="projects__road-text active" id="tr0">
+                        <span>Lancelot</span>
+                        <p>5 июня 2019 г.</p>
+                    </div>
+                    <div class="projects__road-text" id="tr1">
+                        <span>Lancelot 2</span>
+                        <p>23 мая 2020 г.</p>
+                    </div>
+                    <div class="projects__road-text" id="tr2">
+                        <span>Lancelot 3</span>
+                        <p>6 октября 2021 г.</p>
+                    </div>
+                </span>
+        <router-link to="/projects" class="projects__road-btn">Все проекты</router-link>
+      </div>
+      <div class="projects__test">
+        <div class="projects__wrapper active">
+          <div class="projects__descr">
+            <div class="projects__name">Lancelot</div>
+            <div class="projects__name-descr">Вебинарная платформа</div>
+            <div class="projects__text">
+              На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
+              для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
+              пройдет рассылка с напоминанием.
+            </div>
+            <div class="projects__tags">
+              <span>AWS Chalice</span>
+              <span>Lambda</span>
+              <span>Aurora Serverless Postgres</span>
+              <span>API Gateway</span>
+              <span>DynamoDB</span>
+              <span>WebSockets</span>
+              <span>Python</span>
+              <span>Git</span>
+              <span>React</span>
+            </div>
+            <div class="projects__buttons">
+              <button type="submit">
+                <div>Подробнее</div>
+              </button>
+              <button class="outline">
+                <div>Предложить проект</div>
+              </button>
+            </div>
+          </div>
+            <SliderVue />
+        </div>
+        <div class="projects__wrapper ">
+          <div class="projects__descr">
+            <div class="projects__name">Lancelot 2</div>
+            <div class="projects__name-descr">Вебинарная платформа</div>
+            <div class="projects__text">
+              Таким образом, начало повседневной работы по формированию позиции играет определяющее
+              значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
+              диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
+              конкретные выводы, разумеется, преданы социально-демократической анафеме.
+            </div>
+            <div class="projects__tags">
+              <span>AWS Chalice</span>
+              <span>Lambda</span>
+              <span>Python</span>
+              <span>Git</span>
+              <span>React</span>
+            </div>
+            <div class="projects__buttons">
+              <button type="submit">
+                <div>Подробнее</div>
+              </button>
+              <button class="outline">
+                <div>Предложить проект</div>
+              </button>
+            </div>
+          </div>
+          <div class="projects__slider">
+            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">
+            <div class="slider__wrapper">
+              <div class="slider__item">
+                <img src="@/shared/images/test-image-2.jpg">
+              </div>
+              <div class="@/shared/imagesder__item">
+                <img src="@/shared/images/slider-img-2.png">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects__wrapper ">
+          <div class="projects__descr">
+            <div class="projects__name">Lancelot 3</div>
+            <div class="projects__name-descr">Вебинарная платформа</div>
+            <div class="projects__text">
+              На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
+              для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
+              пройдет рассылка с напоминанием.
+            </div>
+            <div class="projects__tags">
+              <span>AWS Chalice</span>
+              <span>Lambda</span>
+              <span>Python</span>
+              <span>Git</span>
+              <span>React</span>
+            </div>
+            <div class="projects__buttons">
+              <button type="submit">
+                <div>Подробнее</div>
+              </button>
+              <button class="outline">
+                <div>Предложить проект</div>
+              </button>
+            </div>
+          </div>
+          <div class="projects__slider">
+            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">
+            <div class="slider__wrapper">
+              <div class="slider__item">
+                <img src="@/shared/images/test-image-3.png">
+              </div>
+              <div class="slider__item">
+                <img src="@/shared/images/slider-img-2.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <section class="form" id="form">
@@ -266,8 +251,229 @@
 </template>
 
 <script setup lang="ts">
-
 import FooterVue from "@/widgets/footer/FooterVue.vue";
+import MotoComponent from "@/widgets/motorcyclist/MotoComponent.vue";
+import SliderVue from "@/widgets/slider/SliderVue.vue";
+
+onProjectsSectionHeadler(getProjectSwitcher());
+
+function onProjectsSectionHeadler(onSwitchProjectCallback) {
+  const projectsSection = document.getElementById("projects");
+  const topSectionPositionOfset = 0;
+  const pause = 300;
+
+  const minProjectNumber = 1;
+  const maxProjectNumber = 3;
+  let projectNumber = minProjectNumber - 1;
+  let delayStart = Date.now() - pause;
+
+  addEventListener("scroll", (e) => {
+    if(projectsSection != null)
+    {
+      const distanceFromTop = projectsSection.getBoundingClientRect().top;
+
+      if (
+          (scrollToDownOfSection(distanceFromTop) &&
+              !isFinishState()) ||
+          (scrollToTopOfSection(distanceFromTop) &&
+              !isStartState()) ||
+          (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
+      ) {
+        scrollToStartOfSection();
+      }
+    }
+  });
+
+  onHeadlerForScroll((e) => {
+    let scrollIsActive = true;
+    const deltaScroll = e.deltaY || e.detail || e.wheelDelta;
+    const distanceFromTop = projectsSection.getBoundingClientRect().top;
+
+    if (
+        (scrollToDownOfSection(distanceFromTop - deltaScroll) &&
+            !isFinishState()) ||
+        (scrollToTopOfSection(distanceFromTop - deltaScroll) &&
+            !isStartState()) ||
+        (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
+    ) {
+      scrollIsActive = false;
+    }
+
+    if (pauseIsEnded()) {
+      startPause();
+      if (!scrollIsActive) {
+        if (deltaScroll < 0) {
+          toPrevProject();
+        } else {
+          toNextProject();
+        }
+      }
+    }
+
+    if (!scrollIsActive) {
+      return false;
+    }
+
+    return true;
+  });
+
+  function scrollToDownOfSection(distanceFromTop) {
+    if (distanceFromTop < topSectionPositionOfset) {
+      return true;
+    } else return false;
+  }
+
+  function scrollToTopOfSection(distanceFromTop) {
+    if (distanceFromTop > topSectionPositionOfset) {
+      return true;
+    } else return false;
+  }
+
+  function scrollOnSection(distanceFromTop) {
+    if (distanceFromTop == topSectionPositionOfset) {
+      return true;
+    } else return false;
+  }
+
+  function isStartState() {
+    if (projectNumber == minProjectNumber - 1) {
+      return true;
+    } else return false;
+  }
+
+  function isFinishState() {
+    if (projectNumber == maxProjectNumber + 1) {
+      return true;
+    } else return false;
+  }
+
+  function pauseIsEnded() {
+    return Date.now() - delayStart > pause;
+  }
+
+  function startPause() {
+    delayStart = Date.now();
+  }
+
+  function toNextProject() {
+    if (projectNumber <= maxProjectNumber) {
+      projectNumber++;
+      onSwitchProjectCallback(projectNumber);
+    }
+  }
+
+  function toPrevProject() {
+    if (projectNumber >= minProjectNumber) {
+      projectNumber--;
+      onSwitchProjectCallback(projectNumber);
+    }
+  }
+
+  function scrollToStartOfSection() {
+    if(projectsSection != null)
+    {
+      window.scrollTo(0, projectsSection.offsetTop);
+    }
+  }
+}
+
+function getProjectSwitcher() {
+  const projectsOffset = 1380;
+  const projectsWrap = document.querySelector(".projects__test");
+  const projectsWrapper = document.querySelectorAll(".projects__wrapper");
+  const bike = document.querySelector(".projects__road-bike");
+  const projectsText0 = document.getElementById("tr0");
+  const projectsText1 = document.getElementById("tr1");
+  const projectsText2 = document.getElementById("tr2");
+
+  let bikePosition = 0;
+
+  function setActiveProject(number) {
+    console.log("Switch!");
+
+    bike.classList.add("tr");
+    setTimeout(() => bike.classList.remove("tr"), 600);
+
+    if (number == 1) {
+      projectsWrap.style.transform = "translateX(" + 0 + "px)";
+      projectsWrapper.forEach((item) => item.classList.remove("active"));
+      projectsWrapper[0].classList.add("active");
+      projectsText1.classList.remove("active");
+      projectsText2.classList.remove("active");
+      projectsText0.classList.add("active");
+      bikePosition = 0;
+    }
+    if (number == 2) {
+      projectsWrap.style.transform = "translateX(" + -projectsOffset + "px)";
+      projectsWrapper.forEach((item) => item.classList.remove("active"));
+      projectsWrapper[1].classList.add("active");
+      projectsText0.classList.remove("active");
+      projectsText2.classList.remove("active");
+      projectsText1.classList.add("active");
+      bikePosition = 420;
+    }
+    if (number == 3) {
+      projectsWrap.style.transform =
+          "translateX(" + -projectsOffset * 2 + "px)";
+      projectsWrapper.forEach((item) => item.classList.remove("active"));
+      projectsWrapper[2].classList.add("active");
+      projectsText0.classList.remove("active");
+      projectsText1.classList.remove("active");
+      projectsText2.classList.add("active");
+      bikePosition = 840;
+    }
+
+    bike.style.transform = "translateX(" + bikePosition + "px)";
+    bike.style.transition = "all 1s ease-in";
+  }
+
+  return setActiveProject;
+}
+
+function onHeadlerForScroll(callback) {
+  // left: 37, up: 38, right: 39, down: 40,
+  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+  var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
+
+  function preventDefault(e) {
+    if (!callback(e)) {
+      e.preventDefault();
+    }
+  }
+
+  function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+      if (!callback(e)) {
+        e.preventDefault();
+        return false;
+      }
+    }
+  }
+
+  // modern Chrome requires { passive: false } when adding event
+  var supportsPassive = false;
+  try {
+    window.addEventListener(
+        "test",
+        null,
+        Object.defineProperty({}, "passive", {
+          get: function () {
+            supportsPassive = true;
+          },
+        })
+    );
+  } catch (e) {}
+
+  var wheelOpt = supportsPassive ? { passive: false } : false;
+  var wheelEvent =
+      "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+
+  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+}
+
 </script>
 
 <style lang="postcss" scoped>
@@ -479,6 +685,206 @@ import FooterVue from "@/widgets/footer/FooterVue.vue";
         font-weight: 300;
         top: 12px;
         left: 90px;
+      }
+    }
+  }
+}
+.projects {
+  position: relative;
+  margin-top: 250px;
+  padding-bottom: 680px;
+  min-height: 800px;
+  height: 100vh;
+  &__test {
+    position: absolute;
+    display: flex;
+    &.tr0 {
+      transform: translateX(0px);
+    }
+    &.tr1 {
+      transform: translateX(-1380px);
+    }
+    &.tr2 {
+      transform: translateX(-2760px);
+    }
+  }
+  &__wrapper {
+    width: 1280px;
+    margin-right: 100px;
+    margin-top: 120px;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    opacity: 0;
+    pointer-events: none;
+    &.active{
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  &__road {
+    position: relative;
+    padding: 120px 0;
+    &-img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0px;
+    }
+    &-bike {
+      position: absolute;
+      left: 0px;
+      bottom: 45px;
+      transition: all 0.6s ease;
+      &.tr {
+        .projects__road-wheel1, .projects__road-wheel2 {
+          animation: wheel .6s linear;
+        }
+      }
+    }
+    &-wheel1 {
+      position: absolute;
+      bottom: -11px;
+      left: -12px;
+      z-index: 2;
+    }
+    &-wheel2 {
+      position: absolute;
+      bottom: -11px;
+      right: -12px;
+      z-index: 2;
+    }
+    &-line {
+      position: absolute;
+      right: -12px;
+      bottom: 0px;
+      width: 1px;
+      height: 160px;
+      background-color: #787878;
+    }
+    &-text {
+      position: absolute;
+      left: calc(100% + 20px);
+      bottom: 120px;
+      opacity: 0;
+      pointer-events: none;
+      &.active {
+        opacity: 1;
+        pointer-events: all;
+      }
+      span {
+        font-size: 18px;
+      }
+      p {
+        font-size: 18px;
+        color: #898A8F;
+        width: max-content;
+      }
+    }
+    &-btn {
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FFF;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 170px;
+      height: 50px;
+      font-weight: 300;
+      background-image: url("@/shared/images/button-bg2.png");
+      background-repeat: no-repeat;
+      padding-right: 12px;
+      object-fit: contain;
+      transition: all 0.2s ease;
+      &:hover {
+        cursor: pointer;
+        background-image: url("@/shared/images/button-bg.png");
+        transform: translateY(calc(-50% + 2px));
+      }
+    }
+  }
+  &__title {
+    font-size: 56px;
+  }
+  &__name {
+    font-size: 36px;
+  }
+  &__name-descr {
+    font-size: 18px;
+    color: #898A8F;
+  }
+  &__text {
+    font-size: 20px;
+    line-height: 32px;
+    margin-top: 24px;
+  }
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    span {
+      padding: 8px 20px;
+      font-size: 18px;
+      border: 1px solid #787878;
+      border-radius: 5px;
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  &__slider {
+    background-color:#B9B9BC;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    button {
+      position: relative;
+      width: calc(50% - 10px);
+      height: 58px;
+      background-color: #5BB6F1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: skew(-18deg);
+      border: 1px solid #438CB4;
+      border-right: 5px solid #438CB4;
+      border-bottom: 5px solid #438CB4;
+      transition: all .2s ease;
+      &:hover {
+        transform: skew(-18deg) translateY(2px);
+        border-right: 1px solid #438CB4;
+        border-bottom: 1px solid #438CB4;
+      }
+      &.outline {
+        background-color: #fff;
+        div {
+          color: #438CB4;
+          left: 46px;
+        }
+      }
+      div {
+        position: absolute;
+        top: 14px;
+        left: 84px;
+        font-size: 22px;
+        font-weight: 300;
+        color:#fff;
+        transform: skew(18deg);
       }
     }
   }
