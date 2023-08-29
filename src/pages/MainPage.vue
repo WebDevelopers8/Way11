@@ -236,9 +236,8 @@
 
 <script setup lang="ts">
 import FooterVue from "@/widgets/footer/FooterVue.vue";
-import MotoComponent from "@/widgets/motorcyclist/MotoComponent.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
-import {onMounted, ref} from "vue";
+import {ref} from "vue";
 
 const projectsSection = ref<HTMLElement | null>(null);
 const projectsWrap = ref<HTMLElement | null>(null);
@@ -443,19 +442,9 @@ function onHeadlerForScroll(callback) {
     }
   }
 
-  // modern Chrome requires { passive: false } when adding event
+ // modern Chrome requires { passive: false } when adding event
   var supportsPassive = false;
-  try {
-    window.addEventListener(
-        "test",
-        null,
-        Object.defineProperty({}, "passive", {
-          get: function () {
-            supportsPassive = true;
-          },
-        })
-    );
-  } catch (e) {}
+  // try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) {}
 
   var wheelOpt = supportsPassive ? { passive: false } : false;
   var wheelEvent =
