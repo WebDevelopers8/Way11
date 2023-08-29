@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="project-right">
-      <img src="https://sun2-18.userapi.com/impg/u6Xcj1Wd2Mxbz4aSUc_Ltels-pxRxYI95Z_syg/dgF3p3Z7Exg.jpg?size=1027x768&quality=96&sign=f6b45c3fec139aff91062df4ee9e520b&type=album">
+      <SliderVue />
     </div>
   </div>
 </template>
@@ -23,6 +23,7 @@
 <script setup lang="ts">
 import type {projectType} from "@/entities/types/projectType/projectType";
 import StackItem from "@/features/StackText/StackItem.vue";
+import SliderVue from "@/widgets/slider/SliderVue.vue";
 
 defineProps<{
   project: projectType
