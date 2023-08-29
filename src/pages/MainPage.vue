@@ -12,7 +12,7 @@
         основанные на аналитике, креативе и технологиях.
       </span>
       </div>
-      <div class="flex justify-center items-center">
+      <div class="flex lg:justify-start justify-center items-center">
         <button class="promo__btn">
           <div>Оставить заявку</div>
         </button>
@@ -486,7 +486,7 @@ function onHeadlerForScroll(callback) {
   &__text {
     font-size: 20px;
     line-height: 32px;
-    @apply lg:mt-[40px] w-full mt-[350px];
+    @apply lg:mt-[40px] lg:w-[55%] w-full mt-[350px];
   }
   &__btn {
     position: relative;
@@ -522,7 +522,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    @apply z-[-1] lg:bottom-[-115px] lg:right-[-225px] sm:bottom-[60px] sm:right-[-135px] sm:h-[70%] bottom-[142px] right-[-29px] object-cover h-[47%] ;
+    @apply z-[-1] lg:bottom-[10px] lg:right-[-225px] lg:h-[90%] sm:bottom-[60px] sm:right-[-135px] sm:h-[70%] bottom-[142px] right-[-29px] object-cover h-[47%] ;
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -584,8 +584,8 @@ function onHeadlerForScroll(callback) {
 .form {
   padding-top: 150px;
   &__wrapper {
-    display: grid;
     grid-template-columns: 1fr 1fr;
+    @apply lg:grid flex flex-col gap-[32px]
   }
   &__title {
     font-size: 56px;
@@ -640,8 +640,8 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__buttons {
-    display: flex;
-    justify-content: space-between;
+
+    @apply flex justify-between lg:flex-row flex-col lg:items-start items-center gap-[20px];
     button {
       position: relative;
       width: calc(50% - 10px);
@@ -663,6 +663,7 @@ function onHeadlerForScroll(callback) {
       }
       &.outline {
         background-color: #fff;
+        @apply lg:order-[0] order-[-1];
         div {
           color: #438CB4;
           left: 74px;

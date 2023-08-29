@@ -127,6 +127,7 @@ img {
   top: -240px;
   z-index: -1;
   width: calc(100vw + 20px);
+  object-fit: cover;
   @apply lg:h-[1300px] h-[1300px]
 }
 
@@ -135,6 +136,6 @@ img {
   z-index: -1;
   width: 10000%;
   height: 1900px;
-  object-fit: contain;
+  object-fit: cover;
   @apply xl:top-[-150px] top-[0];
 }
