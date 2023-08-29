@@ -250,7 +250,7 @@ const projectsText1 = ref<HTMLElement | null>(null);
 const projectsText2 = ref<HTMLElement | null>(null);
 onProjectsSectionHeadler(getProjectSwitcher());
 
-
+//@ts-ignore
 function onProjectsSectionHeadler(onSwitchProjectCallback) {
   const topSectionPositionOfset = 0;
   const pause = 300;
@@ -276,7 +276,7 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
       }
     }
   });
-
+//@ts-ignore
   onHeadlerForScroll((e) => {
     let scrollIsActive = true;
     const deltaScroll = e.deltaY || e.detail || e.wheelDelta;
@@ -308,19 +308,19 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
 
     return true;
   });
-
+//@ts-ignore
   function scrollToDownOfSection(distanceFromTop) {
     if (distanceFromTop < topSectionPositionOfset) {
       return true;
     } else return false;
   }
-
+//@ts-ignore
   function scrollToTopOfSection(distanceFromTop) {
     if (distanceFromTop > topSectionPositionOfset) {
       return true;
     } else return false;
   }
-
+//@ts-ignore
   function scrollOnSection(distanceFromTop) {
     if (distanceFromTop == topSectionPositionOfset) {
       return true;
@@ -373,18 +373,23 @@ function getProjectSwitcher() {
   const projectsOffset = 1380;
 
   let bikePosition = 0;
-
+//@ts-ignore
   function setActiveProject(number) {
-    console.log("Switch!");
-
+//@ts-ignore
     bike.value.classList.add("tr");
+    //@ts-ignore
     setTimeout(() => bike.value.classList.remove("tr"), 600);
 
     if (number == 1 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+      //@ts-ignore
       projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
+      //@ts-ignore
       projectsWrapper1.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper2.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper3.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper1.value.classList.add("active");
       projectsText1.value.classList.remove("active");
       projectsText2.value.classList.remove("active");
@@ -392,10 +397,15 @@ function getProjectSwitcher() {
       bikePosition = 0;
     }
     if (number == 2 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+      //@ts-ignore
       projectsWrap.value.style.transform = "translateX(" + -projectsOffset + "px)";
+      //@ts-ignore
       projectsWrapper1.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper2.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper3.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper2.value.classList.add("active");
       projectsText0.value.classList.remove("active");
       projectsText2.value.classList.remove("active");
@@ -403,37 +413,47 @@ function getProjectSwitcher() {
       bikePosition = 420;
     }
     if (number == 3) {
+      //@ts-ignore
       projectsWrap.value.style.transform =
           "translateX(" + -projectsOffset * 2 + "px)";
+      //@ts-ignore
       projectsWrapper1.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper2.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper3.value.classList.remove("active");
+      //@ts-ignore
       projectsWrapper3.value.classList.add("active");
+      //@ts-ignore
       projectsText0.value.classList.remove("active");
+      //@ts-ignore
       projectsText1.value.classList.remove("active");
+      //@ts-ignore
       projectsText2.value.classList.add("active");
       bikePosition = 840;
     }
-
+    //@ts-ignore
     bike.value.style.transform = "translateX(" + bikePosition + "px)";
+    //@ts-ignore
     bike.value.style.transition = "all 1s ease-in";
   }
 
   return setActiveProject;
 }
-
+//@ts-ignore
 function onHeadlerForScroll(callback) {
   // left: 37, up: 38, right: 39, down: 40,
   // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
   var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-
+//@ts-ignore
   function preventDefault(e) {
     if (!callback(e)) {
       e.preventDefault();
     }
   }
-
+//@ts-ignore
   function preventDefaultForScrollKeys(e) {
+    //@ts-ignore
     if (keys[e.keyCode]) {
       if (!callback(e)) {
         e.preventDefault();
