@@ -49,8 +49,8 @@ const itemsLength = ref(4)
 
 .item {
   background-image: url("@/shared/images/slider-bg.png");
-  background-size: contain;
-  @apply w-full bg-no-repeat;
+  background-size: cover;
+  @apply w-full h-[100%] bg-no-repeat;
 
   &__bg {
     @apply w-full h-full;
@@ -65,16 +65,19 @@ const itemsLength = ref(4)
   }
 
   &-points {
-    @apply flex justify-center mt-[-100px] gap-[10px] w-full;
+    transition: all 0.3s ease;
+    @apply flex justify-center mt-[-55px] gap-[10px] w-full;
 
     & div
     {
+      transition: all 0.01s ease;
       @apply flex justify-center items-center w-[18px] h-[18px] relative rounded-[20px];
       &.active {
         @apply border-solid border-[#5BB6F1] border-[2px] ;
       }
     }
     &__item {
+      transition: all 0.3s ease;
       @apply bg-[#989899] w-[8px] h-[8px] rounded-[12px];
       &.active
       {

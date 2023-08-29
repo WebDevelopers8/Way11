@@ -7,12 +7,16 @@
         <span>Путь в тысячу миль<br> начинается</span> с одного шага
       </div>
       <div class="promo__text">
-        Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса. В основе наших проектов лежат идеи,
+        Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.<span class="lg:block hidden">
+        В основе наших проектов лежат идеи,
         основанные на аналитике, креативе и технологиях.
+      </span>
       </div>
-      <button class="promo__btn">
-        <div>Оставить заявку</div>
-      </button>
+      <div class="flex justify-center items-center">
+        <button class="promo__btn">
+          <div>Оставить заявку</div>
+        </button>
+      </div>
       <div class="promo__adv">
         <div class="promo__line"></div>
         <div class="promo__adv-content">
@@ -74,35 +78,35 @@
     </div>
   </section>
 
-  <div class="projects" id="projects">
+  <div ref="projectsSection" class="projects" id="projects">
     <img src="@/shared/images/bg-2.png" id="bg2" alt="background">
     <div class="container">
       <div class="projects__title">Проекты</div>
 <!--      <MotoComponent />-->
       <div class="projects__road">
         <img src="@/shared/images/road.png" class="projects__road-img">
-        <span class="projects__road-bike tr0">
+        <span ref="bike" class="projects__road-bike tr0">
                     <img src="@/shared/images/bike.png">
                     <img src="@/shared/images/wheel-1.png" class="projects__road-wheel1">
                     <img src="@/shared/images/wheel-2.png" class="projects__road-wheel2">
                     <div class="projects__road-line"></div>
-                    <div class="projects__road-text active" id="tr0">
+                    <div ref="projectsText0" class="projects__road-text active" id="tr0">
                         <span>Lancelot</span>
                         <p>5 июня 2019 г.</p>
                     </div>
-                    <div class="projects__road-text" id="tr1">
+                    <div ref="projectsText1" class="projects__road-text" id="tr1">
                         <span>Lancelot 2</span>
                         <p>23 мая 2020 г.</p>
                     </div>
-                    <div class="projects__road-text" id="tr2">
+                    <div ref="projectsText2" class="projects__road-text" id="tr2">
                         <span>Lancelot 3</span>
                         <p>6 октября 2021 г.</p>
                     </div>
                 </span>
         <router-link to="/projects" class="projects__road-btn">Все проекты</router-link>
       </div>
-      <div class="projects__test">
-        <div class="projects__wrapper active">
+      <div ref="projectsWrap" class="projects__test">
+        <div ref="projectsWrapper1" class="projects__wrapper active">
           <div class="projects__descr">
             <div class="projects__name">Lancelot</div>
             <div class="projects__name-descr">Вебинарная платформа</div>
@@ -133,7 +137,7 @@
           </div>
             <SliderVue />
         </div>
-        <div class="projects__wrapper ">
+        <div ref="projectsWrapper2" class="projects__wrapper ">
           <div class="projects__descr">
             <div class="projects__name">Lancelot 2</div>
             <div class="projects__name-descr">Вебинарная платформа</div>
@@ -159,19 +163,9 @@
               </button>
             </div>
           </div>
-          <div class="projects__slider">
-            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">
-            <div class="slider__wrapper">
-              <div class="slider__item">
-                <img src="@/shared/images/test-image-2.jpg">
-              </div>
-              <div class="@/shared/imagesder__item">
-                <img src="@/shared/images/slider-img-2.png">
-              </div>
-            </div>
-          </div>
+          <SliderVue />
         </div>
-        <div class="projects__wrapper ">
+        <div ref="projectsWrapper3" class="projects__wrapper ">
           <div class="projects__descr">
             <div class="projects__name">Lancelot 3</div>
             <div class="projects__name-descr">Вебинарная платформа</div>
@@ -196,17 +190,7 @@
               </button>
             </div>
           </div>
-          <div class="projects__slider">
-            <img src="@/shared/images/slider-bg.png" class="projects__slider-bg">
-            <div class="slider__wrapper">
-              <div class="slider__item">
-                <img src="@/shared/images/test-image-3.png">
-              </div>
-              <div class="slider__item">
-                <img src="@/shared/images/slider-img-2.png">
-              </div>
-            </div>
-          </div>
+          <SliderVue />
         </div>
       </div>
     </div>
@@ -254,11 +238,21 @@
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import MotoComponent from "@/widgets/motorcyclist/MotoComponent.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
+import {onMounted, ref} from "vue";
 
+const projectsSection = ref<HTMLElement | null>(null);
+const projectsWrap = ref<HTMLElement | null>(null);
+const projectsWrapper1 = ref<HTMLElement | null>(null);
+const projectsWrapper2 = ref<HTMLElement | null>(null);
+const projectsWrapper3 = ref<HTMLElement | null>(null);
+const bike = ref<HTMLElement | null>(null);
+const projectsText0 = ref<HTMLElement | null>(null);
+const projectsText1 = ref<HTMLElement | null>(null);
+const projectsText2 = ref<HTMLElement | null>(null);
 onProjectsSectionHeadler(getProjectSwitcher());
 
+
 function onProjectsSectionHeadler(onSwitchProjectCallback) {
-  const projectsSection = document.getElementById("projects");
   const topSectionPositionOfset = 0;
   const pause = 300;
 
@@ -268,9 +262,9 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
   let delayStart = Date.now() - pause;
 
   addEventListener("scroll", (e) => {
-    if(projectsSection != null)
+    if(projectsSection.value != null)
     {
-      const distanceFromTop = projectsSection.getBoundingClientRect().top;
+      const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
 
       if (
           (scrollToDownOfSection(distanceFromTop) &&
@@ -287,8 +281,7 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
   onHeadlerForScroll((e) => {
     let scrollIsActive = true;
     const deltaScroll = e.deltaY || e.detail || e.wheelDelta;
-    const distanceFromTop = projectsSection.getBoundingClientRect().top;
-
+    const distanceFromTop = projectsSection.value == null ? 0 : projectsSection.value.getBoundingClientRect().top;
     if (
         (scrollToDownOfSection(distanceFromTop - deltaScroll) &&
             !isFinishState()) ||
@@ -370,61 +363,61 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
   }
 
   function scrollToStartOfSection() {
-    if(projectsSection != null)
+    if(projectsSection.value != null)
     {
-      window.scrollTo(0, projectsSection.offsetTop);
+      window.scrollTo(0, projectsSection.value.offsetTop);
     }
   }
 }
 
 function getProjectSwitcher() {
   const projectsOffset = 1380;
-  const projectsWrap = document.querySelector(".projects__test");
-  const projectsWrapper = document.querySelectorAll(".projects__wrapper");
-  const bike = document.querySelector(".projects__road-bike");
-  const projectsText0 = document.getElementById("tr0");
-  const projectsText1 = document.getElementById("tr1");
-  const projectsText2 = document.getElementById("tr2");
 
   let bikePosition = 0;
 
   function setActiveProject(number) {
     console.log("Switch!");
 
-    bike.classList.add("tr");
-    setTimeout(() => bike.classList.remove("tr"), 600);
+    bike.value.classList.add("tr");
+    setTimeout(() => bike.value.classList.remove("tr"), 600);
 
-    if (number == 1) {
-      projectsWrap.style.transform = "translateX(" + 0 + "px)";
-      projectsWrapper.forEach((item) => item.classList.remove("active"));
-      projectsWrapper[0].classList.add("active");
-      projectsText1.classList.remove("active");
-      projectsText2.classList.remove("active");
-      projectsText0.classList.add("active");
+    if (number == 1 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+      projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
+      projectsWrapper1.value.classList.remove("active");
+      projectsWrapper2.value.classList.remove("active");
+      projectsWrapper3.value.classList.remove("active");
+      projectsWrapper1.value.classList.add("active");
+      projectsText1.value.classList.remove("active");
+      projectsText2.value.classList.remove("active");
+      projectsText0.value.classList.add("active");
       bikePosition = 0;
     }
-    if (number == 2) {
-      projectsWrap.style.transform = "translateX(" + -projectsOffset + "px)";
-      projectsWrapper.forEach((item) => item.classList.remove("active"));
-      projectsWrapper[1].classList.add("active");
-      projectsText0.classList.remove("active");
-      projectsText2.classList.remove("active");
-      projectsText1.classList.add("active");
+    if (number == 2 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+      projectsWrap.value.style.transform = "translateX(" + -projectsOffset + "px)";
+      projectsWrapper1.value.classList.remove("active");
+      projectsWrapper2.value.classList.remove("active");
+      projectsWrapper3.value.classList.remove("active");
+      projectsWrapper2.value.classList.add("active");
+      projectsText0.value.classList.remove("active");
+      projectsText2.value.classList.remove("active");
+      projectsText1.value.classList.add("active");
       bikePosition = 420;
     }
     if (number == 3) {
-      projectsWrap.style.transform =
+      projectsWrap.value.style.transform =
           "translateX(" + -projectsOffset * 2 + "px)";
-      projectsWrapper.forEach((item) => item.classList.remove("active"));
-      projectsWrapper[2].classList.add("active");
-      projectsText0.classList.remove("active");
-      projectsText1.classList.remove("active");
-      projectsText2.classList.add("active");
+      projectsWrapper1.value.classList.remove("active");
+      projectsWrapper2.value.classList.remove("active");
+      projectsWrapper3.value.classList.remove("active");
+      projectsWrapper3.value.classList.add("active");
+      projectsText0.value.classList.remove("active");
+      projectsText1.value.classList.remove("active");
+      projectsText2.value.classList.add("active");
       bikePosition = 840;
     }
 
-    bike.style.transform = "translateX(" + bikePosition + "px)";
-    bike.style.transition = "all 1s ease-in";
+    bike.value.style.transform = "translateX(" + bikePosition + "px)";
+    bike.value.style.transition = "all 1s ease-in";
   }
 
   return setActiveProject;
@@ -478,24 +471,22 @@ function onHeadlerForScroll(callback) {
 
 <style lang="postcss" scoped>
 .promo {
-  padding-top: 180px;
-  position: relative;
+  @apply xl:pt-[180px] pt-[100px] relative;
   &__title {
-    position: relative;
     font-size: 60px;
     font-weight: 800;
     text-transform: uppercase;
     line-height: 64px;
+    @apply md:text-start text-center lg:text-[60px] text-[44px] relative;
     span {
       -webkit-text-stroke: 2px #000000;
       color: transparent;
     }
   }
   &__text {
-    margin-top: 40px;
     font-size: 20px;
-    width: 630px;
     line-height: 32px;
+    @apply lg:mt-[40px] w-full mt-[350px];
   }
   &__btn {
     position: relative;
@@ -530,13 +521,11 @@ function onHeadlerForScroll(callback) {
   &__pic {
     position: absolute;
     z-index: -1;
-    bottom: -115px;
-    right: -225px;
     pointer-events: none;
+    @apply z-[-1] lg:bottom-[-115px] lg:right-[-225px] sm:bottom-[60px] sm:right-[-135px] sm:h-[70%] bottom-[142px] right-[-29px] object-cover h-[47%] ;
   }
   &__adv {
-    margin-top: 160px;
-    position: relative;
+    @apply lg:mt-[160px] lg:block hidden relative;
     &-content {
       display: grid;
       align-items: center;
@@ -560,11 +549,12 @@ function onHeadlerForScroll(callback) {
 .adv {
   padding-top: 260px;
   &__title {
-    font-size: 56px;
+    @apply sm:text-[56px] text-[40px] lg:text-start text-center;
   }
   &__text {
     margin-top: 8px;
     font-size: 20px;
+    @apply lg:text-start text-center
   }
   &__content {
     margin-top: 60px;
@@ -573,6 +563,7 @@ function onHeadlerForScroll(callback) {
     grid-template-rows: 1fr;
     grid-auto-rows: 1fr;
     gap: 40px 25px;
+    @apply lg:grid block;
     &-item {
       display: flex;
       flex-direction: column;
@@ -723,8 +714,7 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__road {
-    position: relative;
-    padding: 120px 0;
+    @apply py-[120px] px-[0] xl:block hidden relative;
     &-img {
       position: absolute;
       left: 50%;

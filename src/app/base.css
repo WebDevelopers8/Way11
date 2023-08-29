@@ -127,14 +127,14 @@ img {
   top: -240px;
   z-index: -1;
   width: calc(100vw + 20px);
-  height: 1300px;
+  @apply lg:h-[1300px] h-[1300px]
 }
 
 #bg2 {
   position: absolute;
-  top: -150px;
   z-index: -1;
   width: 10000%;
   height: 1900px;
   object-fit: contain;
+  @apply xl:top-[-150px] top-[0];
 }
