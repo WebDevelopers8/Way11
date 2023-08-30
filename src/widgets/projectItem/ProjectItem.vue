@@ -11,7 +11,7 @@
         <StackItem v-for="(item,index) in project.stack" :key="index" :text="item" />
       </div>
       <div class="project-left__more">
-        <router-link class="" to="/project/"><div>Подробнее</div></router-link>
+        <router-link class="" to="/project/0"><div>Подробнее</div></router-link>
       </div>
     </div>
     <div class="project-right">

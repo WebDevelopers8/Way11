@@ -4,11 +4,11 @@
       <div class="header__wrapper">
         <div class="header__contacts">
           <div class="header__contacts-item">
-            <img src="../../shared/images/icons/phone.svg" alt="phone">
+            <img src="@/shared/images/icons/phone.svg" alt="phone">
             <a href="tel:+79371234333">+7 (937) 123-43-33</a>
           </div>
           <div class="header__contacts-item">
-            <img src="../../shared/images/icons/mail.svg">
+            <img src="@/shared/images/icons/mail.svg">
             <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
           </div>
         </div>
@@ -67,8 +67,7 @@ const stateMenu = ref(false)
   &__sidemenu {
     pointer-events: none;
     position: absolute;
-    width: 100%;
-
+    @apply sm:w-[100%] w-[91%];
     &-enter-active, &-leave-active {
       opacity: 1;
       pointer-events: all;
@@ -92,13 +91,11 @@ const stateMenu = ref(false)
     }
 
     &-nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-
+      @apply grid sm:grid-cols-3 grid-cols-[0.3fr_0.3fr_0.3fr];
       a {
         text-align: center;
         padding: 16px 0;
-        font-size: 20px;
+        @apply text-[20px]
       }
     }
   }
