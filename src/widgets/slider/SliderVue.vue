@@ -3,7 +3,7 @@
     <!--    <img src="@/shared/images/slider-bg.png" class="item__bg">-->
     <div class="slider">
       <div class="slider-slide">
-        <button @click="activeItem == 1 ? activeItem = itemsLength : activeItem--"><img src="@/shared/images/arrow-prev.png"></button>
+        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem--"><img src="@/shared/images/arrow-prev.png"></button>
         <div :class="{active:activeItem == 1}" class="slider__item">
           <img src="@/shared/images/slider-img-1.png">
         </div>
@@ -16,7 +16,7 @@
         <div :class="{active:activeItem == 4}" class="slider__item">
           <img src="@/shared/images/slider-img-2.png">
         </div>
-        <button @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>
+        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>
       </div>
       <div class="slider-points">
         <div :class="{active:activeItem == 1}">
@@ -50,7 +50,7 @@ const itemsLength = ref(4)
 .item {
   background-image: url("@/shared/images/slider-bg.png");
   background-size: cover;
-  @apply w-full h-[100%] bg-no-repeat;
+  @apply w-[100%] h-[100%] bg-no-repeat rounded-[20px];
 
   &__bg {
     @apply w-full h-full;
@@ -66,7 +66,7 @@ const itemsLength = ref(4)
 
   &-points {
     transition: all 0.3s ease;
-    @apply flex justify-center mt-[-55px] gap-[10px] w-full;
+    @apply flex justify-center mt-[-35px] sm:mt-[-55px] gap-[10px] w-full;
 
     & div
     {
@@ -94,7 +94,7 @@ const itemsLength = ref(4)
     animation-duration: 0.5s;
     transition: all 0.5s ease;
     transform: translateX(-100px);
-    @apply opacity-0 ml-[-200px] w-[70%] left-0 hidden;
+    @apply opacity-0 ml-[-200px] sm:w-[70%] w-[90%] left-0 hidden;
 
     & img {
       @apply w-[100%] object-contain;

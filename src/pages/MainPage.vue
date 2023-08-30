@@ -4,10 +4,10 @@
     <img src="@/shared/images/promo-pic.png" class="promo__pic" alt="promo pic">
     <div class="container">
       <div class="promo__title-comp">
-        <span>Путь в тысячу миль<br> начинается</span> с одного шага
+        <span>Путь в тысячу миль начинается</span> с одного шага
       </div>
       <div class="promo__title-mob">
-        <span>Путь в тысячу миль начинается</span><br> с одного шага
+        <span>Путь в тысячу миль начинается</span><br> с одного<br> шага
       </div>
       <div class="promo__text">
         Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.<span class="lg:block hidden">
@@ -81,11 +81,102 @@
     </div>
   </section>
 
+  <img src="@/shared/images/bg-1.png" id="bg2" alt="background">
+  <div class="mt-[200px] lg:hidden block">
+    <div class="container">
+      <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
+      <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
+        <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
+          <img src="@/shared/images/arrow-prev.png">
+        </button>
+        <div class="flex flex-col items-center justify-center px-[20px]">
+          <span class="text-[#14161F] text-[28px] leading-[40px]">{{title[projectCount - 1]}}</span>
+          <div class="text-[#898A8F] text-[16px] leading-[24px]">{{type[projectCount - 1]}}</div>
+        </div>
+        <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-next">
+          <img src="@/shared/images/arrow-next.png">
+        </button>
+      </div>
+      <div  v-if="projectCount == 1">
+        <div class="my-[24px] sm:h-[450px] h-[300px]">
+          <SliderVue />
+        </div>
+        <span>На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+        <div class="projects__tags">
+          <span>AWS Chalice</span>
+          <span>Lambda</span>
+          <span>Aurora Serverless Postgres</span>
+          <span>API Gateway</span>
+          <span>DynamoDB</span>
+          <span>WebSockets</span>
+          <span>Python</span>
+          <span>Git</span>
+          <span>React</span>
+        </div>
+        <div class="projects__buttons">
+          <router-link to='/project/0'>
+            <div>Подробнее</div>
+          </router-link>
+          <button class="outline">
+            <div>Предложить проект</div>
+          </button>
+        </div>
+      </div>
+      <div  v-if="projectCount == 2">
+        <div class="my-[24px] sm:h-[450px] h-[300px]">
+          <SliderVue />
+        </div>
+        <span>На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+        <div class="projects__tags">
+          <span>AWS Chalice</span>
+          <span>Lambda</span>
+          <span>Aurora Serverless Postgres</span>
+          <span>API Gateway</span>
+          <span>DynamoDB</span>
+          <span>WebSockets</span>
+          <span>Python</span>
+          <span>Git</span>
+          <span>React</span>
+        </div>
+        <div class="projects__buttons">
+          <router-link to='/project/0'>
+            <div>Подробнее</div>
+          </router-link>
+          <button class="outline">
+            <div>Предложить проект</div>
+          </button>
+        </div>
+      </div>
+      <div  v-if="projectCount == 3">
+        <div class="my-[24px] sm:h-[450px] h-[300px]">
+          <SliderVue />
+        </div>
+        <span>На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+        <div class="projects__tags">
+          <span>AWS Chalice</span>
+          <span>Lambda</span>
+          <span>Aurora Serverless Postgres</span>
+          <span>API Gateway</span>
+          <span>DynamoDB</span>
+          <span>WebSockets</span>
+          <span>Python</span>
+          <span>Git</span>
+          <span>React</span>
+        </div>
+        <div class="projects__buttons">
+          <router-link to='/project/0'>
+            <div>Подробнее</div>
+          </router-link>
+          <button class="outline">
+            <div>Предложить проект</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div ref="projectsSection" class="projects" id="projects">
-    <img src="@/shared/images/bg-2.png" id="bg2" alt="background">
     <div class="container">
       <div class="projects__title">Проекты</div>
-<!--      <MotoComponent />-->
       <div class="projects__road">
         <img src="@/shared/images/road.png" class="projects__road-img">
         <span ref="bike" class="projects__road-bike tr0">
@@ -138,7 +229,10 @@
               </button>
             </div>
           </div>
+          <div class="">
             <SliderVue />
+          </div>
+
         </div>
         <div ref="projectsWrapper2" class="projects__wrapper ">
           <div class="projects__descr">
@@ -158,9 +252,9 @@
               <span>React</span>
             </div>
             <div class="projects__buttons">
-              <button type="submit">
+              <router-link to="/project/1">
                 <div>Подробнее</div>
-              </button>
+              </router-link>
               <button class="outline">
                 <div>Предложить проект</div>
               </button>
@@ -185,7 +279,7 @@
               <span>React</span>
             </div>
             <div class="projects__buttons">
-              <router-link to="/project/0">
+              <router-link to="/project/3">
                 <div>Подробнее</div>
               </router-link>
               <button class="outline">
@@ -219,7 +313,7 @@
             <div class="form__input"><input type="text" placeholder="Телефон*" name="phone"></div>
             <div class="form__input"><input type="text" placeholder="E-mail*" name="email"></div>
           </div>
-          <div class="form__input w100"><input type="text" placeholder="Бюджет проекта" name="budget"></div>
+          <div class="form__input w100 mt-[16px]"><input type="text" placeholder="Бюджет проекта" name="budget"></div>
           <div class="form__input w100"><input type="text" placeholder="Описание проекта" name="description">
           </div>
           <div class="form__buttons">
@@ -242,6 +336,13 @@ import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {ref} from "vue";
 
+let projectCount = ref(1)
+let maxCountProject = ref(3)
+let title = ['Lancelot', 'Lancelot2', 'Lancelot3']
+let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
+
+
+//main script
 const projectsSection = ref<HTMLElement | null>(null);
 const projectsWrap = ref<HTMLElement | null>(null);
 const projectsWrapper1 = ref<HTMLElement | null>(null);
@@ -487,11 +588,15 @@ function onHeadlerForScroll(callback) {
   &__title {
     &-comp
     {
+      position: relative;
+      font-size: 60px;
+      font-weight: 800;
       text-transform: uppercase;
       line-height: 64px;
-      @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
+      @apply w-[80%] text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
       span {
-        -webkit-text-stroke: 2px #000;
+        @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
+        -webkit-text-stroke: 1.5px #000;
         color: transparent;
       }
     }
@@ -499,9 +604,10 @@ function onHeadlerForScroll(callback) {
     {
       text-transform: uppercase;
       line-height: 64px;
-      @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:hidden;
+      @apply text-start font-bold sm:text-[60px] text-[39px] relative lg:hidden;
       span {
-        -webkit-text-stroke: 2px #000;
+        @apply text-start font-bold sm:text-[60px] relative lg:hidden;
+        -webkit-text-stroke: 1.5px #000;
         color: transparent;
       }
     }
@@ -509,7 +615,7 @@ function onHeadlerForScroll(callback) {
   &__text {
     font-size: 20px;
     line-height: 32px;
-    @apply lg:mt-[40px] lg:w-[55%] w-full mt-[500px];
+    @apply lg:mt-[40px] lg:w-[55%] w-full sm:mt-[500px] mt-[376px];
   }
   &__btn {
     position: relative;
@@ -545,7 +651,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-420px] lg:bottom-[0px] lg:right-[-300px] xl:h-[90%] lg:h-[80%] sm:bottom-[40px] sm:right-[00px] sm:h-[70%] bottom-[100px] right-[50px] h-[50%] w-[80%];
+    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-100px] 2xl:bottom-[20px] xl:right-[-220px] xl:bottom-[-0px] lg:bottom-[69px] lg:right-[-132px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -592,8 +698,8 @@ function onHeadlerForScroll(callback) {
       flex-direction: column;
       align-items: center;
       span {
-        font-size: 36px;
         margin-top: 32px;
+        @apply sm:text-[36px] text-[34px];
       }
       p {
         font-size: 20px;
@@ -605,29 +711,26 @@ function onHeadlerForScroll(callback) {
 }
 
 .form {
-  padding-top: 150px;
+  @apply 2xl:pt-[100px] lg:pt-[150px] pt-[120px];
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
   }
   &__title {
-    font-size: 56px;
     line-height: 56px;
+    @apply sm:text-[56px] text-[46px];
   }
   &__text {
     margin-top: 24px;
     font-size: 18px;
     color:#898A8F;
-    padding-right: 150px;
     line-height: 24px;
+    @apply lg:pr-[150px];
   }
   &__sm-inputs {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 24px;
+    @apply flex lg:flex-row flex-col lg:justify-between mt-[24px] gap-[16px]
   }
   &__input {
     position: relative;
-    width: calc(50% - 10px);
     height: 58px;
     background-color: #fff;
     border-radius: 8px;
@@ -637,6 +740,7 @@ function onHeadlerForScroll(callback) {
     transform: skew(-18deg);
     border: 1px solid #438CB4;
     transition: all 0.2s ease;
+    @apply lg:w-[calc(50%-10px)] w-full;
     &.w100 {
       width: 100%;
       margin-bottom: 24px;
@@ -666,7 +770,6 @@ function onHeadlerForScroll(callback) {
     @apply flex justify-between lg:flex-row flex-col lg:items-start items-center gap-[20px];
     button {
       position: relative;
-      width: calc(50% - 10px);
       height: 58px;
       background-color: #5BB6F1;
       border-radius: 8px;
@@ -678,6 +781,7 @@ function onHeadlerForScroll(callback) {
       border-right: 5px solid #438CB4;
       border-bottom: 5px solid #438CB4;
       transition: all .2s ease;
+      @apply lg:w-[calc(50%-10px)] w-[80%];
       &:hover {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;
@@ -687,9 +791,9 @@ function onHeadlerForScroll(callback) {
         background-color: #fff;
         @apply lg:order-[0] order-[-1];
         div {
+          top: 12px;
           color: #438CB4;
-          left: 74px;
-
+          @apply 2xl:left-[15px] lg:left-[74px] sm:left-[35%];
         }
       }
       div {
@@ -698,8 +802,8 @@ function onHeadlerForScroll(callback) {
         transform: skew(18deg);
         position: absolute;
         font-weight: 300;
-        top: 12px;
-        left: 90px;
+        top: 10px;
+        @apply lg:w-[90%] sm:w-[33%];
       }
     }
   }
@@ -863,8 +967,7 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__buttons {
-    display: flex;
-    justify-content: space-between;
+    @apply flex w-full sm:flex-row justify-between sm:items-start items-center flex-col;
     margin-top: 48px;
     a {
       position: relative;
@@ -880,6 +983,7 @@ function onHeadlerForScroll(callback) {
       border-right: 5px solid #438CB4;
       border-bottom: 5px solid #438CB4;
       transition: all .2s ease;
+      @apply sm:w-[calc(50%-10px)] w-[70%];
       &:hover {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;
@@ -900,6 +1004,7 @@ function onHeadlerForScroll(callback) {
         font-weight: 300;
         color:#fff;
         transform: skew(18deg);
+        @apply lg:left-[84px] sm:left-[110px] sm:top-[12px] left-[28%] top-[11px];
       }
     }
     button {
@@ -916,6 +1021,7 @@ function onHeadlerForScroll(callback) {
       border-right: 5px solid #438CB4;
       border-bottom: 5px solid #438CB4;
       transition: all .2s ease;
+      @apply sm:w-[calc(50%-10px)] w-[70%] sm:mt-[0] mt-[13px];
       &:hover {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;
@@ -925,19 +1031,77 @@ function onHeadlerForScroll(callback) {
         background-color: #fff;
         div {
           color: #438CB4;
-          left: 46px;
+          @apply lg:left-[46px] sm:left-[70px] sm:top-[12px];
         }
       }
       div {
         position: absolute;
-        top: 14px;
-        left: 84px;
         font-size: 22px;
         font-weight: 300;
         color:#fff;
         transform: skew(18deg);
+        @apply lg:left-[84px] sm:left-[110px] lg:top-[14px] top-[11px];
       }
     }
+  }
+}
+
+.btn-prev {
+  position: relative;
+  width: 60px;
+  height: 54px;
+  background-color: #5BB6F1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skew(-18deg);
+  border: 1px solid #438CB4;
+  border-right: 5px solid #438CB4;
+  border-bottom: 5px solid #438CB4;
+  transition: all .2s ease;
+  &:hover {
+    transform: skew(-18deg) translateY(2px);
+    border-right: 1px solid #438CB4;
+    border-bottom: 1px solid #438CB4;
+  }
+  img {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-weight: 300;
+    font-size: 22px;
+    color:#fff;
+    transform: skew(18deg);
+  }
+}
+.btn-next {
+  position: relative;
+  width: 60px;
+  height: 54px;
+  background-color: #5BB6F1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skew(-18deg);
+  border: 1px solid #438CB4;
+  border-right: 5px solid #438CB4;
+  border-bottom: 5px solid #438CB4;
+  transition: all .2s ease;
+  &:hover {
+    transform: skew(-18deg) translateY(2px);
+    border-right: 1px solid #438CB4;
+    border-bottom: 1px solid #438CB4;
+  }
+  img {
+    position: absolute;
+    top: 15px;
+    left: 24px;
+    font-weight: 300;
+    font-size: 22px;
+    color:#fff;
+    transform: skew(18deg);
   }
 }
 
@@ -945,14 +1109,8 @@ function onHeadlerForScroll(callback) {
   .projects {
     padding-bottom: 580px;
   }
-  .projects__tags {
-    display: none;
-  }
   .slider__wrapper {
     max-width: 342px;
-  }
-  #bg2 {
-    height: 1800px;
   }
 }
 
@@ -962,9 +1120,6 @@ function onHeadlerForScroll(callback) {
   }
   .projects {
     padding-bottom: 480px;
-  }
-  #bg2 {
-    height: 1700px;
   }
 }
 </style>
