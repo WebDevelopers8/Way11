@@ -17,7 +17,7 @@
   {
     line-height: 32px; /* 114.286% */
     letter-spacing: 0.28px;
-    @apply text-[28px] text-[#14161F];
+    @apply text-[24px] lg:text-[28px] text-[#14161F];
   }
   &__image
   {

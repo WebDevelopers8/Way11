@@ -2,14 +2,18 @@
   <div class="component">
     <p class="component__title">Документооборот</p>
     <div class="component__images">
-      <img src="@/shared/images/project/docList.png" alt="document list">
-      <img src="@/shared/images/project/sendDoc.png" alt="send document">
+      <div class="lg:hidden block">
+        <SliderVue :urlImages="['/src/shared/images/project/docList.png', '/src/shared/images/project/sendDoc.png']" />
+      </div>
+      <img class="lg:block hidden" src="@/shared/images/project/docList.png" alt="document list">
+      <img class="lg:block hidden" src="@/shared/images/project/sendDoc.png" alt="send document">
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 
+import SliderVue from "@/widgets/slider/SliderVue.vue";
 </script>
 
 <style lang="postcss" scoped>
@@ -20,7 +24,7 @@
   {
     line-height: 32px; /* 114.286% */
     letter-spacing: 0.28px;
-    @apply text-[#14161F] text-[28px];
+    @apply text-[#14161F] text-[24px] lg:text-[28px];
   }
   &__images
   {

@@ -1003,7 +1003,7 @@ function onHeadlerForScroll(callback) {
         font-weight: 300;
         color:#fff;
         transform: skew(18deg);
-        @apply lg:left-[84px] sm:left-[110px] sm:top-[12px] left-[28%] top-[11px];
+        @apply lg:left-[87px] sm:left-[110px] sm:top-[12px] left-[28%] top-[11px];
       }
     }
     button {

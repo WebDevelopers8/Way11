@@ -1,6 +1,5 @@
 <template>
-  <div class="item">
-    <!--    <img src="@/shared/images/slider-bg.png" class="item__bg">-->
+  <div class="item" v-if="typeof urlImages == 'undefined'">
     <div class="slider">
       <div class="slider-slide">
         <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem--"><img src="@/shared/images/arrow-prev.png"></button>
@@ -34,14 +33,43 @@
       </div>
     </div>
   </div>
+  <div class="project" v-if="typeof urlImages != 'undefined'">
+    <div class="slider">
+      <div class="slider-slide">
+<!--        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem&#45;&#45;"><img src="@/shared/images/arrow-prev.png"></button>-->
+        <SliderImage v-for="(item, index) in urlImages" :activeItem="activeItem" :key="index" :id="index + 1" :url="item" />
+<!--        <div :class="{active:activeItem == 1}" class="slider__item">-->
+<!--          <img src="@/shared/images/slider-img-1.png">-->
+<!--        </div>-->
+<!--        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>-->
+      </div>
+      <div class="slider-points">
+        <SliderPoint v-for="(item, index) in urlImages" :key="index" :id="index + 1"  :activeItem="activeItem" @update-activeItem="(id : number) => activeItem = id" />
+<!--        <div :class="{active:activeItem == 1}">-->
+<!--          <button @click="activeItem = 1" :class="{active:activeItem == 1}" class="slider-points__item"></button>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import {ref} from "vue";
+import SliderImage from "@/features/Slider/SliderImage.vue";
+import SliderPoint from "@/features/Slider/SliderPoint.vue";
 
 const activeItem = ref(1)
 const itemsLength = ref(4)
 
+
+const props = defineProps<{
+  urlImages?: Array<string>
+}>()
+
+function getMaxCounts() {
+  itemsLength.value = typeof props.urlImages != 'undefined'  ? props.urlImages.length : 4
+}
+getMaxCounts()
 
 </script>
 
@@ -51,6 +79,14 @@ const itemsLength = ref(4)
   background-image: url("@/shared/images/slider-bg.png");
   background-size: cover;
   @apply w-[100%] h-[100%] bg-no-repeat rounded-[20px];
+
+  &__bg {
+    @apply w-full h-full;
+  }
+}
+.project
+{
+  @apply w-[100%] h-[100%] rounded-[20px];
 
   &__bg {
     @apply w-full h-full;
