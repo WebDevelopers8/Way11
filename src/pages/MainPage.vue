@@ -651,7 +651,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-100px] 2xl:bottom-[20px] xl:right-[-220px] xl:bottom-[-0px] lg:bottom-[69px] lg:right-[-132px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
+    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-100px] 2xl:bottom-[20px] xl:right-[-350px] xl:bottom-[50px] lg:bottom-[-40px] lg:right-[-152px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -711,7 +711,7 @@ function onHeadlerForScroll(callback) {
 }
 
 .form {
-  @apply 2xl:pt-[100px] lg:pt-[150px] pt-[120px];
+  @apply 2xl:pt-[0px] lg:pt-[150px] pt-[120px];
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
   }
@@ -791,9 +791,8 @@ function onHeadlerForScroll(callback) {
         background-color: #fff;
         @apply lg:order-[0] order-[-1];
         div {
-          top: 12px;
           color: #438CB4;
-          @apply 2xl:left-[15px] lg:left-[74px] sm:left-[35%];
+          @apply 2xl:left-[15px] 2xl:top-[12px] xl:left-[15px] xl:top-[10px] lg:left-[74px] sm:left-[35%];
         }
       }
       div {
