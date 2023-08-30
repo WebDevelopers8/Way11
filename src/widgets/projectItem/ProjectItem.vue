@@ -4,7 +4,7 @@
       <span class="project-left__title">{{project.name}}</span>
       <span class="project-left__type">{{project.type}}</span>
       <div class="project-left__mobile">
-        <img src="https://sun2-18.userapi.com/impg/u6Xcj1Wd2Mxbz4aSUc_Ltels-pxRxYI95Z_syg/dgF3p3Z7Exg.jpg?size=1027x768&quality=96&sign=f6b45c3fec139aff91062df4ee9e520b&type=album">
+        <SliderVue />
       </div>
       <span class="project-left__description">{{project.description}}</span>
       <div class="project-left__stack-items">
@@ -97,7 +97,7 @@ defineProps<{
     }
     &__mobile
     {
-      @apply lg:hidden w-full my-[24px];
+      @apply lg:hidden sm:h-[500px] h-[300px] w-full my-[24px];
     }
   }
   &-right
