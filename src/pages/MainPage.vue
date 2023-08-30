@@ -84,7 +84,7 @@
   <img src="@/shared/images/bg-1.png" id="bg2" alt="background">
   <div class="mt-[200px] lg:hidden block">
     <div class="container">
-      <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
+      <p class="text-[#14161F] text-[40px] leading-[40px]">Проекты</p>
       <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
         <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
           <img src="@/shared/images/arrow-prev.png">
@@ -93,7 +93,7 @@
           <span class="text-[#14161F] text-[28px] leading-[40px]">{{title[projectCount - 1]}}</span>
           <div class="text-[#898A8F] text-[16px] leading-[24px]">{{type[projectCount - 1]}}</div>
         </div>
-        <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-next">
+        <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
           <img src="@/shared/images/arrow-next.png">
         </button>
       </div>
@@ -229,7 +229,7 @@
               </button>
             </div>
           </div>
-          <div class="">
+          <div class="h-[90%]">
             <SliderVue />
           </div>
 
@@ -651,7 +651,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-100px] 2xl:bottom-[20px] xl:right-[-350px] xl:bottom-[50px] lg:bottom-[-40px] lg:right-[-152px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
+    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-350px] xl:bottom-[50px] lg:bottom-[-40px] lg:right-[-152px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -711,7 +711,7 @@ function onHeadlerForScroll(callback) {
 }
 
 .form {
-  @apply 2xl:pt-[0px] lg:pt-[150px] pt-[120px];
+  @apply 2xl:pt-[0] lg:pt-[100px] pt-[120px];
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
   }
@@ -767,7 +767,7 @@ function onHeadlerForScroll(callback) {
   }
   &__buttons {
 
-    @apply flex justify-between lg:flex-row flex-col lg:items-start items-center gap-[20px];
+    @apply flex justify-between lg:flex-row flex-col lg:items-start items-center gap-[20px] lg:mt-[0] mt-[50px];
     button {
       position: relative;
       height: 58px;
@@ -792,7 +792,7 @@ function onHeadlerForScroll(callback) {
         @apply lg:order-[0] order-[-1];
         div {
           color: #438CB4;
-          @apply 2xl:left-[15px] 2xl:top-[12px] xl:left-[15px] xl:top-[10px] lg:left-[74px] sm:left-[35%];
+          @apply 2xl:left-[15px] 2xl:top-[12px] xl:left-[15px] xl:top-[10px] lg:left-[15px] sm:left-[35%];
         }
       }
       div {
@@ -842,7 +842,7 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__road {
-    @apply py-[120px] px-[0] xl:block hidden relative;
+    @apply pb-[80px] pt-[120px] px-[0] xl:block hidden relative;
     &-img {
       position: absolute;
       left: 50%;
@@ -967,7 +967,7 @@ function onHeadlerForScroll(callback) {
   }
   &__buttons {
     @apply flex w-full sm:flex-row justify-between sm:items-start items-center flex-col;
-    margin-top: 48px;
+    margin-top: 10px;
     a {
       position: relative;
       width: calc(50% - 10px);
@@ -1066,7 +1066,7 @@ function onHeadlerForScroll(callback) {
   }
   img {
     position: absolute;
-    top: 15px;
+    top: 13px;
     left: 20px;
     font-weight: 300;
     font-size: 22px;
@@ -1095,8 +1095,8 @@ function onHeadlerForScroll(callback) {
   }
   img {
     position: absolute;
-    top: 15px;
-    left: 24px;
+    top: 13px;
+    left: 23px;
     font-weight: 300;
     font-size: 22px;
     color:#fff;
@@ -1119,6 +1119,15 @@ function onHeadlerForScroll(callback) {
   }
   .projects {
     padding-bottom: 480px;
+  }
+}
+
+@keyframes wheel {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }
 </style>

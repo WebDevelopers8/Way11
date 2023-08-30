@@ -54,7 +54,7 @@
 
 <style lang="postcss" scoped>
 .footer {
-  padding-top: 260px;
+  padding-top: 200px;
   padding-bottom: 75px;
   &__wrapper {
     grid-template-columns: repeat(4, 1fr);

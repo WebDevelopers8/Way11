@@ -129,7 +129,7 @@ img {
     transform: translateX(-50%);
     top: -240px;
     z-index: -1;
-    @apply xl:w-[calc(100vw+20px)] lg:object-fill lg:h-[1400px] sm:h-[1450px] object-cover h-[1320px];
+    @apply xl:w-[calc(100vw+20px)] lg:object-fill lg:h-[1350px] sm:h-[1450px] object-cover h-[1320px];
 }
 
 #bg2 {
@@ -138,5 +138,5 @@ img {
     z-index: -1;
     width: 100000%;
     object-fit: cover;
-    @apply 2xl:h-[2220px] 2xl:top-[2700px] xl:top-[2700px] xl:h-[1800px] lg:top-[2850px] lg:h-[1800px] sm:top-[3721px] sm:h-[2310px] top-[3950px] h-[2550px];
+    @apply 2xl:h-[2120px] 2xl:top-[2700px] xl:top-[2700px] xl:h-[1800px] lg:top-[2850px] lg:h-[1800px] sm:top-[3721px] sm:h-[2310px] top-[3950px] h-[2450px];
 }
