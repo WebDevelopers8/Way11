@@ -22,13 +22,13 @@
 
 <style lang="postcss" scoped>
 .component {
-  @apply flex justify-between gap-[10px] mt-[30px];
+  @apply flex justify-between gap-[10px] mt-[24px] lg:mt-[30px];
 
   &-left {
     @apply flex flex-col lg:w-[40%] w-full;
 
     &__text {
-      @apply text-[20px] text-[#14161F];
+      @apply lg:text-[20px] text-[18px] text-[#14161F];
     }
   }
 

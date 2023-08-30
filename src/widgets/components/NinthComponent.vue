@@ -31,17 +31,21 @@
   &-item
   {
     @apply flex flex-col lg:w-[50%] w-full;
+    &:last-child
+    {
+      @apply mt-[56px]
+    }
   }
   &__title {
     line-height: 48px; /* 133.333% */
     letter-spacing: 0.36px;
-    @apply text-[36px] text-[#14161F];
+    @apply text-[28px] lg:text-[36px] text-[#14161F];
   }
 
   &__subtitle {
     line-height: 32px; /* 160% */
     letter-spacing: 0.2px;
-    @apply mt-[24px] text-[20px] text-[#14161F];
+    @apply mt-[24px] text-[18px] lg:text-[20px] text-[#14161F];
   }
 }
 </style>

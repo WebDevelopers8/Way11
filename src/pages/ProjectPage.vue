@@ -48,7 +48,7 @@ import NinthComponent from "@/widgets/components/NinthComponent.vue";
     @apply flex items-center mt-[60px];
 
     &__link {
-      @apply px-[30px];
+      @apply pr-[30px];
     }
 
     &__name {

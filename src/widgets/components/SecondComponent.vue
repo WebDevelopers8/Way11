@@ -30,13 +30,13 @@
     &__title {
       line-height: 48px; /* 133.333% */
       letter-spacing: 0.36px;
-      @apply text-[#14161F] text-[36px];
+      @apply text-[#14161F] text-[28px] lg:text-[36px];
     }
 
     &__text {
       line-height: 32px; /* 160% */
       letter-spacing: 0.2px;
-      @apply text-[#14161F] text-[20px] mt-[32px];
+      @apply text-[#14161F] text-[18px] lg:text-[20px] mt-[24px] lg:mt-[32px];
     }
   }
 
@@ -46,13 +46,13 @@
     &__title {
       line-height: 48px; /* 133.333% */
       letter-spacing: 0.36px;
-      @apply text-[#14161F] text-[36px];
+      @apply text-[#14161F] text-[28px] lg:text-[36px];
     }
 
     &__li {
       line-height: 32px; /* 160% */
       letter-spacing: 0.2px;
-      @apply text-[#14161F] text-[20px];
+      @apply text-[#14161F] text-[18px] lg:text-[20px];
 
       & span {
         @apply text-[#898A8F];
