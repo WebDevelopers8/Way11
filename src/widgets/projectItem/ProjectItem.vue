@@ -43,31 +43,25 @@ defineProps<{
     @apply flex flex-col lg:w-[50%] w-[100%];
     &__title
     {
-      letter-spacing: 0.36px;
-      line-height: 48px;
-      @apply text-[#14161F] text-[36px];
+      @apply lg:tracking-[0.36px] lg:leading-[48px] tracking-[0.28px] leading-[40px]  text-[#14161F] text-[28px] lg:text-[36px];
     }
     &__type
     {
       line-height: 24px;
-      letter-spacing: 0.18px;
-      @apply text-[#898A8F] text-[18px];
+      @apply lg:tracking-[0.18px] tracking-[0.16] text-[#898A8F] text-[16px] lg:text-[18px];
     }
     &__description
     {
-      line-height: 32px;
-      letter-spacing: 0.2px;
-      @apply text-[#14161F] text-[20px] mt-[24px];
+      @apply lg:tracking-[0.2px] tracking-[0.18px] lg:leading-[32px] leading-[24px] text-[#14161F] text-[18px] lg:text-[20px] mt-[24px];
     }
     &__stack-items
     {
-      @apply flex flex-wrap xl:w-[580px] lg:w-[500px] mt-[24px] gap-[16px];
+      @apply flex flex-wrap xl:w-[480px] mt-[24px] gap-[16px];
     }
     &__more {
-      @apply flex justify-between mt-[50px];
+      @apply flex lg:justify-between justify-center mt-[50px];
       & a {
         position: relative;
-        width: calc(50% - 10px);
         height: 58px;
         background-color: #5BB6F1;
         border-radius: 8px;
@@ -79,19 +73,19 @@ defineProps<{
         border-right: 5px solid #438CB4;
         border-bottom: 5px solid #438CB4;
         transition: all .2s ease;
+        @apply lg:w-[calc(50%-10px)] sm:w-[50%] w-[70%];
         &:hover {
           transform: skew(-18deg) translateY(2px);
           border-right: 1px solid #438CB4;
           border-bottom: 1px solid #438CB4;
         }
         div {
-          font-size: 22px;
           color:#fff;
           transform: skew(18deg);
           position: absolute;
           font-weight: 300;
           top: 12px;
-          @apply xl:left-[30%];
+          @apply xl:left-[30%] lg:text-[22px] text-[18px];
         }
       }
     }

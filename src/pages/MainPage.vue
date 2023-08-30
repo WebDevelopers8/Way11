@@ -4,17 +4,23 @@
     <img src="@/shared/images/promo-pic.png" class="promo__pic" alt="promo pic">
     <div class="container">
       <div class="promo__title-comp">
-        <span>Путь в тысячу миль начинается</span> с одного шага
+          <span>Путь в тысячу миль <br>начинается</span> с одного шага
+
       </div>
       <div class="promo__title-mob">
-        <span>Путь в тысячу миль начинается</span><br> с одного<br> шага
+        <span>Путь в тысячу<br> миль начинается<br></span> с одного <br>шага
       </div>
       <div class="promo__text">
-        Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.<span class="lg:block hidden">
+        <span class="lg:contents hidden text-[20px]">
+          Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.
         В основе наших проектов лежат идеи,
         основанные на аналитике, креативе и технологиях.
-      </span>
+        </span>
+        <span class="lg:hidden block text-start">
+          Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.
+        </span>
       </div>
+
       <div class="flex lg:justify-start justify-center items-center">
         <button class="promo__btn">
           <div>Оставить заявку</div>
@@ -81,17 +87,17 @@
     </div>
   </section>
 
-  <img src="@/shared/images/bg-1.png" id="bg2" alt="background">
+  <img src="@/shared/images/bg-1.png" class="bg2" alt="background">
   <div class="mt-[200px] lg:hidden block">
     <div class="container">
-      <p class="text-[#14161F] text-[40px] leading-[40px]">Проекты</p>
+      <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
       <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
         <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
           <img src="@/shared/images/arrow-prev.png">
         </button>
-        <div class="flex flex-col items-center justify-center px-[20px]">
-          <span class="text-[#14161F] text-[28px] leading-[40px]">{{title[projectCount - 1]}}</span>
-          <div class="text-[#898A8F] text-[16px] leading-[24px]">{{type[projectCount - 1]}}</div>
+        <div class="flex flex-col items-center justify-center w-[55%]">
+          <span class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{title[projectCount - 1]}}</span>
+          <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">{{type[projectCount - 1]}}</div>
         </div>
         <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
           <img src="@/shared/images/arrow-next.png">
@@ -101,7 +107,7 @@
         <div class="my-[24px] sm:h-[450px] h-[300px]">
           <SliderVue />
         </div>
-        <span>На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+        <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
         <div class="projects__tags">
           <span>AWS Chalice</span>
           <span>Lambda</span>
@@ -126,7 +132,11 @@
         <div class="my-[24px] sm:h-[450px] h-[300px]">
           <SliderVue />
         </div>
-        <span>На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+        <span class="text-[18px] leading-[24px] text-[#14161F]">Таким образом, начало повседневной работы по формированию позиции играет определяющее
+              значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
+              диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
+              конкретные выводы, разумеется, преданы социально-демократической анафеме.
+            </span>
         <div class="projects__tags">
           <span>AWS Chalice</span>
           <span>Lambda</span>
@@ -151,7 +161,7 @@
         <div class="my-[24px] sm:h-[450px] h-[300px]">
           <SliderVue />
         </div>
-        <span>На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+        <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
         <div class="projects__tags">
           <span>AWS Chalice</span>
           <span>Lambda</span>
@@ -229,7 +239,7 @@
               </button>
             </div>
           </div>
-          <div class="h-[90%]">
+          <div class="h-[95%]">
             <SliderVue />
           </div>
 
@@ -260,7 +270,9 @@
               </button>
             </div>
           </div>
-          <SliderVue />
+          <div class="h-[95%]">
+            <SliderVue />
+          </div>
         </div>
         <div ref="projectsWrapper3" class="projects__wrapper ">
           <div class="projects__descr">
@@ -287,7 +299,9 @@
               </button>
             </div>
           </div>
-          <SliderVue />
+          <div class="h-[95%]">
+            <SliderVue />
+          </div>
         </div>
       </div>
     </div>
@@ -568,7 +582,10 @@ function onHeadlerForScroll(callback) {
 
  // modern Chrome requires { passive: false } when adding event
   var supportsPassive = false;
-  // try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) {}
+
+  //@ts-ignore
+  // eslint-disable-next-line getter-return
+  try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) { /* empty */ }
 
   var wheelOpt = supportsPassive ? { passive: false } : false;
   var wheelEvent =
@@ -584,18 +601,19 @@ function onHeadlerForScroll(callback) {
 
 <style lang="postcss" scoped>
 .promo {
-  @apply xl:pt-[180px] pt-[100px] relative;
+  @apply xl:pt-[180px] lg:pt-[100px] pt-[60px] relative;
   &__title {
     &-comp
     {
+
       position: relative;
       font-size: 60px;
       font-weight: 800;
       text-transform: uppercase;
       line-height: 64px;
-      @apply w-[80%] text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
+      @apply w-[100%] text-start font-bold lg:text-[60px] text-[60px] relative lg:contents hidden;
       span {
-        @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
+        @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:contents hidden whitespace-nowrap;
         -webkit-text-stroke: 1.5px #000;
         color: transparent;
       }
@@ -603,19 +621,17 @@ function onHeadlerForScroll(callback) {
     &-mob
     {
       text-transform: uppercase;
-      line-height: 64px;
-      @apply text-start font-bold sm:text-[60px] text-[39px] relative lg:hidden;
+      @apply lg:leading-[64px] leading-[36px] text-start font-black  sm:text-[40px] text-[30px] relative lg:hidden;
       span {
-        @apply text-start font-bold sm:text-[60px] relative lg:hidden;
-        -webkit-text-stroke: 1.5px #000;
+        @apply text-start font-bold sm:text-[40px] text-[30px] relative lg:hidden;
+        -webkit-text-stroke: 1px #000;
         color: transparent;
       }
     }
   }
   &__text {
-    font-size: 20px;
     line-height: 32px;
-    @apply lg:mt-[40px] lg:w-[55%] w-full sm:mt-[500px] mt-[376px];
+    @apply lg:mt-[40px] lg:w-[53%] lg:text-[20px] text-[18px] w-full sm:mt-[450px] mt-[275px];
   }
   &__btn {
     position: relative;
@@ -640,7 +656,7 @@ function onHeadlerForScroll(callback) {
     div {
       position: absolute;
       top: 10px;
-      left: 58px;
+      left: 66px;
       font-weight: 300;
       font-size: 22px;
       color:#fff;
@@ -649,9 +665,8 @@ function onHeadlerForScroll(callback) {
   }
   &__pic {
     position: absolute;
-    z-index: -1;
     pointer-events: none;
-    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-350px] xl:bottom-[50px] lg:bottom-[-40px] lg:right-[-152px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
+    @apply z-[-1] object-cover bottom-[104px] right-[-11px] h-[60%] w-[100%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -675,15 +690,72 @@ function onHeadlerForScroll(callback) {
   }
 }
 
+@media (max-width: 375px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply bottom-[69px] right-[0px] w-[100%] h-[69%];
+    }
+  }
+}
+@media (max-width: 425px) and (min-width: 376px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply bottom-[69px] right-[-11px] w-[100%] h-[69%];
+    }
+  }
+}
+@media (min-width: 640px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply object-none bottom-[-60px] right-[-45px] w-[100%] h-[100%];
+    }
+  }
+}
+@media (min-width: 1024px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply object-contain z-[-1] bottom-[-120px] right-[-322px] h-[100%];
+    }
+  }
+}
+@media (min-width: 1280px) {
+  .promo
+  {
+    &__pic
+    {
+      @apply right-[-420px] bottom-[0px] h-[90%];
+    }
+  }
+}
+@media (min-width: 1536px) {
+  .promo
+  {
+    &__pic
+    {
+      @apply right-[-400px] bottom-[20px];
+    }
+  }
+}
 .adv {
-  padding-top: 260px;
+  @apply lg:pt-[260px] pt-[220px];
   &__title {
-    @apply sm:text-[56px] text-[40px] lg:text-start text-center;
+    @apply sm:text-[56px] text-[30px] lg:text-[40px] text-start;
   }
   &__text {
     margin-top: 8px;
-    font-size: 20px;
-    @apply lg:text-start text-center
+    @apply text-start lg:text-[20px] text-[18px]
   }
   &__content {
     margin-top: 60px;
@@ -692,39 +764,43 @@ function onHeadlerForScroll(callback) {
     grid-template-rows: 1fr;
     grid-auto-rows: 1fr;
     gap: 40px 25px;
-    @apply lg:grid block;
+    @apply lg:grid flex flex-col;
     &-item {
       display: flex;
       flex-direction: column;
       align-items: center;
       span {
         margin-top: 32px;
-        @apply sm:text-[36px] text-[34px];
+        @apply sm:text-[36px] text-[28px];
       }
       p {
-        font-size: 20px;
         margin-top: 24px;
         line-height: 32px;
+        @apply 2xl:w-[90%] lg:text-[20px] text-[18px];
       }
     }
   }
 }
 
+@media (min-width: 1920px) {
+  .form {
+    @apply pt-[0px]
+  }
+}
 .form {
-  @apply 2xl:pt-[0] lg:pt-[100px] pt-[120px];
+  @apply 2xl:pt-[100px] 2xl:pb-[100px] lg:pt-[100px] pt-[120px];
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
   }
   &__title {
     line-height: 56px;
-    @apply sm:text-[56px] text-[46px];
+    @apply lg:text-[56px] text-[30px];
   }
   &__text {
     margin-top: 24px;
-    font-size: 18px;
     color:#898A8F;
     line-height: 24px;
-    @apply lg:pr-[150px];
+    @apply lg:text-[18px] text-[16px] lg:pr-[150px];
   }
   &__sm-inputs {
     @apply flex lg:flex-row flex-col lg:justify-between mt-[24px] gap-[16px]
@@ -752,14 +828,13 @@ function onHeadlerForScroll(callback) {
       border: none;
       background: transparent;
       width: calc(100% - 16px);
-      font-size: 20px;
+      @apply lg:text-[20px] text-[18px];
       &:focus-visible {
         outline: none;
       }
       &::placeholder {
         color: #B9B9BC;
       }
-      font-size: 22px;
       padding: 8px;
       color: #B9B9BC;
       transform: skew(18deg);
@@ -792,17 +867,15 @@ function onHeadlerForScroll(callback) {
         @apply lg:order-[0] order-[-1];
         div {
           color: #438CB4;
-          @apply 2xl:left-[15px] 2xl:top-[12px] xl:left-[15px] xl:top-[10px] lg:left-[15px] sm:left-[35%];
+          @apply 2xl:left-[14px] 2xl:top-[12px] xl:left-[15px] xl:top-[10px] lg:left-[10px] lg:top-[10px] sm:left-[35%];
         }
       }
       div {
-        font-size: 22px;
         color:#fff;
         transform: skew(18deg);
         position: absolute;
         font-weight: 300;
-        top: 10px;
-        @apply lg:w-[90%] sm:w-[33%];
+        @apply lg:text-[22px] text-[18px] lg:top-[10px] lg:w-[90%] sm:w-[33%];
       }
     }
   }
@@ -842,7 +915,7 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__road {
-    @apply pb-[80px] pt-[120px] px-[0] xl:block hidden relative;
+    @apply py-[120px] px-[0] xl:block hidden relative;
     &-img {
       position: absolute;
       left: 50%;
@@ -942,14 +1015,13 @@ function onHeadlerForScroll(callback) {
   &__tags {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 24px;
+    margin-top: 20px;
+    @apply gap-[16px];
     span {
       padding: 8px 20px;
-      font-size: 18px;
       border: 1px solid #787878;
       border-radius: 5px;
-      margin-right: 16px;
-      margin-bottom: 16px;
+      @apply lg:text-[18px] text-[16px]
     }
   }
   &__slider {
@@ -966,8 +1038,7 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__buttons {
-    @apply flex w-full sm:flex-row justify-between sm:items-start items-center flex-col;
-    margin-top: 10px;
+    @apply flex w-full sm:flex-row justify-between sm:items-start items-center flex-col mt-[48px];
     a {
       position: relative;
       width: calc(50% - 10px);
@@ -988,22 +1059,13 @@ function onHeadlerForScroll(callback) {
         border-right: 1px solid #438CB4;
         border-bottom: 1px solid #438CB4;
       }
-      &.outline {
-        background-color: #fff;
-        div {
-          color: #438CB4;
-          left: 46px;
-        }
-      }
       div {
         position: absolute;
         top: 14px;
-        left: 84px;
-        font-size: 22px;
         font-weight: 300;
         color:#fff;
         transform: skew(18deg);
-        @apply lg:left-[87px] sm:left-[110px] sm:top-[12px] left-[28%] top-[11px];
+        @apply lg:text-[22px] text-[18px] lg:left-[87px] sm:left-[115px] sm:top-[12px] left-[30%];
       }
     }
     button {
@@ -1030,16 +1092,38 @@ function onHeadlerForScroll(callback) {
         background-color: #fff;
         div {
           color: #438CB4;
-          @apply lg:left-[46px] sm:left-[70px] sm:top-[12px];
+          @apply lg:left-[46px] sm:left-[90px] sm:top-[12px];
         }
       }
       div {
         position: absolute;
-        font-size: 22px;
         font-weight: 300;
         color:#fff;
         transform: skew(18deg);
-        @apply lg:left-[84px] sm:left-[110px] lg:top-[14px] top-[11px];
+        @apply lg:text-[22px] text-[18px] lg:left-[90px] sm:left-[110px] lg:top-[14px] top-[11px];
+      }
+    }
+  }
+}
+
+@media (max-width: 426px) and (min-width:376px)
+{
+  .projects__buttons
+  {
+    & a{
+      & div {
+        @apply left-[31%] top-[14px];
+      }
+    }
+  }
+}
+@media (max-width: 376px) and (min-width:321px)
+{
+  .projects__buttons
+  {
+    & a{
+      & div {
+        @apply left-[29%] top-[13px]
       }
     }
   }
@@ -1047,7 +1131,35 @@ function onHeadlerForScroll(callback) {
 
 .btn-prev {
   position: relative;
-  width: 60px;
+  width: 55px;
+  height: 54px;
+  background-color: #5BB6F1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skew(-18deg);
+  border: 1px solid #438CB4;
+  border-right: 5px solid #438CB4;
+  border-bottom: 5px solid #438CB4;
+  transition: all .2s ease;
+  &:hover {
+    transform: skew(-18deg) translateY(2px);
+    border-right: 1px solid #438CB4;
+    border-bottom: 1px solid #438CB4;
+  }
+  img {
+    position: absolute;
+    top: 13px;
+    left: 17px;
+    color:#fff;
+    transform: skew(16deg);
+
+  }
+}
+.btn-next {
+  position: relative;
+  width: 55px;
   height: 54px;
   background-color: #5BB6F1;
   border-radius: 8px;
@@ -1068,39 +1180,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     top: 13px;
     left: 20px;
-    font-weight: 300;
-    font-size: 22px;
-    color:#fff;
-    transform: skew(18deg);
-  }
-}
-.btn-next {
-  position: relative;
-  width: 60px;
-  height: 54px;
-  background-color: #5BB6F1;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: skew(-18deg);
-  border: 1px solid #438CB4;
-  border-right: 5px solid #438CB4;
-  border-bottom: 5px solid #438CB4;
-  transition: all .2s ease;
-  &:hover {
-    transform: skew(-18deg) translateY(2px);
-    border-right: 1px solid #438CB4;
-    border-bottom: 1px solid #438CB4;
-  }
-  img {
-    position: absolute;
-    top: 13px;
-    left: 23px;
-    font-weight: 300;
-    font-size: 22px;
-    color:#fff;
-    transform: skew(18deg);
+    transform: skew(15deg);
   }
 }
 

@@ -17,8 +17,7 @@ defineProps<{
   &__text
   {
     line-height: 24px;
-    letter-spacing: 0.18px;
-    @apply text-[18px] text-[#14161F] flex-grow-[1];
+    @apply lg:tracking-[0.18px] tracking-[0.16px] text-[16px] lg:text-[18px] text-[#14161F] flex-grow-[1];
   }
 }
 </style>

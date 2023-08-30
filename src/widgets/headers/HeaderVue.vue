@@ -27,26 +27,83 @@
       <transition name="header__sidemenu">
         <div v-if="stateMenu" class="header__sidemenu">
           <div class="header__sidemenu-nav">
-            <a href="#services" id="services__link">Услуги</a>
-            <a href="#projects" id="projects__link">Проекты</a>
-            <a href="#form" id="form__link">Оставить заявку</a>
+            <a href="#services" >Услуги</a>
+            <a href="#projects" >Проекты</a>
+            <a href="#form">Оставить заявку</a>
           </div>
           <div class="header__line"></div>
         </div>
       </transition>
     </div>
+    <transition name="modal">
+      <HeaderModal class="lg:hidden" v-model="stateMenu" v-if="stateMenu">
+        <div class="modal">
+          <div class="w-[100%] flex flex-col items-center justify-center ">
+            <div class="container">
+              <div class="w-full flex justify-end">
+                <button class="header__burger mt-[36px]" :class="{active:stateMenu}"
+                        @click="stateMenu ? stateMenu = false : stateMenu = true">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </button>
+              </div>
+            </div>
+            <img class="mt-[36px]" src="@/shared/images/logo-s.png">
+            <div class="flex flex-col w-[90%] mt-[40px] gap-[24px] border-b-solid border-b-[1px] border-b-[#787878] pb-[48px]">
+              <a href="#services" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</a>
+              <a href="#projects" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</a>
+              <a href="#form" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</a>
+            </div>
+            <div class="w-full flex flex-col items-center">
+              <div class="flex gap-[24px] mt-[48px]">
+                <a>
+                  <img src="@/shared/images/icons/ball.svg">
+                </a>
+                <a>
+                  <img src="@/shared/images/icons/vk.svg">
+                </a>
+                <a>
+                  <img src="@/shared/images/icons/telegram.svg">
+                </a>
+              </div>
+              <div class="flex flex-col items-center justify-center w-full mt-[24px]">
+                <a href="tel:79371234333" class="text-[#14161F] text-[18px] text-center tracking-[0.18px] leading-[24px]"> +7 (937) 123-43-33</a>
+                <a href="mailto:mail@studioway11.com" class="text-[#14161F] text-[18px] text-center tracking-[0.18px] leading-[24px] mt-[16px]">mail@studioway11.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </HeaderModal>
+    </transition>
   </header>
 </template>
 
 <script setup lang="ts">
 import {ref} from "vue";
-import {state} from "vue-tsc/out/shared";
+import HeaderModal from "@/widgets/headers/modal/HeaderModal.vue";
 
 const burger = document.querySelector('.header__burger');
 const stateMenu = ref(false)
 </script>
 
 <style lang="postcss" scoped>
+.modal
+{
+  @apply w-full flex flex-col items-center justify-center;
+  &-enter-active, &-leave-active
+  {
+    transition: all 0.3s ease;
+  }
+  &-enter-from, &-leave-to
+  {
+    @apply opacity-0
+  }
+  &-enter-to, &-leave-from
+  {
+    @apply opacity-100;
+  }
+}
 .header {
   &__wrapper {
     position: relative;
@@ -67,7 +124,7 @@ const stateMenu = ref(false)
   &__sidemenu {
     pointer-events: none;
     position: absolute;
-    @apply sm:w-[100%] w-[91%];
+    @apply lg:w-[100%] w-[91%] lg:block hidden;
     &-enter-active, &-leave-active {
       opacity: 1;
       pointer-events: all;
