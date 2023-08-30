@@ -130,15 +130,14 @@ img {
     top: -240px;
     z-index: -1;
     width: calc(100vw + 20px);
-    object-fit: cover;
-    @apply lg:h-[1300px] h-[1300px]
+    @apply lg:h-[1300px] sm:h-[1450px] object-cover h-[1320px];
 }
 
 #bg2 {
     position: absolute;
+    top: -150px;
     z-index: -1;
-    width: 10000%;
-    height: 1900px;
+    width: 100000%;
     object-fit: cover;
-    @apply xl:top-[-150px] top-[0];
+    @apply 2xl:h-[2150px] 2xl:top-[2700px] xl:top-[2700px] xl:h-[1800px] lg:top-[2850px] lg:h-[1800px] sm:top-[3721px] sm:h-[2310px] top-[3950px] h-[2550px];
 }
