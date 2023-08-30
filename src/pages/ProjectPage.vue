@@ -15,7 +15,7 @@
     <SeventhComponent />
     <EighthComponent />
     <NinthComponent />
-    <div class="mt-[72px] mb-[20px] w-full flex justify-center">
+    <div class="mt-[72px] mb-[70px] w-full flex justify-center">
       <div class="project__button">
         <router-link to="/"><div>Вернуться назад</div></router-link>
       </div>

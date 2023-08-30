@@ -1,10 +1,13 @@
 <template>
   <section class="promo">
     <img id="bg1" src="@/shared/images/bg-1.png" alt="background">
-    <img src="@/shared/images/man.png" class="promo__pic" alt="promo pic">
+    <img src="@/shared/images/promo-pic.png" class="promo__pic" alt="promo pic">
     <div class="container">
-      <div class="promo__title">
+      <div class="promo__title-comp">
         <span>Путь в тысячу миль<br> начинается</span> с одного шага
+      </div>
+      <div class="promo__title-mob">
+        <span>Путь в тысячу миль начинается</span><br> с одного шага
       </div>
       <div class="promo__text">
         Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.<span class="lg:block hidden">
@@ -127,9 +130,9 @@
               <span>React</span>
             </div>
             <div class="projects__buttons">
-              <button type="submit">
+              <router-link to='/project/0'>
                 <div>Подробнее</div>
-              </button>
+              </router-link>
               <button class="outline">
                 <div>Предложить проект</div>
               </button>
@@ -182,9 +185,9 @@
               <span>React</span>
             </div>
             <div class="projects__buttons">
-              <button type="submit">
+              <router-link to="/project/0">
                 <div>Подробнее</div>
-              </button>
+              </router-link>
               <button class="outline">
                 <div>Предложить проект</div>
               </button>
@@ -482,20 +485,31 @@ function onHeadlerForScroll(callback) {
 .promo {
   @apply xl:pt-[180px] pt-[100px] relative;
   &__title {
-    font-size: 60px;
-    font-weight: 800;
-    text-transform: uppercase;
-    line-height: 64px;
-    @apply md:text-start text-center lg:text-[60px] text-[44px] relative;
-    span {
-      -webkit-text-stroke: 2px #000000;
-      color: transparent;
+    &-comp
+    {
+      text-transform: uppercase;
+      line-height: 64px;
+      @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
+      span {
+        -webkit-text-stroke: 2px #000;
+        color: transparent;
+      }
+    }
+    &-mob
+    {
+      text-transform: uppercase;
+      line-height: 64px;
+      @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:hidden;
+      span {
+        -webkit-text-stroke: 2px #000;
+        color: transparent;
+      }
     }
   }
   &__text {
     font-size: 20px;
     line-height: 32px;
-    @apply lg:mt-[40px] lg:w-[55%] w-full mt-[350px];
+    @apply lg:mt-[40px] lg:w-[55%] w-full mt-[500px];
   }
   &__btn {
     position: relative;
@@ -519,7 +533,7 @@ function onHeadlerForScroll(callback) {
     }
     div {
       position: absolute;
-      top: 14px;
+      top: 10px;
       left: 58px;
       font-weight: 300;
       font-size: 22px;
@@ -531,7 +545,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    @apply z-[-1] lg:bottom-[10px] lg:right-[-225px] lg:h-[90%] sm:bottom-[60px] sm:right-[-135px] sm:h-[70%] bottom-[142px] right-[-29px] object-cover h-[47%] ;
+    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-420px] lg:bottom-[0px] lg:right-[-300px] xl:h-[90%] lg:h-[80%] sm:bottom-[40px] sm:right-[00px] sm:h-[70%] bottom-[100px] right-[50px] h-[50%] w-[80%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -593,8 +607,7 @@ function onHeadlerForScroll(callback) {
 .form {
   padding-top: 150px;
   &__wrapper {
-    grid-template-columns: 1fr 1fr;
-    @apply lg:grid flex flex-col gap-[32px]
+    @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
   }
   &__title {
     font-size: 56px;
@@ -676,6 +689,7 @@ function onHeadlerForScroll(callback) {
         div {
           color: #438CB4;
           left: 74px;
+          @apply left-[]
         }
       }
       div {
@@ -696,6 +710,7 @@ function onHeadlerForScroll(callback) {
   padding-bottom: 680px;
   min-height: 800px;
   height: 100vh;
+  @apply lg:block hidden;
   &__test {
     position: absolute;
     display: flex;
@@ -851,6 +866,42 @@ function onHeadlerForScroll(callback) {
     display: flex;
     justify-content: space-between;
     margin-top: 48px;
+    a {
+      position: relative;
+      width: calc(50% - 10px);
+      height: 58px;
+      background-color: #5BB6F1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: skew(-18deg);
+      border: 1px solid #438CB4;
+      border-right: 5px solid #438CB4;
+      border-bottom: 5px solid #438CB4;
+      transition: all .2s ease;
+      &:hover {
+        transform: skew(-18deg) translateY(2px);
+        border-right: 1px solid #438CB4;
+        border-bottom: 1px solid #438CB4;
+      }
+      &.outline {
+        background-color: #fff;
+        div {
+          color: #438CB4;
+          left: 46px;
+        }
+      }
+      div {
+        position: absolute;
+        top: 14px;
+        left: 84px;
+        font-size: 22px;
+        font-weight: 300;
+        color:#fff;
+        transform: skew(18deg);
+      }
+    }
     button {
       position: relative;
       width: calc(50% - 10px);

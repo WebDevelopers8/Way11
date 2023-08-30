@@ -3,139 +3,142 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 100;
-  src : url("@/shared/fonts/Proxima Nova Thin.otf");
+    font-family: "ProximaNova";
+    font-weight: 100;
+    src: url("@/shared/fonts/Proxima Nova Thin.otf");
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 300;
-  src : url("@/shared/fonts/Proxima Nova Light.otf");
+    font-family: "ProximaNova";
+    font-weight: 300;
+    src: url("@/shared/fonts/Proxima Nova Light.otf");
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 400;
-  src : url("@/shared/fonts/Proxima Nova Regular.otf");
+    font-family: "ProximaNova";
+    font-weight: 400;
+    src: url("@/shared/fonts/Proxima Nova Regular.otf");
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 600;
-  src : url("@/shared/fonts/Proxima Nova Semibold.otf");
+    font-family: "ProximaNova";
+    font-weight: 600;
+    src: url("@/shared/fonts/Proxima Nova Semibold.otf");
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 700;
-  src : url("@/shared/fonts/Proxima Nova Bold.otf");
+    font-family: "ProximaNova";
+    font-weight: 700;
+    src: url("@/shared/fonts/Proxima Nova Bold.otf");
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 800;
-  src : url("@/shared/fonts/Proxima Nova Extrabold.otf");
+    font-family: "ProximaNova";
+    font-weight: 800;
+    src: url("@/shared/fonts/Proxima Nova Extrabold.otf");
 }
 
 @font-face {
-  font-family: "ProximaNova";
-  font-weight: 900;
-  src : url("@/shared/fonts/Proxima Nova Black.otf");
+    font-family: "ProximaNova";
+    font-weight: 900;
+    src: url("@/shared/fonts/Proxima Nova Black.otf");
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  font-family: 'ProximaNova', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'ProximaNova', sans-serif;
 }
+
 html {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 body {
-  min-height: 100vh;
-  background: #fff;
-  overflow: hidden;
-  position: relative;
-  color: #14161F;
-}
-a {
-  text-decoration: none;
-  outline: 0;
-  color: #14161F;
+    min-height: 100vh;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    color: #14161F;
 }
 
-.outline
-{
-  outline-style: none !important;
+a {
+    text-decoration: none;
+    outline: 0;
+    color: #14161F;
 }
+
+.outline {
+    outline-style: none !important;
+}
+
 ol, ul {
-  list-style: none;
+    list-style: none;
 }
 
 button {
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
+    border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 img {
-  user-select: none;
+    user-select: none;
 }
 
 .container {
-  position: relative;
-  width: 1280px;
-  margin: 0 auto;
+    position: relative;
+    width: 1280px;
+    margin: 0 auto;
 }
 
 @media (max-width: 1200px) {
-  .container {
-    width: 960px;
-  }
+    .container {
+        width: 960px;
+    }
 }
 
 @media (max-width: 992px) {
-  .container {
-    width: 720px;
-  }
+    .container {
+        width: 720px;
+    }
 }
 
 @media (max-width: 768px) {
-  .container {
-    width: 540px;
-  }
+    .container {
+        width: 700px;
+    }
 }
 
 @media (max-width: 576px) {
-  .container {
-    width: 100%;
-    padding: 0 20px;
-  }
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
 }
 
 #bg1 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -240px;
-  z-index: -1;
-  width: calc(100vw + 20px);
-  object-fit: cover;
-  @apply lg:h-[1300px] h-[1300px]
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -240px;
+    z-index: -1;
+    width: calc(100vw + 20px);
+    object-fit: cover;
+    @apply lg:h-[1300px] h-[1300px]
 }
 
 #bg2 {
-  position: absolute;
-  z-index: -1;
-  width: 10000%;
-  height: 1900px;
-  object-fit: cover;
-  @apply xl:top-[-150px] top-[0];
+    position: absolute;
+    z-index: -1;
+    width: 10000%;
+    height: 1900px;
+    object-fit: cover;
+    @apply xl:top-[-150px] top-[0];
 }
