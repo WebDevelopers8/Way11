@@ -4,8 +4,8 @@
     <span class="component__subtitle">Таск-трекер</span>
     <span class="component__description">В ходе аналитики было выявлено, что на предприятии нарушен процесс коммуникации из-за которого возникает множество различных сложностей, включая дублирование документов, потерю документов, не понимание загруженности сотрудников, не понимание актуальных задач и вечные перебежки между отделами для выяснения актуальности поставленных задач и статуса подписания докуменов. Мы решили закрыть эту часть проблем реализаций таск-трекера и совмещенного с ним документооборота, заточенного под нужды офиса и производства.</span>
     <div class="component-images">
-      <div class="lg:hidden block">
-        <SliderVue :urlImages="['/src/shared/images/project/trackImage.png', '/src/shared/images/project/docImage.png']" />
+      <div class="lg:hidden block w-full">
+        <SliderVue :urlImages="[FirstImage, SecondImage]" />
       </div><img src="@/shared/images/project/trackImage.png" class="lg:block hidden" alt="track image">
       <img src="@/shared/images/project/docImage.png" class="lg:block hidden" alt="document image">
     </div>
@@ -13,8 +13,9 @@
 </template>
 
 <script setup lang="ts">
-
 import SliderVue from "@/widgets/slider/SliderVue.vue";
+import FirstImage from "@/shared/images/project/trackImage.png";
+import SecondImage from "@/shared/images/project/docImage.png";
 </script>
 
 <style lang="postcss" scoped>

@@ -2,8 +2,8 @@
   <div class="component">
     <p class="component__title">Документооборот</p>
     <div class="component__images">
-      <div class="lg:hidden block">
-        <SliderVue :urlImages="['/src/shared/images/project/docList.png', '/src/shared/images/project/sendDoc.png']" />
+      <div class="lg:hidden block w-full">
+        <SliderVue :urlImages="[FirstImage, SecondImage]" />
       </div>
       <img class="lg:block hidden" src="@/shared/images/project/docList.png" alt="document list">
       <img class="lg:block hidden" src="@/shared/images/project/sendDoc.png" alt="send document">
@@ -12,7 +12,8 @@
 </template>
 
 <script setup lang="ts">
-
+import FirstImage from "@/shared/images/project/docList.png";
+import SecondImage from "@/shared/images/project/sendDoc.png";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 </script>
 
