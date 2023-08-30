@@ -4,19 +4,19 @@
     <img src="@/shared/images/promo-pic.png" class="promo__pic" alt="promo pic">
     <div class="container">
       <div class="promo__title-comp">
-          <span>Путь в тысячу миль начинается</span> с одного шага
+          <span>Путь в тысячу миль <br>начинается</span> с одного шага
 
       </div>
       <div class="promo__title-mob">
-        <span>Путь в тысячу миль начинается</span> с одного шага
+        <span>Путь в тысячу<br> миль начинается<br></span> с одного <br>шага
       </div>
       <div class="promo__text">
-        <span class="lg:block hidden">
+        <span class="lg:contents hidden text-[20px]">
           Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.
         В основе наших проектов лежат идеи,
         основанные на аналитике, креативе и технологиях.
         </span>
-        <span class="lg:hidden block">
+        <span class="lg:hidden block text-start">
           Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.
         </span>
       </div>
@@ -611,9 +611,9 @@ function onHeadlerForScroll(callback) {
       font-weight: 800;
       text-transform: uppercase;
       line-height: 64px;
-      @apply w-[100%] text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden;
+      @apply w-[100%] text-start font-bold lg:text-[60px] text-[60px] relative lg:contents hidden;
       span {
-        @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:block hidden whitespace-nowrap;
+        @apply text-start font-bold lg:text-[60px] text-[60px] relative lg:contents hidden whitespace-nowrap;
         -webkit-text-stroke: 1.5px #000;
         color: transparent;
       }
@@ -622,18 +622,17 @@ function onHeadlerForScroll(callback) {
     {
       text-transform: uppercase;
       line-height: 64px;
-      @apply text-start font-bold sm:text-[60px] text-[39px] relative lg:hidden;
+      @apply text-start font-black  sm:text-[40px] text-[30px] relative lg:hidden;
       span {
-        @apply text-start font-bold sm:text-[60px] relative lg:hidden;
+        @apply text-start font-bold sm:text-[40px] text-[30px] relative lg:hidden;
         -webkit-text-stroke: 1.5px #000;
         color: transparent;
       }
     }
   }
   &__text {
-    font-size: 20px;
     line-height: 32px;
-    @apply lg:mt-[40px] lg:w-[55%] w-full sm:mt-[500px] mt-[376px];
+    @apply lg:mt-[40px] lg:w-[53%] lg:text-[20px] text-[18px] w-full sm:mt-[450px] mt-[376px];
   }
   &__btn {
     position: relative;
@@ -669,7 +668,7 @@ function onHeadlerForScroll(callback) {
     position: absolute;
     z-index: -1;
     pointer-events: none;
-    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-350px] xl:bottom-[50px] lg:bottom-[-40px] lg:right-[-152px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-35px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
+    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-420px] xl:bottom-[0px] lg:bottom-[-120px] lg:right-[-322px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-60px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -727,6 +726,11 @@ function onHeadlerForScroll(callback) {
   }
 }
 
+@media (min-width: 1920px) {
+  .form {
+    @apply pt-[0px]
+  }
+}
 .form {
   @apply 2xl:pt-[100px] 2xl:pb-[100px] lg:pt-[100px] pt-[120px];
   &__wrapper {
@@ -956,12 +960,11 @@ function onHeadlerForScroll(callback) {
     display: flex;
     flex-wrap: wrap;
     margin-top: 20px;
+    @apply gap-[16px];
     span {
       padding: 8px 20px;
       border: 1px solid #787878;
       border-radius: 5px;
-      margin-right: 16px;
-      margin-bottom: 16px;
       @apply lg:text-[18px] text-[16px]
     }
   }
@@ -979,8 +982,7 @@ function onHeadlerForScroll(callback) {
     }
   }
   &__buttons {
-    @apply flex w-full sm:flex-row justify-between sm:items-start items-center flex-col;
-    margin-top: 10px;
+    @apply flex w-full sm:flex-row justify-between sm:items-start items-center flex-col mt-[48px];
     a {
       position: relative;
       width: calc(50% - 10px);
