@@ -138,5 +138,12 @@ img {
     z-index: -1;
     width: 100000%;
     object-fit: cover;
-    @apply 2xl:h-[2120px] 2xl:top-[2700px] xl:top-[2700px] xl:h-[1800px] lg:top-[2850px] lg:h-[1800px] sm:top-[3721px] sm:h-[2310px] top-[3950px] h-[2450px];
+    @apply 2xl:h-[1850px] 2xl:top-[2700px] xl:top-[2750px] xl:h-[1700px] lg:top-[2850px] lg:h-[1650px] sm:top-[3721px] sm:h-[2310px] top-[3950px] h-[2450px];
+}
+
+@media (min-width: 1920px){
+    #bg2
+    {
+        @apply h-[2120px] top-[2700px]
+    }
 }

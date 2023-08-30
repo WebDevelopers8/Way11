@@ -48,11 +48,15 @@ import NinthComponent from "@/widgets/components/NinthComponent.vue";
     @apply flex items-center mt-[60px];
 
     &__link {
-      @apply pr-[30px];
+      @apply pr-[16px] lg:pr-[30px];
+      & img
+      {
+        @apply lg:w-[15px] lg:h-[25px] w-[16px] h-[16px];
+      }
     }
 
     &__name {
-      @apply text-[#14161F] text-[56px];
+      @apply text-[#14161F] text-[30px] lg:text-[56px];
     }
   }
   &__button
