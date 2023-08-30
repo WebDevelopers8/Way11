@@ -2,7 +2,9 @@
   <div class="component">
     <p class="component__title">Документооборот</p>
     <div class="component__images">
-      <SliderVue class="lg:hidden block" :urlImages="['http://localhost:5173/src/shared/images/project/docList.png', 'http://localhost:5173/src/shared/images/project/sendDoc.png']" />
+      <div class="lg:hidden block">
+        <SliderVue :urlImages="['/src/shared/images/project/docList.png', '/src/shared/images/project/sendDoc.png']" />
+      </div>
       <img class="lg:block hidden" src="@/shared/images/project/docList.png" alt="document list">
       <img class="lg:block hidden" src="@/shared/images/project/sendDoc.png" alt="send document">
     </div>

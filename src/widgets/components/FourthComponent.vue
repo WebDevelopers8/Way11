@@ -4,8 +4,9 @@
     <span class="component__subtitle">Таск-трекер</span>
     <span class="component__description">В ходе аналитики было выявлено, что на предприятии нарушен процесс коммуникации из-за которого возникает множество различных сложностей, включая дублирование документов, потерю документов, не понимание загруженности сотрудников, не понимание актуальных задач и вечные перебежки между отделами для выяснения актуальности поставленных задач и статуса подписания докуменов. Мы решили закрыть эту часть проблем реализаций таск-трекера и совмещенного с ним документооборота, заточенного под нужды офиса и производства.</span>
     <div class="component-images">
-      <SliderVue class="lg:hidden block" :urlImages="['http://localhost:5173/src/shared/images/project/trackImage.png', 'http://localhost:5173/src/shared/images/project/docImage.png']" />
-      <img src="@/shared/images/project/trackImage.png" class="lg:block hidden" alt="track image">
+      <div class="lg:hidden block">
+        <SliderVue :urlImages="['/src/shared/images/project/trackImage.png', '/src/shared/images/project/docImage.png']" />
+      </div><img src="@/shared/images/project/trackImage.png" class="lg:block hidden" alt="track image">
       <img src="@/shared/images/project/docImage.png" class="lg:block hidden" alt="document image">
     </div>
   </div>
