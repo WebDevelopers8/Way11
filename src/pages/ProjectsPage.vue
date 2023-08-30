@@ -61,7 +61,7 @@ function changeProject(id: number)
 {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
-  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[97%] h-[93%] lg:object-bottom object-cover;
+  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[97%] h-[92%] lg:object-bottom object-cover;
 }
 .back-arrow
 {
@@ -69,13 +69,11 @@ function changeProject(id: number)
 }
 
 .project{
-  @apply mt-[100px];
+  @apply lg:mt-[100px] mt-[40px];
   &__title
   {
-    -webkit-text-stroke: 2px #14161F;
-    line-height: 64px;
-    letter-spacing: 0.6px;
-    @apply lg:text-[60px] sm:text-[50px] text-[35px] text-[#FFF] font-bold;
+    -webkit-text-stroke: 1.5px #14161F;
+    @apply lg:leading-[64px] leading-[36px] lg:tracking-[0.6px] lg:text-[60px] text-[30px] text-[#FFF] font-bold;
     &-project
     {
       -webkit-text-stroke: 0px #14161F;
@@ -85,11 +83,10 @@ function changeProject(id: number)
   &-filter
   {
     line-height: 24px;
-    letter-spacing: 0.18px;
-    @apply flex md:gap-[32px] gap-[20px] mt-[5px] lg:flex-nowrap flex-wrap;
+    @apply lg:tracking-[0.18px] tracking-[0.16px] flex lg:gap-[32px] gap-[8px_32px] mt-[24px] lg:mt-[5px] lg:flex-nowrap flex-wrap;
     &__button
     {
-      @apply text-[#14161F] text-[18px];
+      @apply text-[#14161F] text-[16px] lg:text-[18px];
       &.active
       {
         @apply font-bold text-[#5BB6F1];
