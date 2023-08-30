@@ -689,7 +689,7 @@ function onHeadlerForScroll(callback) {
         div {
           color: #438CB4;
           left: 74px;
-          @apply left-[]
+
         }
       }
       div {
