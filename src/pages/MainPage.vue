@@ -87,7 +87,7 @@
     </div>
   </section>
 
-  <img src="@/shared/images/bg-1.png" id="bg2" alt="background">
+  <img src="@/shared/images/bg-1.png" class="bg2" alt="background">
   <div class="mt-[200px] lg:hidden block">
     <div class="container">
       <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
@@ -95,7 +95,7 @@
         <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
           <img src="@/shared/images/arrow-prev.png">
         </button>
-        <div class="flex flex-col items-center justify-center w-[50%]">
+        <div class="flex flex-col items-center justify-center w-[55%]">
           <span class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{title[projectCount - 1]}}</span>
           <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">{{type[projectCount - 1]}}</div>
         </div>
@@ -601,7 +601,7 @@ function onHeadlerForScroll(callback) {
 
 <style lang="postcss" scoped>
 .promo {
-  @apply xl:pt-[180px] pt-[100px] relative;
+  @apply xl:pt-[180px] lg:pt-[100px] pt-[60px] relative;
   &__title {
     &-comp
     {
@@ -621,18 +621,17 @@ function onHeadlerForScroll(callback) {
     &-mob
     {
       text-transform: uppercase;
-      line-height: 64px;
-      @apply text-start font-black  sm:text-[40px] text-[30px] relative lg:hidden;
+      @apply lg:leading-[64px] leading-[36px] text-start font-black  sm:text-[40px] text-[30px] relative lg:hidden;
       span {
         @apply text-start font-bold sm:text-[40px] text-[30px] relative lg:hidden;
-        -webkit-text-stroke: 1.5px #000;
+        -webkit-text-stroke: 1px #000;
         color: transparent;
       }
     }
   }
   &__text {
     line-height: 32px;
-    @apply lg:mt-[40px] lg:w-[53%] lg:text-[20px] text-[18px] w-full sm:mt-[450px] mt-[376px];
+    @apply lg:mt-[40px] lg:w-[53%] lg:text-[20px] text-[18px] w-full sm:mt-[450px] mt-[275px];
   }
   &__btn {
     position: relative;
@@ -666,9 +665,8 @@ function onHeadlerForScroll(callback) {
   }
   &__pic {
     position: absolute;
-    z-index: -1;
     pointer-events: none;
-    @apply lg:object-contain object-cover z-[-1] 2xl:right-[-400px] 2xl:bottom-[20px] xl:right-[-420px] xl:bottom-[0px] lg:bottom-[-120px] lg:right-[-322px] xl:h-[90%] lg:h-[100%] sm:object-none sm:bottom-[-60px] sm:right-[-45px] sm:w-[100%] sm:h-[100%] bottom-[148px] right-[0px] h-[60%] w-[100%];
+    @apply z-[-1] object-cover bottom-[104px] right-[-11px] h-[60%] w-[100%];
   }
   &__adv {
     @apply lg:mt-[160px] lg:block hidden relative;
@@ -692,8 +690,66 @@ function onHeadlerForScroll(callback) {
   }
 }
 
+@media (max-width: 375px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply bottom-[69px] right-[0px] w-[100%] h-[69%];
+    }
+  }
+}
+@media (max-width: 425px) and (min-width: 376px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply bottom-[69px] right-[-11px] w-[100%] h-[69%];
+    }
+  }
+}
+@media (min-width: 640px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply object-none bottom-[-60px] right-[-45px] w-[100%] h-[100%];
+    }
+  }
+}
+@media (min-width: 1024px)
+{
+  .promo
+  {
+    &__pic
+    {
+      @apply object-contain z-[-1] bottom-[-120px] right-[-322px] h-[100%];
+    }
+  }
+}
+@media (min-width: 1280px) {
+  .promo
+  {
+    &__pic
+    {
+      @apply right-[-420px] bottom-[0px] h-[90%];
+    }
+  }
+}
+@media (min-width: 1536px) {
+  .promo
+  {
+    &__pic
+    {
+      @apply right-[-400px] bottom-[20px];
+    }
+  }
+}
 .adv {
-  padding-top: 260px;
+  @apply lg:pt-[260px] pt-[220px];
   &__title {
     @apply sm:text-[56px] text-[30px] lg:text-[40px] text-start;
   }
