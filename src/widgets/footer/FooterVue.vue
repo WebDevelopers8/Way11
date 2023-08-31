@@ -27,7 +27,7 @@
           <img src="@/shared/images/logo-l.png">
         </div>
         <div class="lg:hidden flex flex-col items-center">
-          <span class="text-[#14161F] text-[30px] mt-[24px]">Way11</span>
+          <span class="text-[#14161F] leading-[40px] text-[30px] mt-[8px]">Way11</span>
           <div class="footer__social mt-[24px]">
             <a href="#"><img src="@/shared/images/icons/ball.svg"></a>
             <a href="#"><img src="@/shared/images/icons/vk.svg"></a>
@@ -36,8 +36,8 @@
         </div>
         <div class="lg:hidden flex flex-col items-center">
           <div class="footer__address">Астрахань<br> ул. Урицкого 7, офис 217</div>
-          <a href="tel:+79371234333" class="text-[18px] text-[#14161F] mt-[24px]">+7 (937) 123-43-33</a>
-          <a href="mailto:mail@studioway11.com" class="text-[18px] text-[#14161F] mt-[24px]">mail@studioway11.com</a>
+          <a href="tel:+79371234333" class="text-[18px leading-[24px] font-normal text-[#14161F] mt-[24px]">+7 (937) 123-43-33</a>
+          <a href="mailto:mail@studioway11.com" class="text-[18px] leading-[24px] text-[#14161F] mt-[24px]">mail@studioway11.com</a>
         </div>
         <div class="lg:hidden flex flex-col items-center">
           <a href="#" class="footer__policy">Политика конфиденциальности</a>
@@ -54,7 +54,7 @@
 
 <style lang="postcss" scoped>
 .footer {
-  padding-top: 200px;
+  padding-top: 100px;
   padding-bottom: 75px;
   &__wrapper {
     grid-template-columns: repeat(4, 1fr);
@@ -79,9 +79,8 @@
     }
   }
   &__rights {
-    margin-top: 10px;
-    font-size: 18px;
     color: #898A8F;
+    @apply lg:mt-[10px] mt-[16px] lg:text-[18px] text-[16px] leading-[24px]
   }
   &__social {
     display: flex;
@@ -91,15 +90,12 @@
   }
   &__policy {
     display: block;
-    @apply lg:mt-[8px] mt-[24px];
+    @apply lg:mt-[8px] mt-[32px] lg:text-[18px] text-[16px];
     color: #5BB6F1;
     text-decoration: underline;
-    font-size: 18px;
   }
   &__address {
-    font-size: 20px;
-    line-height: 32px;
-    @apply lg:text-start text-center lg:my-[0] mt-[24px];
+    @apply lg:leading-[32px] lg:text-[20px] text-[18px] leading-[24px] font-normal lg:text-start text-center lg:my-[0] mt-[24px];
   }
 }
 </style>

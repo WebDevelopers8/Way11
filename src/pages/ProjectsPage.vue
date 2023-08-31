@@ -30,6 +30,9 @@
         </div>
     </div>
   </div>
+  <div class="flex w-full h-[1px] mt-[100px]">
+
+  </div>
   <FooterVue />
 </template>
 
@@ -61,7 +64,7 @@ function changeProject(id: number)
 {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
-  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[97%] h-[92%] lg:object-bottom object-cover;
+  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[98%] h-[93%] lg:object-bottom object-cover;
 }
 .back-arrow
 {
@@ -69,7 +72,7 @@ function changeProject(id: number)
 }
 
 .project{
-  @apply lg:mt-[100px] mt-[40px];
+  @apply lg:mt-[100px] mt-[40px] mb-[50px];
   &__title
   {
     -webkit-text-stroke: 1.5px #14161F;

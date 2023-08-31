@@ -129,7 +129,7 @@ img {
     transform: translateX(-50%);
     top: -240px;
     z-index: -1;
-    @apply 2xl:w-[calc(100vw+20px)] lg:object-fill xl:h-[1300px] lg:h-[1300px] sm:h-[1230px] object-cover h-[1100px];
+    @apply 2xl:w-[calc(100vw+20px)] lg:object-fill xl:h-[1300px] lg:h-[1300px] sm:h-[1230px] object-cover h-[1050px];
 }
 
 .bg2 {
@@ -137,7 +137,7 @@ img {
     z-index: -1;
     width: 100000%;
     object-fit: cover;
-    @apply 2xl:h-[1850px] 2xl:top-[2700px] xl:top-[2700px] xl:h-[1700px] lg:top-[2790px] lg:h-[1650px];
+    @apply 2xl:h-[1850px] 2xl:top-[2700px] xl:top-[2700px] xl:h-[1660px] lg:top-[2790px] lg:h-[1650px];
 }
 
 @media (min-width: 1920px){
@@ -150,20 +150,20 @@ img {
 {
     .bg2
     {
-        @apply top-[3600px] h-[2250px];
+        @apply top-[3500px] h-[2200px];
     }
 }
 @media (max-width: 425px) and (min-width: 376px)
 {
     .bg2
     {
-        @apply top-[3700px] h-[2420px];
+        @apply top-[3520px] h-[2340px];
     }
 }
 @media (max-width: 375px)
 {
     .bg2
     {
-        @apply top-[3800px] h-[2560px];
+        @apply top-[3600px] h-[2500px];
     }
 }
