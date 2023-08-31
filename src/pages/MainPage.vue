@@ -617,8 +617,7 @@ if(window.innerWidth > 1023) {
   background-position: bottom;
   background-repeat: no-repeat;
   width: 100%;
-  padding-bottom: 250px;
-  @apply 2xl:bg-cover
+  @apply 2xl:bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
 }
 .promo {
   @apply xl:pt-[180px] lg:pt-[100px] pt-[60px] relative;
