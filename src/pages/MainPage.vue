@@ -504,12 +504,13 @@ function getProjectSwitcher() {
 
 //@ts-ignore
   function setActiveProject(number) {
-//@ts-ignore
-    bike.value.classList.add("tr");
-    //@ts-ignore
-    setTimeout(() => bike.value.classList.remove("tr"), 600);
+    if(bike.value != null)
+    {
+      bike.value.classList.add("tr");
+    }
+    setTimeout(() => {if(bike.value != null ) {bike.value.classList.remove("tr")}}, 600);
 
-    if (number == 1 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+    if (number == 1 && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
       //@ts-ignore
       projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
       //@ts-ignore
@@ -525,7 +526,7 @@ function getProjectSwitcher() {
       projectsText0.value.classList.add("active");
       bikePosition = 0;
     }
-    if (number == 2 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+    if (number == 2 && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
       //@ts-ignore
       projectsWrap.value.style.transform = "translateX(" + -projectsOffset + "px)";
       //@ts-ignore
@@ -541,7 +542,7 @@ function getProjectSwitcher() {
       projectsText1.value.classList.add("active");
       bikePosition = 420;
     }
-    if (number == 3) {
+    if (number == 3 && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
       //@ts-ignore
       projectsWrap.value.style.transform =
           "translateX(" + -projectsOffset * 2 + "px)";
@@ -599,14 +600,7 @@ function onHeadlerForScroll(callback) {
 
   //@ts-ignore
   // eslint-disable-next-line getter-return
-  try {
-    window.addEventListener("test", null, Object.defineProperty({}, "passive", {
-      get: function () {
-        supportsPassive = true;
-      },
-    }));
-  } catch (e) { /* empty */
-  }
+  try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) { /* empty */}
 
   var wheelOpt = supportsPassive ? {passive: false} : false;
   var wheelEvent =
