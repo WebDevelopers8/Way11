@@ -1148,7 +1148,7 @@ function onHeadlerForScroll(callback) {
         @apply sm:mt-0 mt-[16px];
         div {
           color: #438CB4;
-          @apply lg:left-[46px] sm:left-[120px] sm:top-[12px];
+          @apply text-[18px] leading-[32px] lg:left-[46px] sm:left-[120px] sm:top-[10px] top-[10px];
         }
       }
 
@@ -1210,6 +1210,12 @@ function onHeadlerForScroll(callback) {
       & div {
         @apply left-[31%] top-[14px];
       }
+      & .outline
+      {
+        & div{
+          @apply left-[30%];
+        }
+      }
     }
   }
 }
@@ -1219,6 +1225,13 @@ function onHeadlerForScroll(callback) {
     & a {
       & div {
         @apply left-[29%] top-[13px]
+      }
+
+      & .outline
+      {
+        & div{
+          @apply left-[0%];
+        }
       }
     }
   }
