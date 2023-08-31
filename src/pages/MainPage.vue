@@ -88,7 +88,7 @@
   </section>
   <section class="bg-2">
 <!--    <img src="@/shared/images/bg-2.png" class="bg2" alt="background">-->
-    <div class="mt-[200px] lg:hidden block">
+    <div class="mt-[160px] lg:hidden block">
       <div class="container">
         <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
         <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
@@ -611,12 +611,13 @@ if(window.innerWidth > 1023) {
 <style lang="postcss" scoped>
 .bg-2
 {
-  margin-top: 83px;
+  margin-top: 40px;
   padding-top: 1px;
   background-image: url(@/shared/images/bg-2.png);
   background-position: bottom;
   background-repeat: no-repeat;
-  @apply 2xl:w-[102%] 2xl:ml-[-28px] w-full 2xl:bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
+
+  @apply 2xl:w-[102%] 2xl:ml-[-28px] w-full bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
 }
 .promo {
   @apply xl:pt-[180px] lg:pt-[100px] pt-[60px] relative;
@@ -899,11 +900,10 @@ if(window.innerWidth > 1023) {
 }
 .projects {
   position: relative;
-  margin-top: 250px;
   padding-bottom: 680px;
   min-height: 800px;
   height: 100vh;
-  @apply lg:block hidden;
+  @apply lg:mt-[100px] mt-[] lg:block hidden;
   &__test {
     position: absolute;
     display: flex;
