@@ -86,110 +86,110 @@
       </div>
     </div>
   </section>
-
-  <img src="@/shared/images/bg-1.png" class="bg2" alt="background">
-  <div class="mt-[200px] lg:hidden block">
-    <div class="container">
-      <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
-      <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
-        <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
-          <img src="@/shared/images/arrow-prev.png">
-        </button>
-        <div class="flex flex-col items-center justify-center w-[55%]">
-          <span class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{title[projectCount - 1]}}</span>
-          <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">{{type[projectCount - 1]}}</div>
-        </div>
-        <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
-          <img src="@/shared/images/arrow-next.png">
-        </button>
-      </div>
-      <div  v-if="projectCount == 1">
-        <div class="my-[24px] sm:h-[450px] h-[300px]">
-          <SliderVue />
-        </div>
-        <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
-        <div class="projects__tags">
-          <span>AWS Chalice</span>
-          <span>Lambda</span>
-          <span>Aurora Serverless Postgres</span>
-          <span>API Gateway</span>
-          <span>DynamoDB</span>
-          <span>WebSockets</span>
-          <span>Python</span>
-          <span>Git</span>
-          <span>React</span>
-        </div>
-        <div class="projects__buttons">
-          <router-link to='/project/0'>
-            <div>Подробнее</div>
-          </router-link>
-          <button class="outline">
-            <div>Предложить проект</div>
+  <section class="bg-2">
+<!--    <img src="@/shared/images/bg-2.png" class="bg2" alt="background">-->
+    <div class="mt-[200px] lg:hidden block">
+      <div class="container">
+        <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
+        <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
+          <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
+            <img src="@/shared/images/arrow-prev.png">
+          </button>
+          <div class="flex flex-col items-center justify-center w-[55%]">
+            <span class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{title[projectCount - 1]}}</span>
+            <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">{{type[projectCount - 1]}}</div>
+          </div>
+          <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
+            <img src="@/shared/images/arrow-next.png">
           </button>
         </div>
-      </div>
-      <div  v-if="projectCount == 2">
-        <div class="my-[24px] sm:h-[450px] h-[300px]">
-          <SliderVue />
+        <div  v-if="projectCount == 1">
+          <div class="my-[24px] sm:h-[450px] h-[300px]">
+            <SliderVue />
+          </div>
+          <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+          <div class="projects__tags">
+            <span>AWS Chalice</span>
+            <span>Lambda</span>
+            <span>Aurora Serverless Postgres</span>
+            <span>API Gateway</span>
+            <span>DynamoDB</span>
+            <span>WebSockets</span>
+            <span>Python</span>
+            <span>Git</span>
+            <span>React</span>
+          </div>
+          <div class="projects__buttons">
+            <router-link to='/project/0'>
+              <div>Подробнее</div>
+            </router-link>
+            <button class="outline">
+              <div>Предложить проект</div>
+            </button>
+          </div>
         </div>
-        <span class="text-[18px] leading-[24px] text-[#14161F]">Таким образом, начало повседневной работы по формированию позиции играет определяющее
+        <div  v-if="projectCount == 2">
+          <div class="my-[24px] sm:h-[450px] h-[300px]">
+            <SliderVue />
+          </div>
+          <span class="text-[18px] leading-[24px] text-[#14161F]">Таким образом, начало повседневной работы по формированию позиции играет определяющее
               значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
               диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
               конкретные выводы, разумеется, преданы социально-демократической анафеме.
             </span>
-        <div class="projects__tags">
-          <span>AWS Chalice</span>
-          <span>Lambda</span>
-          <span>Aurora Serverless Postgres</span>
-          <span>API Gateway</span>
-          <span>DynamoDB</span>
-          <span>WebSockets</span>
-          <span>Python</span>
-          <span>Git</span>
-          <span>React</span>
+          <div class="projects__tags">
+            <span>AWS Chalice</span>
+            <span>Lambda</span>
+            <span>Aurora Serverless Postgres</span>
+            <span>API Gateway</span>
+            <span>DynamoDB</span>
+            <span>WebSockets</span>
+            <span>Python</span>
+            <span>Git</span>
+            <span>React</span>
+          </div>
+          <div class="projects__buttons">
+            <router-link to='/project/0'>
+              <div>Подробнее</div>
+            </router-link>
+            <button class="outline">
+              <div>Предложить проект</div>
+            </button>
+          </div>
         </div>
-        <div class="projects__buttons">
-          <router-link to='/project/0'>
-            <div>Подробнее</div>
-          </router-link>
-          <button class="outline">
-            <div>Предложить проект</div>
-          </button>
-        </div>
-      </div>
-      <div  v-if="projectCount == 3">
-        <div class="my-[24px] sm:h-[450px] h-[300px]">
-          <SliderVue />
-        </div>
-        <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
-        <div class="projects__tags">
-          <span>AWS Chalice</span>
-          <span>Lambda</span>
-          <span>Aurora Serverless Postgres</span>
-          <span>API Gateway</span>
-          <span>DynamoDB</span>
-          <span>WebSockets</span>
-          <span>Python</span>
-          <span>Git</span>
-          <span>React</span>
-        </div>
-        <div class="projects__buttons">
-          <router-link to='/project/0'>
-            <div>Подробнее</div>
-          </router-link>
-          <button class="outline">
-            <div>Предложить проект</div>
-          </button>
+        <div  v-if="projectCount == 3">
+          <div class="my-[24px] sm:h-[450px] h-[300px]">
+            <SliderVue />
+          </div>
+          <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+          <div class="projects__tags">
+            <span>AWS Chalice</span>
+            <span>Lambda</span>
+            <span>Aurora Serverless Postgres</span>
+            <span>API Gateway</span>
+            <span>DynamoDB</span>
+            <span>WebSockets</span>
+            <span>Python</span>
+            <span>Git</span>
+            <span>React</span>
+          </div>
+          <div class="projects__buttons">
+            <router-link to='/project/0'>
+              <div>Подробнее</div>
+            </router-link>
+            <button class="outline">
+              <div>Предложить проект</div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div ref="projectsSection" class="projects" id="projects">
-    <div class="container">
-      <div class="projects__title">Проекты</div>
-      <div class="projects__road">
-        <img src="@/shared/images/road.png" class="projects__road-img">
-        <span ref="bike" class="projects__road-bike tr0">
+    <div ref="projectsSection" class="projects" id="projects">
+      <div class="container">
+        <div class="projects__title">Проекты</div>
+        <div class="projects__road">
+          <img src="@/shared/images/road.png" class="projects__road-img">
+          <span ref="bike" class="projects__road-bike tr0">
                     <img src="@/shared/images/bike.png">
                     <img src="@/shared/images/wheel-1.png" class="projects__road-wheel1">
                     <img src="@/shared/images/wheel-2.png" class="projects__road-wheel2">
@@ -207,141 +207,143 @@
                         <p>6 октября 2021 г.</p>
                     </div>
                 </span>
-        <router-link to="/projects" class="projects__road-btn">Все проекты</router-link>
-      </div>
-      <div ref="projectsWrap" class="projects__test">
-        <div ref="projectsWrapper1" class="projects__wrapper active">
-          <div class="projects__descr">
-            <div class="projects__name">Lancelot</div>
-            <div class="projects__name-descr">Вебинарная платформа</div>
-            <div class="projects__text">
-              На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
-              для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
-              пройдет рассылка с напоминанием.
+          <router-link to="/projects" class="projects__road-btn">Все проекты</router-link>
+        </div>
+        <div ref="projectsWrap" class="projects__test">
+          <div ref="projectsWrapper1" class="projects__wrapper active">
+            <div class="projects__descr">
+              <div class="projects__name">Lancelot</div>
+              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__text">
+                На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
+                для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
+                пройдет рассылка с напоминанием.
+              </div>
+              <div class="projects__tags">
+                <span>AWS Chalice</span>
+                <span>Lambda</span>
+                <span>Aurora Serverless Postgres</span>
+                <span>API Gateway</span>
+                <span>DynamoDB</span>
+                <span>WebSockets</span>
+                <span>Python</span>
+                <span>Git</span>
+                <span>React</span>
+              </div>
+              <div class="projects__buttons">
+                <router-link to='/project/0'>
+                  <div>Подробнее</div>
+                </router-link>
+                <button class="outline">
+                  <div>Предложить проект</div>
+                </button>
+              </div>
             </div>
-            <div class="projects__tags">
-              <span>AWS Chalice</span>
-              <span>Lambda</span>
-              <span>Aurora Serverless Postgres</span>
-              <span>API Gateway</span>
-              <span>DynamoDB</span>
-              <span>WebSockets</span>
-              <span>Python</span>
-              <span>Git</span>
-              <span>React</span>
+            <div class="h-[95%]">
+              <SliderVue />
             </div>
-            <div class="projects__buttons">
-              <router-link to='/project/0'>
-                <div>Подробнее</div>
-              </router-link>
-              <button class="outline">
-                <div>Предложить проект</div>
-              </button>
-            </div>
-          </div>
-          <div class="h-[95%]">
-            <SliderVue />
-          </div>
 
-        </div>
-        <div ref="projectsWrapper2" class="projects__wrapper ">
-          <div class="projects__descr">
-            <div class="projects__name">Lancelot 2</div>
-            <div class="projects__name-descr">Вебинарная платформа</div>
-            <div class="projects__text">
-              Таким образом, начало повседневной работы по формированию позиции играет определяющее
-              значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
-              диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
-              конкретные выводы, разумеется, преданы социально-демократической анафеме.
+          </div>
+          <div ref="projectsWrapper2" class="projects__wrapper ">
+            <div class="projects__descr">
+              <div class="projects__name">Lancelot 2</div>
+              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__text">
+                Таким образом, начало повседневной работы по формированию позиции играет определяющее
+                значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
+                диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
+                конкретные выводы, разумеется, преданы социально-демократической анафеме.
+              </div>
+              <div class="projects__tags">
+                <span>AWS Chalice</span>
+                <span>Lambda</span>
+                <span>Python</span>
+                <span>Git</span>
+                <span>React</span>
+              </div>
+              <div class="projects__buttons">
+                <router-link to="/project/1">
+                  <div>Подробнее</div>
+                </router-link>
+                <button class="outline">
+                  <div>Предложить проект</div>
+                </button>
+              </div>
             </div>
-            <div class="projects__tags">
-              <span>AWS Chalice</span>
-              <span>Lambda</span>
-              <span>Python</span>
-              <span>Git</span>
-              <span>React</span>
-            </div>
-            <div class="projects__buttons">
-              <router-link to="/project/1">
-                <div>Подробнее</div>
-              </router-link>
-              <button class="outline">
-                <div>Предложить проект</div>
-              </button>
+            <div class="h-[95%]">
+              <SliderVue />
             </div>
           </div>
-          <div class="h-[95%]">
-            <SliderVue />
-          </div>
-        </div>
-        <div ref="projectsWrapper3" class="projects__wrapper ">
-          <div class="projects__descr">
-            <div class="projects__name">Lancelot 3</div>
-            <div class="projects__name-descr">Вебинарная платформа</div>
-            <div class="projects__text">
-              На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
-              для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
-              пройдет рассылка с напоминанием.
+          <div ref="projectsWrapper3" class="projects__wrapper ">
+            <div class="projects__descr">
+              <div class="projects__name">Lancelot 3</div>
+              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__text">
+                На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
+                для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
+                пройдет рассылка с напоминанием.
+              </div>
+              <div class="projects__tags">
+                <span>AWS Chalice</span>
+                <span>Lambda</span>
+                <span>Python</span>
+                <span>Git</span>
+                <span>React</span>
+              </div>
+              <div class="projects__buttons">
+                <router-link to="/project/3">
+                  <div>Подробнее</div>
+                </router-link>
+                <button class="outline">
+                  <div>Предложить проект</div>
+                </button>
+              </div>
             </div>
-            <div class="projects__tags">
-              <span>AWS Chalice</span>
-              <span>Lambda</span>
-              <span>Python</span>
-              <span>Git</span>
-              <span>React</span>
+            <div class="h-[95%]">
+              <SliderVue />
             </div>
-            <div class="projects__buttons">
-              <router-link to="/project/3">
-                <div>Подробнее</div>
-              </router-link>
-              <button class="outline">
-                <div>Предложить проект</div>
-              </button>
-            </div>
-          </div>
-          <div class="h-[95%]">
-            <SliderVue />
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <section class="form" id="form">
-    <div class="container">
-      <div class="form__wrapper">
-        <div class="form__descr">
-          <div class="form__title">Предложите свой проект</div>
-          <div class="form__text">
-            Мы принимаем на себя обязательство о том, что коммерческая информация, полученная в рамках
-            подготовки и реализации проекта, является конфиденциальной и не подлежит разглашению или
-            передаче третьим лицам.
+    <section class="form" id="form">
+      <div class="container">
+        <div class="form__wrapper">
+          <div class="form__descr">
+            <div class="form__title">Предложите свой проект</div>
+            <div class="form__text">
+              Мы принимаем на себя обязательство о том, что коммерческая информация, полученная в рамках
+              подготовки и реализации проекта, является конфиденциальной и не подлежит разглашению или
+              передаче третьим лицам.
+            </div>
           </div>
+          <form>
+            <div class="form__sm-inputs">
+              <div class="form__input"><input type="text" placeholder="Имя*" name="name"></div>
+              <div class="form__input"><input type="text" placeholder="Компания" name="company"></div>
+            </div>
+            <div class="form__sm-inputs">
+              <div class="form__input"><input type="text" placeholder="Телефон*" name="phone"></div>
+              <div class="form__input"><input type="text" placeholder="E-mail*" name="email"></div>
+            </div>
+            <div class="form__input w100 mt-[16px]"><input type="text" placeholder="Бюджет проекта" name="budget"></div>
+            <div class="form__input w100"><input type="text" placeholder="Описание проекта" name="description">
+            </div>
+            <div class="form__buttons">
+              <button type="submit">
+                <div>Отправить</div>
+              </button>
+              <button class="outline">
+                <div>Добавить файл</div>
+              </button>
+            </div>
+          </form>
         </div>
-        <form>
-          <div class="form__sm-inputs">
-            <div class="form__input"><input type="text" placeholder="Имя*" name="name"></div>
-            <div class="form__input"><input type="text" placeholder="Компания" name="company"></div>
-          </div>
-          <div class="form__sm-inputs">
-            <div class="form__input"><input type="text" placeholder="Телефон*" name="phone"></div>
-            <div class="form__input"><input type="text" placeholder="E-mail*" name="email"></div>
-          </div>
-          <div class="form__input w100 mt-[16px]"><input type="text" placeholder="Бюджет проекта" name="budget"></div>
-          <div class="form__input w100"><input type="text" placeholder="Описание проекта" name="description">
-          </div>
-          <div class="form__buttons">
-            <button type="submit">
-              <div>Отправить</div>
-            </button>
-            <button class="outline">
-              <div>Добавить файл</div>
-            </button>
-          </div>
-        </form>
       </div>
-    </div>
+    </section>
   </section>
+
   <FooterVue />
 </template>
 
@@ -357,249 +359,267 @@ let type = ['Вебинарная платформа', 'Вебинарная п�
 
 
 //main script
-const projectsSection = ref<HTMLElement | null>(null);
-const projectsWrap = ref<HTMLElement | null>(null);
-const projectsWrapper1 = ref<HTMLElement | null>(null);
-const projectsWrapper2 = ref<HTMLElement | null>(null);
-const projectsWrapper3 = ref<HTMLElement | null>(null);
-const bike = ref<HTMLElement | null>(null);
-const projectsText0 = ref<HTMLElement | null>(null);
-const projectsText1 = ref<HTMLElement | null>(null);
-const projectsText2 = ref<HTMLElement | null>(null);
-onProjectsSectionHeadler(getProjectSwitcher());
 
+  const projectsSection = ref<HTMLElement | null>(null);
+  const projectsWrap = ref<HTMLElement | null>(null);
+  const projectsWrapper1 = ref<HTMLElement | null>(null);
+  const projectsWrapper2 = ref<HTMLElement | null>(null);
+  const projectsWrapper3 = ref<HTMLElement | null>(null);
+  const bike = ref<HTMLElement | null>(null);
+  const projectsText0 = ref<HTMLElement | null>(null);
+  const projectsText1 = ref<HTMLElement | null>(null);
+  const projectsText2 = ref<HTMLElement | null>(null);
+
+if(window.innerWidth > 1023) {
+  onProjectsSectionHeadler(getProjectSwitcher());
+}
 //@ts-ignore
-function onProjectsSectionHeadler(onSwitchProjectCallback) {
-  const topSectionPositionOfset = 0;
-  const pause = 300;
+  function onProjectsSectionHeadler(onSwitchProjectCallback) {
+    const topSectionPositionOfset = 0;
+    const pause = 300;
 
-  const minProjectNumber = 1;
-  const maxProjectNumber = 3;
-  let projectNumber = minProjectNumber - 1;
-  let delayStart = Date.now() - pause;
+    const minProjectNumber = 1;
+    const maxProjectNumber = 3;
+    let projectNumber = minProjectNumber - 1;
+    let delayStart = Date.now() - pause;
 
-  addEventListener("scroll", (e) => {
-    if(projectsSection.value != null)
-    {
-      const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
+    addEventListener("scroll", (e) => {
+      if (projectsSection.value != null) {
+        const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
 
+        if (
+            (scrollToDownOfSection(distanceFromTop) &&
+                !isFinishState()) ||
+            (scrollToTopOfSection(distanceFromTop) &&
+                !isStartState()) ||
+            (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
+        ) {
+          scrollToStartOfSection();
+        }
+      }
+    });
+//@ts-ignore
+    onHeadlerForScroll((e) => {
+      let scrollIsActive = true;
+      const deltaScroll = e.deltaY || e.detail || e.wheelDelta;
+      const distanceFromTop = projectsSection.value == null ? 0 : projectsSection.value.getBoundingClientRect().top;
       if (
-          (scrollToDownOfSection(distanceFromTop) &&
+          (scrollToDownOfSection(distanceFromTop - deltaScroll) &&
               !isFinishState()) ||
-          (scrollToTopOfSection(distanceFromTop) &&
+          (scrollToTopOfSection(distanceFromTop - deltaScroll) &&
               !isStartState()) ||
           (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
       ) {
-        scrollToStartOfSection();
+        scrollIsActive = false;
       }
-    }
-  });
+
+      if (pauseIsEnded()) {
+        startPause();
+        if (!scrollIsActive) {
+          if (deltaScroll < 0) {
+            toPrevProject();
+          } else {
+            toNextProject();
+          }
+        }
+      }
+
+      if (!scrollIsActive) {
+        return false;
+      }
+
+      return true;
+    });
+
 //@ts-ignore
-  onHeadlerForScroll((e) => {
-    let scrollIsActive = true;
-    const deltaScroll = e.deltaY || e.detail || e.wheelDelta;
-    const distanceFromTop = projectsSection.value == null ? 0 : projectsSection.value.getBoundingClientRect().top;
-    if (
-        (scrollToDownOfSection(distanceFromTop - deltaScroll) &&
-            !isFinishState()) ||
-        (scrollToTopOfSection(distanceFromTop - deltaScroll) &&
-            !isStartState()) ||
-        (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
-    ) {
-      scrollIsActive = false;
+    function scrollToDownOfSection(distanceFromTop) {
+      if (distanceFromTop < topSectionPositionOfset) {
+        return true;
+      } else return false;
     }
 
-    if (pauseIsEnded()) {
-      startPause();
-      if (!scrollIsActive) {
-        if (deltaScroll < 0) {
-          toPrevProject();
-        } else {
-          toNextProject();
+//@ts-ignore
+    function scrollToTopOfSection(distanceFromTop) {
+      if (distanceFromTop > topSectionPositionOfset) {
+        return true;
+      } else return false;
+    }
+
+//@ts-ignore
+    function scrollOnSection(distanceFromTop) {
+      if (distanceFromTop == topSectionPositionOfset) {
+        return true;
+      } else return false;
+    }
+
+    function isStartState() {
+      if (projectNumber == minProjectNumber - 1) {
+        return true;
+      } else return false;
+    }
+
+    function isFinishState() {
+      if (projectNumber == maxProjectNumber + 1) {
+        return true;
+      } else return false;
+    }
+
+    function pauseIsEnded() {
+      return Date.now() - delayStart > pause;
+    }
+
+    function startPause() {
+      delayStart = Date.now();
+    }
+
+    function toNextProject() {
+      if (projectNumber <= maxProjectNumber) {
+        projectNumber++;
+        onSwitchProjectCallback(projectNumber);
+      }
+    }
+
+    function toPrevProject() {
+      if (projectNumber >= minProjectNumber) {
+        projectNumber--;
+        onSwitchProjectCallback(projectNumber);
+      }
+    }
+
+    function scrollToStartOfSection() {
+      if (projectsSection.value != null) {
+        window.scrollTo(0, projectsSection.value.offsetTop);
+      }
+    }
+  }
+
+  function getProjectSwitcher() {
+    const projectsOffset = 1380;
+
+    let bikePosition = 0;
+
+//@ts-ignore
+    function setActiveProject(number) {
+//@ts-ignore
+      bike.value.classList.add("tr");
+      //@ts-ignore
+      setTimeout(() => bike.value.classList.remove("tr"), 600);
+
+      if (number == 1 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+        //@ts-ignore
+        projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
+        //@ts-ignore
+        projectsWrapper1.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper2.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper3.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper1.value.classList.add("active");
+        projectsText1.value.classList.remove("active");
+        projectsText2.value.classList.remove("active");
+        projectsText0.value.classList.add("active");
+        bikePosition = 0;
+      }
+      if (number == 2 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+        //@ts-ignore
+        projectsWrap.value.style.transform = "translateX(" + -projectsOffset + "px)";
+        //@ts-ignore
+        projectsWrapper1.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper2.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper3.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper2.value.classList.add("active");
+        projectsText0.value.classList.remove("active");
+        projectsText2.value.classList.remove("active");
+        projectsText1.value.classList.add("active");
+        bikePosition = 420;
+      }
+      if (number == 3) {
+        //@ts-ignore
+        projectsWrap.value.style.transform =
+            "translateX(" + -projectsOffset * 2 + "px)";
+        //@ts-ignore
+        projectsWrapper1.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper2.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper3.value.classList.remove("active");
+        //@ts-ignore
+        projectsWrapper3.value.classList.add("active");
+        //@ts-ignore
+        projectsText0.value.classList.remove("active");
+        //@ts-ignore
+        projectsText1.value.classList.remove("active");
+        //@ts-ignore
+        projectsText2.value.classList.add("active");
+        bikePosition = 840;
+      }
+      //@ts-ignore
+      bike.value.style.transform = "translateX(" + bikePosition + "px)";
+      //@ts-ignore
+      bike.value.style.transition = "all 1s ease-in";
+    }
+
+    return setActiveProject;
+  }
+
+//@ts-ignore
+  function onHeadlerForScroll(callback) {
+    // left: 37, up: 38, right: 39, down: 40,
+    // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+    var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+//@ts-ignore
+    function preventDefault(e) {
+      if (!callback(e)) {
+        e.preventDefault();
+      }
+    }
+
+//@ts-ignore
+    function preventDefaultForScrollKeys(e) {
+      //@ts-ignore
+      if (keys[e.keyCode]) {
+        if (!callback(e)) {
+          e.preventDefault();
+          return false;
         }
       }
     }
 
-    if (!scrollIsActive) {
-      return false;
-    }
+    // modern Chrome requires { passive: false } when adding event
+    var supportsPassive = false;
 
-    return true;
-  });
-//@ts-ignore
-  function scrollToDownOfSection(distanceFromTop) {
-    if (distanceFromTop < topSectionPositionOfset) {
-      return true;
-    } else return false;
-  }
-//@ts-ignore
-  function scrollToTopOfSection(distanceFromTop) {
-    if (distanceFromTop > topSectionPositionOfset) {
-      return true;
-    } else return false;
-  }
-//@ts-ignore
-  function scrollOnSection(distanceFromTop) {
-    if (distanceFromTop == topSectionPositionOfset) {
-      return true;
-    } else return false;
-  }
-
-  function isStartState() {
-    if (projectNumber == minProjectNumber - 1) {
-      return true;
-    } else return false;
-  }
-
-  function isFinishState() {
-    if (projectNumber == maxProjectNumber + 1) {
-      return true;
-    } else return false;
-  }
-
-  function pauseIsEnded() {
-    return Date.now() - delayStart > pause;
-  }
-
-  function startPause() {
-    delayStart = Date.now();
-  }
-
-  function toNextProject() {
-    if (projectNumber <= maxProjectNumber) {
-      projectNumber++;
-      onSwitchProjectCallback(projectNumber);
-    }
-  }
-
-  function toPrevProject() {
-    if (projectNumber >= minProjectNumber) {
-      projectNumber--;
-      onSwitchProjectCallback(projectNumber);
-    }
-  }
-
-  function scrollToStartOfSection() {
-    if(projectsSection.value != null)
-    {
-      window.scrollTo(0, projectsSection.value.offsetTop);
-    }
-  }
-}
-
-function getProjectSwitcher() {
-  const projectsOffset = 1380;
-
-  let bikePosition = 0;
-//@ts-ignore
-  function setActiveProject(number) {
-//@ts-ignore
-    bike.value.classList.add("tr");
     //@ts-ignore
-    setTimeout(() => bike.value.classList.remove("tr"), 600);
+    // eslint-disable-next-line getter-return
+    try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) { /* empty */}
 
-    if (number == 1 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
-      //@ts-ignore
-      projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
-      //@ts-ignore
-      projectsWrapper1.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper1.value.classList.add("active");
-      projectsText1.value.classList.remove("active");
-      projectsText2.value.classList.remove("active");
-      projectsText0.value.classList.add("active");
-      bikePosition = 0;
-    }
-    if (number == 2 && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
-      //@ts-ignore
-      projectsWrap.value.style.transform = "translateX(" + -projectsOffset + "px)";
-      //@ts-ignore
-      projectsWrapper1.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.add("active");
-      projectsText0.value.classList.remove("active");
-      projectsText2.value.classList.remove("active");
-      projectsText1.value.classList.add("active");
-      bikePosition = 420;
-    }
-    if (number == 3) {
-      //@ts-ignore
-      projectsWrap.value.style.transform =
-          "translateX(" + -projectsOffset * 2 + "px)";
-      //@ts-ignore
-      projectsWrapper1.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.add("active");
-      //@ts-ignore
-      projectsText0.value.classList.remove("active");
-      //@ts-ignore
-      projectsText1.value.classList.remove("active");
-      //@ts-ignore
-      projectsText2.value.classList.add("active");
-      bikePosition = 840;
-    }
-    //@ts-ignore
-    bike.value.style.transform = "translateX(" + bikePosition + "px)";
-    //@ts-ignore
-    bike.value.style.transition = "all 1s ease-in";
+    var wheelOpt = supportsPassive ? {passive: false} : false;
+    var wheelEvent =
+        "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
+
+    window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
+    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
+    window.addEventListener("keydown", preventDefaultForScrollKeys, false);
   }
-
-  return setActiveProject;
-}
-//@ts-ignore
-function onHeadlerForScroll(callback) {
-  // left: 37, up: 38, right: 39, down: 40,
-  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-  var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-//@ts-ignore
-  function preventDefault(e) {
-    if (!callback(e)) {
-      e.preventDefault();
-    }
-  }
-//@ts-ignore
-  function preventDefaultForScrollKeys(e) {
-    //@ts-ignore
-    if (keys[e.keyCode]) {
-      if (!callback(e)) {
-        e.preventDefault();
-        return false;
-      }
-    }
-  }
-
- // modern Chrome requires { passive: false } when adding event
-  var supportsPassive = false;
-
-  //@ts-ignore
-  // eslint-disable-next-line getter-return
-  try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) { /* empty */ }
-
-  var wheelOpt = supportsPassive ? { passive: false } : false;
-  var wheelEvent =
-      "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
-
-  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
-  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
-}
-
 </script>
 
 <style lang="postcss" scoped>
+.bg-2
+{
+  margin-top: 83px;
+  padding-top: 1px;
+  background-image: url(@/shared/images/bg-2.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-bottom: 250px;
+  @apply 2xl:bg-cover
+}
 .promo {
   @apply xl:pt-[180px] lg:pt-[100px] pt-[60px] relative;
   &__title {
@@ -755,7 +775,7 @@ function onHeadlerForScroll(callback) {
   }
   &__text {
     margin-top: 8px;
-    @apply text-start lg:text-[20px] text-[18px]
+    @apply lg:leading-[32px] leading-[24px] text-start lg:text-[20px] text-[18px]
   }
   &__content {
     margin-top: 60px;
@@ -775,8 +795,7 @@ function onHeadlerForScroll(callback) {
       }
       p {
         margin-top: 24px;
-        line-height: 32px;
-        @apply 2xl:w-[90%] lg:text-[20px] text-[18px];
+        @apply 2xl:w-[90%] lg:leading-[32px] leading-[24px] lg:text-[20px] text-[18px];
       }
     }
   }
@@ -788,13 +807,12 @@ function onHeadlerForScroll(callback) {
   }
 }
 .form {
-  @apply 2xl:pt-[100px] 2xl:pb-[100px] lg:pt-[100px] pt-[120px];
+  @apply 2xl:pt-[100px] 2xl:pb-[100px] xl:pt-[200px] lg:pt-[100px] pt-[120px];
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
   }
   &__title {
-    line-height: 56px;
-    @apply lg:text-[56px] text-[30px];
+    @apply lg:leading-[56px] leading-[40px] lg:text-[56px] text-[30px];
   }
   &__text {
     margin-top: 24px;
@@ -803,7 +821,7 @@ function onHeadlerForScroll(callback) {
     @apply lg:text-[18px] text-[16px] lg:pr-[150px];
   }
   &__sm-inputs {
-    @apply flex lg:flex-row flex-col lg:justify-between mt-[24px] gap-[16px]
+    @apply flex lg:flex-row flex-col lg:justify-between lg:items-start items-center mt-[24px] gap-[16px]
   }
   &__input {
     position: relative;
@@ -816,10 +834,10 @@ function onHeadlerForScroll(callback) {
     transform: skew(-18deg);
     border: 1px solid #438CB4;
     transition: all 0.2s ease;
-    @apply lg:w-[calc(50%-10px)] w-full;
+    @apply lg:w-[calc(50%-10px)] sm:w-full w-[94%];
     &.w100 {
-      width: 100%;
       margin-bottom: 24px;
+      @apply sm:w-full w-[94%];
     }
     &:hover {
       border: 1px solid #5BB6F1;
@@ -874,8 +892,9 @@ function onHeadlerForScroll(callback) {
         color:#fff;
         transform: skew(18deg);
         position: absolute;
-        font-weight: 300;
-        @apply lg:text-[22px] text-[18px] lg:top-[10px] lg:w-[90%] sm:w-[33%];
+        font-weight: 400;
+
+        @apply leading-[32px] lg:text-[22px] text-[18px] lg:top-[10px] lg:w-[90%] sm:w-[33%];
       }
     }
   }
