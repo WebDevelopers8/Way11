@@ -49,7 +49,7 @@
                 </button>
               </div>
             </div>
-            <img class="mt-[36px]" src="@/shared/images/logo-s.png">
+            <img class="mt-[36px] w-[70px] object-cover" src="@/shared/images/logo-l.png">
             <div class="flex flex-col w-[90%] mt-[40px] gap-[24px] border-b-solid border-b-[1px] border-b-[#787878] pb-[48px]">
               <a href="#services" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</a>
               <a href="#projects" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</a>
