@@ -616,8 +616,7 @@ if(window.innerWidth > 1023) {
   background-image: url(@/shared/images/bg-2.png);
   background-position: bottom;
   background-repeat: no-repeat;
-  width: 100%;
-  @apply 2xl:bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
+  @apply 2xl:w-[102%] 2xl:ml-[-28px] w-full 2xl:bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
 }
 .promo {
   @apply xl:pt-[180px] lg:pt-[100px] pt-[60px] relative;
