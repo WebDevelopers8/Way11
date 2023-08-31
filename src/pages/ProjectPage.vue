@@ -34,6 +34,8 @@ import SixthComponent from "@/widgets/components/SixthComponent.vue";
 import SeventhComponent from "@/widgets/components/SeventhComponent.vue";
 import EighthComponent from "@/widgets/components/EighthComponent.vue";
 import NinthComponent from "@/widgets/components/NinthComponent.vue";
+
+window.scrollBy(0,0)
 </script>
 
 <style lang="postcss" scoped>
