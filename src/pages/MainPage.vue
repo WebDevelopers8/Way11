@@ -821,12 +821,12 @@ function onHeadlerForScroll(callback) {
 
 @media (min-width: 1920px) {
   .form {
-    @apply pt-[0px]
+    @apply mt-[660px]
   }
 }
 
 .form {
-  @apply 2xl:pt-[100px] 2xl:pb-[100px] xl:pt-[200px] lg:pt-[100px] pt-[120px];
+  @apply 2xl:mt-[700px] 2xl:pb-[100px] xl:mt-[650px] lg:mt-[650px] mt-[120px];
 
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
@@ -938,7 +938,6 @@ function onHeadlerForScroll(callback) {
 
 .projects {
   position: relative;
-  padding-bottom: 680px;
   @apply lg:mt-[150px] lg:block hidden;
 
   &__test {
@@ -1297,23 +1296,11 @@ function onHeadlerForScroll(callback) {
   }
 }
 
-@media (max-height: 1000px) {
-  .projects {
-    padding-bottom: 580px;
-  }
 
-  .slider__wrapper {
-    max-width: 342px;
-  }
-}
 
 @media (max-height: 900px) {
   .projects__wrapper {
     margin-top: 70px;
-  }
-
-  .projects {
-    padding-bottom: 480px;
   }
 }
 
