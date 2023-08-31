@@ -1148,7 +1148,7 @@ function onHeadlerForScroll(callback) {
         @apply sm:mt-0 mt-[16px];
         div {
           color: #438CB4;
-          @apply lg:left-[46px] sm:left-[120px] sm:top-[12px];
+          @apply text-[18px] leading-[32px] lg:left-[46px] sm:left-[120px] sm:top-[10px] top-[10px];
         }
       }
 
