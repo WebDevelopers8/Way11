@@ -1147,10 +1147,10 @@ function onHeadlerForScroll(callback) {
       &.outline {
         background-color: #fff;
 
-        @apply mt-[16px];
+        @apply sm:mt-0 mt-[16px];
         div {
           color: #438CB4;
-          @apply lg:left-[46px] sm:left-[90px] sm:top-[12px];
+          @apply lg:left-[46px] sm:left-[120px] sm:top-[12px];
         }
       }
 

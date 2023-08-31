@@ -80,7 +80,7 @@
   }
   &__rights {
     color: #898A8F;
-    @apply lg:mt-[10px] mt-[16px] lg:text-[18px] text-[16px] leading-[24px]
+    @apply lg:mt-[24px] mt-[16px] lg:text-[18px] text-[16px] leading-[24px]
   }
   &__social {
     display: flex;
@@ -90,7 +90,7 @@
   }
   &__policy {
     display: block;
-    @apply lg:mt-[8px] mt-[32px] lg:text-[18px] text-[16px];
+    @apply lg:mt-[24px] mt-[32px] leading-[24px] lg:text-[18px] text-[16px];
     color: #5BB6F1;
     text-decoration: underline;
   }
