@@ -126,9 +126,9 @@
             <router-link to='/project/0'>
               <div>Подробнее</div>
             </router-link>
-            <button class="outline">
-              <div>Предложить проект</div>
-            </button>
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
           </div>
         </div>
         <div v-if="projectCount == 2">
@@ -155,9 +155,9 @@
             <router-link to='/project/0'>
               <div>Подробнее</div>
             </router-link>
-            <button class="outline">
-              <div>Предложить проект</div>
-            </button>
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
           </div>
         </div>
         <div v-if="projectCount == 3">
@@ -180,9 +180,10 @@
             <router-link to='/project/0'>
               <div>Подробнее</div>
             </router-link>
-            <button class="outline">
-              <div>Предложить проект</div>
-            </button>
+
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -1142,6 +1143,15 @@ function onHeadlerForScroll(callback) {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;
         border-bottom: 1px solid #438CB4;
+      }
+      &.outline {
+        background-color: #fff;
+
+        @apply mt-[16px];
+        div {
+          color: #438CB4;
+          @apply lg:left-[46px] sm:left-[90px] sm:top-[12px];
+        }
       }
 
       div {
