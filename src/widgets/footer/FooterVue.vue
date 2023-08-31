@@ -7,7 +7,7 @@
         </div>
         <div class="footer__item">
           <p>Way11</p>
-          <a href="tel:+79371234333">+7 (937) 123-43-33</a>
+          <a class="block" href="tel:+79371234333">+7 (937) 123-43-33</a>
           <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
           <div class="footer__rights">© 2023 Digital-агентство Way11</div>
         </div>

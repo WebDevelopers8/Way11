@@ -88,7 +88,7 @@
   </section>
   <section class="bg-2">
     <!--    <img src="@/shared/images/bg-2.png" class="bg2" alt="background">-->
-    <div class="mt-[160px] lg:hidden block">
+    <div id="projects" class="mt-[160px] lg:hidden block">
       <div class="container">
         <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
         <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
@@ -826,7 +826,7 @@ function onHeadlerForScroll(callback) {
 }
 
 .form {
-  @apply 2xl:mt-[700px] 2xl:pb-[100px] xl:mt-[650px] lg:mt-[650px] mt-[120px];
+  @apply 2xl:mt-[800px] 2xl:pb-[100px] xl:mt-[800px] lg:mt-[750px] mt-[120px];
 
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
@@ -858,11 +858,11 @@ function onHeadlerForScroll(callback) {
     transform: skew(-18deg);
     border: 1px solid #438CB4;
     transition: all 0.2s ease;
-    @apply lg:w-[calc(50%-10px)] sm:w-full w-[94%];
+    @apply lg:w-[calc(50%-10px)] sm:w-full w-[100%];
 
     &.w100 {
       margin-bottom: 24px;
-      @apply sm:w-full w-[94%];
+      @apply sm:w-full w-[100%];
     }
 
     &:hover {
@@ -884,7 +884,7 @@ function onHeadlerForScroll(callback) {
       }
 
       padding: 8px;
-      color: #B9B9BC;
+      color: #14161F;
       transform: skew(18deg);
     }
   }

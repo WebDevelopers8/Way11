@@ -50,8 +50,9 @@ const projects : Array<projectType> = [
   {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]},
   {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]},
   {id: "0", name: "Lancelot", type: "Вебинарная платформа", description: "На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.", stack: ["AWS Chalice", "Lambda", "Aurora Serverless Postgres", "API Gateway", "DynamoDB", "WebSockets", "Python", "Git", "React"]}
-
 ]
+
+window.scrollBy(0,0)
 
 function changeProject(id: number)
 {
