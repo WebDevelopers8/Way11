@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed left-0 top-0 w-full h-full z-50 bg-[#FBF7F1]" @click.stop.self="hideWindow">
+  <div class="fixed left-0 top-0 w-full h-full z-[2000] bg-[#FBF7F1]" @click.stop.self="hideWindow">
     <slot>
 
     </slot>
