@@ -826,7 +826,7 @@ function onHeadlerForScroll(callback) {
 }
 
 .form {
-  @apply 2xl:mt-[700px] 2xl:pb-[100px] xl:mt-[650px] lg:mt-[650px] mt-[120px];
+  @apply 2xl:mt-[800px] 2xl:pb-[100px] xl:mt-[800px] lg:mt-[750px] mt-[120px];
 
   &__wrapper {
     @apply lg:grid flex flex-col gap-[32px] lg:grid-cols-2;
