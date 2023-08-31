@@ -354,11 +354,14 @@
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {ref} from "vue";
+import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 let projectCount = ref(1)
 let maxCountProject = ref(3)
 let title = ['Lancelot', 'Lancelot2', 'Lancelot3']
 let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
+
+const ContolStore = useControlStore();
 
 
 //main script
@@ -391,7 +394,11 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
     if (projectsSection.value != null) {
       const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
 
-      if (
+      if(ContolStore.forcedScroll)
+      {
+        projectNumber = maxProjectNumber + 1
+      }
+      else if (
           (scrollToDownOfSection(distanceFromTop) &&
               !isFinishState()) ||
           (scrollToTopOfSection(distanceFromTop) &&
@@ -428,7 +435,7 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
       }
     }
 
-    if (!scrollIsActive) {
+    if (!scrollIsActive && !ContolStore.forcedScroll) {
       return false;
     }
 

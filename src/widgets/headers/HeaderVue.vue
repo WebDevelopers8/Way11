@@ -29,7 +29,7 @@
           <div class="header__sidemenu-nav">
             <a href="#services" >Услуги</a>
             <a href="#projects" >Проекты</a>
-            <a href="#form">Оставить заявку</a>
+            <a @click="() => controlStore.temporarilyAllowForcedScroll()" href="#form">Оставить заявку</a>
           </div>
           <div class="header__line"></div>
         </div>
@@ -82,9 +82,12 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import HeaderModal from "@/widgets/headers/modal/HeaderModal.vue";
+import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 const burger = document.querySelector('.header__burger');
 const stateMenu = ref(false)
+
+const controlStore = useControlStore()
 </script>
 
 <style lang="postcss" scoped>
