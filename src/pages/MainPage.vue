@@ -126,9 +126,9 @@
             <router-link to='/project/0'>
               <div>Подробнее</div>
             </router-link>
-            <button class="outline">
-              <div>Предложить проект</div>
-            </button>
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
           </div>
         </div>
         <div v-if="projectCount == 2">
@@ -155,9 +155,9 @@
             <router-link to='/project/0'>
               <div>Подробнее</div>
             </router-link>
-            <button class="outline">
-              <div>Предложить проект</div>
-            </button>
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
           </div>
         </div>
         <div v-if="projectCount == 3">
@@ -180,9 +180,10 @@
             <router-link to='/project/0'>
               <div>Подробнее</div>
             </router-link>
-            <button class="outline">
-              <div>Предложить проект</div>
-            </button>
+
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -938,8 +939,6 @@ function onHeadlerForScroll(callback) {
 .projects {
   position: relative;
   padding-bottom: 680px;
-  min-height: 800px;
-  height: 100vh;
   @apply lg:mt-[150px] lg:block hidden;
 
   &__test {
@@ -1142,6 +1141,15 @@ function onHeadlerForScroll(callback) {
         transform: skew(-18deg) translateY(2px);
         border-right: 1px solid #438CB4;
         border-bottom: 1px solid #438CB4;
+      }
+      &.outline {
+        background-color: #fff;
+
+        @apply sm:mt-0 mt-[16px];
+        div {
+          color: #438CB4;
+          @apply lg:left-[46px] sm:left-[120px] sm:top-[12px];
+        }
       }
 
       div {

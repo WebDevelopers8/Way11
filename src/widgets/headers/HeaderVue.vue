@@ -17,7 +17,7 @@
             <img src="@/shared/images/logo-l.png" alt="logo">
           </div>
         </router-link>
-        <button class="header__burger" :class="{active:stateMenu}"
+        <button  class="header__burger" :class="{active:stateMenu}"
                 @click="stateMenu ? stateMenu = false : stateMenu = true">
           <div></div>
           <div></div>
@@ -41,7 +41,7 @@
           <div class="w-[100%] flex flex-col items-center justify-center ">
             <div class="container">
               <div class="w-full flex justify-end">
-                <button class="header__burger mt-[36px]" :class="{active:stateMenu}"
+                <button class="header__burger mt-[15px]" :class="{active:stateMenu}"
                         @click="stateMenu ? stateMenu = false : stateMenu = true">
                   <div></div>
                   <div></div>
@@ -53,7 +53,7 @@
             <div class="flex flex-col w-[90%] mt-[40px] gap-[24px] border-b-solid border-b-[1px] border-b-[#787878] pb-[48px]">
               <a href="#services" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</a>
               <a href="#projects" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</a>
-              <a href="#form" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</a>
+              <a @click="() => controlStore.temporarilyAllowForcedScroll()" href="#form" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</a>
             </div>
             <div class="w-full flex flex-col items-center">
               <div class="flex gap-[24px] mt-[48px]">
@@ -93,7 +93,7 @@ const controlStore = useControlStore()
 <style lang="postcss" scoped>
 .modal
 {
-  @apply w-full flex flex-col items-center justify-center;
+  @appl w-full flex flex-col items-center justify-center;
   &-enter-active, &-leave-active
   {
     transition: all 0.3s ease;
@@ -111,10 +111,9 @@ const controlStore = useControlStore()
   &__wrapper {
     position: relative;
     display: flex;
-    padding: 16px 0;
     align-items: center;
     justify-content: space-between;
-    @apply border-b-[1px] border-b-[#787878];
+    @apply lg:py-[16px] py-[12px] border-b-[1px] border-b-[#787878];
   }
 
   &__line {
@@ -185,7 +184,6 @@ const controlStore = useControlStore()
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    //align-items: end;
     width: 32px;
     height: 28px;
 
@@ -227,6 +225,7 @@ const controlStore = useControlStore()
     @apply lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%];
     img {
       width: 64px;
+      @apply lg:w-[64px] w-[32px];
     }
   }
 }
