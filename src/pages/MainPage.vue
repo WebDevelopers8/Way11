@@ -375,6 +375,8 @@ if(window.innerWidth > 1023) {
 }
 //@ts-ignore
   function onProjectsSectionHeadler(onSwitchProjectCallback) {
+
+
     const topSectionPositionOfset = 0;
     const pause = 300;
 
@@ -382,7 +384,8 @@ if(window.innerWidth > 1023) {
     const maxProjectNumber = 3;
     let projectNumber = minProjectNumber - 1;
     let delayStart = Date.now() - pause;
-
+    if (projectsSection.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && bike.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null)
+    {
     addEventListener("scroll", (e) => {
       if (projectsSection.value != null) {
         const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
@@ -398,6 +401,7 @@ if(window.innerWidth > 1023) {
         }
       }
     });
+  }
 //@ts-ignore
     onHeadlerForScroll((e) => {
       let scrollIsActive = true;
