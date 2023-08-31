@@ -939,8 +939,6 @@ function onHeadlerForScroll(callback) {
 .projects {
   position: relative;
   padding-bottom: 680px;
-  min-height: 800px;
-  height: 100vh;
   @apply lg:mt-[150px] lg:block hidden;
 
   &__test {
