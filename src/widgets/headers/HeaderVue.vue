@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="container">
+    <div class="container z-[100]">
       <div class="header__wrapper">
         <div class="header__contacts">
           <div class="header__contacts-item">
@@ -122,7 +122,7 @@ const stateMenu = ref(false)
   }
 
   &__sidemenu {
-    pointer-events: none;
+    pointer-events: auto;
     position: absolute;
     @apply lg:w-[100%] w-[91%] lg:block hidden;
     &-enter-active, &-leave-active {
