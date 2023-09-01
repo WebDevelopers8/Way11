@@ -1,55 +1,76 @@
 <template>
   <div class="item" v-if="typeof urlImages == 'undefined'">
-    <div class="slider">
-      <div class="slider-slide">
-        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem--"><img src="@/shared/images/arrow-prev.png"></button>
-        <div :class="{active:activeItem == 1}" class="slider__item">
-          <img src="@/shared/images/slider-img-1.png">
-        </div>
-        <div :class="{active:activeItem == 2}" class="slider__item">
-          <img src="@/shared/images/slider-img-2.png">
-        </div>
-        <div :class="{active:activeItem == 3}" class="slider__item">
-          <img src="@/shared/images/slider-img-1.png">
-        </div>
-        <div :class="{active:activeItem == 4}" class="slider__item">
-          <img src="@/shared/images/slider-img-2.png">
-        </div>
-        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>
+    <Splide class="flex justify-center items-center h-[98%] " :options="{ rewind: true, padding:{left:20, right: 20}, gap:20 }" aria-label="My Favorite Images">
+      <SplideSlide class="slide" v-for="item in 4" :key="item">
+        <img src="@/shared/images/slider-img-1.png">
+      </SplideSlide>
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev bg-transparent"><img src="@/shared/images/arrow-prev.png"></button>
+        <button class="splide__arrow splide__arrow--next bg-transparent"><img src="@/shared/images/arrow-next.png"></button>
       </div>
-      <div class="slider-points">
-        <div :class="{active:activeItem == 1}">
-          <button @click="activeItem = 1" :class="{active:activeItem == 1}" class="slider-points__item"></button>
-        </div>
-        <div :class="{active:activeItem == 2}">
-          <button @click="activeItem = 2" :class="{active:activeItem == 2}" class="slider-points__item"></button>
-        </div>
-        <div :class="{active:activeItem == 3}">
-          <button @click="activeItem = 3" :class="{active:activeItem == 3}" class="slider-points__item"></button>
-        </div>
-        <div :class="{active:activeItem == 4}">
-          <button @click="activeItem = 4" :class="{active:activeItem == 4}" class="slider-points__item"></button>
-        </div>
-      </div>
-    </div>
+    </Splide>
+<!--    <div class="slider">-->
+<!--      <div class="slider-slide">-->
+<!--        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem&#45;&#45;"><img src="@/shared/images/arrow-prev.png"></button>-->
+<!--        <div :class="{active:activeItem == 1}" class="slider__item">-->
+<!--          <img src="@/shared/images/slider-img-1.png">-->
+<!--        </div>-->
+<!--        <div :class="{active:activeItem == 2}" class="slider__item">-->
+<!--          <img src="@/shared/images/slider-img-2.png">-->
+<!--        </div>-->
+<!--        <div :class="{active:activeItem == 3}" class="slider__item">-->
+<!--          <img src="@/shared/images/slider-img-1.png">-->
+<!--        </div>-->
+<!--        <div :class="{active:activeItem == 4}" class="slider__item">-->
+<!--          <img src="@/shared/images/slider-img-2.png">-->
+<!--        </div>-->
+<!--        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>-->
+<!--      </div>-->
+<!--      <div class="slider-points">-->
+<!--        <div :class="{active:activeItem == 1}">-->
+<!--          <button @click="activeItem = 1" :class="{active:activeItem == 1}" class="slider-points__item"></button>-->
+<!--        </div>-->
+<!--        <div :class="{active:activeItem == 2}">-->
+<!--          <button @click="activeItem = 2" :class="{active:activeItem == 2}" class="slider-points__item"></button>-->
+<!--        </div>-->
+<!--        <div :class="{active:activeItem == 3}">-->
+<!--          <button @click="activeItem = 3" :class="{active:activeItem == 3}" class="slider-points__item"></button>-->
+<!--        </div>-->
+<!--        <div :class="{active:activeItem == 4}">-->
+<!--          <button @click="activeItem = 4" :class="{active:activeItem == 4}" class="slider-points__item"></button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
   <div class="project" v-if="typeof urlImages != 'undefined'">
-    <div class="slider">
-      <div class="slider-slide">
+    <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, gap:20 }" aria-label="My Favorite Images">
+      <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
+        <img :src="item">
+      </SplideSlide>
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev bg-transparent"><img src="@/shared/images/arrow-prev.png"></button>
+        <button class="splide__arrow splide__arrow--next bg-transparent"><img src="@/shared/images/arrow-next.png"></button>
+      </div>
+      <div>
+
+      </div>
+    </Splide>
+<!--    <div class="slider">-->
+<!--      <div class="slider-slide">-->
 <!--        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem&#45;&#45;"><img src="@/shared/images/arrow-prev.png"></button>-->
-        <SliderImage v-for="(item, index) in urlImages" :activeItem="activeItem" :key="index" :id="index + 1" :url="item" />
+<!--        <SliderImage v-for="(item, index) in urlImages" :activeItem="activeItem" :key="index" :id="index + 1" :url="item" />-->
 <!--        <div :class="{active:activeItem == 1}" class="slider__item">-->
 <!--          <img src="@/shared/images/slider-img-1.png">-->
 <!--        </div>-->
 <!--        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>-->
-      </div>
-      <div class="slider-points">
-        <SliderPoint v-for="(item, index) in urlImages" :key="index" :id="index + 1"  :activeItem="activeItem" @update-activeItem="(id : number) => activeItem = id" />
+<!--      </div>-->
+<!--      <div class="slider-points">-->
+<!--        <SliderPoint v-for="(item, index) in urlImages" :key="index" :id="index + 1"  :activeItem="activeItem" @update-activeItem="(id : number) => activeItem = id" />-->
 <!--        <div :class="{active:activeItem == 1}">-->
 <!--          <button @click="activeItem = 1" :class="{active:activeItem == 1}" class="slider-points__item"></button>-->
 <!--        </div>-->
-      </div>
-    </div>
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -57,7 +78,9 @@
 import {ref} from "vue";
 import SliderImage from "@/features/Slider/SliderImage.vue";
 import SliderPoint from "@/features/Slider/SliderPoint.vue";
-
+//@ts-ignore
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/vue-splide/css';
 const activeItem = ref(1)
 const itemsLength = ref(4)
 
@@ -74,11 +97,30 @@ getMaxCounts()
 </script>
 
 <style lang="postcss" scoped>
-
+.splide__arrow
+{
+  background-color: transparent !important;
+  opacity: 1 !important;
+}
+.slide
+{
+  @apply flex justify-center items-center w-full;
+}
+@media (max-width: 425px) {
+  .splide__arrow
+  {
+    @apply hidden
+  }
+  .splide__list
+  {
+    padding: 0 20px !important;
+    @apply gap-[20px]
+  }
+}
 .item {
   background-image: url("@/shared/images/slider-bg.png");
   background-size: cover;
-  @apply w-[100%] h-[100%] bg-no-repeat rounded-[20px];
+  @apply w-[100%] h-[96%] flex bg-no-repeat rounded-[20px];
 
   &__bg {
     @apply w-full h-full;
@@ -92,7 +134,34 @@ getMaxCounts()
     @apply w-full h-full;
   }
 }
+.splide__pagination {
 
+  & li
+  {
+    transition: all 0.01s ease;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 20px !important;
+    @apply flex justify-center items-center relative;
+    &.is-active {
+      border: solid #5BB6F1 2px !important;
+    }
+  }
+  &__page
+  {
+      transition: all 0.3s ease;
+    width: 8px !important;
+    height: 8px !important;
+    background-color: #989899 !important;
+    opacity: 1 !important;
+      @apply rounded-[12px];
+      &.is-active
+      {
+
+        @apply bg-[#FFF]
+      }
+  }
+}
 .slider {
   @apply flex flex-col w-full h-full;
 
@@ -143,13 +212,4 @@ getMaxCounts()
   }
 }
 
-@keyframes slider__item {
-  from{
-    transform: translateX(-100px);
-  }
-  to
-  {
-    transform: translateX(0px);
-  }
-}
 </style>

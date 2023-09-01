@@ -4,7 +4,7 @@
     <div class="container">
       <h1 class="project__title">ВСЕ НАШИ <span class="project__title-project">ПРОЕКТЫ</span></h1>
       <div class="project-filter">
-        <button :class="{active:stateFilter == 0}" class="project-filter__button" @click="() => {stateFilter = 0; changeProject(stateFilter)}">Все проекты</button>
+        <button :class="{active:stateFilter == 0}" class="project-filter__button" @click="() => {stateFilter = 0; changeProject(stateFilter);}">Все проекты</button>
         <button :class="{active:stateFilter == 1}" class="project-filter__button" @click="() => {stateFilter = 1; changeProject(stateFilter)}">Вебинарные платформы</button>
         <button :class="{active:stateFilter == 2}" class="project-filter__button" @click="() => {stateFilter = 2; changeProject(stateFilter)}">Промо-сайты</button>
         <button :class="{active:stateFilter == 3}" class="project-filter__button" @click="() => {stateFilter = 3; changeProject(stateFilter)}">Корпоративные сайты</button>
@@ -42,6 +42,7 @@ import {ref} from "vue";
 import ProjectList from "@/widgets/projectList/ProjectList.vue";
 import type {projectType} from "@/entities/types/projectType/projectType";
 import FooterVue from "@/widgets/footer/FooterVue.vue";
+import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 const stateFilter = ref(0)
 
@@ -53,7 +54,6 @@ const projects : Array<projectType> = [
 ]
 
 window.scrollBy(0,0)
-
 function changeProject(id: number)
 {
 

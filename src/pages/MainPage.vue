@@ -5,7 +5,6 @@
     <div class="container">
       <div class="promo__title-comp">
         <span>Путь в тысячу миль <br>начинается</span> с одного шага
-
       </div>
       <div class="promo__title-mob">
         <span>Путь в тысячу<br> миль начинается<br></span> с одного <br>шага
@@ -22,7 +21,7 @@
       </div>
 
       <div class="flex lg:justify-start justify-center items-center">
-        <button class="promo__btn">
+        <button @click="closeListen()" class="promo__btn">
           <div>Оставить заявку</div>
         </button>
       </div>
@@ -335,7 +334,7 @@
             <div class="form__input w100"><input type="text" placeholder="Описание проекта" name="description">
             </div>
             <div class="form__buttons">
-              <button type="submit">
+              <button>
                 <div>Отправить</div>
               </button>
               <button class="outline">
@@ -354,7 +353,7 @@
 <script setup lang="ts">
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
-import {ref} from "vue";
+import {onUnmounted, ref} from "vue";
 import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 let projectCount = ref(1)
@@ -377,10 +376,18 @@ const projectsText0 = ref<HTMLElement | null>(null);
 const projectsText1 = ref<HTMLElement | null>(null);
 const projectsText2 = ref<HTMLElement | null>(null);
 
-if (window.innerWidth > 1023) {
+if (window.innerWidth > 1023 ) {
   onProjectsSectionHeadler(getProjectSwitcher());
 }
-
+ContolStore.forcedScroll = false;
+function closeListen()
+{
+  removeEventListener('scroll', () => {/* empty */})
+  removeEventListener('DOMMouseScroll', () => {/* empty */})
+  removeEventListener('WheelEvent', () => {/* empty */})
+  removeEventListener("touchmove", () => {/* empty */})
+  removeEventListener("keydown", () => {/* empty */})
+}
 //@ts-ignore
 function onProjectsSectionHeadler(onSwitchProjectCallback) {
   const topSectionPositionOfset = 0;
@@ -390,7 +397,7 @@ function onProjectsSectionHeadler(onSwitchProjectCallback) {
   const maxProjectNumber = 3;
   let projectNumber = minProjectNumber - 1;
   let delayStart = Date.now() - pause;
-
+  onUnmounted(() => {window.removeEventListener("scroll", (e) => {console.log(e)})})
   addEventListener("scroll", (e) => {
     if (projectsSection.value != null) {
       const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
@@ -570,10 +577,11 @@ function getProjectSwitcher() {
       projectsText2.value.classList.add("active");
       bikePosition = 840;
     }
-    //@ts-ignore
-    bike.value.style.transform = "translateX(" + bikePosition + "px)";
-    //@ts-ignore
-    bike.value.style.transition = "all 1s ease-in";
+    if(bike.value != null)
+    { bike.value.style.transform = "translateX(" + bikePosition + "px)";
+      bike.value.style.transition = "all 1s ease-in";
+
+    }
   }
 
   return setActiveProject;
@@ -618,6 +626,14 @@ function onHeadlerForScroll(callback) {
   window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
   window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
   window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+  onUnmounted(() => {
+    window.removeEventListener("DOMMouseScroll", preventDefault, false); // older FF
+    //@ts-ignore
+    window.removeEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    //@ts-ignore
+    window.removeEventListener("touchmove", preventDefault, wheelOpt); // mobile
+    window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
+  })
 }
 </script>
 
@@ -629,6 +645,14 @@ function onHeadlerForScroll(callback) {
   background-repeat: no-repeat;
 
   @apply 2xl:w-[102%] 2xl:mt-[120px] mt-[60px] 2xl:ml-[-28px] w-full bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
+}
+@media (min-width: 2559px)
+{
+  .bg-2{
+    background-image: url(@/shared/images/bg-2-4k.png);
+
+    background-position: left;
+  }
 }
 
 .promo {
