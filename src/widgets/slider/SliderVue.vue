@@ -78,6 +78,7 @@
 import {ref} from "vue";
 import SliderImage from "@/features/Slider/SliderImage.vue";
 import SliderPoint from "@/features/Slider/SliderPoint.vue";
+//@ts-ignore
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
 const activeItem = ref(1)

@@ -628,7 +628,9 @@ function onHeadlerForScroll(callback) {
   window.addEventListener("keydown", preventDefaultForScrollKeys, false);
   onUnmounted(() => {
     window.removeEventListener("DOMMouseScroll", preventDefault, false); // older FF
+    //@ts-ignore
     window.removeEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    //@ts-ignore
     window.removeEventListener("touchmove", preventDefault, wheelOpt); // mobile
     window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
   })
