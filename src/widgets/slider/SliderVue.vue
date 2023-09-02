@@ -1,7 +1,7 @@
 <template>
   <div class="slider-bg" v-if="typeof urlImages == 'undefined'">
     <Splide class="flex justify-center items-center h-[98%] "
-            :options="{ rewind: true, padding:{left:20, right: 20}, gap:0, classes: classes, arrowPath: arrow.arrowPath }"
+            :options="{ rewind: true, padding:{left:20, right: 20}, gap:40, classes: classes, arrowPath: arrow.arrowPath }"
             aria-label="My Favorite Images">
       <SplideSlide class="slide" v-for="item in 4" :key="item">
         <img src="@/shared/images/slider-img-1.png">
