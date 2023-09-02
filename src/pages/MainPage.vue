@@ -192,7 +192,7 @@
       <div class="container">
         <div class="projects__title">Проекты</div>
         <div class="projects__road">
-          <button v-if="projectCount > 1" class="projects__road-btn-left" @click="() => {projectCount == 1 ? projectCount = maxCountProject : projectCount-- ;setActiveProject(projectCount);}">
+          <button style="display: none;" ref="prevButton" class="projects__road-btn-left" @click="() => {projectCount == 1 ? projectCount = maxCountProject : projectCount-- ;setActiveProject(projectCount);}">
             Назад</button>
           <img src="@/shared/images/road.png" class="projects__road-img">
           <div class="flex w-[85%] justify-around ml-[60px]">
@@ -443,20 +443,12 @@ const projectPoint0 = ref<HTMLElement | null>(null);
 const projectPoint1 = ref<HTMLElement | null>(null);
 const projectPoint2 = ref<HTMLElement | null>(null);
 const projectPoint3 = ref<HTMLElement | null>(null);
+const prevButton = ref<HTMLElement | null>(null)
 
 const bikePosition = ref(40)
 const projectsOffset = ref(1380);
 const prevCount = ref(1)
 function setActiveProject(number : number) {
-  if (bike.value != null) {
-    bike.value.classList.add("tr");
-  }
-  setTimeout(() => {
-    if (bike.value != null) {
-      bike.value.classList.remove("tr")
-    }
-  }, 600);
-
   if (number == 1 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
     projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
     projectsWrapper1.value.classList.add("active");
@@ -497,25 +489,33 @@ function setActiveProject(number : number) {
     if(prevCount.value == 1)
     {
       setTimeout(() => {
-        projectLine0.value.classList.remove("open");
-        projectLine0.value.classList.remove("active")
-        projectPoint0.value.classList.remove("active")
+        if(projectLine0.value != null && projectPoint0.value != null)
+        {
+          projectLine0.value.classList.remove("open")
+          projectLine0.value.classList.remove("active")
+          projectPoint0.value.classList.remove("active")
+        }
       },1500)
       prevCount.value = 2
     }
     if(prevCount.value == 1)
     {
       setTimeout(() => {
-        projectLine0.value.classList.remove("active")
-        projectLine0.value.classList.remove("open")
-        projectPoint0.value.classList.remove("active")
+        if(projectLine0.value != null && projectPoint0.value != null) {
+          projectLine0.value.classList.remove("active")
+          projectLine0.value.classList.remove("open")
+          projectPoint0.value.classList.remove("active")
+        }
       },1500)
       prevCount.value = 2
     }else
     {
       setTimeout(() => {
-        projectLine0.value.classList.remove("active")
-        projectPoint0.value.classList.remove("active")
+        if(projectLine0.value != null && projectPoint0.value != null) {
+
+          projectLine0.value.classList.remove("active")
+          projectPoint0.value.classList.remove("active")
+        }
       }, 1500)
 
     }
@@ -545,9 +545,11 @@ function setActiveProject(number : number) {
     if(prevCount.value == 2)
     {
       setTimeout(() => {
-        projectLine1.value.classList.remove("active")
-        projectLine1.value.classList.remove("open")
-        projectPoint1.value.classList.remove("active")
+        if(projectLine1.value != null && projectPoint1.value != null) {
+          projectLine1.value.classList.remove("active")
+          projectLine1.value.classList.remove("open")
+          projectPoint1.value.classList.remove("active")
+        }
       },1500)
       prevCount.value = 3
     }else
@@ -580,9 +582,11 @@ function setActiveProject(number : number) {
     if(prevCount.value == 3)
     {
       setTimeout(() => {
-        projectLine2.value.classList.remove("active")
-        projectLine2.value.classList.remove("open")
-        projectPoint2.value.classList.remove("active")
+        if(projectLine2.value != null && projectPoint2.value != null) {
+          projectLine2.value.classList.remove("active")
+          projectLine2.value.classList.remove("open")
+          projectPoint2.value.classList.remove("active")
+        }
       },1500)
       prevCount.value = 4
     }else
@@ -592,10 +596,27 @@ function setActiveProject(number : number) {
       prevCount.value = 4
     }
   }
-  //@ts-ignore
-  bike.value.style.transform = "translateX(" + bikePosition.value + "px)";
-  //@ts-ignore
-  bike.value.style.transition = "all 1s ease-in";
+  setTimeout(() => {
+    if(number > 1 && prevButton.value != null)
+    {
+      prevButton.value.style.display = 'block';
+    }else if(prevButton.value != null){
+      prevButton.value.style.display = 'none';
+    }
+  }, 1000)
+  setTimeout(() => {
+    if (bike.value != null) {
+      bike.value.classList.add("tr");
+      bike.value.style.transform = "translateX(" + bikePosition.value + "px)";
+      bike.value.style.transition = "all 1s ease-in";
+    }
+  } ,500)
+
+  setTimeout(() => {
+    if (bike.value != null) {
+      bike.value.classList.remove("tr")
+    }
+  }, 1600);
 }
 
 
@@ -1000,7 +1021,7 @@ function setActiveProject(number : number) {
 
       &.tr {
         .projects__road-wheel1, .projects__road-wheel2 {
-          animation: wheel .6s linear;
+          animation: wheel 1.0s linear;
         }
       }
     }
