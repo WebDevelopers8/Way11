@@ -21,7 +21,7 @@
       </div>
 
       <div class="flex lg:justify-start justify-center items-center">
-        <button @click="closeListen()" class="promo__btn">
+        <button class="promo__btn">
           <div>Оставить заявку</div>
         </button>
       </div>
