@@ -192,26 +192,50 @@
       <div class="container">
         <div class="projects__title">Проекты</div>
         <div class="projects__road">
+          <button v-if="projectCount > 1" class="projects__road-btn-left" @click="() => {projectCount == 1 ? projectCount = maxCountProject : projectCount-- ;setActiveProject(projectCount);}">
+            Назад</button>
           <img src="@/shared/images/road.png" class="projects__road-img">
-          <span ref="bike" class="projects__road-bike tr0">
+          <div class="flex w-[85%] justify-around ml-[60px]">
+            <div ref="projectsText0" class="projects__road-text active" id="tr0">
+              <div ref="projectLine0" class="line active"></div>
+              <div ref="projectPoint0" class="line__point active">
+                <div class="line__point-center"></div>
+              </div>
+              <span>Lancelot</span>
+              <p>5 июня 2019 г.</p>
+            </div>
+            <div ref="projectsText1" class="projects__road-text" id="tr1">
+              <div ref="projectLine1" class="line"></div>
+              <div ref="projectPoint1" class="line__point">
+                <div class="line__point-center"></div>
+              </div>
+              <span>Lancelot 2</span>
+              <p>23 мая 2020 г.</p>
+            </div>
+            <div ref="projectsText2" class="projects__road-text" id="tr2">
+              <div ref="projectLine2"  class="line"></div>
+              <div ref="projectPoint2" class="line__point">
+                <div class="line__point-center"></div>
+              </div>
+              <span>Lancelot 3</span>
+              <p>6 октября 2021 г.</p>
+            </div>
+            <div ref="projectsText3" class="projects__road-text" id="tr3">
+              <div ref="projectLine3" class="line"></div>
+              <div ref="projectPoint3"  class="line__point">
+                <div class="line__point-center"></div>
+              </div>
+              <span>Lancelot 4</span>
+              <p>12 Ноябрь 2022 г.</p>
+            </div>
+          </div>
+          <span ref="bike" class="projects__road-bike tr0" style="transform: translateX(40px);">
                     <img src="@/shared/images/bike.png">
                     <img src="@/shared/images/wheel-1.png" class="projects__road-wheel1">
                     <img src="@/shared/images/wheel-2.png" class="projects__road-wheel2">
-                    <div class="projects__road-line"></div>
-                    <div ref="projectsText0" class="projects__road-text active" id="tr0">
-                        <span>Lancelot</span>
-                        <p>5 июня 2019 г.</p>
-                    </div>
-                    <div ref="projectsText1" class="projects__road-text" id="tr1">
-                        <span>Lancelot 2</span>
-                        <p>23 мая 2020 г.</p>
-                    </div>
-                    <div ref="projectsText2" class="projects__road-text" id="tr2">
-                        <span>Lancelot 3</span>
-                        <p>6 октября 2021 г.</p>
-                    </div>
                 </span>
-          <router-link to="/projects" class="projects__road-btn">Все проекты</router-link>
+          <button v-if="projectCount < maxCountProject" class="projects__road-btn" @click="() => {projectCount == maxCountProject ? projectCount = 1 : projectCount++ ;setActiveProject(projectCount);}">
+            Вперед</button>
         </div>
         <div ref="projectsWrap" class="projects__test">
           <div ref="projectsWrapper1" class="projects__wrapper active">
@@ -278,7 +302,7 @@
               <SliderVue/>
             </div>
           </div>
-          <div ref="projectsWrapper3" class="projects__wrapper ">
+          <div  ref="projectsWrapper3" class="projects__wrapper ">
             <div class="projects__descr">
               <div class="projects__name">Lancelot 3</div>
               <div class="projects__name-descr">Вебинарная платформа</div>
@@ -306,6 +330,40 @@
             <div class="h-[95%]">
               <SliderVue/>
             </div>
+          </div>
+          <div ref="projectsWrapper4" class="projects__wrapper">
+            <div class="projects__descr">
+              <div class="projects__name">Lancelot</div>
+              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__text">
+                На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
+                для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
+                пройдет рассылка с напоминанием.
+              </div>
+              <div class="projects__tags">
+                <span>AWS Chalice</span>
+                <span>Lambda</span>
+                <span>Aurora Serverless Postgres</span>
+                <span>API Gateway</span>
+                <span>DynamoDB</span>
+                <span>WebSockets</span>
+                <span>Python</span>
+                <span>Git</span>
+                <span>React</span>
+              </div>
+              <div class="projects__buttons">
+                <router-link to='/project/0'>
+                  <div>Подробнее</div>
+                </router-link>
+                <button class="outline">
+                  <div>Предложить проект</div>
+                </button>
+              </div>
+            </div>
+            <div class="h-[95%]">
+              <SliderVue/>
+            </div>
+
           </div>
         </div>
       </div>
@@ -347,7 +405,6 @@
       </div>
     </section>
   </section>
-
   <FooterVue/>
 </template>
 
@@ -358,7 +415,7 @@ import {ref} from "vue";
 import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 let projectCount = ref(1)
-let maxCountProject = ref(3)
+let maxCountProject = ref(4)
 let title = ['Lancelot', 'Lancelot2', 'Lancelot3']
 let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
 
@@ -372,253 +429,177 @@ const projectsWrap = ref<HTMLElement | null>(null);
 const projectsWrapper1 = ref<HTMLElement | null>(null);
 const projectsWrapper2 = ref<HTMLElement | null>(null);
 const projectsWrapper3 = ref<HTMLElement | null>(null);
+const projectsWrapper4 = ref<HTMLElement | null>(null);
 const bike = ref<HTMLElement | null>(null);
 const projectsText0 = ref<HTMLElement | null>(null);
 const projectsText1 = ref<HTMLElement | null>(null);
 const projectsText2 = ref<HTMLElement | null>(null);
+const projectsText3 = ref<HTMLElement | null>(null);
+const projectLine0 = ref<HTMLElement | null>(null);
+const projectLine1 = ref<HTMLElement | null>(null);
+const projectLine2 = ref<HTMLElement | null>(null);
+const projectLine3 = ref<HTMLElement | null>(null);
+const projectPoint0 = ref<HTMLElement | null>(null);
+const projectPoint1 = ref<HTMLElement | null>(null);
+const projectPoint2 = ref<HTMLElement | null>(null);
+const projectPoint3 = ref<HTMLElement | null>(null);
 
-if (window.innerWidth > 1023) {
-  onProjectsSectionHeadler(getProjectSwitcher());
-}
-
-//@ts-ignore
-function onProjectsSectionHeadler(onSwitchProjectCallback) {
-  const topSectionPositionOfset = 0;
-  const pause = 300;
-
-  const minProjectNumber = 1;
-  const maxProjectNumber = 3;
-  let projectNumber = minProjectNumber - 1;
-  let delayStart = Date.now() - pause;
-
-  addEventListener("scroll", (e) => {
-    if (projectsSection.value != null) {
-      const distanceFromTop = projectsSection.value.getBoundingClientRect().top;
-
-      if(ContolStore.forcedScroll)
-      {
-        projectNumber = maxProjectNumber + 1
-      }
-      else if (
-          (scrollToDownOfSection(distanceFromTop) &&
-              !isFinishState()) ||
-          (scrollToTopOfSection(distanceFromTop) &&
-              !isStartState()) ||
-          (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
-      ) {
-        scrollToStartOfSection();
-      }
+const bikePosition = ref(40)
+const projectsOffset = ref(1380);
+const prevCount = ref(1)
+function setActiveProject(number : number) {
+  if (bike.value != null) {
+    bike.value.classList.add("tr");
+  }
+  setTimeout(() => {
+    if (bike.value != null) {
+      bike.value.classList.remove("tr")
     }
-  });
-//@ts-ignore
-  onHeadlerForScroll((e) => {
-    let scrollIsActive = true;
-    const deltaScroll = e.deltaY || e.detail || e.wheelDelta;
-    const distanceFromTop = projectsSection.value == null ? 0 : projectsSection.value.getBoundingClientRect().top;
-    if (
-        (scrollToDownOfSection(distanceFromTop - deltaScroll) &&
-            !isFinishState()) ||
-        (scrollToTopOfSection(distanceFromTop - deltaScroll) &&
-            !isStartState()) ||
-        (scrollOnSection(distanceFromTop) && !isStartState() && !isFinishState())
-    ) {
-      scrollIsActive = false;
-    }
+  }, 600);
 
-    if (pauseIsEnded()) {
-      startPause();
-      if (!scrollIsActive) {
-        if (deltaScroll < 0) {
-          toPrevProject();
-        } else {
-          toNextProject();
-        }
-      }
-    }
-
-    if (!scrollIsActive && !ContolStore.forcedScroll) {
-      return false;
-    }
-
-    return true;
-  });
-
-//@ts-ignore
-  function scrollToDownOfSection(distanceFromTop) {
-    if (distanceFromTop < topSectionPositionOfset) {
-      return true;
-    } else return false;
+  if (number == 1 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
+    projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
+    projectsWrapper1.value.classList.add("active");
+    projectsWrapper2.value.classList.remove("active");
+    projectsWrapper3.value.classList.remove("active");
+    projectsWrapper4.value.classList.remove("active");
+    projectsText0.value.classList.add("active");
+    projectsText2.value.classList.remove("active");
+    projectsText1.value.classList.remove("active");
+    projectsText3.value.classList.remove("active");
+    projectLine0.value.classList.add("active");
+    projectLine1.value.classList.remove("active");
+    projectLine2.value.classList.remove("active");
+    projectLine3.value.classList.remove("active");
+    projectPoint0.value.classList.add("active");
+    projectPoint1.value.classList.remove("active");
+    projectPoint2.value.classList.remove("active");
+    projectPoint3.value.classList.remove("active");
+    prevCount.value = 1
+    bikePosition.value = 40;
   }
-
-//@ts-ignore
-  function scrollToTopOfSection(distanceFromTop) {
-    if (distanceFromTop > topSectionPositionOfset) {
-      return true;
-    } else return false;
-  }
-
-//@ts-ignore
-  function scrollOnSection(distanceFromTop) {
-    if (distanceFromTop == topSectionPositionOfset) {
-      return true;
-    } else return false;
-  }
-
-  function isStartState() {
-    if (projectNumber == minProjectNumber - 1) {
-      return true;
-    } else return false;
-  }
-
-  function isFinishState() {
-    if (projectNumber == maxProjectNumber + 1) {
-      return true;
-    } else return false;
-  }
-
-  function pauseIsEnded() {
-    return Date.now() - delayStart > pause;
-  }
-
-  function startPause() {
-    delayStart = Date.now();
-  }
-
-  function toNextProject() {
-    if (projectNumber <= maxProjectNumber) {
-      projectNumber++;
-      onSwitchProjectCallback(projectNumber);
-    }
-  }
-
-  function toPrevProject() {
-    if (projectNumber >= minProjectNumber) {
-      projectNumber--;
-      onSwitchProjectCallback(projectNumber);
-    }
-  }
-
-  function scrollToStartOfSection() {
-    if (projectsSection.value != null) {
-      window.scrollTo(0, projectsSection.value.offsetTop);
-    }
-  }
-}
-
-function getProjectSwitcher() {
-  const projectsOffset = 1380;
-
-  let bikePosition = 0;
-
-//@ts-ignore
-  function setActiveProject(number) {
-    if(bike.value != null)
+  if(number == 2 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {    projectsWrap.value.style.transform = "translateX(" + -projectsOffset.value + "px)";
+    if(prevCount.value == 1){projectLine0.value.classList.add("open");}
+    projectsWrapper1.value.classList.remove("active");
+    projectsWrapper3.value.classList.remove("active");
+    projectsWrapper2.value.classList.add("active");
+    projectsWrapper4.value.classList.remove("active");
+    projectsText0.value.classList.remove("active");
+    projectsText2.value.classList.remove("active");
+    projectsText1.value.classList.add("active");
+    projectsText3.value.classList.remove("active");
+    projectLine1.value.classList.add("active")
+    projectLine2.value.classList.remove("active");
+    projectLine3.value.classList.remove("active");
+    projectPoint1.value.classList.add("active");
+    projectPoint2.value.classList.remove("active");
+    projectPoint3.value.classList.remove("active");
+    if(prevCount.value == 1)
     {
-      bike.value.classList.add("tr");
+      setTimeout(() => {
+        projectLine0.value.classList.remove("open");
+        projectLine0.value.classList.remove("active")
+        projectPoint0.value.classList.remove("active")
+      },1500)
+      prevCount.value = 2
     }
-    setTimeout(() => {if(bike.value != null ) {bike.value.classList.remove("tr")}}, 600);
+    if(prevCount.value == 1)
+    {
+      setTimeout(() => {
+        projectLine0.value.classList.remove("active")
+        projectLine0.value.classList.remove("open")
+        projectPoint0.value.classList.remove("active")
+      },1500)
+      prevCount.value = 2
+    }else
+    {
+      setTimeout(() => {
+        projectLine0.value.classList.remove("active")
+        projectPoint0.value.classList.remove("active")
+      }, 1500)
 
-    if (number == 1 && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
-      //@ts-ignore
-      projectsWrap.value.style.transform = "translateX(" + 0 + "px)";
-      //@ts-ignore
-      projectsWrapper1.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper1.value.classList.add("active");
-      projectsText1.value.classList.remove("active");
-      projectsText2.value.classList.remove("active");
-      projectsText0.value.classList.add("active");
-      bikePosition = 0;
     }
-    if (number == 2 && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
-      //@ts-ignore
-      projectsWrap.value.style.transform = "translateX(" + -projectsOffset + "px)";
-      //@ts-ignore
-      projectsWrapper1.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.add("active");
-      projectsText0.value.classList.remove("active");
-      projectsText2.value.classList.remove("active");
-      projectsText1.value.classList.add("active");
-      bikePosition = 420;
-    }
-    if (number == 3 && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {
-      //@ts-ignore
-      projectsWrap.value.style.transform =
-          "translateX(" + -projectsOffset * 2 + "px)";
-      //@ts-ignore
-      projectsWrapper1.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper2.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.remove("active");
-      //@ts-ignore
-      projectsWrapper3.value.classList.add("active");
-      //@ts-ignore
-      projectsText0.value.classList.remove("active");
-      //@ts-ignore
-      projectsText1.value.classList.remove("active");
-      //@ts-ignore
-      projectsText2.value.classList.add("active");
-      bikePosition = 840;
-    }
-    //@ts-ignore
-    bike.value.style.transform = "translateX(" + bikePosition + "px)";
-    //@ts-ignore
-    bike.value.style.transition = "all 1s ease-in";
+
+    bikePosition.value = 300;
   }
+  if(number == 3 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {    projectsWrap.value.style.transform =
+        "translateX(" + -projectsOffset.value * 2 + "px)";
+    if(prevCount.value == 2){projectLine1.value.classList.add("open")}
+    projectsWrapper1.value.classList.remove("active");
+    projectsWrapper2.value.classList.remove("active");
+    projectsWrapper3.value.classList.add("active");
+    projectsWrapper4.value.classList.remove("active");
+    projectsText0.value.classList.remove("active");
+    projectsText1.value.classList.remove("active");
+    projectsText2.value.classList.add("active");
+    projectsText3.value.classList.remove("active");
+    projectLine0.value.classList.remove("active");
+    projectLine2.value.classList.add("active");
+    projectLine3.value.classList.remove("active");
+    projectPoint0.value.classList.remove("active");
+    projectPoint2.value.classList.add("active");
+    projectPoint3.value.classList.remove("active");
+    bikePosition.value = 560;
+    projectLine1.value.classList.add("open")
 
-  return setActiveProject;
-}
-
-//@ts-ignore
-function onHeadlerForScroll(callback) {
-  // left: 37, up: 38, right: 39, down: 40,
-  // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
-  var keys = {37: 1, 38: 1, 39: 1, 40: 1};
-
-//@ts-ignore
-  function preventDefault(e) {
-    if (!callback(e)) {
-      e.preventDefault();
+    if(prevCount.value == 2)
+    {
+      setTimeout(() => {
+        projectLine1.value.classList.remove("active")
+        projectLine1.value.classList.remove("open")
+        projectPoint1.value.classList.remove("active")
+      },1500)
+      prevCount.value = 3
+    }else
+    {
+      projectLine1.value.classList.remove("active")
+      projectPoint1.value.classList.remove("active")
+      projectLine1.value.classList.remove("open")
+      prevCount.value = 3
     }
   }
-
-//@ts-ignore
-  function preventDefaultForScrollKeys(e) {
-    //@ts-ignore
-    if (keys[e.keyCode]) {
-      if (!callback(e)) {
-        e.preventDefault();
-        return false;
-      }
+  if(number == 4 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {    projectsWrap.value.style.transform =
+        "translateX(" + -4140 + "px)";
+    if(prevCount.value == 3){projectLine2.value.classList.add("open")}
+    projectsWrapper1.value.classList.remove("active");
+    projectsWrapper2.value.classList.remove("active");
+    projectsWrapper3.value.classList.remove("active");
+    projectsWrapper4.value.classList.add("active");
+    projectsText0.value.classList.remove("active");
+    projectsText1.value.classList.remove("active");
+    projectsText2.value.classList.remove("active");
+    projectsText3.value.classList.add("active");
+    projectLine0.value.classList.remove("active");
+    projectLine1.value.classList.remove("active");
+    projectLine3.value.classList.add("active");
+    projectPoint0.value.classList.remove("active");
+    projectPoint1.value.classList.remove("active");
+    projectPoint3.value.classList.add("active");
+    bikePosition.value = 841;
+    projectLine2.value.classList.add("open")
+    if(prevCount.value == 3)
+    {
+      setTimeout(() => {
+        projectLine2.value.classList.remove("active")
+        projectLine2.value.classList.remove("open")
+        projectPoint2.value.classList.remove("active")
+      },1500)
+      prevCount.value = 4
+    }else
+    {
+      projectLine2.value.classList.remove("active")
+      projectPoint2.value.classList.remove("active")
+      prevCount.value = 4
     }
   }
-
-  // modern Chrome requires { passive: false } when adding event
-  var supportsPassive = false;
-
   //@ts-ignore
-  // eslint-disable-next-line getter-return
-  try {window.addEventListener("test", null, Object.defineProperty({}, "passive", {get: function () {supportsPassive = true;},}));} catch (e) { /* empty */}
-
-  var wheelOpt = supportsPassive ? {passive: false} : false;
-  var wheelEvent =
-      "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
-
-  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
-  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
+  bike.value.style.transform = "translateX(" + bikePosition.value + "px)";
+  //@ts-ignore
+  bike.value.style.transition = "all 1s ease-in";
 }
+
+
+
 </script>
 
 <style lang="postcss" scoped>
@@ -629,6 +610,33 @@ function onHeadlerForScroll(callback) {
   background-repeat: no-repeat;
 
   @apply 2xl:w-[102%] 2xl:mt-[120px] mt-[60px] 2xl:ml-[-28px] w-full bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
+}
+
+
+.line {
+  transition: all 1.5s ease;
+  @apply absolute ml-[-15px] mt-[33px] border-solid border-l-[2px] border-[#B9B9BC] opacity-50 w-[1px] h-[90px];
+
+  &.active {
+    @apply h-[160px] bg-[#787878] opacity-100;
+  }
+  &.open
+  {
+    @apply h-[1px]
+  }
+
+  &__point {
+    transition: all 0.5s ease;
+    @apply absolute mt-[122px] ml-[-21px] flex justify-center items-center border-solid border-[1.5px] p-[6px] border-[#898A8F] rounded-[90px];
+
+    &.active {
+      @apply opacity-0
+    }
+
+    &-center {
+      @apply absolute bg-[#898A8F] w-[4px] h-[4px] rounded-[90px];
+    }
+  }
 }
 
 .promo {
@@ -960,7 +968,7 @@ function onHeadlerForScroll(callback) {
   &__wrapper {
     width: 1280px;
     margin-right: 100px;
-    margin-top: 120px;
+    margin-top: 50px;
     display: grid;
     gap: 40px;
     grid-template-columns: 1fr 1fr;
@@ -974,13 +982,14 @@ function onHeadlerForScroll(callback) {
   }
 
   &__road {
-    @apply py-[120px] px-[0] xl:block hidden relative;
+    @apply pb-[120px] pt-[50px] px-[0] xl:block hidden relative;
 
     &-img {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       bottom: 0px;
+      @apply z-[1];
     }
 
     &-bike {
@@ -1020,15 +1029,17 @@ function onHeadlerForScroll(callback) {
     }
 
     &-text {
-      position: absolute;
-      left: calc(100% + 20px);
-      bottom: 120px;
-      opacity: 0;
+      opacity: 0.5;
       pointer-events: none;
+      @apply mb-[50px] ml-[130px];
 
       &.active {
         opacity: 1;
         pointer-events: all;
+      }
+
+      &.prev {
+
       }
 
       span {
@@ -1043,6 +1054,7 @@ function onHeadlerForScroll(callback) {
     }
 
     &-btn {
+      margin-top: 45px;
       position: absolute;
       right: 0px;
       top: 50%;
@@ -1067,7 +1079,34 @@ function onHeadlerForScroll(callback) {
         transform: translateY(calc(-50% + 2px));
       }
     }
+    &-btn-left {
+      margin-top: 45px;
+      position: absolute;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FFF;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 170px;
+      height: 50px;
+      font-weight: 300;
+      background-image: url("@/shared/images/prevbutton-bg.png");
+      background-repeat: no-repeat;
+      padding-right: 26px;
+      object-fit: contain;
+      transition: all 0.2s ease;
+
+      &:hover {
+        cursor: pointer;
+        background-image: url("@/shared/images/prevbutton-bg2.png");
+        transform: translateY(calc(-50% + 2px));
+      }
+    }
   }
+
 
   &__title {
     font-size: 56px;
@@ -1141,10 +1180,12 @@ function onHeadlerForScroll(callback) {
         border-right: 1px solid #438CB4;
         border-bottom: 1px solid #438CB4;
       }
+
       &.outline {
         background-color: #fff;
 
         @apply sm:mt-0 mt-[16px];
+
         div {
           color: #438CB4;
           @apply text-[18px] leading-[32px] lg:left-[46px] sm:left-[120px] sm:top-[10px] top-[10px];
@@ -1209,9 +1250,9 @@ function onHeadlerForScroll(callback) {
       & div {
         @apply left-[31%] top-[14px];
       }
-      & .outline
-      {
-        & div{
+
+      & .outline {
+        & div {
           @apply left-[30%];
         }
       }
@@ -1226,9 +1267,8 @@ function onHeadlerForScroll(callback) {
         @apply left-[29%] top-[13px]
       }
 
-      & .outline
-      {
-        & div{
+      & .outline {
+        & div {
           @apply left-[0%];
         }
       }
@@ -1295,7 +1335,6 @@ function onHeadlerForScroll(callback) {
     transform: skew(15deg);
   }
 }
-
 
 
 @media (max-height: 900px) {
