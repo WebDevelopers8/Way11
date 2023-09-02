@@ -287,9 +287,9 @@
                 <router-link to='/project/0'>
                   <div>Подробнее</div>
                 </router-link>
-                <button class="outline">
-                  <div>Предложить проект</div>
-                </button>
+                <router-link to="/projects" class="outline">
+                  <div>Все проекты</div>
+                </router-link>
               </div>
             </div>
             <div class="h-[95%]">
@@ -318,9 +318,9 @@
                 <router-link to="/project/1">
                   <div>Подробнее</div>
                 </router-link>
-                <button class="outline">
-                  <div>Предложить проект</div>
-                </button>
+                <router-link to="/projects" class="outline">
+                  <div>Все проекты</div>
+                </router-link>
               </div>
             </div>
             <div class="h-[95%]">
@@ -347,9 +347,9 @@
                 <router-link to="/project/3">
                   <div>Подробнее</div>
                 </router-link>
-                <button class="outline">
-                  <div>Предложить проект</div>
-                </button>
+                <router-link to="/projects" class="outline">
+                  <div>Все проекты</div>
+                </router-link>
               </div>
             </div>
             <div class="h-[95%]">
@@ -380,9 +380,9 @@
                 <router-link to='/project/0'>
                   <div>Подробнее</div>
                 </router-link>
-                <button class="outline">
-                  <div>Предложить проект</div>
-                </button>
+                <router-link to="/projects" class="outline">
+                  <div>Все проекты</div>
+                </router-link>
               </div>
             </div>
             <div class="h-[95%]">
@@ -1239,7 +1239,7 @@ function setActiveProject(number : number) {
 
         div {
           color: #438CB4;
-          @apply text-[18px] leading-[32px] lg:left-[46px] sm:left-[120px] sm:top-[10px] top-[10px];
+          @apply lg:mt-[4px] mt-0 lg:text-[22px] text-[18px] leading-[32px] lg:left-[80px] sm:left-[120px] sm:top-[10px] top-[10px];
         }
       }
 
