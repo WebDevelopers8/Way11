@@ -6,76 +6,15 @@
       <SplideSlide class="slide" v-for="item in 4" :key="item">
         <img src="@/shared/images/slider-img-1.png">
       </SplideSlide>
-      <!--      <div class="splide__arrows">-->
-      <!--        <button class="splide__arrow splide__arrow&#45;&#45;prev bg-transparent"><img src="@/shared/images/arrow-prev.png"></button>-->
-      <!--        <button class="splide__arrow splide__arrow&#45;&#45;next bg-transparent"><img src="@/shared/images/arrow-next.png"></button>-->
-      <!--      </div>-->
     </Splide>
-    <!--    <div class="slider">-->
-    <!--      <div class="slider-slide">-->
-    <!--        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem&#45;&#45;"><img src="@/shared/images/arrow-prev.png"></button>-->
-    <!--        <div :class="{active:activeItem == 1}" class="slider__item">-->
-    <!--          <img src="@/shared/images/slider-img-1.png">-->
-    <!--        </div>-->
-    <!--        <div :class="{active:activeItem == 2}" class="slider__item">-->
-    <!--          <img src="@/shared/images/slider-img-2.png">-->
-    <!--        </div>-->
-    <!--        <div :class="{active:activeItem == 3}" class="slider__item">-->
-    <!--          <img src="@/shared/images/slider-img-1.png">-->
-    <!--        </div>-->
-    <!--        <div :class="{active:activeItem == 4}" class="slider__item">-->
-    <!--          <img src="@/shared/images/slider-img-2.png">-->
-    <!--        </div>-->
-    <!--        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>-->
-    <!--      </div>-->
-    <!--      <div class="slider-points">-->
-    <!--        <div :class="{active:activeItem == 1}">-->
-    <!--          <button @click="activeItem = 1" :class="{active:activeItem == 1}" class="slider-points__item"></button>-->
-    <!--        </div>-->
-    <!--        <div :class="{active:activeItem == 2}">-->
-    <!--          <button @click="activeItem = 2" :class="{active:activeItem == 2}" class="slider-points__item"></button>-->
-    <!--        </div>-->
-    <!--        <div :class="{active:activeItem == 3}">-->
-    <!--          <button @click="activeItem = 3" :class="{active:activeItem == 3}" class="slider-points__item"></button>-->
-    <!--        </div>-->
-    <!--        <div :class="{active:activeItem == 4}">-->
-    <!--          <button @click="activeItem = 4" :class="{active:activeItem == 4}" class="slider-points__item"></button>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
   <div class="slider-bg" v-if="typeof urlImages != 'undefined'">
-    <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, gap:20 }"
+    <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
             aria-label="My Favorite Images">
       <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
         <img :src="item">
       </SplideSlide>
-      <div class="splide__arrows">
-        <button class="splide__arrow splide__arrow--prev bg-transparent"><img src="@/shared/images/arrow-prev.png">
-        </button>
-        <button class="splide__arrow splide__arrow--next bg-transparent"><img src="@/shared/images/arrow-next.png">
-        </button>
-      </div>
-      <div>
-
-      </div>
     </Splide>
-    <!--    <div class="slider">-->
-    <!--      <div class="slider-slide">-->
-    <!--        <button class="sm:block hidden" @click="activeItem == 1 ? activeItem = itemsLength : activeItem&#45;&#45;"><img src="@/shared/images/arrow-prev.png"></button>-->
-    <!--        <SliderImage v-for="(item, index) in urlImages" :activeItem="activeItem" :key="index" :id="index + 1" :url="item" />-->
-    <!--        <div :class="{active:activeItem == 1}" class="slider__item">-->
-    <!--          <img src="@/shared/images/slider-img-1.png">-->
-    <!--        </div>-->
-    <!--        <button class="sm:block hidden" @click="activeItem == itemsLength ? activeItem = 1 : activeItem++"><img src="@/shared/images/arrow-next.png"></button>-->
-    <!--      </div>-->
-    <!--      <div class="slider-points">-->
-    <!--        <SliderPoint v-for="(item, index) in urlImages" :key="index" :id="index + 1"  :activeItem="activeItem" @update-activeItem="(id : number) => activeItem = id" />-->
-    <!--        <div :class="{active:activeItem == 1}">-->
-    <!--          <button @click="activeItem = 1" :class="{active:activeItem == 1}" class="slider-points__item"></button>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--    </div>-->
   </div>
 </template>
 
@@ -128,11 +67,6 @@ let arrow = {
 @media (max-width: 425px) {
   .slider__arrow {
     @apply hidden
-  }
-
-  .splide__list {
-    padding: 0 20px !important;
-    @apply gap-[20px]
   }
 }
 
