@@ -185,6 +185,32 @@
             </router-link>
           </div>
         </div>
+        <div v-if="projectCount == 4">
+          <div class="my-[24px] sm:h-[450px] h-[300px]">
+            <SliderVue/>
+          </div>
+          <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
+          <div class="projects__tags">
+            <span>AWS Chalice</span>
+            <span>Lambda</span>
+            <span>Aurora Serverless Postgres</span>
+            <span>API Gateway</span>
+            <span>DynamoDB</span>
+            <span>WebSockets</span>
+            <span>Python</span>
+            <span>Git</span>
+            <span>React</span>
+          </div>
+          <div class="projects__buttons">
+            <router-link to='/project/0'>
+              <div>Подробнее</div>
+            </router-link>
+
+            <router-link to="/projects" class="outline">
+              <div>Все проекты</div>
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
     <div ref="projectsSection" class="projects" id="projects">
@@ -410,13 +436,13 @@
 <script setup lang="ts">
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
-import {onUnmounted, ref} from "vue";
+import {ref} from "vue";
 import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 let projectCount = ref(1)
 let maxCountProject = ref(4)
-let title = ['Lancelot', 'Lancelot2', 'Lancelot3']
-let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
+let title = ['Lancelot', 'Lancelot2', 'Lancelot3', 'Lancelot4']
+let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
 
 const ContolStore = useControlStore();
 
