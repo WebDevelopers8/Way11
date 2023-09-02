@@ -5,7 +5,6 @@
     <div class="container">
       <div class="promo__title-comp">
         <span>Путь в тысячу миль <br>начинается</span> с одного шага
-
       </div>
       <div class="promo__title-mob">
         <span>Путь в тысячу<br> миль начинается<br></span> с одного <br>шага
@@ -22,7 +21,7 @@
       </div>
 
       <div class="flex lg:justify-start justify-center items-center">
-        <button class="promo__btn">
+        <button @click="closeListen()" class="promo__btn">
           <div>Оставить заявку</div>
         </button>
       </div>
@@ -393,7 +392,7 @@
             <div class="form__input w100"><input type="text" placeholder="Описание проекта" name="description">
             </div>
             <div class="form__buttons">
-              <button type="submit">
+              <button>
                 <div>Отправить</div>
               </button>
               <button class="outline">
@@ -411,7 +410,7 @@
 <script setup lang="ts">
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
-import {ref} from "vue";
+import {onUnmounted, ref} from "vue";
 import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 let projectCount = ref(1)
@@ -618,9 +617,6 @@ function setActiveProject(number : number) {
     }
   }, 1600);
 }
-
-
-
 </script>
 
 <style lang="postcss" scoped>
@@ -631,6 +627,14 @@ function setActiveProject(number : number) {
   background-repeat: no-repeat;
 
   @apply 2xl:w-[102%] 2xl:mt-[120px] mt-[60px] 2xl:ml-[-28px] w-full bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
+}
+@media (min-width: 2559px)
+{
+  .bg-2{
+    background-image: url(@/shared/images/bg-2-4k.png);
+
+    background-position: left;
+  }
 }
 
 
