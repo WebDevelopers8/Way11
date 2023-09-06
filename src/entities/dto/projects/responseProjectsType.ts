@@ -1,11 +1,11 @@
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import type {paginationInterface} from "@/entities/dto/projects/paginationInterface";
 
-type responseProjectType = {
-    data:projectInterface,
+type responseProjectsType = {
+    data:Array<projectInterface>,
     meta: {
         pagination: paginationInterface
     }
 }
 
-export type {responseProjectType}
+export type {responseProjectsType}
