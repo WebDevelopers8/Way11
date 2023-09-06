@@ -1,12 +1,15 @@
 <template>
   <div class="component">
-    <p class="component__title">Опросы и голосования</p>
-    <img class="component__image" src="@/shared/images/project/Vote.png" alt="product stats">
+    <p class="component__title">{{title}}</p>
+    <img v-if="urlImage ?? 0" class="component__image" :src="'https://admin.studioway11.com/'+urlImage" alt="product stats">
   </div>
 </template>
 
 <script setup lang="ts">
-
+defineProps<{
+  title:string,
+  urlImage:string,
+}>()
 </script>
 
 <style lang="postcss" scoped>

@@ -1,3 +1,5 @@
+import type {bodyInterface} from "@/entities/dto/projects/bodyInterface";
+
 interface attributesInterface {
     name: string,
     shortDescription: string,
@@ -6,11 +8,7 @@ interface attributesInterface {
         id: number,
         name: string,
     }>,
-    body: Array<{
-        id: number,
-        "__component": string,
-        title: string,
-    }>,
+    body: Array<bodyInterface>,
     mainImage: {
         data: {
             url: string,

@@ -12,7 +12,7 @@ const responseProjects = async (page: number, pageSize: number) => {
 
 const responseProject = async (id: number)=> {
 
-    const {data} = await $host.get<projectInterface>("/api/projects/" + id + "?populate=*")
+    const {data} = await $host.get<responseProjectType>("/api/projects/" + id + "?populate=*")
     return data
 }
 
