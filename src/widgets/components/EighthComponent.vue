@@ -7,8 +7,8 @@
 
 <script setup lang="ts">
 defineProps<{
-  title:string,
-  urlImage:string,
+  title?:string,
+  urlImage?:string,
 }>()
 </script>
 

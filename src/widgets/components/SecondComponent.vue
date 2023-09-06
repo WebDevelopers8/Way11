@@ -13,10 +13,10 @@
 
 <script setup lang="ts">
 defineProps<{
-  leftTitle: string,
-  leftText: string,
-  rightText: string,
-  rightTitle: string
+  leftTitle?: string,
+  leftText?: string,
+  rightText?: string,
+  rightTitle?: string
 }>()
 </script>
 
