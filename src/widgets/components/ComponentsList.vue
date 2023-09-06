@@ -25,7 +25,7 @@ import SecondComponent from "@/widgets/components/SecondComponent.vue";
 import type {bodyInterface} from "@/entities/dto/projects/bodyInterface";
 
 defineProps<{
-  componentItems: Array<bodyInterface>
+  componentItems: Array<bodyInterface> | null
 }>()
 </script>
 
