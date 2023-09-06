@@ -1,13 +1,17 @@
 <template>
   <div class="component">
-    <p class="component__title">Статистика и KPI</p>
-    <span class="component__subtitle">Руководству было критически важно понимать выработку по каждому отделу и сотруднику внутри отдела. Поэтому был реализован весь необходимый функционал для подсчета статистики и KPI.</span>
-    <img class="component__image" src="@/shared/images/project/prodStatic.png" alt="product stats">
+    <p class="component__title">{{title}}</p>
+    <span class="component__subtitle">{{text}}</span>
+    <img v-if="imageUrl ?? 0" class="component__image" :src="'https://admin.studioway11.com/' + imageUrl" alt="product stats">
   </div>
 </template>
 
 <script setup lang="ts">
-
+defineProps<{
+  title?: string,
+  text?: string,
+  imageUrl?: string,
+}>()
 </script>
 
 <style lang="postcss" scoped>

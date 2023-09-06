@@ -1,32 +1,32 @@
 <template>
   <div class="project">
     <div class="project-left">
-      <span class="project-left__title">{{project.name}}</span>
-      <span class="project-left__type">{{project.type}}</span>
+      <span class="project-left__title">{{project.attributes.name}}</span>
+      <span class="project-left__type">Тип проекта</span>
       <div class="project-left__mobile">
         <SliderVue />
       </div>
-      <span class="project-left__description">{{project.description}}</span>
+      <span class="project-left__description">{{project.attributes.description}}</span>
       <div class="project-left__stack-items">
-        <StackItem v-for="(item,index) in project.stack" :key="index" :text="item" />
+        <StackItem v-for="(item,index) in project.attributes.technologies" :key="index" :text="item.name" />
       </div>
       <div class="project-left__more">
-        <router-link class="" to="/project/0"><div>Подробнее</div></router-link>
+        <router-link class="" :to="'/project/' + project.id"><div>Подробнее</div></router-link>
       </div>
     </div>
     <div class="project-right">
-      <SliderVue />
+      <SliderVue :urlImages="[project.attributes.mainImage.data.url]" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import type {projectType} from "@/entities/types/projectType/projectType";
 import StackItem from "@/features/StackText/StackItem.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
+import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 
 defineProps<{
-  project: projectType
+  project: projectInterface
 }>()
 </script>
 
@@ -96,7 +96,7 @@ defineProps<{
   }
   &-right
   {
-    @apply lg:block hidden lg:w-[50%]
+    @apply min-h-[400px] lg:block hidden lg:w-[50%]
   }
 }
 </style>

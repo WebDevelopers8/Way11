@@ -4,17 +4,9 @@
     <div class="project-title">
       <router-link to="/" class="project-title__link"><img src="@/shared/images/project/blackArrow.svg" alt="arrow">
       </router-link>
-      <span class="project-title__name">ERP</span>
+      <span class="project-title__name">{{project?.attributes.name}}</span>
     </div>
-    <FirstComponent />
-    <SecondComponent />
-    <ThirdComponent />
-    <FourthComponent />
-    <FifthComponent />
-    <SixthComponent />
-    <SeventhComponent />
-    <EighthComponent />
-    <NinthComponent />
+    <ComponentsList :componentItems="project != null ? project.attributes.body : null" />
     <div class="mt-[72px] mb-[70px] w-full flex justify-center">
       <div class="project__button">
         <router-link to="/"><div>Вернуться назад</div></router-link>
@@ -24,17 +16,22 @@
 </template>
 
 <script setup lang="ts">
+import {ref} from "vue";
+import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+import {responseProject} from "@/app/http/request";
+import router from "@/app/router";
+import ComponentsList from "@/widgets/components/ComponentsList.vue";
 
-import FirstComponent from "@/widgets/components/FirstComponent.vue";
-import SecondComponent from "@/widgets/components/SecondComponent.vue";
-import ThirdComponent from "@/widgets/components/ThirdComponent.vue";
-import FourthComponent from "@/widgets/components/FourthComponent.vue";
-import FifthComponent from "@/widgets/components/FifthComponent.vue";
-import SixthComponent from "@/widgets/components/SixthComponent.vue";
-import SeventhComponent from "@/widgets/components/SeventhComponent.vue";
-import EighthComponent from "@/widgets/components/EighthComponent.vue";
-import NinthComponent from "@/widgets/components/NinthComponent.vue";
-import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
+let project = ref<projectInterface | null>(null)
+
+async function getProject(id: string | string[])
+{
+  let answer = await responseProject(Array.isArray(id) ? parseInt(id[0]) : parseInt(id))
+  project.value = answer.data
+  console.log(project.value)
+}
+
+getProject(router.currentRoute.value.params.id)
 
 
 window.scrollBy(0,0)

@@ -85,9 +85,9 @@
       </div>
     </div>
   </section>
-  <section class="bg-2">
+  <section class="bg-2" id="projects">
     <!--    <img src="@/shared/images/bg-2.png" class="bg2" alt="background">-->
-    <div id="projects" class="mt-[160px] lg:hidden block">
+    <div class="mt-[160px] lg:hidden block">
       <div class="container">
         <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
         <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
@@ -96,7 +96,7 @@
           </button>
           <div class="flex flex-col items-center justify-center w-[55%]">
             <span
-                class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{ title[projectCount - 1] }}</span>
+                class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{ projects != null ? projects[projectCount - 1].attributes.name : '' }}</span>
             <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">
               {{ type[projectCount - 1] }}
             </div>
@@ -105,112 +105,7 @@
             <img src="@/shared/images/arrow-next.png">
           </button>
         </div>
-        <div v-if="projectCount == 1">
-          <div class="my-[24px] sm:h-[450px] h-[300px]">
-            <SliderVue/>
-          </div>
-          <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
-          <div class="projects__tags">
-            <span>AWS Chalice</span>
-            <span>Lambda</span>
-            <span>Aurora Serverless Postgres</span>
-            <span>API Gateway</span>
-            <span>DynamoDB</span>
-            <span>WebSockets</span>
-            <span>Python</span>
-            <span>Git</span>
-            <span>React</span>
-          </div>
-          <div class="projects__buttons">
-            <router-link to='/project/0'>
-              <div>Подробнее</div>
-            </router-link>
-            <router-link to="/projects" class="outline">
-              <div>Все проекты</div>
-            </router-link>
-          </div>
-        </div>
-        <div v-if="projectCount == 2">
-          <div class="my-[24px] sm:h-[450px] h-[300px]">
-            <SliderVue/>
-          </div>
-          <span class="text-[18px] leading-[24px] text-[#14161F]">Таким образом, начало повседневной работы по формированию позиции играет определяющее
-              значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
-              диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
-              конкретные выводы, разумеется, преданы социально-демократической анафеме.
-            </span>
-          <div class="projects__tags">
-            <span>AWS Chalice</span>
-            <span>Lambda</span>
-            <span>Aurora Serverless Postgres</span>
-            <span>API Gateway</span>
-            <span>DynamoDB</span>
-            <span>WebSockets</span>
-            <span>Python</span>
-            <span>Git</span>
-            <span>React</span>
-          </div>
-          <div class="projects__buttons">
-            <router-link to='/project/0'>
-              <div>Подробнее</div>
-            </router-link>
-            <router-link to="/projects" class="outline">
-              <div>Все проекты</div>
-            </router-link>
-          </div>
-        </div>
-        <div v-if="projectCount == 3">
-          <div class="my-[24px] sm:h-[450px] h-[300px]">
-            <SliderVue/>
-          </div>
-          <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
-          <div class="projects__tags">
-            <span>AWS Chalice</span>
-            <span>Lambda</span>
-            <span>Aurora Serverless Postgres</span>
-            <span>API Gateway</span>
-            <span>DynamoDB</span>
-            <span>WebSockets</span>
-            <span>Python</span>
-            <span>Git</span>
-            <span>React</span>
-          </div>
-          <div class="projects__buttons">
-            <router-link to='/project/0'>
-              <div>Подробнее</div>
-            </router-link>
-
-            <router-link to="/projects" class="outline">
-              <div>Все проекты</div>
-            </router-link>
-          </div>
-        </div>
-        <div v-if="projectCount == 4">
-          <div class="my-[24px] sm:h-[450px] h-[300px]">
-            <SliderVue/>
-          </div>
-          <span class="text-[18px] leading-[24px] text-[#14161F]">На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей пройдет рассылка с напоминанием.</span>
-          <div class="projects__tags">
-            <span>AWS Chalice</span>
-            <span>Lambda</span>
-            <span>Aurora Serverless Postgres</span>
-            <span>API Gateway</span>
-            <span>DynamoDB</span>
-            <span>WebSockets</span>
-            <span>Python</span>
-            <span>Git</span>
-            <span>React</span>
-          </div>
-          <div class="projects__buttons">
-            <router-link to='/project/0'>
-              <div>Подробнее</div>
-            </router-link>
-
-            <router-link to="/projects" class="outline">
-              <div>Все проекты</div>
-            </router-link>
-          </div>
-        </div>
+        <ProjectMobile v-for="(item,index) in projects?.filter((project,projectIndex) => projectIndex < 4)" :key="index" :index="index + 1" :project-count="projectCount" :project="item" />
       </div>
     </div>
     <div ref="projectsSection" class="projects" id="projects">
@@ -226,7 +121,7 @@
               <div ref="projectPoint0" class="line__point active">
                 <div class="line__point-center"></div>
               </div>
-              <span>Lancelot</span>
+              <span>{{projects != null ? projects[0].attributes.name : ''}}</span>
               <p>5 июня 2019 г.</p>
             </div>
             <div ref="projectsText1" class="projects__road-text" id="tr1">
@@ -234,7 +129,7 @@
               <div ref="projectPoint1" class="line__point">
                 <div class="line__point-center"></div>
               </div>
-              <span>Lancelot 2</span>
+              <span>{{projects != null ? projects[1].attributes.name : ''}}</span>
               <p>23 мая 2020 г.</p>
             </div>
             <div ref="projectsText2" class="projects__road-text" id="tr2">
@@ -242,7 +137,7 @@
               <div ref="projectPoint2" class="line__point">
                 <div class="line__point-center"></div>
               </div>
-              <span>Lancelot 3</span>
+              <span>{{projects != null ? projects[2].attributes.name : ''}}</span>
               <p>6 октября 2021 г.</p>
             </div>
             <div ref="projectsText3" class="projects__road-text" id="tr3">
@@ -250,7 +145,7 @@
               <div ref="projectPoint3"  class="line__point">
                 <div class="line__point-center"></div>
               </div>
-              <span>Lancelot 4</span>
+              <span>{{projects != null ? projects[3].attributes.name : ''}}</span>
               <p>12 Ноябрь 2022 г.</p>
             </div>
           </div>
@@ -265,26 +160,16 @@
         <div ref="projectsWrap" class="projects__test">
           <div ref="projectsWrapper1" class="projects__wrapper active">
             <div class="projects__descr">
-              <div class="projects__name">Lancelot</div>
+              <div class="projects__name">{{projects != null ? projects[0].attributes.name : ''}}</div>
               <div class="projects__name-descr">Вебинарная платформа</div>
               <div class="projects__text">
-                На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
-                для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
-                пройдет рассылка с напоминанием.
+                {{projects != null ? projects[0].attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <span>AWS Chalice</span>
-                <span>Lambda</span>
-                <span>Aurora Serverless Postgres</span>
-                <span>API Gateway</span>
-                <span>DynamoDB</span>
-                <span>WebSockets</span>
-                <span>Python</span>
-                <span>Git</span>
-                <span>React</span>
+                <StackItem v-for="(item,index) in projects != null ? projects[0]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link to='/project/0'>
+                <router-link :to="'/project/' + (projects != null ? projects[0]?.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -292,30 +177,23 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%]">
+            <div class="h-[95%] min-h-[450px]">
               <SliderVue/>
             </div>
 
           </div>
           <div ref="projectsWrapper2" class="projects__wrapper ">
             <div class="projects__descr">
-              <div class="projects__name">Lancelot 2</div>
+              <div class="projects__name">{{projects != null ? projects[1].attributes.name : ''}}</div>
               <div class="projects__name-descr">Вебинарная платформа</div>
               <div class="projects__text">
-                Таким образом, начало повседневной работы по формированию позиции играет определяющее
-                значение для своевременного выполнения сверхзадачи. Как уже неоднократно упомянуто,
-                диаграммы связей освещают чрезвычайно интересные особенности картины в целом, однако
-                конкретные выводы, разумеется, преданы социально-демократической анафеме.
+                {{projects != null ? projects[1].attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <span>AWS Chalice</span>
-                <span>Lambda</span>
-                <span>Python</span>
-                <span>Git</span>
-                <span>React</span>
+                <StackItem v-for="(item,index) in projects != null ? projects[1]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link to="/project/1">
+                <router-link :to="'/project/' + (projects != null ? projects[1]?.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -323,28 +201,22 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%]">
+            <div class="h-[95%] min-h-[450px]">
               <SliderVue/>
             </div>
           </div>
           <div  ref="projectsWrapper3" class="projects__wrapper ">
             <div class="projects__descr">
-              <div class="projects__name">Lancelot 3</div>
+              <div class="projects__name">{{projects != null ? projects[2].attributes.name : ''}}</div>
               <div class="projects__name-descr">Вебинарная платформа</div>
               <div class="projects__text">
-                На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
-                для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
-                пройдет рассылка с напоминанием.
+                {{projects != null ? projects[2].attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <span>AWS Chalice</span>
-                <span>Lambda</span>
-                <span>Python</span>
-                <span>Git</span>
-                <span>React</span>
+                <StackItem v-for="(item,index) in projects != null ? projects[2]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link to="/project/3">
+                <router-link :to="'/project/' + (projects != null ? projects[2]?.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -352,32 +224,22 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%]">
+            <div class="h-[95%] min-h-[450px]">
               <SliderVue/>
             </div>
           </div>
           <div ref="projectsWrapper4" class="projects__wrapper">
             <div class="projects__descr">
-              <div class="projects__name">Lancelot</div>
+              <div class="projects__name">{{projects != null ? projects[3].attributes.name : ''}}</div>
               <div class="projects__name-descr">Вебинарная платформа</div>
               <div class="projects__text">
-                На платформе Lancelot пользователь создаёт мероприятие за 1 минуту и может отправлять ссылку
-                для регистрации своим зрителям. В день вебинара по базе зарегистрированных пользователей
-                пройдет рассылка с напоминанием.
+                {{projects != null ? projects[3].attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <span>AWS Chalice</span>
-                <span>Lambda</span>
-                <span>Aurora Serverless Postgres</span>
-                <span>API Gateway</span>
-                <span>DynamoDB</span>
-                <span>WebSockets</span>
-                <span>Python</span>
-                <span>Git</span>
-                <span>React</span>
+                <StackItem v-for="(item,index) in projects != null ? projects[3]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link to='/project/0'>
+                <router-link :to="'/project/' + (projects != null ? projects[3]?.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -385,7 +247,7 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%]">
+            <div class="h-[95%] min-h-[450px]">
               <SliderVue/>
             </div>
 
@@ -437,16 +299,24 @@
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {ref} from "vue";
-import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
+import ProjectMobile from "@/widgets/projectsMain/ProjectMobile.vue";
+import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+import {responseProjects} from "@/app/http/request";
+import StackItem from "@/features/StackText/StackItem.vue";
 
 let projectCount = ref(1)
 let maxCountProject = ref(4)
 let title = ['Lancelot', 'Lancelot2', 'Lancelot3', 'Lancelot4']
 let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
 
-const ContolStore = useControlStore();
+let projects = ref<Array<projectInterface> | null>(null)
 
-
+async function responseProject()
+{
+  let response = await responseProjects(0,4)
+  projects.value = response.data
+}
+responseProject()
 //main script
 
 const projectsSection = ref<HTMLElement | null>(null);
@@ -924,6 +794,7 @@ function setActiveProject(number : number) {
       @apply sm:w-full w-[100%];
     }
 
+
     &:hover {
       border: 1px solid #5BB6F1;
     }
@@ -945,6 +816,10 @@ function setActiveProject(number : number) {
       padding: 8px;
       color: #14161F;
       transform: skew(18deg);
+    }
+    &.error
+    {
+      @apply border-[#EE5050]
     }
   }
 
