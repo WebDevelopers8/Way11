@@ -6,12 +6,11 @@
       <SplideSlide class="slide" v-for="item in 4" :key="item">
         <img src="@/shared/images/slider-img-1.png">
       </SplideSlide>
-
     </Splide>
-
   </div>
+  
   <div class="slider-bg" v-if="typeof urlImages != 'undefined'">
-    <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, gap:20 }"
+    <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
             aria-label="My Favorite Images">
       <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
         <img :src="'https://admin.studioway11.com' + item">
@@ -67,11 +66,6 @@ let arrow = {
 @media (max-width: 425px) {
   .slider__arrow {
     @apply hidden
-  }
-
-  .splide__list {
-    padding: 0 20px !important;
-    @apply gap-[20px]
   }
 }
 
