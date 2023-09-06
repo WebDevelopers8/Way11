@@ -437,15 +437,11 @@
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {ref} from "vue";
-import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
 
 let projectCount = ref(1)
 let maxCountProject = ref(4)
 let title = ['Lancelot', 'Lancelot2', 'Lancelot3', 'Lancelot4']
 let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
-
-const ContolStore = useControlStore();
-
 
 //main script
 

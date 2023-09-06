@@ -34,8 +34,6 @@ import SixthComponent from "@/widgets/components/SixthComponent.vue";
 import SeventhComponent from "@/widgets/components/SeventhComponent.vue";
 import EighthComponent from "@/widgets/components/EighthComponent.vue";
 import NinthComponent from "@/widgets/components/NinthComponent.vue";
-import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
-
 
 window.scrollBy(0,0)
 </script>
