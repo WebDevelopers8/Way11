@@ -11,11 +11,11 @@
         <StackItem v-for="(item,index) in project.attributes.technologies" :key="index" :text="item.name" />
       </div>
       <div class="project-left__more">
-        <router-link class="" to="/project/0"><div>Подробнее</div></router-link>
+        <router-link class="" :to="'/project/' + project.id"><div>Подробнее</div></router-link>
       </div>
     </div>
     <div class="project-right">
-      <SliderVue />
+      <SliderVue :urlImages="[project.attributes.mainImage.data.url]" />
     </div>
   </div>
 </template>
@@ -96,7 +96,7 @@ defineProps<{
   }
   &-right
   {
-    @apply lg:block hidden lg:w-[50%]
+    @apply min-h-[400px] lg:block hidden lg:w-[50%]
   }
 }
 </style>

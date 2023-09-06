@@ -24,7 +24,6 @@
 </template>
 
 <script setup lang="ts">
-
 import FirstComponent from "@/widgets/components/FirstComponent.vue";
 import SecondComponent from "@/widgets/components/SecondComponent.vue";
 import ThirdComponent from "@/widgets/components/ThirdComponent.vue";
@@ -34,6 +33,20 @@ import SixthComponent from "@/widgets/components/SixthComponent.vue";
 import SeventhComponent from "@/widgets/components/SeventhComponent.vue";
 import EighthComponent from "@/widgets/components/EighthComponent.vue";
 import NinthComponent from "@/widgets/components/NinthComponent.vue";
+import {ref} from "vue";
+import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+import {responseProject} from "@/app/http/request";
+import router from "@/app/router";
+
+let project = ref<projectInterface | null>(null)
+
+async function getProject(id: number)
+{
+  project.value = await responseProject(id)
+}
+
+getProject(router.currentRoute.value.params.id)
+
 
 window.scrollBy(0,0)
 </script>
