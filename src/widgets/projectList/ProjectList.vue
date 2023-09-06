@@ -7,9 +7,10 @@
 <script setup lang="ts">
 import type {projectType} from "@/entities/types/projectType/projectType";
 import ProjectItem from "@/widgets/projectItem/ProjectItem.vue";
+import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 
 const props = defineProps<{
-  projects: Array<projectType>
+  projects: Array<projectInterface>
 }>()
 </script>
 

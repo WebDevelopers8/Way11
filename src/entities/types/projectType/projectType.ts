@@ -1,10 +1,15 @@
+import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+
 type projectType = {
-    id: string
-    name: string,
-    type: string,
-    description: string,
-    stack: Array<string>,
-    images?: Array<string>
+    data:Array<projectInterface>,
+    meta: {
+        pagination: {
+            page: number,
+            pageSize: number,
+            pageCount: number,
+            total: number
+        }
+    }
 }
 
 export type {projectType}

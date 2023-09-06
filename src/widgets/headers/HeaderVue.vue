@@ -5,11 +5,11 @@
         <div class="header__contacts">
           <div class="header__contacts-item">
             <img src="@/shared/images/icons/phone.svg" alt="phone">
-            <a href="tel:+79371234333">+7 (937) 123-43-33</a>
+            <a :href="'tel:'+ phone">{{phone}}</a>
           </div>
           <div class="header__contacts-item">
             <img src="@/shared/images/icons/mail.svg">
-            <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
+            <a :href="'mailto:'+ mail">{{mail}}</a>
           </div>
         </div>
         <router-link to="/">
@@ -29,7 +29,7 @@
           <div class="header__sidemenu-nav">
             <a href="#services" >Услуги</a>
             <a href="#projects" >Проекты</a>
-            <a @click="() => controlStore.temporarilyAllowForcedScroll()" href="#form">Оставить заявку</a>
+            <a href="#form">Оставить заявку</a>
           </div>
           <div class="header__line"></div>
         </div>
@@ -53,7 +53,7 @@
             <div class="flex flex-col w-[90%] mt-[40px] gap-[24px] border-b-solid border-b-[1px] border-b-[#787878] pb-[48px]">
               <a @click="() => stateMenu = false" href="#services" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</a>
               <a @click="() => stateMenu = false" href="#projects" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</a>
-              <a @click="() => {controlStore.temporarilyAllowForcedScroll(); stateMenu = false}" href="#form" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</a>
+              <a @click="() => {stateMenu = false}" href="#form" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</a>
             </div>
             <div class="w-full flex flex-col items-center">
               <div class="flex gap-[24px] mt-[48px]">
@@ -82,12 +82,22 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import HeaderModal from "@/widgets/headers/modal/HeaderModal.vue";
-import {useControlStore} from "@/entities/stores/controlScroll/controlStore";
+import {responseContact} from "@/app/http/request";
 
 const burger = document.querySelector('.header__burger');
 const stateMenu = ref(false)
 
-const controlStore = useControlStore()
+
+let mail = ref('')
+let phone = ref('')
+
+async function getContacts()
+{
+  let response = await responseContact();
+  mail.value = response.data.attributes.email;
+  phone.value = response.data.attributes.phone;
+}
+getContacts()
 </script>
 
 <style lang="postcss" scoped>

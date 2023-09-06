@@ -1,7 +1,9 @@
 type contactType = {
     data: {
-        email: string,
-        phone: string,
+        attributes:{
+            email: string,
+            phone: string,
+        }
     }
 }
 

@@ -924,6 +924,7 @@ function setActiveProject(number : number) {
       @apply sm:w-full w-[100%];
     }
 
+
     &:hover {
       border: 1px solid #5BB6F1;
     }
@@ -945,6 +946,10 @@ function setActiveProject(number : number) {
       padding: 8px;
       color: #14161F;
       transform: skew(18deg);
+    }
+    &.error
+    {
+      @apply border-[#EE5050]
     }
   }
 

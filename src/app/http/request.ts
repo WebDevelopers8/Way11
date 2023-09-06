@@ -4,9 +4,9 @@ import type {responseProjectType} from "@/entities/dto/projects/responseProjectT
 import type {attributesInterface} from "@/entities/dto/projects/attributesInterface";
 import type {contactType} from "@/entities/dto/contact/contactType";
 
-const responseProjects = async () => {
+const responseProjects = async (page: number, pageSize: number) => {
 
-    const {data} = await $host.get<responseProjectType>('/api/projects')
+    const {data} = await $host.get<responseProjectType>(`/api/projects?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}`)
     return data
 }
 
@@ -16,7 +16,7 @@ const responseProject = async (id: number)=> {
     return data
 }
 
-const responseContact = async () : contactType => {
+const responseContact = async () => {
 
     const {data} = await $host.get<contactType>('api/contact')
     return data

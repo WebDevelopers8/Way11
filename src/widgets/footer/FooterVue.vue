@@ -7,8 +7,8 @@
         </div>
         <div class="footer__item">
           <p>Way11</p>
-          <a class="block" href="tel:+79371234333">+7 (937) 123-43-33</a>
-          <a href="mailto:mail@studioway11.com">mail@studioway11.com</a>
+          <a class="block" :href="'tel:' + phone">{{phone}}</a>
+          <a :href="'mailto:'+ mail">{{mail}}</a>
           <div class="footer__rights">© 2023 Digital-агентство Way11</div>
         </div>
         <div class="footer__item">
@@ -36,8 +36,8 @@
         </div>
         <div class="lg:hidden flex flex-col items-center">
           <div class="footer__address">Астрахань<br> ул. Урицкого 7, офис 217</div>
-          <a href="tel:+79371234333" class="text-[18px leading-[24px] font-normal text-[#14161F] mt-[24px]">+7 (937) 123-43-33</a>
-          <a href="mailto:mail@studioway11.com" class="text-[18px] leading-[24px] text-[#14161F] mt-[24px]">mail@studioway11.com</a>
+          <a :href="'tel:' + phone" class="leading-[24px] font-normal text-[#14161F] mt-[24px]">{{phone}}</a>
+          <a :href="'mailto:'+ mail" class="text-[18px] leading-[24px] text-[#14161F] mt-[24px]">{{mail}}</a>
         </div>
         <div class="lg:hidden flex flex-col items-center">
           <a href="#" class="footer__policy">Политика конфиденциальности</a>
@@ -49,7 +49,19 @@
 </template>
 
 <script setup lang="ts">
+import {ref} from "vue";
+import {responseContact} from "@/app/http/request";
 
+let mail = ref('')
+let phone = ref('')
+
+async function getContacts()
+{
+  let response = await responseContact();
+  mail.value = response.data.attributes.email;
+  phone.value = response.data.attributes.phone;
+}
+getContacts()
 </script>
 
 <style lang="postcss" scoped>
