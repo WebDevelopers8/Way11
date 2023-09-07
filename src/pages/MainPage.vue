@@ -21,9 +21,9 @@
       </div>
 
       <div class="flex lg:justify-start justify-center items-center">
-        <button class="promo__btn">
+        <a href="#form" class="promo__btn">
           <div>Оставить заявку</div>
-        </button>
+        </a>
       </div>
       <div class="promo__adv">
         <div class="promo__line"></div>
@@ -118,33 +118,33 @@
           <div class="flex w-[85%] justify-around ml-[60px]">
             <div ref="projectsText0" class="projects__road-text active" id="tr0">
               <div ref="projectLine0" class="line active"></div>
-              <div ref="projectPoint0" class="line__point active">
+              <button @click="() => {projectCount = 1;setActiveProject(projectCount);}" ref="projectPoint0" class="line__point active">
                 <div class="line__point-center"></div>
-              </div>
+              </button>
               <span>{{projects != null ? projects[0].attributes.name : ''}}</span>
               <p>5 июня 2019 г.</p>
             </div>
             <div ref="projectsText1" class="projects__road-text" id="tr1">
               <div ref="projectLine1" class="line"></div>
-              <div ref="projectPoint1" class="line__point">
+              <button @click="() => {projectCount = 2;setActiveProject(projectCount);}" ref="projectPoint1" class="line__point">
                 <div class="line__point-center"></div>
-              </div>
+              </button>
               <span>{{projects != null ? projects[1].attributes.name : ''}}</span>
               <p>23 мая 2020 г.</p>
             </div>
             <div ref="projectsText2" class="projects__road-text" id="tr2">
               <div ref="projectLine2"  class="line"></div>
-              <div ref="projectPoint2" class="line__point">
+              <button @click="() => {projectCount = 3;setActiveProject(projectCount);}" ref="projectPoint2" class="line__point">
                 <div class="line__point-center"></div>
-              </div>
+              </button>
               <span>{{projects != null ? projects[2].attributes.name : ''}}</span>
               <p>6 октября 2021 г.</p>
             </div>
             <div ref="projectsText3" class="projects__road-text" id="tr3">
               <div ref="projectLine3" class="line"></div>
-              <div ref="projectPoint3"  class="line__point">
+              <button @click="() => {projectCount = 4;setActiveProject(projectCount);}" ref="projectPoint3"  class="line__point">
                 <div class="line__point-center"></div>
-              </div>
+              </button>
               <span>{{projects != null ? projects[3].attributes.name : ''}}</span>
               <p>12 Ноябрь 2022 г.</p>
             </div>
@@ -178,7 +178,7 @@
               </div>
             </div>
             <div class="h-[95%] min-h-[450px]">
-              <SliderVue/>
+              <SliderVue :urlImages="urlImageFirst"/>
             </div>
 
           </div>
@@ -202,7 +202,7 @@
               </div>
             </div>
             <div class="h-[95%] min-h-[450px]">
-              <SliderVue/>
+              <SliderVue :urlImages="urlImageSecond"/>
             </div>
           </div>
           <div  ref="projectsWrapper3" class="projects__wrapper ">
@@ -225,7 +225,7 @@
               </div>
             </div>
             <div class="h-[95%] min-h-[450px]">
-              <SliderVue/>
+              <SliderVue :urlImages="urlImageThird"/>
             </div>
           </div>
           <div ref="projectsWrapper4" class="projects__wrapper">
@@ -248,7 +248,7 @@
               </div>
             </div>
             <div class="h-[95%] min-h-[450px]">
-              <SliderVue/>
+              <SliderVue :urlImages="urlImageFourth"/>
             </div>
 
           </div>
@@ -257,39 +257,7 @@
     </div>
 
     <section class="form" id="form">
-      <div class="container">
-        <div class="form__wrapper">
-          <div class="form__descr">
-            <div class="form__title">Предложите свой проект</div>
-            <div class="form__text">
-              Мы принимаем на себя обязательство о том, что коммерческая информация, полученная в рамках
-              подготовки и реализации проекта, является конфиденциальной и не подлежит разглашению или
-              передаче третьим лицам.
-            </div>
-          </div>
-          <form>
-            <div class="form__sm-inputs">
-              <div class="form__input"><input type="text" placeholder="Имя*" name="name"></div>
-              <div class="form__input"><input type="text" placeholder="Компания" name="company"></div>
-            </div>
-            <div class="form__sm-inputs">
-              <div class="form__input"><input type="text" placeholder="Телефон*" name="phone"></div>
-              <div class="form__input"><input type="text" placeholder="E-mail*" name="email"></div>
-            </div>
-            <div class="form__input w100 mt-[16px]"><input type="text" placeholder="Бюджет проекта" name="budget"></div>
-            <div class="form__input w100"><input type="text" placeholder="Описание проекта" name="description">
-            </div>
-            <div class="form__buttons">
-              <button>
-                <div>Отправить</div>
-              </button>
-              <button class="outline">
-                <div>Добавить файл</div>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+      <FormVue />
     </section>
   </section>
   <FooterVue/>
@@ -298,16 +266,15 @@
 <script setup lang="ts">
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import ProjectMobile from "@/widgets/projectsMain/ProjectMobile.vue";
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import {responseProjects} from "@/app/http/request";
 import StackItem from "@/features/StackText/StackItem.vue";
+import FormVue from "@/widgets/form/FormVue.vue";
 
 let projectCount = ref(1)
 let maxCountProject = ref(4)
-let title = ['Lancelot', 'Lancelot2', 'Lancelot3', 'Lancelot4']
-let type = ['Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа', 'Вебинарная платформа']
 
 let projects = ref<Array<projectInterface> | null>(null)
 
@@ -317,6 +284,43 @@ async function responseProject()
   projects.value = response.data
 }
 responseProject()
+
+const urlImageFirst = computed(() => {
+  let images : Array<string> = []
+  if(projects.value != null && projects.value[0].attributes.gallery != null) {
+    projects.value[0].attributes.gallery.data.forEach((image) => {
+      images.push(image.attributes.url)
+    })
+  }
+  return images
+})
+const urlImageSecond = computed(() => {
+  let images : Array<string> = []
+  if(projects.value != null && projects.value[1].attributes.gallery != null) {
+    projects.value[1].attributes.gallery.data.forEach((image) => {
+      images.push(image.attributes.url)
+    })
+  }
+  return images
+})
+const urlImageThird = computed(() => {
+  let images : Array<string> = []
+  if(projects.value != null && projects.value[2].attributes.gallery != null) {
+    projects.value[2].attributes.gallery.data.forEach((image) => {
+      images.push(image.attributes.url)
+    })
+  }
+  return images
+})
+const urlImageFourth = computed(() => {
+  let images : Array<string> = []
+  if(projects.value != null && projects.value[3].attributes.gallery != null) {
+    projects.value[3].attributes.gallery.data.forEach((image) => {
+      images.push(image.attributes.url)
+    })
+  }
+  return images
+})
 //main script
 
 const projectsSection = ref<HTMLElement | null>(null);
@@ -487,6 +491,7 @@ function setActiveProject(number : number) {
     }else
     {
       projectLine2.value.classList.remove("active")
+      projectLine2.value.classList.remove("open")
       projectPoint2.value.classList.remove("active")
       prevCount.value = 4
     }
@@ -503,7 +508,7 @@ function setActiveProject(number : number) {
     if (bike.value != null) {
       bike.value.classList.add("tr");
       bike.value.style.transform = "translateX(" + bikePosition.value + "px)";
-      bike.value.style.transition = "all 1s ease-in";
+      bike.value.style.transition = "all 0.65s ease-in";
     }
   } ,500)
 
@@ -548,7 +553,8 @@ function setActiveProject(number : number) {
 
   &__point {
     transition: all 0.5s ease;
-    @apply absolute mt-[122px] ml-[-21px] flex justify-center items-center border-solid border-[1.5px] p-[6px] border-[#898A8F] rounded-[90px];
+    pointer-events: all;
+    @apply absolute mt-[122px] ml-[-21px] flex justify-center items-center border-solid border-[1.5px] z-[200] p-[6px] border-[#898A8F] rounded-[90px];
 
     &.active {
       @apply opacity-0
@@ -926,7 +932,7 @@ function setActiveProject(number : number) {
 
       &.tr {
         .projects__road-wheel1, .projects__road-wheel2 {
-          animation: wheel 1.0s linear;
+          animation: wheel .6s linear;
         }
       }
     }

@@ -16,6 +16,7 @@
     "@splidejs/vue-splide": "^0.6.12",
     "@vueuse/core": "^10.4.1",
     "axios": "^1.5.0",
+    "marked": "^4.0.8",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@tsconfig/node18": "^2.0.1",
+    "@types/marked": "^5.0.1",
     "@types/node": "^18.16.8",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^7.1.0",

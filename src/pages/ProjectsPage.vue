@@ -41,7 +41,7 @@ import PaginationVue from "@/widgets/pagination/PaginationVue.vue";
 
 const stateFilter = ref(0)
 const page = ref(1)
-const maxPages = ref(3)
+const maxPages = ref(2)
 
 const projects = ref<Array<projectInterface>>([])
 
@@ -49,7 +49,7 @@ async function getProjects() {
   let answer = await responseProjects(page.value, 4)
   projects.value = answer.data
   page.value = answer.meta.pagination.page
-  maxPages.value = answer.meta.pagination.total
+  maxPages.value = answer.meta.pagination.pageCount
 }
 
 getProjects()

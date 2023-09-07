@@ -2,11 +2,11 @@
   <div class="project">
     <div class="project-left">
       <span class="project-left__title">{{project.attributes.name}}</span>
-      <span class="project-left__type">Тип проекта</span>
+      <span class="project-left__type">{{project.attributes.categories.data[0].attributes.name}}</span>
       <div class="project-left__mobile">
         <SliderVue />
       </div>
-      <span class="project-left__description">{{project.attributes.description}}</span>
+      <span class="project-left__description" v-html="markedText"></span>
       <div class="project-left__stack-items">
         <StackItem v-for="(item,index) in project.attributes.technologies" :key="index" :text="item.name" />
       </div>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="project-right">
-      <SliderVue :urlImages="[project.attributes.mainImage.data.url]" />
+      <SliderVue :urlImages="imageUrls" />
     </div>
   </div>
 </template>
@@ -24,10 +24,28 @@
 import StackItem from "@/features/StackText/StackItem.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+import {computed} from "vue";
+import {marked} from "marked";
 
-defineProps<{
+const props = defineProps<{
   project: projectInterface
 }>()
+
+const imageUrls = computed(() => {
+  let images : Array<string> = []
+  if(props.project.attributes.gallery.data != null)
+  {
+    props.project.attributes.gallery.data.forEach(image => {
+      images.push(image.attributes.url)
+    })
+  }
+  return images
+})
+
+const markedText = computed(() => {
+  const markedText = marked.parse(props.project.attributes.description)
+  return markedText.replace('\n','<br>')
+})
 </script>
 
 <style lang="postcss" scoped>
@@ -96,7 +114,7 @@ defineProps<{
   }
   &-right
   {
-    @apply min-h-[400px] lg:block hidden lg:w-[50%]
+    @apply min-h-[350px] lg:block hidden lg:w-[50%]
   }
 }
 </style>

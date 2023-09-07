@@ -3,7 +3,7 @@
     <div class="my-[24px] sm:h-[450px] h-[300px]">
       <SliderVue/>
     </div>
-    <span class="text-[18px] leading-[24px] text-[#14161F]">{{project.attributes.description}}</span>
+    <span class="text-[18px] leading-[24px] text-[#14161F]" v-html="markedText"></span>
     <div class="projects__tags">
       <StackItem v-for="(item,index) in project.attributes.technologies" :key="index" :text="item.name" />
     </div>
@@ -22,12 +22,19 @@
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import StackItem from "@/features/StackText/StackItem.vue";
+import {computed} from "vue";
+import {marked} from "marked";
 
-defineProps<{
+const props = defineProps<{
   index: number
   projectCount: number
   project: projectInterface
 }>()
+
+const markedText = computed(() => {
+  const markedText = marked.parse(props.project.attributes.description)
+  return markedText.replace('\n','<br>')
+})
 
 </script>
 

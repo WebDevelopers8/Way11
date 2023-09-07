@@ -1,17 +1,30 @@
 <template>
   <div class="component">
-    <p class="component__title">{{title}}</p>
-    <span class="component__subtitle">{{text}}</span>
+    <p v-if="typeof title != 'undefined'" class="component__title">{{title}}</p>
+    <span v-if="typeof text != 'undefined'" class="component__subtitle" v-html="markedText"></span>
     <img v-if="imageUrl ?? 0" class="component__image" :src="'https://admin.studioway11.com/' + imageUrl" alt="product stats">
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import {computed} from "vue";
+import {marked} from "marked";
+
+const props = defineProps<{
   title?: string,
   text?: string,
   imageUrl?: string,
 }>()
+
+const markedText = computed(() => {
+  if( typeof props.text != 'undefined')
+  {
+    const markedText = marked.parse(props.text)
+    return markedText
+  }
+  return ''
+})
+
 </script>
 
 <style lang="postcss" scoped>

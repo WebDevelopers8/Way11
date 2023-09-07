@@ -5,7 +5,7 @@ import type {responseProjectType} from "@/entities/dto/projects/responseProjectT
 
 const responseProjects = async (page: number, pageSize: number) => {
 
-    const {data} = await $host.get<responseProjectsType>(`/api/projects?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*`)
+    const {data} = await $host.get<responseProjectsType>(`/api/projects?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
     return data
 }
 

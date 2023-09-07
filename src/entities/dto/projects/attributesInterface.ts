@@ -21,6 +21,7 @@ interface attributesInterface {
             url: string,
         }
     },
+    gallery: {data: Array<{id: number, attributes: {url: string}}>}
     createdAt: string,
     updatedAt: string,
     publishedAt: string,

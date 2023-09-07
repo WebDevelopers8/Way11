@@ -1,20 +1,24 @@
 <template>
   <div class="component">
-    <p class="component__title">Документооборот</p>
+    <p v-if="typeof title != 'undefined'" class="component__title">{{title}}</p>
     <div class="component__images">
       <div class="lg:hidden block w-full">
-        <SliderVue :urlImages="[FirstImage, SecondImage]" />
+        <SliderVue :urlImages="urlImage" />
       </div>
-      <img class="lg:block hidden" src="@/shared/images/project/docList.png" alt="document list">
-      <img class="lg:block hidden" src="@/shared/images/project/sendDoc.png" alt="send document">
+      <img v-for="(image, index) in urlImage" :src="image" :key="index" class="lg:block hidden">
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import FirstImage from "@/shared/images/project/docList.png";
-import SecondImage from "@/shared/images/project/sendDoc.png";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
+
+const props = defineProps<{
+  title?: string,
+  urlImage?: Array<string>
+}>()
+
+
 </script>
 
 <style lang="postcss" scoped>
