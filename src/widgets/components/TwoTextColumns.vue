@@ -33,7 +33,7 @@ const leftMarkedText = computed(() => {
 const leftMarkedTitle = computed(() => {
   if( typeof props.leftTitle != 'undefined')
   {
-    const markedText = marked.parse(props.leftText)
+    const markedText = marked.parse(props.leftTitle)
     return markedText
   }
   return ''
@@ -41,7 +41,7 @@ const leftMarkedTitle = computed(() => {
 const rightMarkedTitle = computed(() => {
   if( typeof props.rightTitle != 'undefined')
   {
-    const markedText = marked.parse(props.leftText)
+    const markedText = marked.parse(props.rightTitle)
     return markedText
   }
   return ''
@@ -49,7 +49,7 @@ const rightMarkedTitle = computed(() => {
 const rightMarkedText = computed(() => {
   if( typeof props.rightText != 'undefined')
   {
-    const markedText = marked.parse(props.leftText)
+    const markedText = marked.parse(props.rightText)
     return markedText
   }
   return ''
