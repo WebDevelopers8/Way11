@@ -9,6 +9,13 @@ interface attributesInterface {
         name: string,
     }>,
     body: Array<bodyInterface>,
+    categories: {
+        data: Array<{
+            attributes:{
+                name: string
+            }
+        }>
+    }
     mainImage: {
         data: {
             url: string,

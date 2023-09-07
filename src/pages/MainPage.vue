@@ -98,7 +98,7 @@
             <span
                 class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{ projects != null ? projects[projectCount - 1].attributes.name : '' }}</span>
             <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">
-              {{ type[projectCount - 1] }}
+              {{projects != null ? projects[projectCount - 1].attributes.categories.data[0].attributes.name : '' }}
             </div>
           </div>
           <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
@@ -161,7 +161,7 @@
           <div ref="projectsWrapper1" class="projects__wrapper active">
             <div class="projects__descr">
               <div class="projects__name">{{projects != null ? projects[0].attributes.name : ''}}</div>
-              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__name-descr">{{projects != null ? projects[0].attributes.categories.data[0].attributes.name : ''}}</div>
               <div class="projects__text">
                 {{projects != null ? projects[0].attributes.description : ''}}
               </div>
@@ -185,7 +185,7 @@
           <div ref="projectsWrapper2" class="projects__wrapper ">
             <div class="projects__descr">
               <div class="projects__name">{{projects != null ? projects[1].attributes.name : ''}}</div>
-              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__name-descr">{{projects != null ? projects[1].attributes.categories.data[0].attributes.name : ''}}</div>
               <div class="projects__text">
                 {{projects != null ? projects[1].attributes.description : ''}}
               </div>
@@ -208,7 +208,7 @@
           <div  ref="projectsWrapper3" class="projects__wrapper ">
             <div class="projects__descr">
               <div class="projects__name">{{projects != null ? projects[2].attributes.name : ''}}</div>
-              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__name-descr">{{projects != null ? projects[2].attributes.categories.data[0].attributes.name : ''}}</div>
               <div class="projects__text">
                 {{projects != null ? projects[2].attributes.description : ''}}
               </div>
@@ -231,7 +231,7 @@
           <div ref="projectsWrapper4" class="projects__wrapper">
             <div class="projects__descr">
               <div class="projects__name">{{projects != null ? projects[3].attributes.name : ''}}</div>
-              <div class="projects__name-descr">Вебинарная платформа</div>
+              <div class="projects__name-descr">{{projects != null ? projects[3].attributes.categories.data[0].attributes.name : ''}}</div>
               <div class="projects__text">
                 {{projects != null ? projects[3].attributes.description : ''}}
               </div>
