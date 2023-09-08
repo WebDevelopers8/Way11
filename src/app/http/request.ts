@@ -11,7 +11,7 @@ const responseProjects = async (page: number, pageSize: number) => {
 
 const responseProject = async (id: number)=> {
 
-    const {data} = await $host.get<responseProjectType>("/api/projects/" + id + "?populate=*")
+    const {data} = await $host.get<responseProjectType>("/api/projects/" + id + "?populate[body][populate]=image&populate[body][populate]=rightImage&populate[body][populate]=leftImage")
     return data
 }
 

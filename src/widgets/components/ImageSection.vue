@@ -1,7 +1,7 @@
 <template>
   <div class="component">
     <p class="component__title">{{title}}</p>
-    <img v-if="urlImage ?? 0" class="component__image" :src="'https://admin.studioway11.com/'+urlImage" alt="product stats">
+    <img v-if="urlImage ?? 0" class="component__image" :src="'https://admin.studioway11.com'+urlImage" alt="product stats">
   </div>
 </template>
 
