@@ -2,7 +2,7 @@
   <div class="component">
     <p v-if="typeof title != 'undefined'" class="component__title">{{title}}</p>
     <span v-if="typeof text != 'undefined'" class="component__subtitle" v-html="markedText"></span>
-    <img v-if="imageUrl ?? 0" class="component__image" :src="'https://admin.studioway11.com/' + imageUrl" alt="product stats">
+    <img v-if="imageUrl ?? 0" class="component__image" :src="'https://admin.studioway11.com' + imageUrl" alt="product stats">
   </div>
 </template>
 
