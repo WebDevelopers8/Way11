@@ -279,7 +279,7 @@ let projects = ref<Array<projectInterface> | null>(null)
 
 async function responseProject()
 {
-  let response = await responseProjects(0,4)
+  let response = await responseProjects('all',0,4)
   projects.value = response.data
 }
 responseProject()

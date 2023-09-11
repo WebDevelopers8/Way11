@@ -3,10 +3,15 @@ import type {responseProjectsType} from "@/entities/dto/projects/responseProject
 import type {contactType} from "@/entities/dto/contact/contactType";
 import type {responseProjectType} from "@/entities/dto/projects/responseProjectType";
 
-const responseProjects = async (page: number, pageSize: number) => {
-
-    const {data} = await $host.get<responseProjectsType>(`/api/projects?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
-    return data
+const responseProjects = async (name: string,page: number, pageSize: number) => {
+    if(name == 'all')
+    {
+        const {data} = await $host.get<responseProjectsType>(`/api/projects?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
+        return data
+    } else {
+        const {data} = await $host.get<responseProjectsType>(`/api/projects?filters[categories][name]=${name}&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
+        return data
+    }
 }
 
 const responseProject = async (id: number)=> {
@@ -21,4 +26,9 @@ const responseContact = async () => {
     return data
 }
 
-export {responseProjects, responseProject, responseContact}
+const filterProjects = async (name: string, page: number, pageSize: number) => {
+    const {data} = await $host.get<responseProjectsType>(`/api/projects?filters[categories][name]=${name}&populate[categories]=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
+    return data
+}
+
+export {responseProjects, responseProject, responseContact, filterProjects}

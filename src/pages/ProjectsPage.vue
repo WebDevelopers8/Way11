@@ -5,16 +5,17 @@
       <h1 class="project__title">ВСЕ НАШИ <span class="project__title-project">ПРОЕКТЫ</span></h1>
       <div class="project-filter">
         <button :class="{active:stateFilter == 0}" class="project-filter__button"
-                @click="() => {stateFilter = 0; changeProject(stateFilter);}">Все проекты
+                @click="() => {stateFilter = 0; nameFilter = 'all'; changeProject(stateFilter);}">Все проекты
         </button>
         <button :class="{active:stateFilter == 1}" class="project-filter__button"
-                @click="() => {stateFilter = 1; changeProject(stateFilter)}">E-commerce
+                @click="() => {stateFilter = 1; nameFilter = 'E-commerce'; changeProject(1)}">E-commerce
         </button>
         <button :class="{active:stateFilter == 2}" class="project-filter__button"
-                @click="() => {stateFilter = 2; changeProject(stateFilter)}">Образовательные платформы
+                @click="() => {stateFilter = 2; nameFilter = 'Образовательные платформы'; changeProject(1)}">
+          Образовательные платформы
         </button>
         <button :class="{active:stateFilter == 3}" class="project-filter__button"
-                @click="() => {stateFilter = 3; changeProject(stateFilter)}">Промышленность
+                @click="() => {stateFilter = 3; nameFilter = 'Промышленность'; changeProject(1)}">Промышленность
         </button>
       </div>
       <ProjectList :projects="projects"/>
@@ -33,18 +34,19 @@
 import {computed, ref} from "vue";
 import ProjectList from "@/widgets/projectList/ProjectList.vue";
 import FooterVue from "@/widgets/footer/FooterVue.vue";
-import {responseProjects} from "@/app/http/request";
+import {filterProjects, responseProjects} from "@/app/http/request";
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import PaginationVue from "@/widgets/pagination/PaginationVue.vue";
 
 const stateFilter = ref(0)
 const page = ref(1)
 const maxPages = ref(2)
+const nameFilter = ref('all')
 
 const projects = ref<Array<projectInterface>>([])
 
 async function getProjects() {
-  let answer = await responseProjects(page.value, 4)
+  let answer = await responseProjects(nameFilter.value, page.value, 4)
   projects.value = answer.data
   page.value = answer.meta.pagination.page
   maxPages.value = answer.meta.pagination.pageCount
@@ -60,7 +62,18 @@ function changeProject(id: number) {
     case 0:
       getProjects()
       break;
+    case 1:
+      findProjects(nameFilter.value)
+      break;
   }
+}
+
+async function findProjects(category: string) {
+  projects.value = []
+  let answer = await filterProjects(category, page.value, 4)
+  projects.value = answer.data
+  page.value = answer.meta.pagination.page
+  maxPages.value = answer.meta.pagination.pageCount
 }
 </script>
 
