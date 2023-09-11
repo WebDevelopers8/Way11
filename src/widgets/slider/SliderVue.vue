@@ -60,7 +60,7 @@ let arrow = {
 <style lang="postcss">
 
 .slide {
-  width: 80%;
+  width: 80% !important;
   @apply flex justify-center items-center;
 }
 
