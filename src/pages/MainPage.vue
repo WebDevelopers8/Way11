@@ -122,7 +122,7 @@
                 <div class="line__point-center"></div>
               </button>
               <span>{{projects != null ? projects[0].attributes.name : ''}}</span>
-              <p>5 июня 2019 г.</p>
+              <p>{{projects != null ? getTime(projects[0].attributes.dateOfRelease) : ''}}</p>
             </div>
             <div ref="projectsText1" class="projects__road-text" id="tr1">
               <div ref="projectLine1" class="line"></div>
@@ -130,7 +130,7 @@
                 <div class="line__point-center"></div>
               </button>
               <span>{{projects != null ? projects[1].attributes.name : ''}}</span>
-              <p>23 мая 2020 г.</p>
+              <p>{{projects != null ? getTime(projects[1].attributes.dateOfRelease) : ''}}</p>
             </div>
             <div ref="projectsText2" class="projects__road-text" id="tr2">
               <div ref="projectLine2"  class="line"></div>
@@ -138,7 +138,7 @@
                 <div class="line__point-center"></div>
               </button>
               <span>{{projects != null ? projects[2].attributes.name : ''}}</span>
-              <p>6 октября 2021 г.</p>
+              <p>{{projects != null ? getTime(projects[2].attributes.dateOfRelease) : ''}}</p>
             </div>
             <div ref="projectsText3" class="projects__road-text" id="tr3">
               <div ref="projectLine3" class="line"></div>
@@ -146,7 +146,7 @@
                 <div class="line__point-center"></div>
               </button>
               <span>{{projects != null ? projects[3].attributes.name : ''}}</span>
-              <p>12 Ноябрь 2022 г.</p>
+              <p>{{projects != null ? getTime(projects[3].attributes.dateOfRelease) : ''}}</p>
             </div>
           </div>
           <span ref="bike" class="projects__road-bike tr0" style="transform: translateX(40px);">
@@ -255,7 +255,6 @@
         </div>
       </div>
     </div>
-
     <section class="form" id="form">
       <FormVue />
     </section>
@@ -321,6 +320,16 @@ const urlImageFourth = computed(() => {
   }
   return images
 })
+
+function getTime(time?: string)
+{
+  let readyTime = ''
+  if(typeof time != 'undefined')
+  {
+    readyTime = Intl.DateTimeFormat('ru', {day: "numeric",month:"long", year: "numeric"}).format(new Date(time))
+  }
+  return readyTime
+}
 //main script
 
 const projectsSection = ref<HTMLElement | null>(null);
@@ -419,7 +428,7 @@ function setActiveProject(number : number) {
 
     }
 
-    bikePosition.value = 300;
+    bikePosition.value = 295;
   }
   if(number == 3 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {    projectsWrap.value.style.transform =
         "translateX(" + -projectsOffset.value * 2 + "px)";
@@ -438,7 +447,7 @@ function setActiveProject(number : number) {
     projectPoint0.value.classList.remove("active");
     projectPoint2.value.classList.add("active");
     projectPoint3.value.classList.remove("active");
-    bikePosition.value = 560;
+    bikePosition.value = 550;
     projectLine1.value.classList.add("open")
 
     if(prevCount.value == 2)
@@ -476,7 +485,7 @@ function setActiveProject(number : number) {
     projectPoint0.value.classList.remove("active");
     projectPoint1.value.classList.remove("active");
     projectPoint3.value.classList.add("active");
-    bikePosition.value = 841;
+    bikePosition.value = 810;
     projectLine2.value.classList.add("open")
     if(prevCount.value == 3)
     {
@@ -544,7 +553,7 @@ function setActiveProject(number : number) {
   @apply absolute ml-[-15px] mt-[33px] border-solid border-l-[2px] border-[#B9B9BC] opacity-50 w-[1px] h-[90px];
 
   &.active {
-    @apply h-[160px] bg-[#787878] opacity-100;
+    @apply h-[206px] bg-[#787878] opacity-100;
   }
   &.open
   {
