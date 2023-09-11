@@ -19,7 +19,7 @@ import PaginationItem from "@/features/pagination/PaginationItem.vue";
 
 defineProps<{
   currPage: number,
-  maxPages: number
+  maxPages: number,
 }>()
 
 const emit = defineEmits(["updatePage"])

@@ -21,7 +21,8 @@
         </button>
       </div>
       <ProjectList :projects="projects"/>
-      <PaginationVue @updatePage="(changedPage : number) => {page = changedPage; getProjects}" :currPage="page" :maxPages="maxPages" />
+      <PaginationVue @updatePage="(changedPage : number) => {page = changedPage; getProjects()}" :currPage="page"
+                     :maxPages="maxPages"/>
     </div>
   </div>
   <div class="flex w-full h-[1px] mt-[100px]">
@@ -32,7 +33,7 @@
 
 <script setup lang="ts">
 
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import ProjectList from "@/widgets/projectList/ProjectList.vue";
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import {responseProjects} from "@/app/http/request";
@@ -58,8 +59,7 @@ window.scrollBy(0, 0)
 
 function changeProject(id: number) {
   projects.value = []
-  switch (id)
-  {
+  switch (id) {
     case 0:
       getProjects()
       break;
