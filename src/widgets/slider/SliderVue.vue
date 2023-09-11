@@ -13,7 +13,7 @@
     <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
             aria-label="My Favorite Images">
       <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
-        <img :src="'https://admin.studioway11.com' + item">
+        <img class="rounded-[20px]" :src="'https://admin.studioway11.com' + item">
       </SplideSlide>
     </Splide>
   </div>

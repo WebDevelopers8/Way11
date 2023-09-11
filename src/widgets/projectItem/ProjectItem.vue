@@ -2,7 +2,7 @@
   <div class="project">
     <div class="project-left">
       <span class="project-left__title">{{project.attributes.name}}</span>
-      <span class="project-left__type">{{project.attributes.categories.data[0].attributes.name}}</span>
+      <span v-if="project.attributes.categories.data.length != 0" class="project-left__type">{{project.attributes.categories.data[0].attributes.name}}</span>
       <div class="project-left__mobile">
         <SliderVue />
       </div>
