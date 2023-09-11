@@ -57,7 +57,13 @@ getProjects()
 window.scrollBy(0, 0)
 
 function changeProject(id: number) {
-
+  projects.value = []
+  switch (id)
+  {
+    case 0:
+      getProjects()
+      break;
+  }
 }
 </script>
 
