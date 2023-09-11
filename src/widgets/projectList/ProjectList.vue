@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col lg:mt-[80px] mt-[36px] gap-[56px]">
-    <ProjectItem v-for="(item, index) in projects" :key="index" :project="item" />
+  <div class="flex flex-col lg:mt-[80px] mt-[36px] gap-[56px]" v-if="projects.length != 0">
+    <ProjectItem v-for="item of projects" :key="item.id" :project="item" />
   </div>
 </template>
 

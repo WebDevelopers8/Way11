@@ -18,7 +18,9 @@
                 @click="() => {stateFilter = 3; nameFilter = 'Промышленность'; changeProject(1)}">Промышленность
         </button>
       </div>
-      <ProjectList :projects="projects"/>
+      <div v-if="projects.length != 0">
+        <ProjectList :projects="projects"/>
+      </div>
       <PaginationVue @updatePage="(changedPage : number) => {page = changedPage; getProjects()}" :currPage="page"
                      :maxPages="maxPages"/>
     </div>
@@ -63,17 +65,19 @@ function changeProject(id: number) {
       getProjects()
       break;
     case 1:
+      projects.value = []
       findProjects(nameFilter.value)
       break;
   }
 }
 
-async function findProjects(category: string) {
-  projects.value = []
-  let answer = await filterProjects(category, page.value, 4)
-  projects.value = answer.data
-  page.value = answer.meta.pagination.page
-  maxPages.value = answer.meta.pagination.pageCount
+async function findProjects(categoryName: string) {
+  page.value = 1
+  let answer = await filterProjects(categoryName, page.value, 4)
+  console.log(answer)
+  // projects.value = answer.data
+  // page.value = answer.meta.pagination.page
+  // maxPages.value = answer.meta.pagination.pageCount
 }
 </script>
 
