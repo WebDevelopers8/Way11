@@ -8,6 +8,8 @@ interface bodyInterface{
     rightImage?: {data: {attributes: {url: string}, id: number}},
     leftTitle?: string,
     leftText?: string,
+    leftColumn?: string,
+    rightColumn?: string,
     rightTitle?: string,
     rightText?: string,
 }
