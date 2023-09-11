@@ -8,16 +8,13 @@
                 @click="() => {stateFilter = 0; changeProject(stateFilter);}">Все проекты
         </button>
         <button :class="{active:stateFilter == 1}" class="project-filter__button"
-                @click="() => {stateFilter = 1; changeProject(stateFilter)}">Вебинарные платформы
+                @click="() => {stateFilter = 1; changeProject(stateFilter)}">E-commerce
         </button>
         <button :class="{active:stateFilter == 2}" class="project-filter__button"
-                @click="() => {stateFilter = 2; changeProject(stateFilter)}">Промо-сайты
+                @click="() => {stateFilter = 2; changeProject(stateFilter)}">Образовательные платформы
         </button>
         <button :class="{active:stateFilter == 3}" class="project-filter__button"
-                @click="() => {stateFilter = 3; changeProject(stateFilter)}">Корпоративные сайты
-        </button>
-        <button :class="{active:stateFilter == 4}" class="project-filter__button"
-                @click="() => {stateFilter = 4; changeProject(stateFilter)}">Платформы
+                @click="() => {stateFilter = 3; changeProject(stateFilter)}">Промышленность
         </button>
       </div>
       <ProjectList :projects="projects"/>

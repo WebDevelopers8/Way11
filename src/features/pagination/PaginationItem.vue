@@ -28,12 +28,12 @@ const emit = defineEmits(['updatePage'])
     align-items: center;
     justify-content: center;
     transform: skew(-18deg);
-    border: 2px solid transparent;
+    border: 1.5px solid transparent;
     transition: all .2s ease;
     @apply sm:w-[86px] w-[60px];
 
     &.active {
-      border: 2px solid #438CB4;
+      border: 1.5px solid #438CB4;
     }
 
     div {
