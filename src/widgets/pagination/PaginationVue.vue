@@ -1,13 +1,15 @@
 <template>
   <div class="flex justify-center mt-[80px] gap-[10px]">
     <div class="button">
-      <button class="bg-[#5BB6F1]" @click="1 == currPage ? emit('updatePage', 1) : emit('updatePage', currPage - 1)">
+      <button v-if="maxPages != 1" class="bg-[#5BB6F1]" @click="1 == currPage ? emit('updatePage', 1) : emit('updatePage', currPage - 1)">
         <div><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>
-    <PaginationItem v-for="(item,index) in maxPages" :key="index" :numberPage="item" :currPage="currPage" @updatePage="(changedPage : number) => emit('updatePage', changedPage)" />
+    <div v-if="maxPages != 1">
+      <PaginationItem  v-for="(item,index) in maxPages" :key="index" :numberPage="item" :currPage="currPage" @updatePage="(changedPage : number) => emit('updatePage', changedPage)" />
+    </div>
     <div class="button">
-      <button @click="maxPages == currPage ? emit('updatePage', maxPages) : emit('updatePage', currPage + 1)">
+      <button v-if="maxPages != 1" @click="maxPages == currPage ? emit('updatePage', maxPages) : emit('updatePage', currPage + 1)">
         <div><img class="back-arrow" src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>

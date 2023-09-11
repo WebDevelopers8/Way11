@@ -9,6 +9,7 @@ interface attributesInterface {
         name: string,
     }>,
     body: Array<bodyInterface>,
+    dateOfRelease?: string,
     categories: {
         data: Array<{
             attributes:{

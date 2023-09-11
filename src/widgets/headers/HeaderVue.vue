@@ -236,7 +236,7 @@ getContacts()
     @apply lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%];
     img {
       width: 64px;
-      @apply lg:w-[64px] w-[32px];
+      @apply lg:w-[64px] w-[40px];
     }
   }
 }

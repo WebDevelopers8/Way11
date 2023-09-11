@@ -1,37 +1,36 @@
 <template>
-  <div class="slider-bg" v-if="typeof urlImages == 'undefined'">
-    <Splide class="flex justify-center items-center h-[98%] "
-            :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
-            aria-label="My Favorite Images">
-      <SplideSlide class="slide" v-for="item in 4" :key="item">
-        <img src="@/shared/images/slider-img-1.png">
-      </SplideSlide>
-    </Splide>
-  </div>
-  
-  <div class="slider-bg" v-if="typeof urlImages != 'undefined'">
-    <Splide class="flex justify-center items-center h-[100%] " :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
-            aria-label="My Favorite Images">
-      <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
-        <img class="rounded-[20px]" :src="'https://admin.studioway11.com' + item">
-      </SplideSlide>
-    </Splide>
+  <div :style="{'background-image': 'url(' + bgImage + ')'}" class="slider-bg" v-if="typeof urlImages != 'undefined' && bgImage.length != 0">
+    <div class="firstLayout">
+        <Splide class="flex justify-center items-center h-[100%] rounded-[8px] bg-[#000000a3]" :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
+                aria-label="My Favorite Images">
+          <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
+            <img class="rounded-[20px]" :src="'https://admin.studioway11.com' + item">
+          </SplideSlide>
+        </Splide>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {computed, ref} from "vue";
 //@ts-ignore
 import {Splide, SplideSlide} from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
 
 const activeItem = ref(1)
 const itemsLength = ref(4)
-
-
 const props = defineProps<{
   urlImages?: Array<string>
 }>()
+
+const bgImage = computed(() => {
+  let urlLink = ''
+  if(typeof props.urlImages != 'undefined' && props.urlImages.length != 0)
+  {
+      urlLink = 'https://admin.studioway11.com' + props.urlImages[0]
+  }
+  return urlLink
+})
 
 function getMaxCounts() {
   itemsLength.value = typeof props.urlImages != 'undefined' ? props.urlImages.length : 4
@@ -59,6 +58,13 @@ let arrow = {
 
 <style lang="postcss">
 
+.firstLayout
+{
+  backdrop-filter: blur(3px);
+  height: 100%;
+  border-radius: 8px;
+}
+
 .slide {
 
   @apply lg:left-[10%] lg:w-[80%] flex justify-center items-center;
@@ -78,9 +84,8 @@ let arrow = {
 }
 
 .slider-bg {
-  background-image: url("@/shared/images/slider-bg.png");
   background-size: cover;
-  @apply w-[100%] h-[96%] flex bg-no-repeat rounded-[20px];
+  @apply w-[100%] h-[96%] bg-no-repeat rounded-[20px];
 
   &__bg {
     @apply w-full h-full;
