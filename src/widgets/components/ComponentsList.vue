@@ -5,7 +5,7 @@
     <TwoImages v-if="'project-component.two-images' == item.__component" :title="item.title" :leftImage="item.leftImage?.data.attributes.url" :rightImage="item.rightImage?.data.attributes.url"  />
     <TextAndImage v-if="'project-component.text-and-image' == item.__component" :title="item.title" :text="item.text" :imageUrl="item.image?.data.attributes.url" />
     <TwoTextColumnsAndImage v-if="'project-component.two-columns-and-image' == item.__component" :title="item.title" :leftText="item.leftColumn" :rightText="item.rightColumn" :image="item.image?.data.attributes.url" />
-    <TextAndImageColumns v-if="'project-component.test-and-image' == item.__component || 'project-component.text-and-image' == item.__component" :title="item.title" :text="item.text" :image="item.image?.data.attributes.url"  />
+    <TextAndImageColumns v-if="'project-component.test-and-image' == item.__component" :title="item.title" :text="item.text" :image="item.image?.data.attributes.url"  />
     <OnlyTitle v-if="'project-component.only-title' == item.__component" :title="item.title"/>
     <ImageSection v-if="'project-component.image-section' == item.__component" :title="item.title" :urlImage="item.image?.data.attributes.url" />
   </div>
