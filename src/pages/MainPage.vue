@@ -529,7 +529,7 @@ function setActiveProject(number : number) {
 
   @apply 2xl:w-[102%] 2xl:mt-[120px] mt-[60px] 2xl:ml-[-28px] w-full bg-cover 2xl:pb-[120px] lg:pb-[200px] pb-[200px];
 }
-@media (min-width: 2559px)
+@media (min-width: 2000px)
 {
   .bg-2{
     background-image: url(@/shared/images/bg-2-4k.png);
