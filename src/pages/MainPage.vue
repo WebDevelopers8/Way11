@@ -262,7 +262,9 @@
   <FooterVue/>
 </template>
 
+
 <script setup lang="ts">
+// 1, 6, 5, 2
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {computed, ref} from "vue";
@@ -272,15 +274,34 @@ import {responseProjects} from "@/app/http/request";
 import StackItem from "@/features/StackText/StackItem.vue";
 import FormVue from "@/widgets/form/FormVue.vue";
 
+
 let projectCount = ref(1)
 let maxCountProject = ref(4)
+let findProject = [1,6,5,2]
 
 let projects = ref<Array<projectInterface> | null>(null)
+function filterProjects(sortProjects: Array<projectInterface>) {
+  let res : Array<projectInterface> = []
+  if (res != null)
+  {
+    findProject.forEach((number, indexNumber) => {
+      sortProjects.forEach((item, index) => {
+         console.log(index + " " +item.id + ' ' + number)
+        if (item.id == number) {
+          res.push(item)
+        }
+      })
+    })
+  }
+  console.log(res)
+  return res
+}
 
 async function responseProject()
 {
   let response = await responseProjects('all',0,4)
-  projects.value = response.data
+  projects.value = filterProjects(response.data)
+
 }
 responseProject()
 

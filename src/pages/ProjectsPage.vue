@@ -18,8 +18,8 @@
                 @click="() => {stateFilter = 3; nameFilter = 'Промышленность'; changeProject(1)}">Промышленность
         </button>
       </div>
-      <div v-if="projects.length != 0">
-        <ProjectList :projects="projects"/>
+      <div v-if="projectListState != null && projectListState.length != 0">
+        <ProjectList :projects="projectListState"/>
       </div>
       <PaginationVue @updatePage="(changedPage : number) => {page = changedPage; getProjects()}" :currPage="page"
                      :maxPages="maxPages"/>
@@ -39,17 +39,20 @@ import FooterVue from "@/widgets/footer/FooterVue.vue";
 import {filterProjects, responseProjects} from "@/app/http/request";
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import PaginationVue from "@/widgets/pagination/PaginationVue.vue";
+import { useProjectStore } from "@/entities/stores/projectStore/projectStore";
+import { storeToRefs } from "pinia";
 
 const stateFilter = ref(0)
 const page = ref(1)
 const maxPages = ref(2)
 const nameFilter = ref('all')
 
-const projects = ref<Array<projectInterface>>([])
+const projectStore = useProjectStore()
+const { projectListState } = storeToRefs(projectStore)
 
 async function getProjects() {
   let answer = await responseProjects(nameFilter.value, page.value, 4)
-  projects.value = answer.data
+  projectStore.loadProjects(answer.data)
   page.value = answer.meta.pagination.page
   maxPages.value = answer.meta.pagination.pageCount
 }
@@ -59,13 +62,12 @@ getProjects()
 window.scrollBy(0, 0)
 
 function changeProject(id: number) {
-  projects.value = []
+  projectListState.value = []
   switch (id) {
     case 0:
       getProjects()
       break;
     case 1:
-      projects.value = []
       findProjects(nameFilter.value)
       break;
   }
@@ -75,9 +77,10 @@ async function findProjects(categoryName: string) {
   page.value = 1
   let answer = await filterProjects(categoryName, page.value, 4)
   console.log(answer)
-  // projects.value = answer.data
-  // page.value = answer.meta.pagination.page
-  // maxPages.value = answer.meta.pagination.pageCount
+  projectStore.loadProjects(answer.data)
+  
+  page.value = answer.meta.pagination.page
+  maxPages.value = answer.meta.pagination.pageCount
 }
 </script>
 
