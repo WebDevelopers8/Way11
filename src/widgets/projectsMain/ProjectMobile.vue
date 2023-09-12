@@ -5,7 +5,7 @@
     </div>
     <span class="text-[18px] leading-[24px] text-[#14161F]" v-html="markedText"></span>
     <div class="projects__tags">
-      <StackItem v-for="(item,index) in project.attributes.technologies" :key="index" :text="item.name" />
+      <StackItem v-for="(item,index) in project.project.data.attributes.technologies" :key="index" :text="item.name" />
     </div>
     <div class="projects__buttons">
       <router-link :to="'/project/' + project.id">
@@ -24,17 +24,19 @@ import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import StackItem from "@/features/StackText/StackItem.vue";
 import {computed} from "vue";
 import {marked} from "marked";
+import type {homepageType} from "@/entities/types/homepage/homepageType";
+import type {roadOfProjectsInterface} from "@/entities/types/homepage/roadOfProjectsInterface";
 
 const props = defineProps<{
   index: number
   projectCount: number
-  project: projectInterface
+  project: roadOfProjectsInterface
 }>()
 
 const urlImage = computed(() => {
   let images : Array<string> = []
-  if(props.project != null && props.project.attributes.gallery != null) {
-    props.project.attributes.gallery.data.forEach((image) => {
+  if(props.project != null && props.project.project.data.attributes.gallery != null) {
+    props.project.project.data.attributes.gallery.data.forEach((image) => {
       images.push(image.attributes.url)
     })
   }
@@ -42,7 +44,7 @@ const urlImage = computed(() => {
 })
 
 const markedText = computed(() => {
-  const markedText = marked.parse(props.project.attributes.description)
+  const markedText = marked.parse(props.project.project.data.attributes.description)
   return markedText.replace('\n','<br>')
 })
 

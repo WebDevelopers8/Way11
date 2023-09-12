@@ -96,16 +96,16 @@
           </button>
           <div class="flex flex-col items-center justify-center w-[55%]">
             <span
-                class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{ projects != null ? projects[projectCount - 1].attributes.name : '' }}</span>
+                class="text-[#14161F] text-[28px] tracking-[0.28px] leading-[40px]">{{ projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.name : '' }}</span>
             <div class="text-[#898A8F] text-[16px] font-normal tracking-[0.16px] leading-[24px]">
-              {{projects != null ? projects[projectCount - 1].attributes.categories.data[0].attributes.name : '' }}
+              {{projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.categories.data[0].attributes.name : '' }}
             </div>
           </div>
           <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
             <img src="@/shared/images/arrow-next.png">
           </button>
         </div>
-        <ProjectMobile v-for="(item,index) in projects?.filter((project,projectIndex) => projectIndex < 4)" :key="index" :index="index + 1" :project-count="projectCount" :project="item" />
+        <ProjectMobile v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects : []" :key="index" :index="index + 1" :project-count="projectCount" :project="item" />
       </div>
     </div>
     <div ref="projectsSection" class="projects" id="projects">
@@ -121,32 +121,32 @@
               <button @click="() => {projectCount = 1;setActiveProject(projectCount);}" ref="projectPoint0" class="line__point active">
                 <div class="line__point-center"></div>
               </button>
-              <span>{{projects != null ? projects[0].attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects[0].attributes.dateOfRelease) : ''}}</p>
+              <span>{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.name : ''}}</span>
+              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[0].project.data.attributes.dateOfRelease) : ''}}</p>
             </div>
             <div ref="projectsText1" class="projects__road-text" id="tr1">
               <div ref="projectLine1" class="line"></div>
               <button @click="() => {projectCount = 2;setActiveProject(projectCount);}" ref="projectPoint1" class="line__point">
                 <div class="line__point-center"></div>
               </button>
-              <span>{{projects != null ? projects[1].attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects[1].attributes.dateOfRelease) : ''}}</p>
+              <span>{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</span>
+              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[1].project.data.attributes.dateOfRelease) : ''}}</p>
             </div>
             <div ref="projectsText2" class="projects__road-text" id="tr2">
               <div ref="projectLine2"  class="line"></div>
               <button @click="() => {projectCount = 3;setActiveProject(projectCount);}" ref="projectPoint2" class="line__point">
                 <div class="line__point-center"></div>
               </button>
-              <span>{{projects != null ? projects[2].attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects[2].attributes.dateOfRelease) : ''}}</p>
+              <span>{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.name : ''}}</span>
+              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[2].project.data.attributes.dateOfRelease) : ''}}</p>
             </div>
             <div ref="projectsText3" class="projects__road-text" id="tr3">
               <div ref="projectLine3" class="line"></div>
               <button @click="() => {projectCount = 4;setActiveProject(projectCount);}" ref="projectPoint3"  class="line__point">
                 <div class="line__point-center"></div>
               </button>
-              <span>{{projects != null ? projects[3].attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects[3].attributes.dateOfRelease) : ''}}</p>
+              <span>{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</span>
+              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[3].project.data.attributes.dateOfRelease) : ''}}</p>
             </div>
           </div>
           <span ref="bike" class="projects__road-bike tr0" style="transform: translateX(40px);">
@@ -160,16 +160,16 @@
         <div ref="projectsWrap" class="projects__test">
           <div ref="projectsWrapper1" class="projects__wrapper active">
             <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects[0].attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects[0].attributes.categories.data[0].attributes.name : ''}}</div>
+              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.name : ''}}</div>
+              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.categories.data[0].attributes.name : ''}}</div>
               <div class="projects__text">
-                {{projects != null ? projects[0].attributes.description : ''}}
+                {{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects[0]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects[0]?.id : 0)">
+                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[0].project.data.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -184,16 +184,16 @@
           </div>
           <div ref="projectsWrapper2" class="projects__wrapper ">
             <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects[1].attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects[1].attributes.categories.data[0].attributes.name : ''}}</div>
+              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</div>
+              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</div>
               <div class="projects__text">
-                {{projects != null ? projects[1].attributes.description : ''}}
+                {{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects[1]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects[1]?.id : 0)">
+                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[1].project.data.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -207,16 +207,16 @@
           </div>
           <div  ref="projectsWrapper3" class="projects__wrapper ">
             <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects[2].attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects[2].attributes.categories.data[0].attributes.name : ''}}</div>
+              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.name : ''}}</div>
+              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.categories.data[0].attributes.name : ''}}</div>
               <div class="projects__text">
-                {{projects != null ? projects[2].attributes.description : ''}}
+                {{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects[2]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects[2]?.id : 0)">
+                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[2].project.data.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -230,16 +230,16 @@
           </div>
           <div ref="projectsWrapper4" class="projects__wrapper">
             <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects[3].attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects[3].attributes.categories.data[0].attributes.name : ''}}</div>
+              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</div>
+              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</div>
               <div class="projects__text">
-                {{projects != null ? projects[3].attributes.description : ''}}
+                {{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.description : ''}}
               </div>
               <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects[3]?.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
               </div>
               <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects[3]?.id : 0)">
+                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[3].project.data.id : 0)">
                   <div>Подробнее</div>
                 </router-link>
                 <router-link to="/projects" class="outline">
@@ -270,42 +270,27 @@ import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {computed, ref} from "vue";
 import ProjectMobile from "@/widgets/projectsMain/ProjectMobile.vue";
 import type {projectInterface} from "@/entities/dto/projects/projectInterface";
-import {responseProjects} from "@/app/http/request";
+import {responseHomepage, responseProjects} from "@/app/http/request";
 import StackItem from "@/features/StackText/StackItem.vue";
 import FormVue from "@/widgets/form/FormVue.vue";
+import type {homepageType} from "@/entities/types/homepage/homepageType";
 
 let projectCount = ref(1)
 let maxCountProject = ref(4)
-let findProject = [1,6,5,2]
-
-let projects = ref<Array<projectInterface> | null>(null)
-function filterProjects(sortProjects: Array<projectInterface>) {
-  let res : Array<projectInterface> = []
-  if (res != null)
-  {
-    findProject.forEach((number, indexNumber) => {
-      sortProjects.forEach((item, index) => {
-        if (item.id == number) {
-          res.push(item)
-        }
-      })
-    })
-  }
-  return res
-}
+let projects = ref<homepageType | null>(null)
 
 async function responseProject()
 {
-  let response = await responseProjects('all',0,4)
-  projects.value = filterProjects(response.data)
+  let response = await responseHomepage()
+  projects.value = response
 
 }
 responseProject()
 
 const urlImageFirst = computed(() => {
   let images : Array<string> = []
-  if(projects.value != null && projects.value[0].attributes.gallery != null) {
-    projects.value[0].attributes.gallery.data.forEach((image) => {
+  if(projects.value != null && projects.value.data.attributes.roadOfProjects[0].project.data.attributes.gallery != null) {
+    projects.value.data.attributes.roadOfProjects[0].project.data.attributes.gallery.data.forEach((image) => {
       images.push(image.attributes.url)
     })
   }
@@ -313,8 +298,8 @@ const urlImageFirst = computed(() => {
 })
 const urlImageSecond = computed(() => {
   let images : Array<string> = []
-  if(projects.value != null && projects.value[1].attributes.gallery != null) {
-    projects.value[1].attributes.gallery.data.forEach((image) => {
+  if(projects.value != null && projects.value.data.attributes.roadOfProjects[1].project.data.attributes.gallery != null) {
+    projects.value.data.attributes.roadOfProjects[1].project.data.attributes.gallery.data.forEach((image) => {
       images.push(image.attributes.url)
     })
   }
@@ -322,8 +307,8 @@ const urlImageSecond = computed(() => {
 })
 const urlImageThird = computed(() => {
   let images : Array<string> = []
-  if(projects.value != null && projects.value[2].attributes.gallery != null) {
-    projects.value[2].attributes.gallery.data.forEach((image) => {
+  if(projects.value != null && projects.value.data.attributes.roadOfProjects[2].project.data.attributes.gallery != null) {
+    projects.value.data.attributes.roadOfProjects[2].project.data.attributes.gallery.data.forEach((image) => {
       images.push(image.attributes.url)
     })
   }
@@ -331,8 +316,8 @@ const urlImageThird = computed(() => {
 })
 const urlImageFourth = computed(() => {
   let images : Array<string> = []
-  if(projects.value != null && projects.value[3].attributes.gallery != null) {
-    projects.value[3].attributes.gallery.data.forEach((image) => {
+  if(projects.value != null && projects.value.data.attributes.roadOfProjects[3].project.data.attributes.gallery != null) {
+    projects.value.data.attributes.roadOfProjects[3].project.data.attributes.gallery.data.forEach((image) => {
       images.push(image.attributes.url)
     })
   }

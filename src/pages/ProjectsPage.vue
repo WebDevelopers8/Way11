@@ -7,15 +7,13 @@
         <button :class="{active:stateFilter == 0}" class="project-filter__button"
                 @click="() => {stateFilter = 0; nameFilter = 'all'; changeProject(stateFilter);}">Все проекты
         </button>
-        <button :class="{active:stateFilter == 1}" class="project-filter__button"
-                @click="() => {stateFilter = 1; nameFilter = 'E-commerce'; changeProject(1)}">E-commerce
-        </button>
-        <button :class="{active:stateFilter == 2}" class="project-filter__button"
-                @click="() => {stateFilter = 2; nameFilter = 'Образовательные платформы'; changeProject(1)}">
-          Образовательные платформы
-        </button>
-        <button :class="{active:stateFilter == 3}" class="project-filter__button"
-                @click="() => {stateFilter = 3; nameFilter = 'Промышленность'; changeProject(1)}">Промышленность
+        <button v-for="(category, categoryIndex) of categoriesList"
+                :key="categoryIndex"
+                :class="{active:stateFilter == categoryIndex + 1}"
+                class="project-filter__button"
+                @click="() => {stateFilter = categoryIndex + 1; nameFilter = category.attributes.name; changeProject(1)}"
+        >
+          {{category.attributes.name}}
         </button>
       </div>
       <div v-if="projectListState != null && projectListState.length != 0">
@@ -36,10 +34,11 @@
 import {ref} from "vue";
 import ProjectList from "@/widgets/projectList/ProjectList.vue";
 import FooterVue from "@/widgets/footer/FooterVue.vue";
-import {responseProjects} from "@/app/http/request";
+import {responseCategories, responseProjects} from "@/app/http/request";
 import PaginationVue from "@/widgets/pagination/PaginationVue.vue";
 import {useProjectStore} from "@/entities/stores/projectStore/projectStore";
 import {storeToRefs} from "pinia";
+import type {categoryInterface} from "@/entities/types/categories/categoryInterface";
 
 const stateFilter = ref(0)
 const page = ref(1)
@@ -48,6 +47,7 @@ const nameFilter = ref('all')
 
 const projectStore = useProjectStore()
 const { projectListState } = storeToRefs(projectStore)
+const categoriesList = ref<Array<categoryInterface>>([])
 
 async function getProjects() {
   let answer = await responseProjects(nameFilter.value, page.value, 4)
@@ -56,6 +56,11 @@ async function getProjects() {
   maxPages.value = answer.meta.pagination.pageCount
 }
 
+async function getCategories() {
+  categoriesList.value = await responseCategories()
+}
+
+getCategories()
 getProjects()
 
 window.scrollBy(0, 0)
