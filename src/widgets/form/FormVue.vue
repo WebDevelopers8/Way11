@@ -25,13 +25,27 @@
           <button @click="() => pushForm()">
             <div>Отправить</div>
           </button>
-          <button @click="
+          <button ref="addFileButton" :disabled="fileIsLoaded" @click="
           open({
             accept:
               '.pdf,.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
           })
         " class="outline">
-            <div>Добавить файл</div>
+            <div v-if="!fileIsLoaded">Добавить файл</div>
+            <div v-if="fileIsLoaded" :class="{ buttonfile: fileIsLoaded }">
+              <div class="buttonfile__file">
+                <img src="@/shared/images/form/fileIcon.svg">
+              </div>
+              <div>
+                <span class="buttonfile-name">{{ nameFile }}</span>
+                <span class="buttonfile-size">{{ sizeFile }}</span>
+              </div>
+              <div>
+                <button class="buttonfile__button-close">
+                  <img src="@/shared/images/form/closeIcon.svg">
+                </button>
+              </div>
+            </div>
           </button>
         </div>
       </div>
@@ -54,12 +68,20 @@ let description = ref("")
 let firstNameInput = ref<HTMLElement | null>(null)
 let phoneInput = ref<HTMLElement | null>(null)
 let mailInput = ref<HTMLElement | null>(null)
+let addFileButton = ref<HTMLElement | null>(null)
+let fileIsLoaded = ref(false)
+let nameFile = ref('')
+let sizeFile = ref('')
 
 const { open, onChange } = useFileDialog()
 
 onChange(async (files: FileList | null) => {
-  if(files != null) {
+  if(files != null && addFileButton.value != null) {
     console.log('loaded file')
+    addFileButton.value.classList.add("active")
+    fileIsLoaded.value = true
+    nameFile.value = files[0].name
+    sizeFile.value = ( files[0].size / (1024*1024) ).toFixed(2) + " Mb"
   }
 })
 
@@ -101,6 +123,34 @@ function pushForm()
 </script>
 
 <style lang="postcss" scoped>
+
+.buttonfile
+{
+  top: 5px !important;
+  transform: skew(180deg) !important;
+  @apply flex flex-col;
+  &-name
+  {
+    line-height: 24px;
+    letter-spacing: 0.18px;
+    @apply text-[#14161F] text-[18px] text-start;
+  }
+  &-size
+  {
+    line-height: 24px;
+    letter-spacing: 0.18px;
+    @apply text-[#B9B9BC] text-[18px] text-start;
+  }
+  &__button-close
+  {
+    background-color:transparent !important;
+    border: none !important;
+    width: 17px !important;
+    height: 17px !important; 
+    transform: skew(0) !important;
+  }
+
+}
 .form {
   @apply 2xl:mt-[800px] 2xl:pb-[100px] xl:mt-[800px] lg:mt-[750px] mt-[120px];
 
@@ -196,6 +246,12 @@ function pushForm()
         border-right: 1px solid #438CB4;
         border-bottom: 1px solid #438CB4;
       }
+      &.active
+          {
+            transform: skew(-18deg) translateY(2px);
+            border-right: 1px solid #438CB4;
+            border-bottom: 1px solid #438CB4;
+          }
 
       &.outline {
         background-color: #fff;

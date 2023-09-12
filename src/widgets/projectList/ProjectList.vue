@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import ProjectItem from "@/widgets/projectItem/ProjectItem.vue";
-import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+import type { projectInterface } from "@/entities/dto/projects/projectInterface";
 
 const props = defineProps<{
   projects: Array<projectInterface>

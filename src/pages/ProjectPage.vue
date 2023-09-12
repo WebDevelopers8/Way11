@@ -9,7 +9,7 @@
     <ComponentsList :componentItems="project != null ? project.attributes.body : null" />
     <div class="mt-[72px] mb-[70px] w-full flex justify-center">
       <div class="project__button">
-        <router-link to="/"><div>Вернуться назад</div></router-link>
+        <router-link to="/projects"><div>Вернуться назад</div></router-link>
       </div>
     </div>
   </div>
