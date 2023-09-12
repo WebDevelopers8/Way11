@@ -2,7 +2,7 @@
   <img class="background" src="@/shared/images/projects/background.png">
   <div class="container">
     <div class="project-title">
-      <router-link to="/" class="project-title__link"><img src="@/shared/images/project/blackArrow.svg" alt="arrow">
+      <router-link to="/projects" class="project-title__link"><img src="@/shared/images/project/blackArrow.svg" alt="arrow">
       </router-link>
       <span class="project-title__name">{{project?.attributes.name}}</span>
     </div>
@@ -28,7 +28,6 @@ async function getProject(id: string | string[])
 {
   let answer = await responseProject(Array.isArray(id) ? parseInt(id[0]) : parseInt(id))
   project.value = answer.data
-  console.log(project.value)
 }
 
 getProject(router.currentRoute.value.params.id)

@@ -16,13 +16,19 @@
   <div v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0" class="lg:hidden block w-full">
     <SliderVue :urlImages="ArrayImages" />
   </div>
-  <div class="w-full lg:mt-[24px]" v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0"><img v-if="typeof image != 'undefined' && image.length != 0" :src="'https://admin.studioway11.com' + image" class="lg:block hidden object-cover"></div>
-</template>
+  <a v-if="typeof image != 'undefined' && image.length != 0" :href="'https://admin.studioway11.com'+image" data-fancybox>
+    <img class="lg:block hidden object-cover" :src="'https://admin.studioway11.com'+image" alt="product stats">
+  </a>
+  </template>
 
 <script setup lang="ts">
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {computed} from "vue";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
+Fancybox.bind("[data-fancybox]", {
+});
 const props = defineProps<{
   title?: string,
   leftText?: string,

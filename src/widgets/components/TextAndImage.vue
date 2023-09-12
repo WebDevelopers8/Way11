@@ -2,13 +2,21 @@
   <div class="component">
     <p v-if="typeof title != 'undefined'" class="component__title">{{title}}</p>
     <span v-if="typeof text != 'undefined'" class="component__subtitle" v-html="markedText"></span>
-    <img v-if="imageUrl ?? 0" class="component__image" :src="'https://admin.studioway11.com' + imageUrl" alt="product stats">
+    <a v-if="imageUrl ?? 0" :href="'https://admin.studioway11.com'+imageUrl" data-fancybox>
+      <img class="component__image" :src="'https://admin.studioway11.com'+imageUrl" alt="product stats">
+    </a>
   </div>
 </template>
 
 <script setup lang="ts">
 import {computed} from "vue";
 import {marked} from "marked";
+
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+Fancybox.bind("[data-fancybox]", {
+});
 
 const props = defineProps<{
   title?: string,
