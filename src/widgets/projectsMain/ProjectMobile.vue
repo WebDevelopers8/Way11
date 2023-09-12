@@ -1,7 +1,7 @@
 <template>
   <div v-if="projectCount == index">
     <div class="my-[24px] sm:h-[450px] h-[300px]">
-      <SliderVue/>
+      <SliderVue :urlImages="urlImage"/>
     </div>
     <span class="text-[18px] leading-[24px] text-[#14161F]" v-html="markedText"></span>
     <div class="projects__tags">
@@ -30,6 +30,16 @@ const props = defineProps<{
   projectCount: number
   project: projectInterface
 }>()
+
+const urlImage = computed(() => {
+  let images : Array<string> = []
+  if(props.project != null && props.project.attributes.gallery != null) {
+    props.project.attributes.gallery.data.forEach((image) => {
+      images.push(image.attributes.url)
+    })
+  }
+  return images
+})
 
 const markedText = computed(() => {
   const markedText = marked.parse(props.project.attributes.description)
