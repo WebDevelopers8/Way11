@@ -61,7 +61,6 @@ getProjects()
 window.scrollBy(0, 0)
 
 function changeProject(id: number) {
-  projectListState.value = []
   switch (id) {
     case 0:
       getProjects()

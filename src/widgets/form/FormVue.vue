@@ -33,15 +33,15 @@
         " class="outline">
             <div v-if="!fileIsLoaded">Добавить файл</div>
             <div v-if="fileIsLoaded" :class="{ buttonfile: fileIsLoaded }">
-              <div class="buttonfile__file">
+              <div class="buttonfile__icon">
                 <img src="@/shared/images/form/fileIcon.svg">
               </div>
-              <div>
+              <div class="buttonfile__text">
                 <span class="buttonfile-name">{{ nameFile }}</span>
                 <span class="buttonfile-size">{{ sizeFile }}</span>
               </div>
-              <div>
-                <button @click="reset()" class="buttonfile__button-close">
+              <div class="buttonfile__button-close">
+                <button @click="() => {reset(); deleteFile()}" class="buttonfile__button-close">
                   <img src="@/shared/images/form/closeIcon.svg">
                 </button>
               </div>
@@ -82,13 +82,17 @@ onChange(async (files: FileList | null) => {
     nameFile.value = files[0].name
     sizeFile.value = ( files[0].size / (1024*1024) ).toFixed(2) + " Mb"
   }
-  if(files == null && addFileButton.value != null)
-  {
-    addFileButton.value.classList.remove("active")
-    fileIsLoaded.value = false
-  }
 })
 
+function deleteFile() {
+  if(addFileButton.value != null)
+  {
+    addFileButton.value.classList.remove("active")
+    setTimeout(() => {
+      fileIsLoaded.value = false
+    }, 100)
+  }
+}
 
 function validationForm() {
   let isValidated = false
@@ -130,28 +134,65 @@ function pushForm()
 
 .buttonfile
 {
-  top: 5px !important;
+  top: 0 !important;
+  left: 0 !important;
   transform: skew(180deg) !important;
-  @apply flex flex-col;
+  width: 100% !important;
+  height: 100%;
+  position: relative !important;
+  @apply flex justify-between;
   &-name
   {
     line-height: 24px;
     letter-spacing: 0.18px;
-    @apply text-[#14161F] text-[18px] text-start;
+    @apply text-[#14161F] text-[18px] lg:text-start text-center;
   }
   &-size
   {
     line-height: 24px;
     letter-spacing: 0.18px;
-    @apply text-[#B9B9BC] text-[18px] text-start;
+    @apply text-[#B9B9BC] text-[18px] lg:text-start text-center;
   }
   &__button-close
   {
+    top: 0 !important;
+    left: 0 !important;
     background-color:transparent !important;
     border: none !important;
-    width: 17px !important;
-    height: 17px !important; 
-    transform: skew(0) !important;
+    width: 30% !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative !important;
+    @apply lg:justify-center justify-end sm:mr-0 mr-[5px];
+    & button
+    {
+      transform: skew(0) !important;
+    }
+    & img
+    {
+      width: 17px !important;
+      height: 17px !important;
+    }
+  }
+  &__icon
+  {
+    top: 0 !important;
+    left: 0 !important;
+    position: relative !important;
+    display: flex;
+    align-items: center;
+    width: 27% !important;
+    @apply sm:ml-[20px] ml-[10px]
+  }
+  &__text
+  {
+    top: 0 !important;
+    left: 0 !important;
+    position: relative !important;
+    justify-content: center;
+    gap: 0px;
+    @apply flex flex-col;
   }
 
 }

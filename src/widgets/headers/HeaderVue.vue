@@ -29,7 +29,7 @@
           <div class="header__sidemenu-nav">
             <router-link :to="{path: '/', hash: '#services'}">Услуги</router-link>
             <router-link :to="{path: '/', hash: '#projects'}">Проекты</router-link>
-            <router-link :to="{path: '/', hash: '#form'}">Проекты</router-link>
+            <router-link :to="{path: '/', hash: '#form'}">Оставить заявку</router-link>
           </div>
           <div class="header__line"></div>
         </div>

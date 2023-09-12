@@ -66,14 +66,16 @@ let arrow = {
 }
 
 .slide {
-
-  @apply lg:left-[10%] lg:w-[80%] flex justify-center items-center;
+  width: 80% !important;
+  left: 10%;
+  @apply flex justify-center items-center;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .slide
   {
     width: 80% !important;
+    left: 11%;
   }
 }
 
