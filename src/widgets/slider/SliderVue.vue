@@ -4,7 +4,9 @@
         <Splide class="flex justify-center items-center h-[100%] rounded-[8px] bg-[#000000a3]" :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
                 aria-label="My Favorite Images">
           <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
-            <img class="rounded-[20px]" :src="'https://admin.studioway11.com' + item">
+            <a :href="'https://admin.studioway11.com' + item" data-fancybox>
+              <img class="rounded-[20px]" :src="'https://admin.studioway11.com' + item">
+            </a>
           </SplideSlide>
         </Splide>
     </div>
@@ -16,6 +18,11 @@ import {computed, ref} from "vue";
 //@ts-ignore
 import {Splide, SplideSlide} from '@splidejs/vue-splide';
 import '@splidejs/vue-splide/css';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+Fancybox.bind("[data-fancybox]", {
+});
 
 const activeItem = ref(1)
 const itemsLength = ref(4)

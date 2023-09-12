@@ -1,14 +1,18 @@
 <template>
   <div class="component">
     <div class="component-left">
-      <p class="component-left__title">{{title}}</p>
-      <span class="component-left__text">{{text}}</span>
+      <p class="component-left__title">{{ title }}</p>
+      <span class="component-left__text">{{ text }}</span>
     </div>
     <div class="component-right">
       <div v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0" class="lg:hidden block w-full">
-        <SliderVue :urlImages="ArrayImages" />
+        <SliderVue :urlImages="ArrayImages"/>
       </div>
-      <div class="w-full lg:mt-[24px]" v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0"><img v-if="typeof image != 'undefined' && image.length != 0" :src="'https://admin.studioway11.com' + image" class="lg:block hidden object-cover"></div>
+      <div class="w-full lg:mt-[24px]" v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0">
+        <a v-if="image ?? 0" :href="'https://admin.studioway11.com'+image" data-fancybox>
+          <img class="lg:block hidden object-cover" :src="'https://admin.studioway11.com'+image" alt="product stats">
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -16,7 +20,10 @@
 <script setup lang="ts">
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {computed} from "vue";
+import {Fancybox} from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
+Fancybox.bind("[data-fancybox]", {});
 const props = defineProps<{
   title?: string,
   text?: string,
@@ -24,9 +31,8 @@ const props = defineProps<{
 }>()
 
 let ArrayImages = computed(() => {
-  let images : Array<string> = []
-  if(typeof props.image != 'undefined' && props.image.length != 0)
-  {
+  let images: Array<string> = []
+  if (typeof props.image != 'undefined' && props.image.length != 0) {
     images.push(props.image);
   }
   return images

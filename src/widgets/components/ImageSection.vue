@@ -1,11 +1,19 @@
 <template>
   <div class="component">
     <p class="component__title">{{title}}</p>
-    <img v-if="urlImage ?? 0" class="component__image" :src="'https://admin.studioway11.com'+urlImage" alt="product stats">
+    <a v-if="urlImage ?? 0" :href="'https://admin.studioway11.com'+urlImage" data-fancybox>
+      <img class="component__image" :src="'https://admin.studioway11.com'+urlImage" alt="product stats">
+    </a>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+Fancybox.bind("[data-fancybox]", {
+});
+
 defineProps<{
   title?:string,
   urlImage?:string,
