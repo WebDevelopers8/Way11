@@ -3,7 +3,9 @@ import type {responseProjectsType} from "@/entities/dto/projects/responseProject
 import type {contactType} from "@/entities/dto/contact/contactType";
 import type {responseProjectType} from "@/entities/dto/projects/responseProjectType";
 import type {categoriesType} from "@/entities/types/categories/categoriesType";
-
+import type {homepageType} from "@/entities/types/homepage/homepageType";
+//@ts-ignore
+import qs from "qs"
 const responseProjects = async (name: string,page: number, pageSize: number) => {
     if(name == 'all')
     {
@@ -22,7 +24,18 @@ const responseProject = async (id: number)=> {
 }
 
 const responseHomepage = async () => {
-    const {data} = await $host.get('/api/homepage/')
+    const query = qs.stringify({
+        populate: {
+            roadOfProjects:{
+                populate: {
+                    project: {
+                        populate: ["technologies", "gallery","categories"]
+                    }
+                }
+            }
+        }
+    })
+    const {data} = await $host.get<homepageType>(`/api/homepage?${query}`)
     return data
 }
 
