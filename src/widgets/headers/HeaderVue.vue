@@ -27,9 +27,9 @@
       <transition name="header__sidemenu">
         <div v-if="stateMenu" class="header__sidemenu">
           <div class="header__sidemenu-nav">
-            <a href="#services" >Услуги</a>
-            <a href="#projects" >Проекты</a>
-            <a href="#form">Оставить заявку</a>
+            <router-link :to="{path: '/', hash: '#services'}">Услуги</router-link>
+            <router-link :to="{path: '/', hash: '#projects'}">Проекты</router-link>
+            <router-link :to="{path: '/', hash: '#form'}">Проекты</router-link>
           </div>
           <div class="header__line"></div>
         </div>
@@ -83,6 +83,7 @@
 import {ref} from "vue";
 import HeaderModal from "@/widgets/headers/modal/HeaderModal.vue";
 import {responseContact} from "@/app/http/request";
+import router from "@/app/router";
 
 const burger = document.querySelector('.header__burger');
 const stateMenu = ref(false)

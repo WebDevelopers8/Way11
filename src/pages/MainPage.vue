@@ -274,7 +274,6 @@ import {responseProjects} from "@/app/http/request";
 import StackItem from "@/features/StackText/StackItem.vue";
 import FormVue from "@/widgets/form/FormVue.vue";
 
-
 let projectCount = ref(1)
 let maxCountProject = ref(4)
 let findProject = [1,6,5,2]
@@ -286,14 +285,12 @@ function filterProjects(sortProjects: Array<projectInterface>) {
   {
     findProject.forEach((number, indexNumber) => {
       sortProjects.forEach((item, index) => {
-         console.log(index + " " +item.id + ' ' + number)
         if (item.id == number) {
           res.push(item)
         }
       })
     })
   }
-  console.log(res)
   return res
 }
 
