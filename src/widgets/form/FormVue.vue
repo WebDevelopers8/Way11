@@ -41,7 +41,7 @@
                 <span class="buttonfile-size">{{ sizeFile }}</span>
               </div>
               <div>
-                <button class="buttonfile__button-close">
+                <button @click="reset()" class="buttonfile__button-close">
                   <img src="@/shared/images/form/closeIcon.svg">
                 </button>
               </div>
@@ -73,15 +73,19 @@ let fileIsLoaded = ref(false)
 let nameFile = ref('')
 let sizeFile = ref('')
 
-const { open, onChange } = useFileDialog()
+const { open, onChange, reset } = useFileDialog()
 
 onChange(async (files: FileList | null) => {
   if(files != null && addFileButton.value != null) {
-    console.log('loaded file')
     addFileButton.value.classList.add("active")
     fileIsLoaded.value = true
     nameFile.value = files[0].name
     sizeFile.value = ( files[0].size / (1024*1024) ).toFixed(2) + " Mb"
+  }
+  if(files == null && addFileButton.value != null)
+  {
+    addFileButton.value.classList.remove("active")
+    fileIsLoaded.value = false
   }
 })
 
