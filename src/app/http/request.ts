@@ -2,6 +2,7 @@ import {$host} from "@/app/http/index"
 import type {responseProjectsType} from "@/entities/dto/projects/responseProjectsType";
 import type {contactType} from "@/entities/dto/contact/contactType";
 import type {responseProjectType} from "@/entities/dto/projects/responseProjectType";
+import type {categoriesType} from "@/entities/types/categories/categoriesType";
 
 const responseProjects = async (name: string,page: number, pageSize: number) => {
     if(name == 'all')
@@ -20,10 +21,20 @@ const responseProject = async (id: number)=> {
     return data
 }
 
+const responseHomepage = async () => {
+    const {data} = await $host.get('/api/homepage/')
+    return data
+}
+
+const responseCategories = async () => {
+    const {data} = await $host.get<categoriesType>('/api/categories?populate=*&sort[0]=name:asc')
+    return data.data
+}
+
 const responseContact = async () => {
 
     const {data} = await $host.get<contactType>('api/contact')
     return data
 }
 
-export {responseProjects, responseProject, responseContact}
+export {responseProjects, responseProject, responseContact, responseHomepage, responseCategories}
