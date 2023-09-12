@@ -26,9 +26,4 @@ const responseContact = async () => {
     return data
 }
 
-const filterProjects = async (name: string, page: number, pageSize: number) => {
-    const {data} = await $host.get<responseProjectsType>(`/api/projects?filters[categories][name]=${name}&populate[categories]=*&pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
-    return data
-}
-
-export {responseProjects, responseProject, responseContact, filterProjects}
+export {responseProjects, responseProject, responseContact}

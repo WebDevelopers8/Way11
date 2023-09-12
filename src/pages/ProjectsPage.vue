@@ -33,14 +33,13 @@
 
 <script setup lang="ts">
 
-import {computed, ref} from "vue";
+import {ref} from "vue";
 import ProjectList from "@/widgets/projectList/ProjectList.vue";
 import FooterVue from "@/widgets/footer/FooterVue.vue";
-import {filterProjects, responseProjects} from "@/app/http/request";
-import type {projectInterface} from "@/entities/dto/projects/projectInterface";
+import {responseProjects} from "@/app/http/request";
 import PaginationVue from "@/widgets/pagination/PaginationVue.vue";
-import { useProjectStore } from "@/entities/stores/projectStore/projectStore";
-import { storeToRefs } from "pinia";
+import {useProjectStore} from "@/entities/stores/projectStore/projectStore";
+import {storeToRefs} from "pinia";
 
 const stateFilter = ref(0)
 const page = ref(1)
@@ -75,7 +74,7 @@ function changeProject(id: number) {
 
 async function findProjects(categoryName: string) {
   page.value = 1
-  let answer = await filterProjects(categoryName, page.value, 4)
+  let answer = await responseProjects(categoryName, page.value, 4)
   console.log(answer)
   projectStore.loadProjects(answer.data)
   
