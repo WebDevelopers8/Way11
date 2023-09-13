@@ -5,7 +5,7 @@
         <div><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>
-    <div v-if="maxPages != 1">
+    <div class="flex" v-if="maxPages != 1">
       <PaginationItem  v-for="(item,index) in maxPages" :key="index" :numberPage="item" :currPage="currPage" @updatePage="(changedPage : number) => emit('updatePage', changedPage)" />
     </div>
     <div class="button">
