@@ -90,7 +90,7 @@ let arrow = {
 
 .slider-bg {
   background-size: cover;
-  @apply w-[100%] h-[96%] bg-no-repeat rounded-[20px];
+  @apply w-[100%] h-[100%] bg-cover bg-no-repeat rounded-[5px];
 
   &__bg {
     @apply w-full h-full;
