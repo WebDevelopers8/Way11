@@ -5,7 +5,7 @@
                 aria-label="My Favorite Images">
           <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
             <a :href="'https://admin.studioway11.com' + item" data-fancybox>
-              <img class="rounded-[20px]" :src="'https://admin.studioway11.com' + item">
+              <img class="rounded-[8px]" :src="'https://admin.studioway11.com' + item">
             </a>
           </SplideSlide>
         </Splide>
@@ -89,7 +89,7 @@ let arrow = {
 
 .slider-bg {
   background-size: cover;
-  @apply w-[100%] h-[100%] bg-cover bg-no-repeat rounded-[5px];
+  @apply w-[100%] h-[100%] bg-cover bg-no-repeat rounded-[8px];
 
   &__bg {
     @apply w-full h-full;
