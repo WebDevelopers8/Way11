@@ -5,7 +5,7 @@
       <span v-if="project.attributes.categories.data.length != 0"
             class="project-left__type">{{ project.attributes.categories.data[0].attributes.name }}</span>
       <div class="project-left__mobile">
-        <SliderVue/>
+        <SliderVue :urlImages="imageUrls"/>
       </div>
       <span class="project-left__description" v-html="markedText"></span>
       <div class="project-left__stack-items">
@@ -39,6 +39,7 @@ const imageUrls = computed(() => {
   props.project.attributes.gallery.data.forEach(image => {
     images.push(image.attributes.url)
   })
+  console.log(images)
   return images
 })
 

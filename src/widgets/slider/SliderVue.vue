@@ -1,7 +1,7 @@
 <template>
   <div :style="{'background-image': 'url(' + bgImage + ')'}" class="slider-bg" v-if="typeof urlImages != 'undefined' && bgImage.length != 0">
     <div class="firstLayout">
-        <Splide class="flex justify-center items-center h-[100%] rounded-[8px] bg-[#000000a3]" :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
+        <Splide class="flex justify-center items-center lg:h-[100%] h-[300px] rounded-[8px] bg-[#000000a3]" :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
                 aria-label="My Favorite Images">
           <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
             <a :href="'https://admin.studioway11.com' + item" data-fancybox>
@@ -36,6 +36,7 @@ const bgImage = computed(() => {
   {
       urlLink = 'https://admin.studioway11.com' + props.urlImages[0]
   }
+  console.log(urlLink)
   return urlLink
 })
 
@@ -72,17 +73,12 @@ let arrow = {
   border-radius: 8px;
 }
 
-.slide {
-  width: 80% !important;
-  left: 10%;
-  @apply flex justify-center items-center;
-}
-
-@media (max-width: 1024px) {
+@media  (min-width: 625px) {
   .slide
   {
     width: 80% !important;
-    left: 11%;
+    left: 10%;
+    @apply flex justify-center items-center;
   }
 }
 
@@ -94,7 +90,7 @@ let arrow = {
 
 .slider-bg {
   background-size: cover;
-  @apply w-[100%] h-[96%] bg-no-repeat rounded-[20px];
+  @apply w-[100%] h-[100%] bg-cover bg-no-repeat rounded-[5px];
 
   &__bg {
     @apply w-full h-full;
