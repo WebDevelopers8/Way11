@@ -1,5 +1,5 @@
 <template>
-  <img class="background" src="@/shared/images/projects/background.png">
+  <img :class="{bgSize:projectListState.length < 4}" class="background" src="@/shared/images/projects/background.png">
   <div class="project">
     <div class="container">
       <h1 class="project__title">ВСЕ НАШИ <span class="project__title-project">ПРОЕКТЫ</span></h1>
@@ -19,14 +19,13 @@
       <div v-if="projectListState != null && projectListState.length != 0">
         <ProjectList :projects="projectListState"/>
       </div>
-      <PaginationVue @updatePage="(changedPage : number) => {page = changedPage; getProjects()}" :currPage="page"
-                     :maxPages="maxPages"/>
+      <div>
+        <PaginationVue @updatePage="(changedPage : number) => {page = changedPage; getProjects()}" :currPage="page"
+                       :maxPages="maxPages"/>
+      </div>
     </div>
   </div>
-  <div class="flex w-full h-[1px] mt-[100px]">
-
-  </div>
-  <FooterVue/>
+    <FooterVue/>
 </template>
 
 <script setup lang="ts">
@@ -88,6 +87,10 @@ async function findProjects(categoryName: string) {
 </script>
 
 <style lang="postcss" scoped>
+.bgSize
+{
+  height: 81% !important;
+}
 .background {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
