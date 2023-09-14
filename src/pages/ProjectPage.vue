@@ -2,8 +2,9 @@
   <img class="background" src="@/shared/images/projects/background.png">
   <div class="container">
     <div class="project-title">
-      <router-link to="/projects" class="project-title__link"><img src="@/shared/images/project/blackArrow.svg" alt="arrow">
-      </router-link>
+      <button class="project-title__link" @click="router.back()"><img src="@/shared/images/project/blackArrow.svg" alt="arrow"></button>
+<!--      <router-link to="/projects" class="project-title__link"><img src="@/shared/images/project/blackArrow.svg" alt="arrow">-->
+<!--      </router-link>-->
       <span class="project-title__name">{{project?.attributes.name}}</span>
     </div>
     <ComponentsList :componentItems="project != null ? project.attributes.body : null" />

@@ -1,12 +1,14 @@
 <template>
   <div class="number">
-    <button :class="{active: numberPage == currPage}" @click="emit('updatePage', numberPage)">
+    <button :class="{active: numberPage == currPage}" @click="() => {emit('updatePage', numberPage); router.push({path: '/projects', hash:'#project'})}">
       <div :class="{active: numberPage == currPage}">{{numberPage}}</div>
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import router from "@/app/router";
+
 defineProps<{
   numberPage: number,
   currPage: number

@@ -36,7 +36,6 @@ const bgImage = computed(() => {
   {
       urlLink = 'https://admin.studioway11.com' + props.urlImages[0]
   }
-  console.log(urlLink)
   return urlLink
 })
 
