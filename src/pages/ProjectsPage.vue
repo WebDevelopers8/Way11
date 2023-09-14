@@ -1,6 +1,6 @@
 <template>
   <img :class="{bgSize:projectListState.length < 4}" class="background" src="@/shared/images/projects/background.png">
-  <div class="project">
+  <div class="project" id="project">
     <div class="container">
       <h1 class="project__title">ВСЕ НАШИ <span class="project__title-project">ПРОЕКТЫ</span></h1>
       <div class="project-filter">
@@ -11,7 +11,7 @@
                 :key="categoryIndex"
                 :class="{active:stateFilter == categoryIndex + 1}"
                 class="project-filter__button"
-                @click="() => {stateFilter = categoryIndex + 1; nameFilter = category.attributes.name; changeProject(1)}"
+                @click="() => {stateFilter = categoryIndex + 1; nameFilter = category.attributes.name; changeProject(1); }"
         >
           {{category.attributes.name}}
         </button>
@@ -62,8 +62,6 @@ async function getCategories() {
 getCategories()
 getProjects()
 
-window.scrollBy(0, 0)
-
 function changeProject(id: number) {
   switch (id) {
     case 0:
@@ -87,9 +85,11 @@ async function findProjects(categoryName: string) {
 </script>
 
 <style lang="postcss" scoped>
-.bgSize
-{
-  height: 81% !important;
+@media (max-width: 1000px) {
+  .bgSize
+  {
+    height: 81% !important;
+  }
 }
 .background {
   transform: translateX(-50%);

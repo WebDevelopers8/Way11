@@ -39,7 +39,6 @@ const imageUrls = computed(() => {
   props.project.attributes.gallery.data.forEach(image => {
     images.push(image.attributes.url)
   })
-  console.log(images)
   return images
 })
 
