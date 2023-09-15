@@ -96,7 +96,7 @@
           </button>
           <div class="flex flex-col items-center justify-between w-[55%]">
             <span
-                class="text-[#14161F] text-[22px] tracking-[0.22px] h-[32px] lg:text-start text-center leading-[32px]">{{ projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.name : '' }}</span>
+                class="text-[#14161F] text-[22px] tracking-[0.22px] lg:text-start text-center leading-[32px]">{{ projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.name : '' }}</span>
             <div class="text-[#898A8F] text-[16px] lg:text-start text-center font-normal tracking-[0.16px] leading-[16px]">
               {{projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.categories.data[0].attributes.name : '' }}
             </div>
