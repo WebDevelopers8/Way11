@@ -90,19 +90,19 @@
     <div class="mt-[160px] lg:hidden block">
       <div class="container">
         <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
-        <div class="flex w-full items-center gap-[15px] justify-center mt-[32px]">
+        <div class="flex w-full items-center gap-[15px] justify-between mt-[32px]">
           <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
-            <img src="@/shared/images/arrow-prev.png">
+            <img src="@/shared/images/arrow-mob-prev.svg">
           </button>
-          <div class="flex flex-col items-center justify-center w-[55%]">
+          <div class="flex flex-col items-center justify-between w-[55%]">
             <span
-                class="text-[#14161F] text-[28px] tracking-[0.28px] lg:text-start text-center leading-[40px]">{{ projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.name : '' }}</span>
+                class="text-[#14161F] text-[22px] tracking-[0.28px] lg:text-start text-center leading-[40px]">{{ projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.name : '' }}</span>
             <div class="text-[#898A8F] text-[16px] lg:text-start text-center font-normal tracking-[0.16px] leading-[24px]">
               {{projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.categories.data[0].attributes.name : '' }}
             </div>
           </div>
           <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
-            <img src="@/shared/images/arrow-next.png">
+            <img src="@/shared/images/arrow-mob-next.svg">
           </button>
         </div>
         <ProjectMobile v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects : []" :key="index" :index="index + 1" :project-count="projectCount" :project="item" />
@@ -1222,7 +1222,7 @@ function setActiveProject(number : number) {
 
 .btn-prev {
   position: relative;
-  width: 55px;
+  width: 46px;
   height: 54px;
   background-color: #5BB6F1;
   border-radius: 8px;
@@ -1242,18 +1242,16 @@ function setActiveProject(number : number) {
   }
 
   img {
-    position: absolute;
-    top: 13px;
-    left: 17px;
     color: #fff;
     transform: skew(16deg);
-
+    height: 18px;
+    width: 12px;
   }
 }
 
 .btn-next {
   position: relative;
-  width: 55px;
+  width: 46px;
   height: 54px;
   background-color: #5BB6F1;
   border-radius: 8px;
@@ -1273,10 +1271,9 @@ function setActiveProject(number : number) {
   }
 
   img {
-    position: absolute;
-    top: 13px;
-    left: 20px;
-    transform: skew(15deg);
+    transform: skew(16deg);
+    height: 18px;
+    width: 12px;
   }
 }
 
