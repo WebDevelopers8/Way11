@@ -1223,7 +1223,7 @@ function setActiveProject(number : number) {
 .btn-prev {
   position: relative;
   width: 46px;
-  height: 54px;
+  height: 44px;
   background-color: #5BB6F1;
   border-radius: 8px;
   display: flex;
@@ -1252,7 +1252,7 @@ function setActiveProject(number : number) {
 .btn-next {
   position: relative;
   width: 46px;
-  height: 54px;
+  height: 44px;
   background-color: #5BB6F1;
   border-radius: 8px;
   display: flex;
