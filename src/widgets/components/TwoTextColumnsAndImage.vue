@@ -17,7 +17,7 @@
     <SliderVue :urlImages="ArrayImages" />
   </div>
   <a v-if="typeof image != 'undefined' && image.length != 0" :href="'https://admin.studioway11.com'+image" data-fancybox>
-    <img class="lg:block hidden object-cover" :src="'https://admin.studioway11.com'+image" alt="product stats">
+    <img class="lg:block hidden object-cover w-full" :src="'https://admin.studioway11.com'+image" alt="product stats">
   </a>
   </template>
 
