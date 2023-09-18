@@ -78,8 +78,10 @@ a {
 }
 
 ol, ul {
-    list-style: none;
+    list-style: revert;
+    @apply ml-[24px];
 }
+
 
 button {
     border: none;
