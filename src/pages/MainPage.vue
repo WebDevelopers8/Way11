@@ -556,7 +556,7 @@ function setActiveProject(number : number) {
   @apply absolute ml-[-15px] mt-[33px] border-solid border-l-[2px] border-[#B9B9BC] opacity-50 w-[1px] h-[90px];
 
   &.active {
-    @apply h-[206px] bg-[#787878] opacity-100;
+    @apply h-[175px] bg-[#787878] opacity-100;
   }
   &.open
   {
