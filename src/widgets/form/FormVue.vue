@@ -56,8 +56,8 @@
       </div>
     </div>
     <div v-if="isPushed" class="flex flex-col items-center">
-      <p class="text-[#14161F] text-[56px] font-normal leading-[56px]">Спасибо за обращение!</p>
-      <span class="text-[#898A8F] text-[18px] font-normal leading-[24px] w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта.<br> Хорошего дня!</span>
+      <p class="text-[#14161F] text-[56px] sm:text-start text-center font-normal leading-[56px]">Спасибо за обращение!</p>
+      <span class="text-[#898A8F] text-[18px] sm:text-start text-center font-normal leading-[24px] md:w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта.<br> Хорошего дня!</span>
       <div class="mt-[48px]">
         <div class="form__buttons-accept">
           <button class="w-[300px]" @click="() => isPushed = false">
@@ -347,7 +347,7 @@ function pushForm() {
       border-right: 5px solid #438CB4;
       border-bottom: 5px solid #438CB4;
       transition: all .2s ease;
-      @apply sm:w-[300px] w-[80%];
+      @apply w-[300px];
 
       &:hover {
         transform: skew(-18deg) translateY(2px);
@@ -367,7 +367,7 @@ function pushForm() {
         position: absolute;
         font-weight: 400;
 
-        @apply leading-[32px] lg:text-[22px] text-[18px] lg:top-[10px] sm:w-[300px] w-[33%];
+        @apply leading-[32px] lg:text-[22px] text-[18px] lg:top-[10px] w-[300px];
       }
     }
   }
