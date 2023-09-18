@@ -55,12 +55,12 @@
         </div>
       </div>
     </div>
-    <div v-if="isPushed">
-      <p class="text-[#14161F] text-[56px] leading-[56px]">Спасибо за обращение!</p>
-      <span class="text-[#898A8F] text-[18px] leading-[24px] w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта. Хорошего дня!</span>
+    <div v-if="isPushed" class="flex flex-col items-center">
+      <p class="text-[#14161F] text-[56px] font-normal leading-[56px]">Спасибо за обращение!</p>
+      <span class="text-[#898A8F] text-[18px] font-normal leading-[24px] w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта.<br> Хорошего дня!</span>
       <div class="mt-[48px]">
-        <div class="form__buttons">
-          <button @click="() => isPushed = false">
+        <div class="form__buttons-accept">
+          <button class="w-[300px]" @click="() => isPushed = false">
             <div>Отправить повторно</div>
           </button>
         </div>
@@ -327,6 +327,47 @@ function pushForm() {
         font-weight: 400;
 
         @apply leading-[32px] lg:text-[22px] text-[18px] lg:top-[10px] lg:w-[90%] sm:w-[33%];
+      }
+    }
+  }
+  &__buttons-accept {
+
+    @apply flex justify-between lg:flex-row flex-col lg:items-start items-center gap-[20px] lg:mt-[0] mt-[50px];
+
+    button {
+      position: relative;
+      height: 58px;
+      background-color: #5BB6F1;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: skew(-18deg);
+      border: 1px solid #438CB4;
+      border-right: 5px solid #438CB4;
+      border-bottom: 5px solid #438CB4;
+      transition: all .2s ease;
+      @apply sm:w-[300px] w-[80%];
+
+      &:hover {
+        transform: skew(-18deg) translateY(2px);
+        border-right: 1px solid #438CB4;
+        border-bottom: 1px solid #438CB4;
+      }
+
+      &.active {
+        transform: skew(-18deg) translateY(2px);
+        border-right: 1px solid #438CB4;
+        border-bottom: 1px solid #438CB4;
+      }
+
+      div {
+        color: #fff;
+        transform: skew(18deg);
+        position: absolute;
+        font-weight: 400;
+
+        @apply leading-[32px] lg:text-[22px] text-[18px] lg:top-[10px] sm:w-[300px] w-[33%];
       }
     }
   }

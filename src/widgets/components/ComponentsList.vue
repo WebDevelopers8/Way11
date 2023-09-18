@@ -8,6 +8,7 @@
     <TextAndImageColumns v-if="'project-component.test-and-image' == item.__component" :title="item.title" :text="item.text" :image="item.image?.data.attributes.url"  />
     <OnlyTitle v-if="'project-component.only-title' == item.__component" :title="item.title"/>
     <ImageSection v-if="'project-component.image-section' == item.__component" :title="item.title" :urlImage="item.image?.data.attributes.url" />
+    <TextAndTwoImage v-if="'project-component.text-and-two-images' == item.__component" :title="item.title" :text="item.text" :leftImage="item.leftImage?.data.attributes.url" :rightImage="item.rightImage?.data.attributes.url" />
   </div>
 </template>
 
@@ -21,6 +22,7 @@ import type {bodyInterface} from "@/entities/dto/projects/bodyInterface";
 import OnlyTitle from "@/widgets/components/OnlyTitle.vue";
 import TwoTextColumnsAndImage from "@/widgets/components/TwoTextColumnsAndImage.vue";
 import TextAndImageColumns from "@/widgets/components/TextAndImageColumns.vue";
+import TextAndTwoImage from "@/widgets/components/TextAndTwoImage.vue";
 
 defineProps<{
   componentItems: Array<bodyInterface> | null
