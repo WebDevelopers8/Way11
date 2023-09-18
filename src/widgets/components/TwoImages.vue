@@ -59,7 +59,7 @@ const ArrayImages = computed(() => {
     @apply flex lg:flex-row flex-col lg:items-start items-center lg:justify-between mt-[24px] gap-[20px];
 
     & a {
-      @apply lg:w-[45%]
+      @apply lg:w-[48%]
     }
   }
 }

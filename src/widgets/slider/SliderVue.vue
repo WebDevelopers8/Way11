@@ -1,7 +1,7 @@
 <template>
   <div :style="{'background-image': 'url(' + bgImage + ')'}" class="slider-bg" v-if="typeof urlImages != 'undefined' && bgImage.length != 0">
     <div class="firstLayout">
-        <Splide class="flex justify-center items-center lg:h-[100%] min-h-[300px] rounded-[8px] bg-[#000000a3]" :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
+        <Splide class="flex justify-center items-center h-[100%] min-h-[300px] rounded-[8px] bg-[#000000a3]" :options="{ rewind: true, padding:{left:20, right: 20}, gap:50, classes: classes, arrowPath: arrow.arrowPath }"
                 aria-label="My Favorite Images">
           <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
             <a :href="'https://admin.studioway11.com' + item" data-fancybox>
@@ -75,9 +75,8 @@ let arrow = {
 @media  (min-width: 625px) {
   .slide
   {
-    width: 80% !important;
-    left: 10%;
-    @apply flex justify-center items-center;
+
+    @apply px-[40px] flex justify-center items-center;
   }
 }
 
@@ -170,11 +169,11 @@ let arrow = {
     @apply bg-transparent text-[#FFF] opacity-100 w-[5em] h-[5em];
     &__prev
     {
-      @apply left-[-1.5em] top-[52%];
+      @apply left-[-1.5em] z-[20] top-[52%];
     }
     &__next
     {
-      @apply right-[-1.5em] top-[52%];
+      @apply right-[-1.5em] z-[20] top-[52%];
     }
     & svg
     {
