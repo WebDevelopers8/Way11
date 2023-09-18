@@ -76,9 +76,7 @@ function changeProject(id: number) {
 async function findProjects(categoryName: string) {
   page.value = 1
   let answer = await responseProjects(categoryName, page.value, 4)
-  console.log(answer)
   projectStore.loadProjects(answer.data)
-  
   page.value = answer.meta.pagination.page
   maxPages.value = answer.meta.pagination.pageCount
 }
