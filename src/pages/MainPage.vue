@@ -177,7 +177,7 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%] min-h-[450px]">
+            <div class="h-full">
               <SliderVue :urlImages="urlImageFirst"/>
             </div>
 
@@ -201,7 +201,7 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%] min-h-[450px]">
+            <div class="h-full">
               <SliderVue :urlImages="urlImageSecond"/>
             </div>
           </div>
@@ -224,7 +224,7 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%] min-h-[450px]">
+            <div class="h-full">
               <SliderVue :urlImages="urlImageThird"/>
             </div>
           </div>
@@ -247,7 +247,7 @@
                 </router-link>
               </div>
             </div>
-            <div class="h-[95%] min-h-[450px]">
+            <div class="">
               <SliderVue :urlImages="urlImageFourth"/>
             </div>
 

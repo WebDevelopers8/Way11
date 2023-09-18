@@ -75,9 +75,8 @@ let arrow = {
 @media  (min-width: 625px) {
   .slide
   {
-    width: 80% !important;
-    left: 10%;
-    @apply flex justify-center items-center;
+
+    @apply px-[40px] flex justify-center items-center;
   }
 }
 
@@ -170,11 +169,11 @@ let arrow = {
     @apply bg-transparent text-[#FFF] opacity-100 w-[5em] h-[5em];
     &__prev
     {
-      @apply left-[-1.5em] top-[52%];
+      @apply left-[-1.5em] z-[20] top-[52%];
     }
     &__next
     {
-      @apply right-[-1.5em] top-[52%];
+      @apply right-[-1.5em] z-[20] top-[52%];
     }
     & svg
     {
