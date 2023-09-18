@@ -35,7 +35,7 @@ const props = defineProps<{
   title?: string,
   text?: string,
   leftImage?: string,
-  rightImage: string,
+  rightImage?: string,
 }>()
 
 const ArrayImages = computed(() => {
