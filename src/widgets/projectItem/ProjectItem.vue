@@ -117,7 +117,7 @@ const markedText = computed(() => {
   }
 
   &-right {
-    @apply min-h-[350px] lg:block hidden lg:w-[50%]
+    @apply min-h-[400px] lg:block hidden lg:w-[50%]
   }
 }
 </style>

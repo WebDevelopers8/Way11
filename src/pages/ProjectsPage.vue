@@ -94,7 +94,7 @@ async function findProjects(categoryName: string) {
 .background {
   transform: translateX(-50%);
   width: calc(100vw + 20px);
-  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[98%] h-[93%] lg:object-bottom object-cover;
+  @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[99%] h-[93%] lg:object-bottom object-cover;
 }
 
 .back-arrow {
