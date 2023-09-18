@@ -5,7 +5,7 @@
                 aria-label="My Favorite Images">
           <SplideSlide class="slide" v-for="(item, index) in urlImages" :key="index">
             <a :href="'https://admin.studioway11.com' + item" data-fancybox>
-              <img class="rounded-[8px]" :src="'https://admin.studioway11.com' + item">
+              <img class="rounded-[8px] w-full" :src="'https://admin.studioway11.com' + item">
             </a>
           </SplideSlide>
         </Splide>

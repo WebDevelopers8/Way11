@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="form__wrapper">
+    <div class="form__wrapper" v-if="!isPushed">
       <div class="form__descr">
         <div class="form__title">Предложите свой проект</div>
         <div class="form__text">
@@ -11,15 +11,20 @@
       </div>
       <div>
         <div class="form__sm-inputs">
-          <div class="form__input" ref="firstNameInput"><input v-model="firstName" type="text" placeholder="Имя*" name="name"></div>
+          <div class="form__input" ref="firstNameInput"><input v-model="firstName" type="text" placeholder="Имя*"
+                                                               name="name"></div>
           <div class="form__input"><input type="text" v-model="companyName" placeholder="Компания" name="company"></div>
         </div>
         <div class="form__sm-inputs">
-          <div class="form__input" ref="phoneInput"><input v-model="phone" type="text" placeholder="Телефон*" name="phone"></div>
-          <div class="form__input" ref="mailInput"><input v-model="mail" type="text" placeholder="E-mail*" name="email"></div>
+          <div class="form__input" ref="phoneInput"><input v-model="phone" type="text" placeholder="Телефон*"
+                                                           name="phone"></div>
+          <div class="form__input" ref="mailInput"><input v-model="mail" type="text" placeholder="E-mail*" name="email">
+          </div>
         </div>
-        <div class="form__input w100 mt-[16px]"><input type="text" v-model="budget" placeholder="Бюджет проекта" name="budget"></div>
-        <div class="form__input w100"><input type="text" v-model="description" placeholder="Описание проекта" name="description">
+        <div class="form__input w100 mt-[16px]"><input type="text" v-model="budget" placeholder="Бюджет проекта"
+                                                       name="budget"></div>
+        <div class="form__input w100"><input type="text" v-model="description" placeholder="Описание проекта"
+                                             name="description">
         </div>
         <div class="form__buttons">
           <button @click="() => pushForm()">
@@ -50,6 +55,17 @@
         </div>
       </div>
     </div>
+    <div v-if="isPushed">
+      <p class="text-[#14161F] text-[56px] leading-[56px]">Спасибо за обращение!</p>
+      <span class="text-[#898A8F] text-[18px] leading-[24px] w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта. Хорошего дня!</span>
+      <div class="mt-[48px]">
+        <div class="form__buttons">
+          <button @click="() => isPushed = false">
+            <div>Отправить повторно</div>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -57,6 +73,7 @@
 import {ref} from "vue";
 import {useFileDialog} from "@vueuse/core";
 
+let isPushed = ref(false)
 // params
 let firstName = ref("")
 let companyName = ref("")
@@ -73,20 +90,19 @@ let fileIsLoaded = ref(false)
 let nameFile = ref('')
 let sizeFile = ref('')
 
-const { open, onChange, reset } = useFileDialog()
+const {open, onChange, reset} = useFileDialog()
 
 onChange(async (files: FileList | null) => {
-  if(files != null && addFileButton.value != null) {
+  if (files != null && addFileButton.value != null) {
     addFileButton.value.classList.add("active")
     fileIsLoaded.value = true
     nameFile.value = files[0].name
-    sizeFile.value = ( files[0].size / (1024*1024) ).toFixed(2) + " Mb"
+    sizeFile.value = (files[0].size / (1024 * 1024)).toFixed(2) + " Mb"
   }
 })
 
 function deleteFile() {
-  if(addFileButton.value != null)
-  {
+  if (addFileButton.value != null) {
     addFileButton.value.classList.remove("active")
     setTimeout(() => {
       fileIsLoaded.value = false
@@ -95,28 +111,23 @@ function deleteFile() {
 }
 
 function validationForm() {
-  let isValidated = false
-  if(firstName.value.length == 0 && firstNameInput.value != null)
-  {
+  let isValidated = true
+  if (firstName.value.length == 0 && firstNameInput.value != null) {
     firstNameInput.value.classList.add("error");
   }
-  if(phone.value.length == 0 && phoneInput.value != null)
-  {
+  if (phone.value.length == 0 && phoneInput.value != null) {
     phoneInput.value.classList.add("error");
   }
-  if(mail.value.length == 0 && mailInput.value != null)
-  {
+  if (mail.value.length == 0 && mailInput.value != null) {
     mailInput.value.classList.add("error");
   }
 
 
-  if(isValidated)
-  {
+  if (isValidated) {
     return true
   }
   setTimeout(() => {
-    if(firstNameInput.value != null && phoneInput.value != null && mailInput.value != null)
-    {
+    if (firstNameInput.value != null && phoneInput.value != null && mailInput.value != null) {
       firstNameInput.value.classList.remove("error");
       phoneInput.value.classList.remove("error");
       mailInput.value.classList.remove("error");
@@ -124,16 +135,17 @@ function validationForm() {
   }, 2000)
   return false
 }
-function pushForm()
-{
-  console.log(validationForm())
+
+function pushForm() {
+  if (validationForm()) {
+    isPushed.value = true
+  }
 }
 </script>
 
 <style lang="postcss" scoped>
 
-.buttonfile
-{
+.buttonfile {
   top: 0 !important;
   left: 0 !important;
   transform: skew(180deg) !important;
@@ -141,23 +153,23 @@ function pushForm()
   height: 100%;
   position: relative !important;
   @apply flex justify-between;
-  &-name
-  {
+
+  &-name {
     line-height: 24px;
     letter-spacing: 0.18px;
     @apply text-[#14161F] text-[18px] lg:text-start text-center;
   }
-  &-size
-  {
+
+  &-size {
     line-height: 24px;
     letter-spacing: 0.18px;
     @apply text-[#B9B9BC] text-[18px] lg:text-start text-center;
   }
-  &__button-close
-  {
+
+  &__button-close {
     top: 0 !important;
     left: 0 !important;
-    background-color:transparent !important;
+    background-color: transparent !important;
     border: none !important;
     width: 30% !important;
     height: 100%;
@@ -165,18 +177,18 @@ function pushForm()
     align-items: center;
     position: relative !important;
     @apply lg:justify-center justify-end sm:mr-0 mr-[5px];
-    & button
-    {
+
+    & button {
       transform: skew(0) !important;
     }
-    & img
-    {
+
+    & img {
       width: 17px !important;
       height: 17px !important;
     }
   }
-  &__icon
-  {
+
+  &__icon {
     top: 0 !important;
     left: 0 !important;
     position: relative !important;
@@ -185,8 +197,8 @@ function pushForm()
     width: 27% !important;
     @apply sm:ml-[20px] ml-[10px]
   }
-  &__text
-  {
+
+  &__text {
     top: 0 !important;
     left: 0 !important;
     position: relative !important;
@@ -196,6 +208,7 @@ function pushForm()
   }
 
 }
+
 .form {
   @apply 2xl:mt-[800px] 2xl:pb-[100px] xl:mt-[800px] lg:mt-[750px] mt-[120px];
 
@@ -241,8 +254,7 @@ function pushForm()
       border: 1px solid #5BB6F1;
     }
 
-    &.error
-    {
+    &.error {
       transition: all 0.6s ease !important;
       @apply border-[#EE5050];
     }
@@ -291,12 +303,12 @@ function pushForm()
         border-right: 1px solid #438CB4;
         border-bottom: 1px solid #438CB4;
       }
-      &.active
-          {
-            transform: skew(-18deg) translateY(2px);
-            border-right: 1px solid #438CB4;
-            border-bottom: 1px solid #438CB4;
-          }
+
+      &.active {
+        transform: skew(-18deg) translateY(2px);
+        border-right: 1px solid #438CB4;
+        border-bottom: 1px solid #438CB4;
+      }
 
       &.outline {
         background-color: #fff;
