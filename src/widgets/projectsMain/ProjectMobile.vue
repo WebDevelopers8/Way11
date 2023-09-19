@@ -8,7 +8,7 @@
       <StackItem v-for="(item,index) in project.project.data.attributes.technologies" :key="index" :text="item.name" />
     </div>
     <div class="projects__buttons">
-      <router-link :to="'/project/' + project.id">
+      <router-link :to="'/project/' + project.project.data.id">
         <div>Подробнее</div>
       </router-link>
       <router-link to="/projects" class="outline">
@@ -32,6 +32,8 @@ const props = defineProps<{
   projectCount: number
   project: roadOfProjectsInterface
 }>()
+
+console.log(props.project)
 
 const urlImage = computed(() => {
   let images : Array<string> = []

@@ -2,7 +2,7 @@
   <div class="component">
     <p class="component__title">{{title}}</p>
     <a v-if="urlImage ?? 0" :href="'https://admin.studioway11.com'+urlImage" data-fancybox>
-      <img class="component__image" :src="'https://admin.studioway11.com'+urlImage" alt="product stats">
+      <img class="component__image rounded-[8px]" :src="'https://admin.studioway11.com'+urlImage" alt="product stats">
     </a>
   </div>
 </template>
