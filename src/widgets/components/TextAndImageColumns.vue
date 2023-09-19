@@ -5,7 +5,7 @@
       <span class="component-left__text">{{ text }}</span>
     </div>
     <div class="component-right">
-      <div v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0" class="lg:hidden block w-full">
+      <div v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0" class="lg:hidden block w-full h-[450px]">
         <SliderVue :urlImages="ArrayImages"/>
       </div>
       <div v-if="typeof image != 'undefined'  && image.length != 0" class="hidden lg:block lg:h-[400px] h-[450px] lg:w-[100%] w-full mt-[24px]">

@@ -7,7 +7,7 @@
     <div class="component__images">
       <div
           v-if="typeof leftImage != 'undefined' && leftImage.length != 0 && typeof rightImage != 'undefined' && rightImage.length != 0"
-          class="lg:hidden block w-full">
+          class="lg:hidden block w-full h-[450px]">
         <SliderVue :urlImages="ArrayImages"/>
       </div>
       <div v-if="typeof leftImage != 'undefined'  && leftImage.length != 0" class="hidden lg:block lg:h-[400px] h-[450px] lg:w-[100%] w-full mt-[24px]">
