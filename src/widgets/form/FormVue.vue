@@ -137,7 +137,7 @@ function validationForm() {
 }
 
 function pushForm() {
-  if (validationForm()) {
+  if (!validationForm()) {
     isPushed.value = true
   }
 }
@@ -298,10 +298,14 @@ function pushForm() {
       transition: all .2s ease;
       @apply lg:w-[calc(50%-10px)] w-[80%];
 
-      &:hover {
-        transform: skew(-18deg) translateY(2px);
-        border-right: 1px solid #438CB4;
-        border-bottom: 1px solid #438CB4;
+
+      @media (pointer: fine)
+      {
+        &:hover {
+          transform: skew(-18deg) translateY(2px);
+          border-right: 1px solid #438CB4;
+          border-bottom: 1px solid #438CB4;
+        }
       }
 
       &.active {
@@ -349,10 +353,13 @@ function pushForm() {
       transition: all .2s ease;
       @apply w-[300px];
 
-      &:hover {
-        transform: skew(-18deg) translateY(2px);
-        border-right: 1px solid #438CB4;
-        border-bottom: 1px solid #438CB4;
+      @media (pointer: fine)
+      {
+        &:hover {
+          transform: skew(-18deg) translateY(2px);
+          border-right: 1px solid #438CB4;
+          border-bottom: 1px solid #438CB4;
+        }
       }
 
       &.active {
