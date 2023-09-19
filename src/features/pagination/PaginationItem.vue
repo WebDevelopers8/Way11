@@ -41,10 +41,9 @@ const emit = defineEmits(['updatePage'])
     div {
       color: #438CB4;
       transform: skew(18deg);
-      position: absolute;
       top: 20%;
       left: 45%;
-      @apply absolute text-[#000] text-[22px];
+      @apply text-[#000] text-[22px];
 
       &.active {
         @apply text-[#438CB4] text-[22px];
