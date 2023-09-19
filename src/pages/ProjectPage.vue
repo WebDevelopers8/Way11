@@ -11,7 +11,7 @@
     <ComponentsList :componentItems="project != null ? project.attributes.body : null" />
     <div class="mt-[72px] mb-[70px] w-full flex justify-center">
       <div class="project__button">
-        <router-link to="/projects"><div>Вернуться назад</div></router-link>
+        <button  @click="router.back()"><div>Вернуться назад</div></button>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@ window.scrollBy(0,0)
   &__button
   {
     @apply flex justify-between ;
-    & a {
+    & button {
       position: relative;
       height: 58px;
       background-color: #FFF;
@@ -87,10 +87,7 @@ window.scrollBy(0,0)
       div {
         color:#438CB4;
         transform: skew(18deg);
-        position: absolute;
-        top: 20%;
-        left: 22%;
-        @apply absolute text-[#438CB4] w-[200px] text-[22px];
+        @apply text-[#438CB4] w-[200px] text-[22px];
         &.active
         {
           @apply text-[#438CB4] text-[22px];
