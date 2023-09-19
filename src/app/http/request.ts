@@ -35,8 +35,18 @@ const responseHomepage = async () => {
             }
         }
     })
-    const {data} = await $host.get<homepageType>(`/api/homepage?${query}`)
-    return data
+    const result = await $host.get<homepageType | number>(`/api/homepage?${query}`).catch((error) => {
+        if(error.response.status == 404)
+        {
+            return 404
+        }
+        if(error.response.status == 500)
+        {
+            return 500
+        }
+        return 404
+    })
+    return typeof result != 'number' ? result.data : result
 }
 
 const responseCategories = async () => {
