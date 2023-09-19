@@ -3,7 +3,7 @@
     <p v-if="typeof title != 'undefined'" class="component__title">{{title}}</p>
     <span v-if="typeof text != 'undefined'" class="component__subtitle" v-html="markedText"></span>
     <a v-if="imageUrl ?? 0" :href="'https://admin.studioway11.com'+imageUrl" data-fancybox>
-      <img class="component__image" :src="'https://admin.studioway11.com'+imageUrl" alt="product stats">
+      <img class="component__image rounded-[8px]" :src="'https://admin.studioway11.com'+imageUrl" alt="product stats">
     </a>
   </div>
 </template>

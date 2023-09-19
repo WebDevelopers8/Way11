@@ -1254,9 +1254,11 @@ function setActiveProject(number : number) {
 
   img {
     color: #fff;
-    transform: skew(16deg);
+    transform: skew(12deg);
     height: 18px;
     width: 12px;
+    position: absolute;
+    left: 14px;
   }
 }
 
@@ -1282,9 +1284,11 @@ function setActiveProject(number : number) {
   }
 
   img {
-    transform: skew(16deg);
+    transform: skew(12deg);
     height: 18px;
     width: 12px;
+    position: absolute;
+    left: 16px;
   }
 }
 

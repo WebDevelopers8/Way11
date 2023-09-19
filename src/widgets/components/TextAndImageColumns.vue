@@ -10,7 +10,7 @@
       </div>
       <div class="w-full lg:mt-[24px]" v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0">
         <a v-if="image ?? 0" :href="'https://admin.studioway11.com'+image" data-fancybox>
-          <img class="lg:block hidden object-cover w-full" :src="'https://admin.studioway11.com'+image" alt="product stats">
+          <img class="lg:block hidden object-cover w-full rounded-[8px]" :src="'https://admin.studioway11.com'+image" alt="product stats">
         </a>
       </div>
     </div>

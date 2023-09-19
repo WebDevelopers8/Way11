@@ -9,11 +9,11 @@
       </div>
       <a v-if="typeof leftImage != 'undefined'  && leftImage.length != 0"
          :href="'https://admin.studioway11.com'+leftImage" data-fancybox>
-        <img class="lg:block hidden object-cover w-full" :src="'https://admin.studioway11.com'+leftImage" alt="product stats">
+        <img class="lg:block hidden object-cover w-full rounded-[8px]" :src="'https://admin.studioway11.com'+leftImage" alt="product stats">
       </a>
       <a v-if="typeof rightImage != 'undefined' && rightImage.length != 0"
          :href="'https://admin.studioway11.com'+rightImage" data-fancybox>
-        <img class="lg:block hidden object-cover w-full" :src="'https://admin.studioway11.com'+rightImage" alt="product stats">
+        <img class="lg:block hidden object-cover w-full rounded-[8px]" :src="'https://admin.studioway11.com'+rightImage" alt="product stats">
       </a>
 
     </div>
