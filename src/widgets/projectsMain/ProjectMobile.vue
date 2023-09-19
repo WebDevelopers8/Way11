@@ -100,17 +100,15 @@ const markedText = computed(() => {
 
         div {
           color: #438CB4;
-          @apply lg:mt-[4px] mt-0 lg:text-[22px] text-[18px] leading-[32px] lg:left-[80px] sm:left-[120px] sm:top-[10px] top-[10px];
+          @apply lg:mt-[4px] mt-0 lg:text-[22px] text-[18px] leading-[32px];
         }
       }
 
       div {
-        position: absolute;
-        top: 14px;
         font-weight: 300;
         color: #fff;
         transform: skew(18deg);
-        @apply lg:text-[22px] text-[18px] lg:left-[87px] sm:left-[115px] sm:top-[12px] left-[30%];
+        @apply lg:text-[22px] text-[18px];
       }
     }
 
@@ -141,16 +139,14 @@ const markedText = computed(() => {
 
         div {
           color: #438CB4;
-          @apply lg:left-[46px] sm:left-[90px] sm:top-[12px];
         }
       }
 
       div {
-        position: absolute;
         font-weight: 300;
         color: #fff;
         transform: skew(18deg);
-        @apply lg:text-[22px] text-[18px] lg:left-[90px] sm:left-[110px] lg:top-[14px] top-[11px];
+        @apply lg:text-[22px] text-[18px];
       }
     }
   }
