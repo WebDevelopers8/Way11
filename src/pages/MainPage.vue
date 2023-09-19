@@ -367,7 +367,7 @@ const projectPoint2 = ref<HTMLElement | null>(null);
 const projectPoint3 = ref<HTMLElement | null>(null);
 const prevButton = ref<HTMLElement | null>(null)
 
-const bikePosition = ref(40)
+const bikePosition = ref(35)
 const projectsOffset = ref(1380);
 const prevCount = ref(1)
 function setActiveProject(number : number) {
@@ -390,7 +390,7 @@ function setActiveProject(number : number) {
     projectPoint2.value.classList.remove("active");
     projectPoint3.value.classList.remove("active");
     prevCount.value = 1
-    bikePosition.value = 40;
+    bikePosition.value = 35;
   }
   if(number == 2 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {    projectsWrap.value.style.transform = "translateX(" + -projectsOffset.value + "px)";
     if(prevCount.value == 1){projectLine0.value.classList.add("open");}
@@ -442,7 +442,7 @@ function setActiveProject(number : number) {
 
     }
 
-    bikePosition.value = 295;
+    bikePosition.value = 325;
   }
   if(number == 3 && projectPoint3.value != null && projectPoint2.value != null && projectPoint1.value != null && projectPoint0.value != null && projectLine3.value != null && projectLine2.value != null && projectLine1.value != null && projectLine0.value != null && projectsText3.value != null && projectsWrapper4.value != null && projectsWrap.value != null && projectsWrapper1.value != null && projectsWrapper2.value != null && projectsWrapper3.value != null && projectsText0.value != null && projectsText1.value != null && projectsText2.value != null) {    projectsWrap.value.style.transform =
         "translateX(" + -projectsOffset.value * 2 + "px)";
@@ -461,7 +461,7 @@ function setActiveProject(number : number) {
     projectPoint0.value.classList.remove("active");
     projectPoint2.value.classList.add("active");
     projectPoint3.value.classList.remove("active");
-    bikePosition.value = 550;
+    bikePosition.value = 577;
     projectLine1.value.classList.add("open")
 
     if(prevCount.value == 2)
@@ -499,7 +499,7 @@ function setActiveProject(number : number) {
     projectPoint0.value.classList.remove("active");
     projectPoint1.value.classList.remove("active");
     projectPoint3.value.classList.add("active");
-    bikePosition.value = 810;
+    bikePosition.value = 840;
     projectLine2.value.classList.add("open")
     if(prevCount.value == 3)
     {
