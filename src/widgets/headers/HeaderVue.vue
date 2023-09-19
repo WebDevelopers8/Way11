@@ -48,9 +48,9 @@
             </div>
             <img class="mt-[36px] w-[70px] object-cover" src="@/shared/images/logo-l.png">
             <div class="flex flex-col w-[90%] mt-[40px] gap-[24px] border-b-solid border-b-[1px] border-b-[#787878] pb-[48px]">
-              <router-link :to="{path: '/', hash: '#services'}" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</router-link>
-              <router-link :to="{path: '/', hash: '#projects'}" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</router-link>
-              <router-link :to="{path: '/', hash: '#form'}" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</router-link>
+              <router-link :to="{path: '/', hash: '#services'}" @click="stateMenu = false" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</router-link>
+              <router-link :to="{path: '/', hash: '#projects'}" @click="stateMenu = false" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</router-link>
+              <router-link :to="{path: '/', hash: '#form'}" @click="stateMenu = false" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</router-link>
             </div>
             <div class="w-full flex flex-col items-center">
               <div class="flex gap-[24px] mt-[48px]">
