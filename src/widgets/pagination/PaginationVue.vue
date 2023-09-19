@@ -2,7 +2,7 @@
   <div class="flex justify-center mt-[80px] gap-[10px]">
     <div class="button">
       <button v-if="maxPages != 1" class="bg-[#5BB6F1]" @click="() => {1 == currPage ? emit('updatePage', 1) : emit('updatePage', currPage - 1); router.push({path: '/projects', hash:'#project'})}">
-        <div><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
+        <div class="left-[16px]"><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>
     <div class="flex" v-if="maxPages != 1">
@@ -10,7 +10,7 @@
     </div>
     <div class="button">
       <button v-if="maxPages != 1" @click="() => {maxPages == currPage ? emit('updatePage', maxPages) : emit('updatePage', currPage + 1); router.push({path: '/projects', hash:'#project'})}">
-        <div><img class="back-arrow" src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
+        <div class="left-[20px]"><img class="back-arrow" src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>
   </div>
@@ -59,11 +59,11 @@ const emit = defineEmits(["updatePage"])
 
     div {
       color: #fff;
-      transform: skew(18deg);
+      transform: skew(15deg);
       position: absolute;
       font-weight: 300;
       top: 30%;
-      @apply lg:left-[40%] left-[35%];
+      @apply lg:left-[40%];
 
       img {
         width: 19px;
