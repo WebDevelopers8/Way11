@@ -2,9 +2,13 @@
   <div class="component">
     <p v-if="typeof title != 'undefined'" class="component__title">{{title}}</p>
     <span v-if="typeof text != 'undefined'" class="component__subtitle" v-html="markedText"></span>
-    <a v-if="imageUrl ?? 0" :href="'https://admin.studioway11.com'+imageUrl" data-fancybox>
-      <img class="component__image rounded-[8px]" :src="'https://admin.studioway11.com'+imageUrl" alt="product stats">
-    </a>
+    <div v-if="typeof imageUrl != 'undefined'  && imageUrl.length != 0" class="hidden lg:block lg:h-[400px] h-[450px] lg:w-[100%] w-full mt-[24px]">
+      <div v-if="imageUrl ?? 0" class="h-full w-[100%] rounded-[8px]" :style="{'background-image': 'url(' + 'https://admin.studioway11.com' + imageUrl + ')'}">
+        <a class="flex justify-center items-center w-full h-full backdrop-blur-[8px] backdrop-brightness-[0.4] rounded-[8px]" :href="'https://admin.studioway11.com'+imageUrl" data-fancybox>
+          <img class="w-[80%] rounded-[8px]" :src="'https://admin.studioway11.com'+imageUrl" alt="product stats">
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 

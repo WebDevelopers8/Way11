@@ -10,14 +10,20 @@
           class="lg:hidden block w-full">
         <SliderVue :urlImages="ArrayImages"/>
       </div>
-      <a v-if="typeof leftImage != 'undefined'  && leftImage.length != 0"
-         :href="'https://admin.studioway11.com'+leftImage" data-fancybox>
-        <img class="lg:block hidden object-cover w-full rounded-[8px]" :src="'https://admin.studioway11.com'+leftImage" alt="product stats">
-      </a>
-      <a v-if="typeof rightImage != 'undefined' && rightImage.length != 0"
-         :href="'https://admin.studioway11.com'+rightImage" data-fancybox>
-        <img class="lg:block hidden object-cover w-full rounded-[8px]" :src="'https://admin.studioway11.com'+rightImage" alt="product stats">
-      </a>
+      <div v-if="typeof leftImage != 'undefined'  && leftImage.length != 0" class="hidden lg:block lg:h-[400px] h-[450px] lg:w-[100%] w-full mt-[24px]">
+        <div v-if="leftImage ?? 0" class="h-full w-[100%] rounded-[8px]" :style="{'background-image': 'url(' + 'https://admin.studioway11.com' + leftImage + ')'}">
+          <a class="flex justify-center items-center w-full h-full backdrop-blur-[8px] backdrop-brightness-[0.4] rounded-[8px]" :href="'https://admin.studioway11.com'+leftImage" data-fancybox>
+            <img class="w-[80%] rounded-[8px]" :src="'https://admin.studioway11.com'+leftImage" alt="product stats">
+          </a>
+        </div>
+      </div>
+      <div v-if="typeof rightImage != 'undefined'  && rightImage.length != 0" class="hidden lg:block lg:h-[400px] h-[450px] lg:w-[100%] w-full mt-[24px]">
+        <div v-if="rightImage ?? 0" class="h-full w-[100%] rounded-[8px]" :style="{'background-image': 'url(' + 'https://admin.studioway11.com' + rightImage + ')'}">
+          <a class="flex justify-center items-center w-full h-full backdrop-blur-[8px] backdrop-brightness-[0.4] rounded-[8px]" :href="'https://admin.studioway11.com'+rightImage" data-fancybox>
+            <img class="w-[80%] rounded-[8px]" :src="'https://admin.studioway11.com'+rightImage" alt="product stats">
+          </a>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center mt-[80px] gap-[10px]">
+  <div class="flex justify-center mt-[80px] gap-[20px]">
     <div class="button">
-      <button v-if="maxPages != 1" class="bg-[#5BB6F1]" @click="() => {1 == currPage ? emit('updatePage', 1) : emit('updatePage', currPage - 1); router.push({path: '/projects', hash:'#project'})}">
+      <button v-if="maxPages != 1 && currPage != 1" class="bg-[#5BB6F1]" @click="() => {1 == currPage ? emit('updatePage', 1) : emit('updatePage', currPage - 1); router.push({path: '/projects', hash:'#project'})}">
         <div class="left-[16px]"><img src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>
@@ -9,7 +9,7 @@
       <PaginationItem  v-for="(item,index) in maxPages" :key="index" :numberPage="item" :currPage="currPage" @updatePage="(changedPage : number) => emit('updatePage', changedPage)" />
     </div>
     <div class="button">
-      <button v-if="maxPages != 1" @click="() => {maxPages == currPage ? emit('updatePage', maxPages) : emit('updatePage', currPage + 1); router.push({path: '/projects', hash:'#project'})}">
+      <button v-if="maxPages != 1 && maxPages != currPage" @click="() => {maxPages == currPage ? emit('updatePage', maxPages) : emit('updatePage', currPage + 1); router.push({path: '/projects', hash:'#project'})}">
         <div class="left-[20px]"><img class="back-arrow" src="@/shared/images/projects/arrow.svg" alt="arrow"></div>
       </button>
     </div>

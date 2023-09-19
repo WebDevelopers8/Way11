@@ -8,10 +8,12 @@
       <div v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0" class="lg:hidden block w-full">
         <SliderVue :urlImages="ArrayImages"/>
       </div>
-      <div class="w-full lg:mt-[24px]" v-if="typeof image != 'undefined' && image.length != 0 &&  image.length != 0">
-        <a v-if="image ?? 0" :href="'https://admin.studioway11.com'+image" data-fancybox>
-          <img class="lg:block hidden object-cover w-full rounded-[8px]" :src="'https://admin.studioway11.com'+image" alt="product stats">
-        </a>
+      <div v-if="typeof image != 'undefined'  && image.length != 0" class="hidden lg:block lg:h-[400px] h-[450px] lg:w-[100%] w-full mt-[24px]">
+        <div v-if="image ?? 0" class="h-full w-[100%] rounded-[8px]" :style="{'background-image': 'url(' + 'https://admin.studioway11.com' + image + ')'}">
+          <a class="flex justify-center items-center w-full h-full backdrop-blur-[8px] backdrop-brightness-[0.4] rounded-[8px]" :href="'https://admin.studioway11.com'+rightImage" data-fancybox>
+            <img class="w-[80%] rounded-[8px]" :src="'https://admin.studioway11.com'+image" alt="product stats">
+          </a>
+        </div>
       </div>
     </div>
   </div>
