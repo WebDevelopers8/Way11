@@ -3,10 +3,7 @@
     <div class="container z-[100]">
       <div class="header__wrapper">
         <div class="header__contacts">
-          <div class="header__contacts-item">
-            <img src="@/shared/images/icons/phone.svg" alt="phone">
-            <a :href="'tel:'+ phone">{{phone}}</a>
-          </div>
+
           <div class="header__contacts-item">
             <img src="@/shared/images/icons/mail.svg">
             <a :href="'mailto:'+ mail">{{mail}}</a>
@@ -51,9 +48,9 @@
             </div>
             <img class="mt-[36px] w-[70px] object-cover" src="@/shared/images/logo-l.png">
             <div class="flex flex-col w-[90%] mt-[40px] gap-[24px] border-b-solid border-b-[1px] border-b-[#787878] pb-[48px]">
-              <a @click="() => stateMenu = false" href="#services" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</a>
-              <a @click="() => stateMenu = false" href="#projects" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</a>
-              <a @click="() => {stateMenu = false}" href="#form" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</a>
+              <router-link :to="{path: '/', hash: '#services'}" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Услуги</router-link>
+              <router-link :to="{path: '/', hash: '#projects'}" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Проекты</router-link>
+              <router-link :to="{path: '/', hash: '#form'}" class="w-full text-center text-[28px] text-[#14161F] leading-[40px] tracking-[0.28px]">Оставить заявку</router-link>
             </div>
             <div class="w-full flex flex-col items-center">
               <div class="flex gap-[24px] mt-[48px]">

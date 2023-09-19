@@ -1,4 +1,5 @@
 <template>
+  <HeaderVue />
   <img :class="{bgSize:projectListState.length < 4}" class="background" src="@/shared/images/projects/background.png">
   <div class="project" id="project">
     <div class="container">
@@ -38,6 +39,7 @@ import PaginationVue from "@/widgets/pagination/PaginationVue.vue";
 import {useProjectStore} from "@/entities/stores/projectStore/projectStore";
 import {storeToRefs} from "pinia";
 import type {categoryInterface} from "@/entities/types/categories/categoryInterface";
+import HeaderVue from "@/widgets/headers/HeaderVue.vue";
 
 const stateFilter = ref(0)
 const page = ref(1)

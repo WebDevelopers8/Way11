@@ -1,4 +1,5 @@
 <template>
+  <HeaderVue />
   <img class="background" src="@/shared/images/projects/background.png">
   <div class="container">
     <div class="project-title">
@@ -22,6 +23,7 @@ import type {projectInterface} from "@/entities/dto/projects/projectInterface";
 import {responseProject} from "@/app/http/request";
 import router from "@/app/router";
 import ComponentsList from "@/widgets/components/ComponentsList.vue";
+import HeaderVue from "@/widgets/headers/HeaderVue.vue";
 
 let project = ref<projectInterface | null>(null)
 
