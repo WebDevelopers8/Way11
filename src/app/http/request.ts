@@ -6,9 +6,11 @@ import type {categoriesType} from "@/entities/types/categories/categoriesType";
 import type {homepageType} from "@/entities/types/homepage/homepageType";
 //@ts-ignore
 import qs from "qs"
-const responseProjects = async (name: string,page: number, pageSize: number) => {
-    if(name == 'all')
-    {
+import type {dataType} from "@/entities/types/dataForm/dataType";
+import type {dataFormDto} from "@/entities/dto/dataFormDto/dataFormDto";
+
+const responseProjects = async (name: string, page: number, pageSize: number) => {
+    if (name == 'all') {
         const {data} = await $host.get<responseProjectsType>(`/api/projects?pagination%5Bpage%5D=${page}&pagination%5BpageSize%5D=${pageSize}&populate=*&sort[0]=name:asc`)
         return data
     } else {
@@ -17,7 +19,7 @@ const responseProjects = async (name: string,page: number, pageSize: number) => 
     }
 }
 
-const responseProject = async (id: number)=> {
+const responseProject = async (id: number) => {
 
     const {data} = await $host.get<responseProjectType>("/api/projects/" + id + "?populate[body][populate]=image&populate[body][populate]=rightImage&populate[body][populate]=leftImage")
     return data
@@ -26,22 +28,20 @@ const responseProject = async (id: number)=> {
 const responseHomepage = async () => {
     const query = qs.stringify({
         populate: {
-            roadOfProjects:{
+            roadOfProjects: {
                 populate: {
                     project: {
-                        populate: ["technologies", "gallery","categories"]
+                        populate: ["technologies", "gallery", "categories"]
                     }
                 }
             }
         }
     })
     const result = await $host.get<homepageType | number>(`/api/homepage?${query}`).catch((error) => {
-        if(error.response.status == 404)
-        {
+        if (error.response.status == 404) {
             return 404
         }
-        if(error.response.status == 500)
-        {
+        if (error.response.status == 500) {
             return 500
         }
         return 404
@@ -56,8 +56,39 @@ const responseCategories = async () => {
 
 const responseContact = async () => {
 
-    const {data} = await $host.get<contactType>('api/contact')
+    const {data} = await $host.get<contactType>('/api/contact')
     return data
 }
 
-export {responseProjects, responseProject, responseContact, responseHomepage, responseCategories}
+const sendForm = async (dataForm: dataType) => {
+    const response = await $host.post<dataFormDto>('/api/leads', dataForm).catch((error) => {
+        if (error.response.status == 404) {
+            return 404
+        }
+        if (error.response.status == 500) {
+            return 500
+        }
+        return 404
+    })
+    return typeof response != 'number' ? response.data : response
+}
+
+const sendFile = async (file : File) => {
+    const fileForm = new FormData()
+    fileForm.append('files', file)
+    const response = await $host.post('/api/upload', fileForm).catch((error) => {
+        if(error.response.status == 404)
+        {
+            return {error: 404}
+        }
+        if(error.response.status == 500)
+        {
+            return {error: 500}
+        }
+        return 404
+    })
+        //@ts-ignore
+    return response?.error != null ? response?.data[0].id : response
+}
+
+export {responseProjects, responseProject, responseContact, responseHomepage, responseCategories, sendForm, sendFile}

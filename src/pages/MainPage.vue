@@ -264,7 +264,7 @@
         </div>
       </div>
       <section class="form" id="form">
-        <FormVue />
+        <FormVue @update:errorCode="code => notError = code" />
       </section>
     </section>
     <FooterVue/>

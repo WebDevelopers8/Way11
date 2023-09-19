@@ -6,7 +6,7 @@
         <p class="text-[#14161F] text-[36px] leading-[48px]">Вы тоже это видите?</p>
         <span class="w-[60%] text-[#14161F] text-[20px] leading-[32px] mt-[28px]">Как будто бы здесь что-то было раньше. Поробуйте перезагрузить страницу или свяжитесь с нами другим способом, если у вас есть интересный проект.</span>
         <div class="button-error">
-          <button class="outline">
+          <button class="outline" @click="reload()">
             <div>Перезагрузить</div>
           </button>
         </div>
@@ -21,7 +21,9 @@
 </template>
 
 <script setup lang="ts">
-
+function reload() {
+  location.reload()
+}
 </script>
 
 <style lang="postcss" scoped>
