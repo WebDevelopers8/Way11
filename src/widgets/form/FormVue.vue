@@ -114,12 +114,15 @@ function validationForm() {
   let isValidated = true
   if (firstName.value.length == 0 && firstNameInput.value != null) {
     firstNameInput.value.classList.add("error");
+    isValidated = false
   }
   if (phone.value.length == 0 && phoneInput.value != null) {
     phoneInput.value.classList.add("error");
+    isValidated = false
   }
   if (mail.value.length == 0 && mailInput.value != null) {
     mailInput.value.classList.add("error");
+    isValidated = false
   }
 
 
@@ -298,10 +301,14 @@ function pushForm() {
       transition: all .2s ease;
       @apply lg:w-[calc(50%-10px)] w-[80%];
 
-      &:hover {
-        transform: skew(-18deg) translateY(2px);
-        border-right: 1px solid #438CB4;
-        border-bottom: 1px solid #438CB4;
+
+      @media (pointer: fine)
+      {
+        &:hover {
+          transform: skew(-18deg) translateY(2px);
+          border-right: 1px solid #438CB4;
+          border-bottom: 1px solid #438CB4;
+        }
       }
 
       &.active {
@@ -349,10 +356,13 @@ function pushForm() {
       transition: all .2s ease;
       @apply w-[300px];
 
-      &:hover {
-        transform: skew(-18deg) translateY(2px);
-        border-right: 1px solid #438CB4;
-        border-bottom: 1px solid #438CB4;
+      @media (pointer: fine)
+      {
+        &:hover {
+          transform: skew(-18deg) translateY(2px);
+          border-right: 1px solid #438CB4;
+          border-bottom: 1px solid #438CB4;
+        }
       }
 
       &.active {
