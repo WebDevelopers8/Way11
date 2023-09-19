@@ -56,8 +56,10 @@
       </div>
     </div>
     <div v-if="isPushed" class="flex flex-col items-center">
-      <p class="text-[#14161F] text-[56px] sm:text-start text-center font-normal leading-[56px]">Спасибо за обращение!</p>
-      <span class="text-[#898A8F] text-[18px] sm:text-start text-center font-normal leading-[24px] md:w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта.<br> Хорошего дня!</span>
+      <p class="text-[#14161F] text-[56px] sm:text-start text-center font-normal leading-[56px]">Спасибо за
+        обращение!</p>
+      <span
+          class="text-[#898A8F] text-[18px] sm:text-start text-center font-normal leading-[24px] md:w-[620px] mt-[24px]">Мы получили вашу заявку. В ближайшее время наш специалист свяжется с вами для обсуждения вашего проекта.<br> Хорошего дня!</span>
       <div class="mt-[48px]">
         <div class="form__buttons-accept">
           <button class="w-[300px]" @click="() => isPushed = false">
@@ -72,6 +74,8 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {useFileDialog} from "@vueuse/core";
+import {sendFile, sendForm} from "@/app/http/request";
+import type {dataType} from "@/entities/types/dataForm/dataType";
 
 let isPushed = ref(false)
 // params
@@ -81,6 +85,7 @@ let phone = ref("")
 let mail = ref("")
 let budget = ref("")
 let description = ref("")
+let fileList = ref<FileList | null>(null)
 //html companents
 let firstNameInput = ref<HTMLElement | null>(null)
 let phoneInput = ref<HTMLElement | null>(null)
@@ -94,6 +99,7 @@ const {open, onChange, reset} = useFileDialog()
 
 onChange(async (files: FileList | null) => {
   if (files != null && addFileButton.value != null) {
+    fileList.value = files
     addFileButton.value.classList.add("active")
     fileIsLoaded.value = true
     nameFile.value = files[0].name
@@ -112,6 +118,7 @@ function deleteFile() {
 
 function validationForm() {
   let isValidated = true
+  let regMail = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/
   if (firstName.value.length == 0 && firstNameInput.value != null) {
     firstNameInput.value.classList.add("error");
     isValidated = false
@@ -120,7 +127,7 @@ function validationForm() {
     phoneInput.value.classList.add("error");
     isValidated = false
   }
-  if (mail.value.length == 0 && mailInput.value != null) {
+  if (mailInput.value != null && !regMail.test(mail.value)) {
     mailInput.value.classList.add("error");
     isValidated = false
   }
@@ -139,11 +146,41 @@ function validationForm() {
   return false
 }
 
-function pushForm() {
+async function pushForm() {
   if (validationForm()) {
-    isPushed.value = true
+    let data : dataType = {
+      data: {
+        firstName: firstName.value,
+        companyName: companyName.value,
+        phone: phone.value,
+        mail: mail.value,
+        projectBugdet: budget.value,
+        description: description.value,
+      }
+    }
+    if(fileList.value != null)
+    {
+      let idFile = await sendFile(fileList.value[0])
+      if(idFile.error == 404 || idFile.error == 500)
+      {
+        emit("update:errorCode", idFile.error)
+      }else
+      {
+        data.data.attachment = idFile
+      }
+    }
+    let res = await sendForm(data);
+    if(typeof res != 'number')
+    {
+      isPushed.value = true
+    }else
+    {
+      emit("update:errorCode", res)
+    }
   }
 }
+
+const emit = defineEmits(['update:errorCode'])
 </script>
 
 <style lang="postcss" scoped>
@@ -302,8 +339,7 @@ function pushForm() {
       @apply lg:w-[calc(50%-10px)] w-[80%];
 
 
-      @media (pointer: fine)
-      {
+      @media (pointer: fine) {
         &:hover {
           transform: skew(-18deg) translateY(2px);
           border-right: 1px solid #438CB4;
@@ -337,6 +373,7 @@ function pushForm() {
       }
     }
   }
+
   &__buttons-accept {
 
     @apply flex justify-between lg:flex-row flex-col lg:items-start items-center gap-[20px] lg:mt-[0] mt-[50px];
@@ -356,8 +393,7 @@ function pushForm() {
       transition: all .2s ease;
       @apply w-[300px];
 
-      @media (pointer: fine)
-      {
+      @media (pointer: fine) {
         &:hover {
           transform: skew(-18deg) translateY(2px);
           border-right: 1px solid #438CB4;
