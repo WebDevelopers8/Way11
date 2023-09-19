@@ -114,12 +114,15 @@ function validationForm() {
   let isValidated = true
   if (firstName.value.length == 0 && firstNameInput.value != null) {
     firstNameInput.value.classList.add("error");
+    isValidated = false
   }
   if (phone.value.length == 0 && phoneInput.value != null) {
     phoneInput.value.classList.add("error");
+    isValidated = false
   }
   if (mail.value.length == 0 && mailInput.value != null) {
     mailInput.value.classList.add("error");
+    isValidated = false
   }
 
 
@@ -137,7 +140,7 @@ function validationForm() {
 }
 
 function pushForm() {
-  if (!validationForm()) {
+  if (validationForm()) {
     isPushed.value = true
   }
 }
