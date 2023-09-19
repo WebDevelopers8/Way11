@@ -97,6 +97,14 @@ async function findProjects(categoryName: string) {
   @apply absolute left-[50%] top-[-240px] z-[-1] lg:h-[99%] h-[93%] lg:object-bottom object-cover;
 }
 
+@media (min-width: 1930px)
+{
+  .background
+  {
+    @apply h-[100%];
+  }
+}
+
 .back-arrow {
   transform: rotate(180deg);
 }

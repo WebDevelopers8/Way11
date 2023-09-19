@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img class="w-full" src="@/shared/images/notFound/header.png">
+    <img class="w-full" src="@/shared/images/errorImage/404.png">
     <div class="container">
       <div class="flex flex-col items-center mt-[40px]">
         <p class="text-[#14161F] text-[36px] leading-[48px]">Вы тоже это видите?</p>

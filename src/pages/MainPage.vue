@@ -293,7 +293,9 @@ let projects = ref<homepageType | null>(null)
 async function responseProject()
 {
   let response = await responseHomepage()
-  projects.value = response
+
+  if(typeof response == 'number')  notError.value = response;
+  if(typeof response != 'number')  projects.value = response;
 
 }
 responseProject()

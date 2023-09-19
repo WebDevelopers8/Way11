@@ -33,8 +33,6 @@ const props = defineProps<{
   project: roadOfProjectsInterface
 }>()
 
-console.log(props.project)
-
 const urlImage = computed(() => {
   let images : Array<string> = []
   if(props.project != null && props.project.project.data.attributes.gallery != null) {
