@@ -5,7 +5,6 @@ import FooterVue from "@/widgets/footer/FooterVue.vue";
 </script>
 
 <template>
-  <HeaderVue />
   <RouterView />
 </template>
 

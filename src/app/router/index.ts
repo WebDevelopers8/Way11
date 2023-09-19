@@ -27,7 +27,7 @@ const router = createRouter({
       path: '/project/:id',
       name: 'project',
       component: () => import("@/pages/ProjectPage.vue")
-    }
+    },
   ]
 })
 

@@ -1,280 +1,291 @@
 <template>
-  <section class="promo">
-    <img id="bg1" src="@/shared/images/bg-1.png" alt="background">
-    <img src="@/shared/images/promo-pic.png" class="promo__pic" alt="promo pic">
-    <div class="container">
-      <div class="promo__title-comp">
-        <span>Путь в тысячу миль <br>начинается</span> с одного шага
-      </div>
-      <div class="promo__title-mob">
-        <span>Путь в тысячу<br> миль начинается<br></span> с одного <br>шага
-      </div>
-      <div class="promo__text">
+  <div v-if="notError == 500">
+    <ServerError />
+  </div>
+  <div v-if="notError == 404">
+    <NotFound />
+  </div>
+  <div v-if="notError == 200">
+    <HeaderVue />
+    <section class="promo">
+      <img id="bg1" src="@/shared/images/bg-1.png" alt="background">
+      <img src="@/shared/images/promo-pic.png" class="promo__pic" alt="promo pic">
+      <div class="container">
+        <div class="promo__title-comp">
+          <span>Путь в тысячу миль <br>начинается</span> с одного шага
+        </div>
+        <div class="promo__title-mob">
+          <span>Путь в тысячу<br> миль начинается<br></span> с одного <br>шага
+        </div>
+        <div class="promo__text">
         <span class="lg:contents hidden text-[20px]">
           Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.
         В основе наших проектов лежат идеи,
         основанные на аналитике, креативе и технологиях.
         </span>
-        <span class="lg:hidden block text-start">
+          <span class="lg:hidden block text-start">
           Команда Way11 поможет вам реализовать IT‑решения для любого бизнеса.
         </span>
-      </div>
+        </div>
 
-      <div class="flex lg:justify-start justify-center items-center">
-        <a href="#form" class="promo__btn">
-          <div>Оставить заявку</div>
-        </a>
-      </div>
-      <div class="promo__adv">
-        <div class="promo__line"></div>
-        <div class="promo__adv-content">
-          <p>Разработали 8 стартапов для наших заказчиков с нуля.</p>
-          <p>Создаем IT не только для рынка России и СНГ, но и для Европейских / западных стран.</p>
-          <p>#2 в рейтинге тендерной площадки Ad&#8209;Unions за 2022 год.</p>
+        <div class="flex lg:justify-start justify-center items-center">
+          <a href="#form" class="promo__btn">
+            <div>Оставить заявку</div>
+          </a>
         </div>
-        <div class="promo__line"></div>
+        <div class="promo__adv">
+          <div class="promo__line"></div>
+          <div class="promo__adv-content">
+            <p>Разработали 8 стартапов для наших заказчиков с нуля.</p>
+            <p>Создаем IT не только для рынка России и СНГ, но и для Европейских / западных стран.</p>
+            <p>#2 в рейтинге тендерной площадки Ad&#8209;Unions за 2022 год.</p>
+          </div>
+          <div class="promo__line"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="adv" id="services">
-    <div class="container">
-      <div class="adv__title">
-        В чем мы сильны...
-      </div>
-      <div class="adv__text">
-        Мы объединили все необходимые направления для создания успешных проектов.
-      </div>
-      <div class="adv__content">
-        <div class="adv__content-item">
-          <img src="@/shared/images/pic1.png" alt="pic">
-          <span>Аналитика</span>
-          <p>Изучаем спрос и конкурентов, строим эффективный CJM. Прорабатываем документацию и ТЗ, учитывая
-            основные запросы клиента.</p>
-        </div>
-        <div class="adv__content-item">
-          <img src="@/shared/images/pic2.png" alt="pic">
-          <span>Веб-разработка</span>
-          <p>Создаем цифровые продукты: корпоративные и промо-сайты, платформы и высоко нагруженные системы.
-          </p>
-        </div>
-        <div class="adv__content-item">
-          <img src="@/shared/images/pic3.png" alt="pic">
-          <span>Мобильная разработка</span>
-          <p>Разрабатываем приложения для IOS и Android, учитывая архитектуру мобильного приложения и
-            особенностей дизайна.</p>
-        </div>
-        <div class="adv__content-item">
-          <img src="@/shared/images/pic4.png" alt="pic">
-          <span>IT-безопасность</span>
-          <p>Придерживаемся всех стандартов регулятора в сфере обеспечения защиты информации. Проводим аудиты
-            безопасности информационных систем.</p>
-        </div>
-        <div class="adv__content-item">
-          <img src="@/shared/images/pic5.png" alt="pic">
-          <span>UI/UX дизайн</span>
-          <p>Детально прорабатываем макеты, дизайн-систему и UI-kit. Для проверки дизайн-гипотиз отдельно
-            создаем User Flow и интеррактивный прототип.</p>
-        </div>
-        <div class="adv__content-item">
-          <img src="@/shared/images/pic6.png" alt="pic">
-          <span>Поддержка проектов</span>
-          <p>Поддерживаем стабильную работу всех проектов и помогаем совершенствовать их, основываясь на
-            последних тенденциях в IT-сфере.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="bg-2" id="projects">
-    <!--    <img src="@/shared/images/bg-2.png" class="bg2" alt="background">-->
-    <div class="mt-[160px] lg:hidden block">
+    <section class="adv" id="services">
       <div class="container">
-        <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
-        <div class="flex w-full items-center gap-[15px] justify-between mt-[32px]">
-          <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
-            <img src="@/shared/images/arrow-mob-prev.svg">
-          </button>
-          <div class="flex flex-col items-center justify-between w-[55%]">
+        <div class="adv__title">
+          В чем мы сильны...
+        </div>
+        <div class="adv__text">
+          Мы объединили все необходимые направления для создания успешных проектов.
+        </div>
+        <div class="adv__content">
+          <div class="adv__content-item">
+            <img src="@/shared/images/pic1.png" alt="pic">
+            <span>Аналитика</span>
+            <p>Изучаем спрос и конкурентов, строим эффективный CJM. Прорабатываем документацию и ТЗ, учитывая
+              основные запросы клиента.</p>
+          </div>
+          <div class="adv__content-item">
+            <img src="@/shared/images/pic2.png" alt="pic">
+            <span>Веб-разработка</span>
+            <p>Создаем цифровые продукты: корпоративные и промо-сайты, платформы и высоко нагруженные системы.
+            </p>
+          </div>
+          <div class="adv__content-item">
+            <img src="@/shared/images/pic3.png" alt="pic">
+            <span>Мобильная разработка</span>
+            <p>Разрабатываем приложения для IOS и Android, учитывая архитектуру мобильного приложения и
+              особенностей дизайна.</p>
+          </div>
+          <div class="adv__content-item">
+            <img src="@/shared/images/pic4.png" alt="pic">
+            <span>IT-безопасность</span>
+            <p>Придерживаемся всех стандартов регулятора в сфере обеспечения защиты информации. Проводим аудиты
+              безопасности информационных систем.</p>
+          </div>
+          <div class="adv__content-item">
+            <img src="@/shared/images/pic5.png" alt="pic">
+            <span>UI/UX дизайн</span>
+            <p>Детально прорабатываем макеты, дизайн-систему и UI-kit. Для проверки дизайн-гипотиз отдельно
+              создаем User Flow и интеррактивный прототип.</p>
+          </div>
+          <div class="adv__content-item">
+            <img src="@/shared/images/pic6.png" alt="pic">
+            <span>Поддержка проектов</span>
+            <p>Поддерживаем стабильную работу всех проектов и помогаем совершенствовать их, основываясь на
+              последних тенденциях в IT-сфере.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-2" id="projects">
+      <!--    <img src="@/shared/images/bg-2.png" class="bg2" alt="background">-->
+      <div class="mt-[160px] lg:hidden block">
+        <div class="container">
+          <p class="text-[#14161F] text-[30px] leading-[40px]">Проекты</p>
+          <div class="flex w-full items-center gap-[15px] justify-between mt-[32px]">
+            <button @click="projectCount == 1 ? projectCount = maxCountProject : projectCount--" class="btn-prev">
+              <img src="@/shared/images/arrow-mob-prev.svg">
+            </button>
+            <div class="flex flex-col items-center justify-between w-[55%]">
             <span
                 class="text-[#14161F] text-[22px] tracking-[0.22px] lg:text-start text-center leading-[32px]">{{ projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.name : '' }}</span>
-            <div class="text-[#898A8F] text-[16px] lg:text-start text-center font-normal tracking-[0.16px] leading-[16px]">
-              {{projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.categories.data[0].attributes.name : '' }}
+              <div class="text-[#898A8F] text-[16px] lg:text-start text-center font-normal tracking-[0.16px] leading-[16px]">
+                {{projects != null ? projects.data.attributes.roadOfProjects[projectCount - 1].project.data.attributes.categories.data[0].attributes.name : '' }}
+              </div>
             </div>
+            <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
+              <img src="@/shared/images/arrow-mob-next.svg">
+            </button>
           </div>
-          <button @click="projectCount == maxCountProject ? projectCount = 1 : projectCount++" class="btn-next">
-            <img src="@/shared/images/arrow-mob-next.svg">
-          </button>
+          <ProjectMobile v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects : []" :key="index" :index="index + 1" :project-count="projectCount" :project="item" />
         </div>
-        <ProjectMobile v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects : []" :key="index" :index="index + 1" :project-count="projectCount" :project="item" />
       </div>
-    </div>
-    <div ref="projectsSection" class="projects" id="projects">
-      <div class="container">
-        <div class="projects__title">Проекты</div>
-        <div class="projects__road">
-          <button style="display: none;" ref="prevButton" class="projects__road-btn-left" @click="() => {projectCount == 1 ? projectCount = maxCountProject : projectCount-- ;setActiveProject(projectCount);}">
-            Назад</button>
-          <img src="@/shared/images/road.png" class="projects__road-img">
-          <div class="flex w-[85%] justify-around ml-[60px]">
-            <div ref="projectsText0" class="projects__road-text active" id="tr0">
-              <div ref="projectLine0" class="line active"></div>
-              <button @click="() => {projectCount = 1;setActiveProject(projectCount);}" ref="projectPoint0" class="line__point active">
-                <div class="line__point-center"></div>
-              </button>
-              <span>{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[0].project.data.attributes.dateOfRelease) : ''}}</p>
+      <div ref="projectsSection" class="projects" id="projects">
+        <div class="container">
+          <div class="projects__title">Проекты</div>
+          <div class="projects__road">
+            <button style="display: none;" ref="prevButton" class="projects__road-btn-left" @click="() => {projectCount == 1 ? projectCount = maxCountProject : projectCount-- ;setActiveProject(projectCount);}">
+              Назад</button>
+            <img src="@/shared/images/road.png" class="projects__road-img">
+            <div class="flex w-[85%] justify-around ml-[60px]">
+              <div ref="projectsText0" class="projects__road-text active" id="tr0">
+                <div ref="projectLine0" class="line active"></div>
+                <button @click="() => {projectCount = 1;setActiveProject(projectCount);}" ref="projectPoint0" class="line__point active">
+                  <div class="line__point-center"></div>
+                </button>
+                <span>{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.name : ''}}</span>
+                <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[0].project.data.attributes.dateOfRelease) : ''}}</p>
+              </div>
+              <div ref="projectsText1" class="projects__road-text" id="tr1">
+                <div ref="projectLine1" class="line"></div>
+                <button @click="() => {projectCount = 2;setActiveProject(projectCount);}" ref="projectPoint1" class="line__point">
+                  <div class="line__point-center"></div>
+                </button>
+                <span>{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</span>
+                <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[1].project.data.attributes.dateOfRelease) : ''}}</p>
+              </div>
+              <div ref="projectsText2" class="projects__road-text" id="tr2">
+                <div ref="projectLine2"  class="line"></div>
+                <button @click="() => {projectCount = 3;setActiveProject(projectCount);}" ref="projectPoint2" class="line__point">
+                  <div class="line__point-center"></div>
+                </button>
+                <span>{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.name : ''}}</span>
+                <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[2].project.data.attributes.dateOfRelease) : ''}}</p>
+              </div>
+              <div ref="projectsText3" class="projects__road-text" id="tr3">
+                <div ref="projectLine3" class="line"></div>
+                <button @click="() => {projectCount = 4;setActiveProject(projectCount);}" ref="projectPoint3"  class="line__point">
+                  <div class="line__point-center"></div>
+                </button>
+                <span>{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</span>
+                <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[3].project.data.attributes.dateOfRelease) : ''}}</p>
+              </div>
             </div>
-            <div ref="projectsText1" class="projects__road-text" id="tr1">
-              <div ref="projectLine1" class="line"></div>
-              <button @click="() => {projectCount = 2;setActiveProject(projectCount);}" ref="projectPoint1" class="line__point">
-                <div class="line__point-center"></div>
-              </button>
-              <span>{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[1].project.data.attributes.dateOfRelease) : ''}}</p>
-            </div>
-            <div ref="projectsText2" class="projects__road-text" id="tr2">
-              <div ref="projectLine2"  class="line"></div>
-              <button @click="() => {projectCount = 3;setActiveProject(projectCount);}" ref="projectPoint2" class="line__point">
-                <div class="line__point-center"></div>
-              </button>
-              <span>{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[2].project.data.attributes.dateOfRelease) : ''}}</p>
-            </div>
-            <div ref="projectsText3" class="projects__road-text" id="tr3">
-              <div ref="projectLine3" class="line"></div>
-              <button @click="() => {projectCount = 4;setActiveProject(projectCount);}" ref="projectPoint3"  class="line__point">
-                <div class="line__point-center"></div>
-              </button>
-              <span>{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</span>
-              <p>{{projects != null ? getTime(projects.data.attributes.roadOfProjects[3].project.data.attributes.dateOfRelease) : ''}}</p>
-            </div>
-          </div>
-          <span ref="bike" class="projects__road-bike tr0" style="transform: translateX(40px);">
+            <span ref="bike" class="projects__road-bike tr0" style="transform: translateX(40px);">
                     <img src="@/shared/images/bike.png">
                     <img src="@/shared/images/wheel-1.png" class="projects__road-wheel1">
                     <img src="@/shared/images/wheel-2.png" class="projects__road-wheel2">
                 </span>
-          <button v-if="projectCount < maxCountProject" class="projects__road-btn" @click="() => {projectCount == maxCountProject ? projectCount = 1 : projectCount++ ;setActiveProject(projectCount);}">
-            Вперед</button>
-        </div>
-        <div ref="projectsWrap" class="projects__test">
-          <div ref="projectsWrapper1" class="projects__wrapper active">
-            <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.categories.data[0].attributes.name : ''}}</div>
-              <div class="projects__text">
-                {{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.description : ''}}
+            <button v-if="projectCount < maxCountProject" class="projects__road-btn" @click="() => {projectCount == maxCountProject ? projectCount = 1 : projectCount++ ;setActiveProject(projectCount);}">
+              Вперед</button>
+          </div>
+          <div ref="projectsWrap" class="projects__test">
+            <div ref="projectsWrapper1" class="projects__wrapper active">
+              <div class="projects__descr">
+                <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.name : ''}}</div>
+                <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.categories.data[0].attributes.name : ''}}</div>
+                <div class="projects__text">
+                  {{projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.description : ''}}
+                </div>
+                <div class="projects__tags">
+                  <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                </div>
+                <div class="projects__buttons">
+                  <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[0].project.data.id : 0)">
+                    <div>Подробнее</div>
+                  </router-link>
+                  <router-link to="/projects" class="outline">
+                    <div>Все проекты</div>
+                  </router-link>
+                </div>
               </div>
-              <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[0].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+              <div class="h-full">
+                <SliderVue :urlImages="urlImageFirst"/>
               </div>
-              <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[0].project.data.id : 0)">
-                  <div>Подробнее</div>
-                </router-link>
-                <router-link to="/projects" class="outline">
-                  <div>Все проекты</div>
-                </router-link>
-              </div>
-            </div>
-            <div class="h-full">
-              <SliderVue :urlImages="urlImageFirst"/>
-            </div>
 
-          </div>
-          <div ref="projectsWrapper2" class="projects__wrapper ">
-            <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</div>
-              <div class="projects__text">
-                {{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.description : ''}}
+            </div>
+            <div ref="projectsWrapper2" class="projects__wrapper ">
+              <div class="projects__descr">
+                <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</div>
+                <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.name : ''}}</div>
+                <div class="projects__text">
+                  {{projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.description : ''}}
+                </div>
+                <div class="projects__tags">
+                  <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                </div>
+                <div class="projects__buttons">
+                  <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[1].project.data.id : 0)">
+                    <div>Подробнее</div>
+                  </router-link>
+                  <router-link to="/projects" class="outline">
+                    <div>Все проекты</div>
+                  </router-link>
+                </div>
               </div>
-              <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[1].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
-              </div>
-              <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[1].project.data.id : 0)">
-                  <div>Подробнее</div>
-                </router-link>
-                <router-link to="/projects" class="outline">
-                  <div>Все проекты</div>
-                </router-link>
+              <div class="h-full">
+                <SliderVue :urlImages="urlImageSecond"/>
               </div>
             </div>
-            <div class="h-full">
-              <SliderVue :urlImages="urlImageSecond"/>
-            </div>
-          </div>
-          <div  ref="projectsWrapper3" class="projects__wrapper ">
-            <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.categories.data[0].attributes.name : ''}}</div>
-              <div class="projects__text">
-                {{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.description : ''}}
+            <div  ref="projectsWrapper3" class="projects__wrapper ">
+              <div class="projects__descr">
+                <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.name : ''}}</div>
+                <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.categories.data[0].attributes.name : ''}}</div>
+                <div class="projects__text">
+                  {{projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.description : ''}}
+                </div>
+                <div class="projects__tags">
+                  <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                </div>
+                <div class="projects__buttons">
+                  <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[2].project.data.id : 0)">
+                    <div>Подробнее</div>
+                  </router-link>
+                  <router-link to="/projects" class="outline">
+                    <div>Все проекты</div>
+                  </router-link>
+                </div>
               </div>
-              <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[2].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
-              </div>
-              <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[2].project.data.id : 0)">
-                  <div>Подробнее</div>
-                </router-link>
-                <router-link to="/projects" class="outline">
-                  <div>Все проекты</div>
-                </router-link>
-              </div>
-            </div>
-            <div class="h-full">
-              <SliderVue :urlImages="urlImageThird"/>
-            </div>
-          </div>
-          <div ref="projectsWrapper4" class="projects__wrapper">
-            <div class="projects__descr">
-              <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</div>
-              <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</div>
-              <div class="projects__text">
-                {{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.description : ''}}
-              </div>
-              <div class="projects__tags">
-                <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
-              </div>
-              <div class="projects__buttons">
-                <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[3].project.data.id : 0)">
-                  <div>Подробнее</div>
-                </router-link>
-                <router-link to="/projects" class="outline">
-                  <div>Все проекты</div>
-                </router-link>
+              <div class="h-full">
+                <SliderVue :urlImages="urlImageThird"/>
               </div>
             </div>
-            <div class="">
-              <SliderVue :urlImages="urlImageFourth"/>
-            </div>
+            <div ref="projectsWrapper4" class="projects__wrapper">
+              <div class="projects__descr">
+                <div class="projects__name">{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</div>
+                <div class="projects__name-descr">{{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.name : ''}}</div>
+                <div class="projects__text">
+                  {{projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.description : ''}}
+                </div>
+                <div class="projects__tags">
+                  <StackItem v-for="(item,index) in projects != null ? projects.data.attributes.roadOfProjects[3].project.data.attributes.technologies : [{id:'', name:''}] " :key="index" :text="item.name" />
+                </div>
+                <div class="projects__buttons">
+                  <router-link :to="'/project/' + (projects != null ? projects.data.attributes.roadOfProjects[3].project.data.id : 0)">
+                    <div>Подробнее</div>
+                  </router-link>
+                  <router-link to="/projects" class="outline">
+                    <div>Все проекты</div>
+                  </router-link>
+                </div>
+              </div>
+              <div class="">
+                <SliderVue :urlImages="urlImageFourth"/>
+              </div>
 
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <section class="form" id="form">
-      <FormVue />
+      <section class="form" id="form">
+        <FormVue />
+      </section>
     </section>
-  </section>
-  <FooterVue/>
+    <FooterVue/>
+  </div>
 </template>
 
 
 <script setup lang="ts">
-// 1, 6, 5, 2
 import FooterVue from "@/widgets/footer/FooterVue.vue";
 import SliderVue from "@/widgets/slider/SliderVue.vue";
 import {computed, ref} from "vue";
 import ProjectMobile from "@/widgets/projectsMain/ProjectMobile.vue";
-import type {projectInterface} from "@/entities/dto/projects/projectInterface";
-import {responseHomepage, responseProjects} from "@/app/http/request";
+import {responseHomepage} from "@/app/http/request";
 import StackItem from "@/features/StackText/StackItem.vue";
 import FormVue from "@/widgets/form/FormVue.vue";
 import type {homepageType} from "@/entities/types/homepage/homepageType";
+import HeaderVue from "@/widgets/headers/HeaderVue.vue";
+import NotFound from "@/pages/NotFound.vue";
+import ServerError from "@/pages/ServerError.vue";
 
+let notError = ref(200);
 let projectCount = ref(1)
 let maxCountProject = ref(4)
 let projects = ref<homepageType | null>(null)
