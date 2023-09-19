@@ -51,10 +51,12 @@ const emit = defineEmits(["updatePage"])
     transition: all .2s ease;
     @apply sm:w-[86px] w-[60px];
 
-    &:hover {
-      transform: skew(-18deg) translateY(2px);
-      border-right: 1px solid #438CB4;
-      border-bottom: 1px solid #438CB4;
+    @media (pointer: fine) {
+      &:hover {
+        transform: skew(-18deg) translateY(2px);
+        border-right: 1px solid #438CB4;
+        border-bottom: 1px solid #438CB4;
+      }
     }
 
     div {
