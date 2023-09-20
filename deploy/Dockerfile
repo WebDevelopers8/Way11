@@ -4,7 +4,6 @@ FROM node:18-alpine3.18 as builder
 WORKDIR /app
 # Copy app files
 COPY package.json .
-COPY yarn.lock .
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
 RUN yarn
 
