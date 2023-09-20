@@ -76,19 +76,8 @@ const sendForm = async (dataForm: dataType) => {
 const sendFile = async (file : File) => {
     const fileForm = new FormData()
     fileForm.append('files', file)
-    const response = await $host.post('/api/upload', fileForm).catch((error) => {
-        if(error.response.status == 404)
-        {
-            return {error: 404}
-        }
-        if(error.response.status == 500)
-        {
-            return {error: 500}
-        }
-        return 404
-    })
-        //@ts-ignore
-    return response?.error != null ? response?.data[0].id : response
+    const {data} = await $host.post('/api/upload', fileForm)
+    return data[0].id
 }
 
 export {responseProjects, responseProject, responseContact, responseHomepage, responseCategories, sendForm, sendFile}
