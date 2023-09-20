@@ -148,7 +148,7 @@ function validationForm() {
 
 async function pushForm() {
   if (validationForm()) {
-    let data : dataType = {
+    let data: dataType = {
       data: {
         firstName: firstName.value,
         companyName: companyName.value,
@@ -158,18 +158,24 @@ async function pushForm() {
         description: description.value,
       }
     }
-    if(fileList.value != null)
-    {
+    if (fileList.value != null) {
       let idFile = await sendFile(fileList.value[0])
-        data.data.attachment = idFile
+      data.data.attachment = idFile
     }
 
     let res = await sendForm(data);
-    if(typeof res != 'number')
-    {
+    if (typeof res != 'number') {
+      firstName.value = ''
+      companyName.value = ''
+      phone.value = ''
+      mail.value = ''
+      budget.value = ''
+      description.value = ''
+      fileList.value = null
+      fileIsLoaded.value = false
+
       isPushed.value = true
-    }else
-    {
+    } else {
       emit("update:errorCode", res)
     }
   }
