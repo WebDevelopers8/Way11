@@ -161,14 +161,9 @@ async function pushForm() {
     if(fileList.value != null)
     {
       let idFile = await sendFile(fileList.value[0])
-      if(idFile.error == 404 || idFile.error == 500)
-      {
-        emit("update:errorCode", idFile.error)
-      }else
-      {
         data.data.attachment = idFile
-      }
     }
+
     let res = await sendForm(data);
     if(typeof res != 'number')
     {
